@@ -1,4 +1,4 @@
-package com.solux.flory
+package com.solux.flory.presentation.main
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
