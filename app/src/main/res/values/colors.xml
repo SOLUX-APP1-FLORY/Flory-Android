@@ -2,4 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="peach1_FF8D6F">#FF8D6F</color>
+    <color name="peach2_FFAA93">#FFAA93</color>
+    <color name="peach3_FED9C9">#FED9C9</color>
+    <color name="peach4_FFF6F4">#FFF6F4</color>
+    <color name="orange_FFA900">#FFA900</color>
+    <color name="orange_light_FFC759">#FFC759</color>
+    <color name="green_33AF31">#33AF31</color>
+    <color name="green_light_DEF4DE">#DEF4DE</color>
+
+    <!-- gray scale -->
+    <color name="gray1_EBEBEB">#EBEBEB</color>
+    <color name="gray2_919191">#919191</color>
+    <color name="gray3_717171">#717171</color>
+    <color name="gray4_565656">#565656</color>
+    <color name="gray5_525252">#525252</color>
 </resources>
