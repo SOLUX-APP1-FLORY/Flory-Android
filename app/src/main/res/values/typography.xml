@@ -1,76 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="SpUsage">
 
-    <style name="title1">
+    <style name="TextAppearance.Flory" parent="">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+
+    <style name="TextAppearance.title1" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_semibold</item>
         <item name="android:textSize">20sp</item>
         <item name="lineHeight">30dp</item>
     </style>
 
-    <style name="title2">
+    <style name="TextAppearance.title2" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_semibold</item>
         <item name="android:textSize">15sp</item>
         <item name="lineHeight">24dp</item>
     </style>
 
-    <style name="title3">
+    <style name="TextAppearance.title3" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_medium</item>
         <item name="android:textSize">12sp</item>
         <item name="lineHeight">18dp</item>
     </style>
 
-    <style name="subtitle1">
+    <style name="TextAppearance.subtitle1" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_regular</item>
         <item name="android:textSize">16sp</item>
         <item name="lineHeight">24dp</item>
     </style>
 
-    <style name="subtitle2">
+    <style name="TextAppearance.subtitle2" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_regular</item>
         <item name="android:textSize">13sp</item>
         <item name="lineHeight">22dp</item>
     </style>
 
-    <style name="subtitle3">
+    <style name="TextAppearance.subtitle3" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_semibold</item>
         <item name="android:textSize">12sp</item>
         <item name="lineHeight">18dp</item>
     </style>
 
-    <style name="subtitle4">
+    <style name="TextAppearance.subtitle4" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_medium</item>
         <item name="android:textSize">10sp</item>
         <item name="lineHeight">16dp</item>
     </style>
 
-    <style name="body1">
+    <style name="TextAppearance.body1" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_semibold</item>
         <item name="android:textSize">15sp</item>
         <item name="lineHeight">23dp</item>
     </style>
 
-    <style name="body2">
+    <style name="TextAppearance.body2" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_medium</item>
         <item name="android:textSize">15sp</item>
         <item name="lineHeight">23dp</item>
     </style>
 
-    <style name="body3">
+    <style name="TextAppearance.body3" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_medium</item>
         <item name="android:textSize">12sp</item>
         <item name="lineHeight">19dp</item>
     </style>
 
-    <style name="body4">
+    <style name="TextAppearance.body4" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_regular</item>
         <item name="android:textSize">10sp</item>
         <item name="lineHeight">15dp</item>
     </style>
 
-    <style name="body5">
+    <style name="TextAppearance.body5" parent="TextAppearance.Flory">
         <item name="fontFamily">@font/pretendard_medium</item>
         <item name="android:textSize">9sp</item>
         <item name="lineHeight">15dp</item>
+    </style>
+
+    <style name="TextAppearance.body6" parent="TextAppearance.Flory">
+        <item name="fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textSize">9sp</item>
+        <item name="lineHeight">15dp</item>
+    </style>
+
+    <style name="TextAppearance.body7" parent="TextAppearance.Flory">
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:textSize">7sp</item>
+        <item name="lineHeight">12dp</item>
     </style>
 
 </resources>
