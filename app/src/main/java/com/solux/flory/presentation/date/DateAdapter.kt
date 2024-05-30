@@ -24,7 +24,7 @@ class DateAdapter: ListAdapter<DateInfo, DateViewHolder>(DiffUtil) {
     companion object {
         private val DiffUtil = object : DiffUtil.ItemCallback<DateInfo>() {
             override fun areItemsTheSame(oldItem: DateInfo, newItem: DateInfo): Boolean {
-                return oldItem.date == newItem.date
+                return oldItem.dayOfWeek == newItem.dayOfWeek
             }
 
             override fun areContentsTheSame(oldItem: DateInfo, newItem: DateInfo): Boolean {

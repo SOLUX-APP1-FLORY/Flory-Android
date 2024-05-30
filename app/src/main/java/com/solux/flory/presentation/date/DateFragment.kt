@@ -1,37 +1,46 @@
 package com.solux.flory.presentation.date
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.solux.flory.R
+import androidx.fragment.app.activityViewModels
 import com.solux.flory.databinding.FragmentDateBinding
 import com.solux.flory.util.base.BindingFragment
-import java.util.Calendar
-import java.util.GregorianCalendar
 
 class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::inflate) {
-
+    private val viewModel by activityViewModels<DateViewModel>()
+    private lateinit var adapter: DateAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initAdapter()
+        observeDateYear()
+        observeDateMonth()
+        downArrowClick()
+    }
 
-        val adapter = DateAdapter()
+    private fun initAdapter() {
+        adapter = DateAdapter()
         binding.rvDate.adapter = adapter
-
-        val calendar = Calendar.getInstance()
-        binding.tvYear.text = calendar.get(Calendar.YEAR).toString()
-        calendar.timeInMillis = System.currentTimeMillis()
-        calendar.set(Calendar.DAY_OF_MONTH, 1)
-        val maxDate = calendar.getActualMaximum(Calendar.DATE)
-        val week = calendar.get(Calendar.DAY_OF_WEEK)-1
-        val month = calendar.get(Calendar.MONTH)+1
-        val list = MutableList(week, init = { DateInfo() })
-        for(i in 1..maxDate) {
-            list.add(DateInfo(month, i))
+        viewModel.dateList.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
         }
+    }
 
-        adapter.submitList(list)
+    private fun observeDateYear() {
+        viewModel.year.observe(viewLifecycleOwner) {
+            binding.tvDateYear.text = it
+        }
+    }
+
+    private fun observeDateMonth() {
+        viewModel.month.observe(viewLifecycleOwner) {
+            binding.tvDateMonth.text = it
+        }
+    }
+
+    private fun downArrowClick() {
+        binding.ivDateArrow.setOnClickListener {
+            viewModel.moveToNextMonth()
+        }
     }
 
 }

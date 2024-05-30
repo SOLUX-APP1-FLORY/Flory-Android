@@ -59,11 +59,11 @@
         app:layout_constraintTop_toBottomOf="@id/cl_date_header">
 
         <TextView
-            android:id="@+id/tv_year"
+            android:id="@+id/tv_date_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2024"
             android:layout_marginStart="34dp"
+            android:text="2024"
             android:textAppearance="@style/subtitle1"
             android:textColor="@color/peach1_FF8D6F"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,14 +76,14 @@
             android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_year">
+            app:layout_constraintTop_toBottomOf="@id/tv_date_year">
 
             <TextView
-                android:id="@+id/tv_month"
+                android:id="@+id/tv_date_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="May"
                 android:layout_marginStart="34dp"
+                android:text="May"
                 android:textAppearance="@style/title1"
                 android:textColor="@color/peach1_FF8D6F"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -98,15 +98,15 @@
                 android:src="@drawable/ic_date_arrow_down"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintStart_toEndOf="@id/tv_month"
+                app:layout_constraintStart_toEndOf="@id/tv_date_month"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
-            android:layout_marginHorizontal="34dp"
             android:id="@+id/ll_date_week"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="34dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -178,12 +178,13 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginStart="38dp"
-            android:layout_marginEnd="28dp"
             android:id="@+id/rv_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginEnd="28dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ll_date_week"
