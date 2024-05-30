@@ -2,7 +2,12 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Flory" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:windowBackground">@color/white</item>
     </style>
 
     <style name="Theme.Flory" parent="Base.Theme.Flory" />
