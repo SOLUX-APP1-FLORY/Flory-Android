@@ -41,7 +41,7 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_date_flower"
+            android:src="@drawable/ic_flower_unselected"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
