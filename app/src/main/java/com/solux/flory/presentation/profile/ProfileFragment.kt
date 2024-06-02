@@ -1,5 +1,6 @@
 package com.solux.flory.presentation.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
@@ -12,11 +13,26 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
+        profileModifyTextClick()
+        logoutBtnClick()
     }
 
     private fun initAdapter() {
         adapter = ProfileAdapter()
         binding.rvProfileNeighbors.adapter = adapter
         adapter.submitList(viewModel.mockNeighbors)
+    }
+
+    private fun profileModifyTextClick() {
+        binding.tvProfileModification.setOnClickListener {
+            val intent = Intent(requireContext(), ProfileModifyActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun logoutBtnClick() {
+        binding.btnProfileLogout.setOnClickListener {
+            // 커스텀 다이얼로그 띄우기
+        }
     }
 }
