@@ -1,22 +1,22 @@
 package com.solux.flory.presentation.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import com.solux.flory.R
-class ProfileFragment : Fragment() {
+import androidx.fragment.app.activityViewModels
+import com.solux.flory.databinding.FragmentProfileBinding
+import com.solux.flory.util.base.BindingFragment
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
+    private val viewModel by activityViewModels<ProfileViewModel>()
+    private lateinit var adapter: ProfileAdapter
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initAdapter()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+    private fun initAdapter() {
+        adapter = ProfileAdapter()
+        binding.rvProfileNeighbors.adapter = adapter
+        adapter.submitList(viewModel.mockNeighbors)
     }
 }
