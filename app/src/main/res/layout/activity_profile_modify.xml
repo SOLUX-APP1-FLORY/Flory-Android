@@ -123,6 +123,7 @@
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:background="@drawable/shape_peach_fill_18_rect"
+                android:clickable="true"
                 android:paddingHorizontal="26dp"
                 android:paddingVertical="20dp"
                 app:layout_constraintDimensionRatio="1"
@@ -130,18 +131,22 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/tv_modify_sex_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:duplicateParentState="true"
                     android:text="남성"
                     android:textAppearance="@style/title2"
-                    android:textColor="@color/gray4_919191"
+                    android:textColor="@drawable/selector_modify_sex_text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+                    android:id="@+id/iv_modify_sex_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_modify_male_unselected"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/selector_modify_male_image"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
@@ -152,26 +157,30 @@
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:background="@drawable/shape_peach_fill_18_rect"
+                android:clickable="true"
                 android:paddingHorizontal="26dp"
                 android:paddingVertical="20dp"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/cl_modify_sex_male"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/tv_modify_sex_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:duplicateParentState="true"
                     android:text="여성"
                     android:textAppearance="@style/title2"
-                    android:textColor="@color/black"
+                    android:textColor="@drawable/selector_modify_sex_text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+                    android:id="@+id/iv_modify_sex_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_modify_female_selected"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/selector_modify_female_image"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
@@ -181,6 +190,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
+        android:id="@+id/btn_profile_modify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/peach1_FF8D6F"

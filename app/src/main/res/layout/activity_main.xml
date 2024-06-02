@@ -36,8 +36,8 @@
         android:background="@color/white"
         app:itemBackground="@color/white"
         app:itemActiveIndicatorStyle="@android:color/transparent"
-        app:itemIconTint="@drawable/menu_selector"
-        app:itemTextColor="@drawable/menu_selector"
+        app:itemIconTint="@drawable/selector_menu"
+        app:itemTextColor="@drawable/selector_menu"
         app:labelVisibilityMode="labeled"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
