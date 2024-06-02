@@ -38,13 +38,14 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.divider.MaterialDivider
+    <View
         android:id="@+id/md_profile_divider"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:background="@drawable/shadow_down_white"
+        android:layout_height="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_profile_header" />
+        app:layout_constraintTop_toBottomOf="@id/cl_profile_header"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_profile_content"
@@ -99,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:text="이렇게 예쁜 꽃들로 내 감정을 기록할 수 있다니!\n완전 럭키비키잖아!!"
                     android:textAppearance="@style/body5"
-                    android:textColor="@color/gray3_717171" />
+                    android:textColor="@color/gray2_717171" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -261,17 +262,6 @@
                 app:layout_constraintTop_toBottomOf="@id/cl_profile_sex" />
 
             <TextView
-                android:id="@+id/tv_profile_invitation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="친구 초대하기"
-                android:textAppearance="@style/body3"
-                android:textColor="@color/peach1_FF8D6F"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_profile_modification" />
-
-            <TextView
                 android:id="@+id/tv_profile_neighbors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -280,7 +270,7 @@
                 android:textAppearance="@style/body3"
                 android:textColor="@color/peach1_FF8D6F"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_profile_invitation" />
+                app:layout_constraintTop_toBottomOf="@id/tv_profile_modification" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_profile_neighbors"
@@ -299,14 +289,16 @@
             android:id="@+id/btn_profile_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/peach4_FFF6F4"
-            android:paddingHorizontal="60dp"
+            android:backgroundTint="@color/peach4_FFF9F8"
+            android:paddingHorizontal="80dp"
             android:paddingVertical="8dp"
             android:text="로그아웃"
             android:textAppearance="@style/subtitle3"
             android:textColor="@color/peach1_FF8D6F"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/peach1_FF8D6F"
+            app:strokeWidth="0.5dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
