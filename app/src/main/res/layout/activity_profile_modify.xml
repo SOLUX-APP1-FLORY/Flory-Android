@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="당신을 위한 맞춤 설정"
-            android:textAppearance="@style/body3"
+            android:textAppearance="@style/TextAppearance.body3"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이름"
-            android:textAppearance="@style/body2"
+            android:textAppearance="@style/TextAppearance.body2"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="닉네임"
-            android:textAppearance="@style/body2"
+            android:textAppearance="@style/TextAppearance.body2"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_modify_name" />
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
             android:text="성별"
-            android:textAppearance="@style/body2"
+            android:textAppearance="@style/TextAppearance.body2"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_modify_nickname" />
@@ -136,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:duplicateParentState="true"
                     android:text="남성"
-                    android:textAppearance="@style/title2"
+                    android:textAppearance="@style/TextAppearance.title2"
                     android:textColor="@drawable/selector_modify_sex_text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -170,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:duplicateParentState="true"
                     android:text="여성"
-                    android:textAppearance="@style/title2"
+                    android:textAppearance="@style/TextAppearance.title2"
                     android:textColor="@drawable/selector_modify_sex_text"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -196,7 +196,7 @@
         android:backgroundTint="@color/peach1_FF8D6F"
         android:paddingVertical="16dp"
         android:text="수정하기"
-        android:textAppearance="@style/title1"
+        android:textAppearance="@style/TextAppearance.title1"
         android:textColor="@color/white"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

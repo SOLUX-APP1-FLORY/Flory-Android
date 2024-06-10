@@ -13,7 +13,7 @@
             android:width="15dp"
             android:height="15dp" />
         <solid
-            android:color="@color/peach3_FED9C9" />
+            android:color="@color/peach3_FFE7E1" />
 
     </shape>
 </item>

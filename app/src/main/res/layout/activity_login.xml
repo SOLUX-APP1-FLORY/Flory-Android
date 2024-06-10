@@ -51,7 +51,7 @@
         android:hint="이메일 아이디 입력"
         android:paddingHorizontal="55dp"
         android:textAppearance="@style/TextAppearance.body5"
-        android:textColorHint="@color/gray5_525252"
+        android:textColorHint="@color/gray1_525252"
         app:layout_constraintTop_toBottomOf="@id/login_tv" />
 
     <ImageView
@@ -73,7 +73,7 @@
         android:hint="비밀번호 입력"
         android:paddingHorizontal="55dp"
         android:textAppearance="@style/TextAppearance.body5"
-        android:textColorHint="@color/gray5_525252"
+        android:textColorHint="@color/gray1_525252"
         app:layout_constraintTop_toBottomOf="@id/input_id" />
 
     <ImageView
@@ -113,7 +113,7 @@
         android:layout_marginStart="12dp"
         android:text="Remember"
         android:textAppearance="@style/TextAppearance.body6"
-        android:textColor="@color/gray5_525252"
+        android:textColor="@color/gray1_525252"
         app:layout_constraintBottom_toBottomOf="@id/remember_pw"
         app:layout_constraintStart_toEndOf="@id/remember_pw"
         app:layout_constraintTop_toTopOf="@id/remember_pw" />
@@ -158,7 +158,7 @@
         android:layout_marginTop="48dp"
         android:text="SNS계정으로 간편로그인 하세요."
         android:textAppearance="@style/TextAppearance.body4"
-        android:textColor="@color/gray5_525252"
+        android:textColor="@color/gray1_525252"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_btn" />
