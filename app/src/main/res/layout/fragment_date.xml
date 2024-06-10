@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/peach4_FFF6F4"
+    android:background="@color/peach3_FFE7E1"
     tools:context=".presentation.date.DateFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -13,7 +13,7 @@
     <item
         android:id="@+id/menu_gift"
         android:enabled="true"
-        android:icon="@drawable/ic_date_unselected"
+        android:icon="@drawable/ic_gift_unselected"
         android:title="Gift" />
     <item
         android:id="@+id/menu_profile"
