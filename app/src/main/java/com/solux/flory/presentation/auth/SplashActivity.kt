@@ -8,11 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.solux.flory.R
+import com.solux.flory.databinding.ActivitySplashBinding
+import com.solux.flory.util.base.BindingActivity
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BindingActivity<ActivitySplashBinding>({
+    ActivitySplashBinding.inflate(it)
+}) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
             startActivity(Intent(this, LoginActivity::class.java))
