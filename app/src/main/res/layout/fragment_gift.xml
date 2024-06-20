@@ -1,14 +1,294 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".presentation.gift.GiftFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_profile_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/iv_profile_left_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_left_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이웃 검색"
+            android:textAppearance="@style/TextAppearance.body3"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_profile_left_arrow"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/peach5_FFF4F2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_profile_header"
+        app:layout_constraintVertical_bias="0.0">
+
+        <EditText
+            android:id="@+id/search_nickname"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_marginHorizontal="41dp"
+            android:background="@drawable/shape_white_radius26"
+            android:hint="닉네임 입력"
+            android:inputType="text"
+            android:paddingHorizontal="20dp"
+            android:textAppearance="@style/TextAppearance.body5"
+            android:textColorHint="@color/gray1_525252"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.038" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:src="@drawable/ic_gift_search"
+            app:layout_constraintBottom_toBottomOf="@+id/search_nickname"
+            app:layout_constraintEnd_toEndOf="@+id/search_nickname"
+            app:layout_constraintHorizontal_bias="0.944"
+            app:layout_constraintStart_toStartOf="@+id/search_nickname"
+            app:layout_constraintTop_toTopOf="@+id/search_nickname"
+            app:layout_constraintVertical_bias="0.454" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="91dp"
+            android:layout_height="91dp"
+            android:paddingBottom="15dp"
+            android:src="@drawable/ic_gift_nouser"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="129dp" />
+
+        <TextView
+            android:id="@+id/nouser_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="해당 닉네임의 회원이 없습니다."
+            android:textAppearance="@style/TextAppearance.subtitle1"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:layout_editor_absoluteX="114dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nouser_text"
+            tools:layout_editor_absoluteX="16dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:background="@drawable/shape_white_line_20_rect"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="35dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_gift_user"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="가을리"
+                    android:textAppearance="@style/TextAppearance.subtitle1"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.516" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_gift_addcircle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.523" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/shape_white_line_20_rect"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_gift_user"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="가을리"
+                    android:textAppearance="@style/TextAppearance.subtitle1"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.516" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_gift_addcircle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.523" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/shape_white_line_20_rect"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_gift_user"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="가을리"
+                    android:textAppearance="@style/TextAppearance.subtitle1"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.516" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_gift_addcircle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.523" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="36dp"
+                android:background="@drawable/shape_white_line_20_rect"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_gift_user"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="가을리"
+                    android:textAppearance="@style/TextAppearance.subtitle1"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.516" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_gift_addcircle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.523" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
