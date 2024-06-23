@@ -57,76 +57,77 @@
             android:id="@+id/iv_gift_flowerconfirm"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:src="@drawable/ic_gift_flowerconfirm"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.184" />
 
         <TextView
             android:id="@+id/tv_gift_flowerconfirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="내가 선물받은 꽃 확인"
             android:textAppearance="@style/TextAppearance.title2"
-            app:layout_constraintTop_toTopOf="@+id/iv_gift_flowerconfirm"
-            tools:layout_editor_absoluteX="84dp" />
+            app:layout_constraintStart_toStartOf="@+id/iv_gift_flowerconfirm"
+            app:layout_constraintTop_toTopOf="@+id/iv_gift_flowerconfirm" />
 
         <TextView
             android:id="@+id/tv_gift_flowerconfirmtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="32dp"
             android:drawableRight="@drawable/ic_right_arrow"
             android:drawablePadding="6dp"
             android:text="확인하러 가기"
             android:textAppearance="@style/TextAppearance.subtitle3"
             android:textColor="@color/peach1_FF8D6F"
             app:layout_constraintBottom_toBottomOf="@+id/iv_gift_flowerconfirm"
-            tools:layout_editor_absoluteX="84dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintStart_toStartOf="@+id/iv_gift_flowerconfirm" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="112dp">
-
-            <ImageView
-                android:id="@+id/iv_gift_flowersend"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_gift_flowersend"
-                tools:layout_editor_absoluteX="55dp"
-                tools:layout_editor_absoluteY="333dp" />
+        <ImageView
+            android:id="@+id/iv_gift_flowersend"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="53dp"
+            android:src="@drawable/ic_gift_flowersend"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_gift_flowerconfirm" />
 
         <TextView
+            android:id="@+id/tv_gift_flowersend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="꽃 선물하기"
-            android:id="@+id/tv_gift_flowersend"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
+            android:text="꽃 선물하기"
             android:textAppearance="@style/TextAppearance.title2"
-            app:layout_constraintTop_toTopOf="@+id/iv_gift_flowersend"
-            tools:layout_editor_absoluteX="84dp"
-            tools:layout_editor_absoluteY="358dp" />
+            app:layout_constraintStart_toStartOf="@+id/iv_gift_flowersend"
+            app:layout_constraintTop_toTopOf="@+id/iv_gift_flowersend" />
 
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:drawableRight="@drawable/ic_right_arrow"
-                android:id="@+id/iv_gift_flowersendtext"
-                android:drawablePadding="6dp"
-                android:text="선물하러 가기"
-                android:textAppearance="@style/TextAppearance.subtitle3"
-                android:textColor="@color/peach1_FF8D6F"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_gift_flowersend"
-                tools:layout_editor_absoluteX="89dp" />
+            android:id="@+id/iv_gift_flowersendtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="32dp"
+            android:drawableRight="@drawable/ic_right_arrow"
+            android:drawablePadding="6dp"
+            android:text="선물하러 가기"
+            android:textAppearance="@style/TextAppearance.subtitle3"
+            android:textColor="@color/peach1_FF8D6F"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_gift_flowersend"
+            app:layout_constraintStart_toStartOf="@+id/iv_gift_flowersend" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

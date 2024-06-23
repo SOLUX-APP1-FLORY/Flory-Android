@@ -27,7 +27,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_gift_flower1"
@@ -51,20 +50,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cl_profile_header" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_profile_info"
+    <LinearLayout
+        android:id="@+id/cl_gift_info"
         android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_marginTop="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/rv_selectneighbors"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/cl_gift_selectneighbors"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206">
+        app:layout_constraintVertical_bias="0.085">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/iv_gift_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -88,7 +88,7 @@
             app:layout_constraintVertical_bias="0.507">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tv_gift_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="워녕님"
@@ -97,7 +97,7 @@
                 tools:layout_editor_absoluteY="90dp" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tv_gift_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="선물할 이웃을 선택해주세요"
@@ -105,13 +105,24 @@
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="115dp" />
         </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="나의 이웃"
+        app:layout_constraintBottom_toTopOf="@+id/cl_gift_selectneighbors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rv_selectneighbors"
+        android:id="@+id/cl_gift_selectneighbors"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/shape_white_line_20_rect"
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,43 +131,30 @@
         app:layout_constraintTop_toBottomOf="@+id/cl_profile_header">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_sendneighbors"
+            android:id="@+id/rv_gift_sendneighbors"
             android:layout_width="0dp"
             android:layout_height="350dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/item_gift_selectneighbors" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="나의 이웃"
-        app:layout_constraintBottom_toTopOf="@+id/rv_selectneighbors"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_info_confirm"
+        android:id="@+id/cl_gift_confirm"
         android:layout_width="350dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/shape_white_line_20_rect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_selectneighbors"
-        app:layout_constraintVertical_bias="0.62">
+        app:layout_constraintTop_toBottomOf="@+id/cl_gift_selectneighbors">
 
         <TextView
             android:layout_width="wrap_content"
