@@ -117,7 +117,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="30dp"
-            tools:listitem="@layout/item_gift_neighbors" />
+            tools:listitem="@layout/item_gift_searchneighbors" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
