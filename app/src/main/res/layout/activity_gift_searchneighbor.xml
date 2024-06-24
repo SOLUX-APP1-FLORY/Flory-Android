@@ -116,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="해당 닉네임의 회원이 없습니다."
-                android:textAppearance="@style/TextAppearance.subtitle1"
+                android:textAppearance="@style/TextAppearance.body2"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toTopOf="@+id/rv_searchneighbors"
                 app:layout_constraintEnd_toEndOf="parent"

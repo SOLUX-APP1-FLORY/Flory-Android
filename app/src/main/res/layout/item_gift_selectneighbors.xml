@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="60dp"
+    android:layout_height="40dp"
     >
 
     <ImageView
@@ -21,15 +21,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="선재"
-        android:textAppearance="@style/TextAppearance.subtitle1"
+        android:textAppearance="@style/TextAppearance.subtitle4"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_gift_user"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="15dp"
-        android:layout_height="15dp"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_gift_check"
         app:layout_constraintBottom_toBottomOf="parent"

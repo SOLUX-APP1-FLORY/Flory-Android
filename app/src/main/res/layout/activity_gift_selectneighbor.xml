@@ -55,7 +55,7 @@
         android:layout_width="350dp"
         android:layout_height="100dp"
         android:layout_marginTop="52dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toTopOf="@+id/cl_gift_selectneighbors"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -67,6 +67,7 @@
             android:id="@+id/iv_gift_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginStart="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.106"
@@ -92,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="워녕님"
-                android:textAppearance="@style/TextAppearance.body1"
+                android:textAppearance="@style/TextAppearance.subtitle3"
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="90dp" />
 
@@ -101,7 +102,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="선물할 이웃을 선택해주세요"
-                android:textAppearance="@style/TextAppearance.body1"
+                android:textAppearance="@style/TextAppearance.subtitle3"
                 tools:layout_editor_absoluteX="146dp"
                 tools:layout_editor_absoluteY="115dp" />
         </LinearLayout>
@@ -113,6 +114,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="나의 이웃"
+        android:textAppearance="@style/TextAppearance.subtitle3"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/cl_gift_selectneighbors"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.138"
@@ -138,10 +141,8 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/item_gift_selectneighbors" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -160,6 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="확인"
+            android:textAppearance="@style/TextAppearance.subtitle3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

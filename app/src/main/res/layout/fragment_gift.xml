@@ -72,7 +72,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="내가 선물받은 꽃 확인"
-            android:textAppearance="@style/TextAppearance.title2"
+            android:textAppearance="@style/TextAppearance.subtitle3"
             app:layout_constraintStart_toStartOf="@+id/iv_gift_flowerconfirm"
             app:layout_constraintTop_toTopOf="@+id/iv_gift_flowerconfirm" />
 
@@ -85,7 +85,7 @@
             android:drawableRight="@drawable/ic_right_arrow"
             android:drawablePadding="6dp"
             android:text="확인하러 가기"
-            android:textAppearance="@style/TextAppearance.subtitle3"
+            android:textAppearance="@style/TextAppearance.subtitle4"
             android:textColor="@color/peach1_FF8D6F"
             app:layout_constraintBottom_toBottomOf="@+id/iv_gift_flowerconfirm"
             app:layout_constraintStart_toStartOf="@+id/iv_gift_flowerconfirm" />
@@ -109,7 +109,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="꽃 선물하기"
-            android:textAppearance="@style/TextAppearance.title2"
+            android:textAppearance="@style/TextAppearance.subtitle3"
             app:layout_constraintStart_toStartOf="@+id/iv_gift_flowersend"
             app:layout_constraintTop_toTopOf="@+id/iv_gift_flowersend" />
 
@@ -122,7 +122,7 @@
             android:drawableRight="@drawable/ic_right_arrow"
             android:drawablePadding="6dp"
             android:text="선물하러 가기"
-            android:textAppearance="@style/TextAppearance.subtitle3"
+            android:textAppearance="@style/TextAppearance.subtitle4"
             android:textColor="@color/peach1_FF8D6F"
             app:layout_constraintBottom_toBottomOf="@+id/iv_gift_flowersend"
             app:layout_constraintStart_toStartOf="@+id/iv_gift_flowersend" />
