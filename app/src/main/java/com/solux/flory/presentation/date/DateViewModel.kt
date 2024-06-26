@@ -41,6 +41,11 @@ class DateViewModel : ViewModel() {
         _dateList.value = list
     }
 
+    fun moveToPreviousMonth() {
+        calendar.add(Calendar.MONTH, -1)
+        updateCalendar()
+    }
+
     fun moveToNextMonth() {
         calendar.add(Calendar.MONTH, 1)
         updateCalendar()
