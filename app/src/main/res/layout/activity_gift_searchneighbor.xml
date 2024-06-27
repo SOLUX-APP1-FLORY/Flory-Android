@@ -80,8 +80,8 @@
 
         <ImageView
             android:id="@+id/btn_searchneighbors_search"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/ic_gift_search"
             app:layout_constraintBottom_toBottomOf="@+id/search_nickname"
             app:layout_constraintEnd_toEndOf="@+id/search_nickname"

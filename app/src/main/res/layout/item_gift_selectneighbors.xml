@@ -31,7 +31,7 @@
         android:layout_width="17dp"
         android:layout_height="17dp"
         android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_gift_check"
+        android:src="@drawable/ic_gift_checkcircle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
