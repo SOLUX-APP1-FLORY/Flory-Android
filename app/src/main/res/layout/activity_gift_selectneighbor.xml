@@ -3,12 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="-17dp">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_profile_header"
+        android:id="@+id/cl_selectneighbor_header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="24dp"
@@ -18,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_profile_left_arrow"
+            android:id="@+id/iv_selectneighbor_giftbox"
             android:layout_width="31dp"
             android:layout_height="18dp"
             android:src="@drawable/ic_giftbox"
@@ -27,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tv_selectneighbor_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_gift_flower1"
@@ -37,31 +36,56 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_profile_left_arrow"
+            app:layout_constraintStart_toEndOf="@id/iv_selectneighbor_giftbox"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_selectneighbor_title"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_selectneighbor_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                app:srcCompat="@drawable/ic_search_peach" />
+
+            <ImageView
+                android:id="@+id/iv_selectneighbor_impossible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                app:srcCompat="@drawable/ic_impossible_peach" />
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
-        android:id="@+id/md_gift_bar"
+        android:id="@+id/md_selectneighbor_divider"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@drawable/shadow_down_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_profile_header" />
+        app:layout_constraintTop_toBottomOf="@id/cl_selectneighbor_header" />
 
     <LinearLayout
-        android:id="@+id/cl_gift_info"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toTopOf="@+id/cl_gift_selectneighbors"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085">
+        app:layout_constraintTop_toBottomOf="@+id/cl_selectneighbor_header">
 
         <ImageView
             android:id="@+id/iv_gift_image"
@@ -70,72 +94,62 @@
             android:layout_marginStart="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_profile_image" />
 
         <LinearLayout
-            android:id="@+id/cl_gift_selectneighbor"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.507">
+            app:layout_constraintStart_toEndOf="@+id/iv_gift_image"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tv_gift_name"
+                android:id="@+id/tv_selectneighbor_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="워녕님"
-                android:textAppearance="@style/TextAppearance.subtitle3"
-                tools:layout_editor_absoluteX="146dp"
-                tools:layout_editor_absoluteY="90dp" />
+                android:textAppearance="@style/TextAppearance.subtitle2" />
 
             <TextView
-                android:id="@+id/tv_gift_information"
+                android:id="@+id/tv_selectneighbor_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="선물할 이웃을 선택해주세요"
-                android:textAppearance="@style/TextAppearance.subtitle3"
-                tools:layout_editor_absoluteX="146dp"
-                tools:layout_editor_absoluteY="115dp" />
+                android:textAppearance="@style/TextAppearance.subtitle2" />
         </LinearLayout>
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="270dp"
         android:text="나의 이웃"
         android:textAppearance="@style/TextAppearance.subtitle3"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/cl_gift_selectneighbors"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_gift_selectneighbors"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="150dp"
         android:background="@drawable/shape_white_line_20_rect"
-        android:padding="20dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_profile_header">
+        app:layout_constraintTop_toBottomOf="@+id/cl_selectneighbor_header">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_gift_sendneighbors"
-            android:layout_width="0dp"
+            android:id="@+id/rv_gift_sendneighbor"
+            android:layout_width="300dp"
             android:layout_height="350dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -147,11 +161,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_gift_confirm"
+        android:id="@+id/cl_selectneighbor_confirm"
         android:layout_width="350dp"
         android:layout_height="30dp"
         android:layout_marginBottom="100dp"
-        android:background="@drawable/shape_white_line_20_rect"
+        android:background="@drawable/shape_peach4_radius30_peach1_stroke"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
