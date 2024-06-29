@@ -8,7 +8,7 @@
     tools:context=".presentation.gift.GiftFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_profile_header"
+        android:id="@+id/cl_gift_header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="24dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_profile_left_arrow"
+            android:id="@+id/iv_gift_left_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_left_arrow"
@@ -35,7 +35,7 @@
             android:layout_marginEnd="200dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_profile_left_arrow"
+            app:layout_constraintStart_toEndOf="@id/iv_gift_left_arrow"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -46,12 +46,12 @@
         android:layout_height="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_profile_header"/>
+        app:layout_constraintTop_toBottomOf="@id/cl_gift_header"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="@id/cl_profile_header"
+        app:layout_constraintTop_toTopOf="@id/cl_gift_header"
         >
 
         <ImageView
@@ -73,8 +73,8 @@
             android:layout_marginTop="44dp"
             android:text="내가 선물받은 꽃 확인"
             android:textAppearance="@style/TextAppearance.subtitle3"
-            app:layout_constraintStart_toStartOf="@+id/iv_gift_flowerconfirm"
-            app:layout_constraintTop_toTopOf="@+id/iv_gift_flowerconfirm" />
+            app:layout_constraintStart_toStartOf="@id/iv_gift_flowerconfirm"
+            app:layout_constraintTop_toTopOf="@id/iv_gift_flowerconfirm" />
 
         <TextView
             android:id="@+id/tv_gift_flowerconfirmtext"
@@ -90,8 +90,8 @@
             android:text="확인하러 가기"
             android:textAppearance="@style/TextAppearance.subtitle4"
             android:textColor="@color/peach1_FF8D6F"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_gift_flowerconfirm"
-            app:layout_constraintStart_toStartOf="@+id/iv_gift_flowerconfirm" />
+            app:layout_constraintBottom_toBottomOf="@id/iv_gift_flowerconfirm"
+            app:layout_constraintStart_toStartOf="@id/iv_gift_flowerconfirm" />
 
         <ImageView
             android:id="@+id/iv_gift_flowersend"
@@ -105,7 +105,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_gift_flowerconfirm" />
+            app:layout_constraintTop_toBottomOf="@id/iv_gift_flowerconfirm" />
 
         <TextView
             android:id="@+id/tv_gift_flowersend"
@@ -115,11 +115,11 @@
             android:layout_marginTop="44dp"
             android:text="꽃 선물하기"
             android:textAppearance="@style/TextAppearance.subtitle3"
-            app:layout_constraintStart_toStartOf="@+id/iv_gift_flowersend"
-            app:layout_constraintTop_toTopOf="@+id/iv_gift_flowersend" />
+            app:layout_constraintStart_toStartOf="@id/iv_gift_flowersend"
+            app:layout_constraintTop_toTopOf="@id/iv_gift_flowersend" />
 
         <TextView
-            android:id="@+id/iv_gift_flowersendtext"
+            android:id="@+id/tv_gift_flowersendtext"
             android:layout_width="80dp"
             android:layout_height="20dp"
             android:layout_marginStart="56dp"
@@ -132,8 +132,8 @@
             android:text="확인하러 가기"
             android:textAppearance="@style/TextAppearance.subtitle4"
             android:textColor="@color/peach1_FF8D6F"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_gift_flowersend"
-            app:layout_constraintStart_toStartOf="@+id/iv_gift_flowersend" />
+            app:layout_constraintBottom_toBottomOf="@id/iv_gift_flowersend"
+            app:layout_constraintStart_toStartOf="@id/iv_gift_flowersend" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

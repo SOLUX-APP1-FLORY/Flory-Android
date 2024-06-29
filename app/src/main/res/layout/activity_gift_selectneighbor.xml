@@ -138,7 +138,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_gift_selectneighbors"
         android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
         android:layout_marginTop="150dp"
         android:background="@drawable/shape_white_line_20_rect"
         android:paddingHorizontal="15dp"
@@ -149,8 +149,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_gift_sendneighbor"
-            android:layout_width="300dp"
-            android:layout_height="350dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
