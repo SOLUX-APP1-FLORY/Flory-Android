@@ -1,4 +1,4 @@
-package com.solux.flory.presentation.date
+package com.solux.flory.presentation.date.record
 
 import android.content.Intent
 import android.os.Bundle

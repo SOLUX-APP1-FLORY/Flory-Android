@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.date.RecordActivity">
+    tools:context=".presentation.date.record.RecordActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_modify_header"
@@ -167,7 +167,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/shape_peach_fill_top30_rect"
             android:paddingHorizontal="24dp"
-            android:paddingVertical="30dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">

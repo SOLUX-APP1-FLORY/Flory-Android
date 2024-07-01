@@ -16,10 +16,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.date.SelectFlowerActivity"
+            android:name=".presentation.date.record.SelectFlowerActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.date.RecordActivity"
+            android:name=".presentation.date.record.RecordActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.profile.NeighborsActivity"
