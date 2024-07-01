@@ -19,6 +19,15 @@ class SelectFlowerActivity : BindingActivity<ActivitySelectFlowerBinding>(Activi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initAdapter()
+        searchFilter()
+    }
+
+    private fun searchFilter() {
+        binding.etSearch.addTextChangedListener {
+            adapter.submitList(viewModel.mockFlowers.filter { flower ->
+                flower.meaning.contains(it.toString(), ignoreCase = true)
+            })
+        }
     }
 
     private fun initAdapter() {
