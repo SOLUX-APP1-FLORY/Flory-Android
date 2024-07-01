@@ -14,6 +14,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         profileModifyTextClick()
+        neighborsTextClick()
         logoutBtnClick()
     }
 
@@ -27,6 +28,13 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         binding.tvProfileModification.setOnClickListener {
             val intent = Intent(requireContext(), ProfileModifyActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun neighborsTextClick() {
+        binding.tvProfileNeighbors.setOnClickListener {
+            //이웃 목록 페이지로 이동
+
         }
     }
 

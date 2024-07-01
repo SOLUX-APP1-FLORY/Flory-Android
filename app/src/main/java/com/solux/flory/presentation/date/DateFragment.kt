@@ -1,9 +1,11 @@
 package com.solux.flory.presentation.date
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.solux.flory.databinding.FragmentDateBinding
+import com.solux.flory.presentation.date.record.RecordActivity
 import com.solux.flory.util.base.BindingFragment
 
 class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::inflate) {
@@ -14,7 +16,9 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
         initAdapter()
         observeDateYear()
         observeDateMonth()
-        downArrowClick()
+        leftArrowClick()
+        rightArrowClick()
+        addFabClick()
     }
 
     private fun initAdapter() {
@@ -37,9 +41,22 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
         }
     }
 
-    private fun downArrowClick() {
-        binding.ivDateArrow.setOnClickListener {
+    private fun leftArrowClick() {
+        binding.ivDateLeftArrow.setOnClickListener {
+            viewModel.moveToPreviousMonth()
+        }
+    }
+
+    private fun rightArrowClick() {
+        binding.ivDateRightArrow.setOnClickListener {
             viewModel.moveToNextMonth()
+        }
+    }
+
+    private fun addFabClick() {
+        binding.fabDateAdd.setOnClickListener {
+            val intent = Intent(requireContext(), RecordActivity::class.java)
+            startActivity(intent)
         }
     }
 
