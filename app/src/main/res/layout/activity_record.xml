@@ -69,8 +69,8 @@
 
             <ImageView
                 android:id="@+id/iv_record_plant"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="86dp"
+                android:layout_height="86dp"
                 android:src="@drawable/ic_record_plant"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +149,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_record_flower_feeling"
+                android:id="@+id/tv_record_flower_meaning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

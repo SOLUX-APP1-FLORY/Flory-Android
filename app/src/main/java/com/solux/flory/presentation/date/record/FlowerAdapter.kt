@@ -6,14 +6,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.solux.flory.databinding.ItemSelectFlowerBinding
 
-class FlowerAdapter: ListAdapter<Flower, FlowerViewHolder>(DiffUtil) {
+class FlowerAdapter(
+    private val onClick: (Flower) -> Unit,
+) : ListAdapter<Flower, FlowerViewHolder>(DiffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlowerViewHolder {
         return FlowerViewHolder(
             ItemSelectFlowerBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ), onClick
         )
     }
 

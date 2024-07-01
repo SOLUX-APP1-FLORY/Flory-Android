@@ -2,7 +2,9 @@ package com.solux.flory.presentation.date.record
 
 import android.content.Intent
 import android.os.Bundle
+import coil.load
 import com.solux.flory.databinding.ActivityRecordBinding
+import com.solux.flory.presentation.main.MainActivity
 import com.solux.flory.util.base.BindingActivity
 
 class RecordActivity : BindingActivity<ActivityRecordBinding>({
@@ -12,6 +14,12 @@ class RecordActivity : BindingActivity<ActivityRecordBinding>({
         super.onCreate(savedInstanceState)
         plantAreaClick()
         confirmBtnClick()
+        val flower = intent.getSerializableExtra("flower") as? Flower
+        flower?.let {
+            binding.ivRecordPlant.load(it.imageUrl)
+            binding.tvRecordFlowerMeaning.text = it.meaning
+            binding.tvRecordFlowerName.text = it.name
+        }
     }
 
     private fun plantAreaClick() {
@@ -23,7 +31,9 @@ class RecordActivity : BindingActivity<ActivityRecordBinding>({
 
     private fun confirmBtnClick() {
         binding.btnRecordConfirm.setOnClickListener {
-            finish()
+            val intent = Intent(this@RecordActivity, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
         }
     }
 }

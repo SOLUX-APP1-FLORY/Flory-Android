@@ -1,11 +1,13 @@
 package com.solux.flory.presentation.date.record
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil.setContentView
 import com.solux.flory.R
 import com.solux.flory.databinding.ActivitySelectFlowerBinding
@@ -20,7 +22,10 @@ class SelectFlowerActivity : BindingActivity<ActivitySelectFlowerBinding>(Activi
     }
 
     private fun initAdapter() {
-        adapter = FlowerAdapter()
+        adapter = FlowerAdapter(){
+            val dialog = FlowerDialogFragment(it)
+            dialog.show(supportFragmentManager, dialog.tag)
+        }
         binding.rvFlowers.adapter = adapter
         adapter.submitList(viewModel.mockFlowers)
     }
