@@ -16,6 +16,7 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
         observeDateMonth()
         leftArrowClick()
         rightArrowClick()
+        addFabClick()
     }
 
     private fun initAdapter() {
@@ -47,6 +48,12 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
     private fun rightArrowClick() {
         binding.ivDateRightArrow.setOnClickListener {
             viewModel.moveToNextMonth()
+        }
+    }
+
+    private fun addFabClick() {
+        binding.fabDateAdd.setOnClickListener {
+
         }
     }
 
