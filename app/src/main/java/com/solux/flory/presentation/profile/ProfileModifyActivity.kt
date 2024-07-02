@@ -29,6 +29,8 @@ class ProfileModifyActivity : BindingActivity<ActivityProfileModifyBinding>({
             clModifySexFemale.setOnClickListener {
                 clModifySexMale.isSelected = false
                 clModifySexFemale.isSelected = true
+                ivModifyFemaleCheck.visibility = android.view.View.VISIBLE
+                ivModifyMaleCheck.visibility = android.view.View.INVISIBLE
             }
         }
     }
@@ -38,6 +40,8 @@ class ProfileModifyActivity : BindingActivity<ActivityProfileModifyBinding>({
             clModifySexMale.setOnClickListener {
                 clModifySexMale.isSelected = true
                 clModifySexFemale.isSelected = false
+                ivModifyMaleCheck.visibility = android.view.View.VISIBLE
+                ivModifyFemaleCheck.visibility = android.view.View.INVISIBLE
             }
         }
     }
