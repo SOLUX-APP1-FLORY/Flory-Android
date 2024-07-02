@@ -47,6 +47,9 @@
         <activity
             android:name=".presentation.main.MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".presentation.gift.Searchneighbor.SearchneighborActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
