@@ -34,7 +34,7 @@ class BouquetViewModel : ViewModel(){
             name = "해바라기",
         ),
         Bouquet(
-            imageUrl = "https://github.com/SOLUX-APP1-FLORY/Flory-Frontend/assets/65457903/78916e62-45c3-4413-a557-10e5461fa9e",
+            imageUrl = "https://github.com/SOLUX-APP1-FLORY/Flory-Frontend/assets/65457903/78916e62-45c3-4413-a557-10e5461fa9e5",
             meaning = "질투",
             name = "노란장미",
         ),
