@@ -1,4 +1,4 @@
-package com.solux.flory.presentation.gift.present
+package com.solux.flory.presentation.gift.send
 import androidx.lifecycle.ViewModel
 
 class BouquetViewModel : ViewModel(){

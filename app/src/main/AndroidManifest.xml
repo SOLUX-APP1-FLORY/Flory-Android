@@ -48,7 +48,13 @@
             android:name=".presentation.main.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.gift.Searchneighbor.SearchneighborActivity"
+            android:name=".presentation.gift.searchneighbor.SearchneighborActivity"
+            android:exported="true" />
+<!--        <activity-->
+<!--            android:name=".presentation.gift.confirm.confirm.ConfirmActivity"-->
+<!--            android:exported="true" />-->
+        <activity
+            android:name=".presentation.gift.send.SelectneighborActivity"
             android:exported="true" />
     </application>
 
