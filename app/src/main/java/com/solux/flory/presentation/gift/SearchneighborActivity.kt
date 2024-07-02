@@ -1,4 +1,4 @@
-package com.solux.flory.presentation.gift.searchneighbor
+package com.solux.flory.presentation.gift
 
 import android.os.Bundle
 import com.solux.flory.R
@@ -17,9 +17,7 @@ class SearchneighborActivity : BindingActivity<ActivityGiftSearchneighborBinding
 
     private fun leftArrowClick() {
         binding.ivSearchneighborLeftArrow.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.menu_gift, GiftFragment()) //근데 넘어갈 때 시간이 좀 걸림. ..뭐지? 이게아닌가
-                .commit()
+            finish()
         }
     }
 }

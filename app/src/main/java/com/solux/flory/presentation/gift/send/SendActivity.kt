@@ -11,5 +11,13 @@ class SendActivity : BindingActivity<ActivityGiftSelectbouquetBinding> ({
 {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        impossibleBtnClick()
+    }
+
+    private fun impossibleBtnClick(){
+        binding.ivSelectbouquetImpossible.setOnClickListener{
+            finish()
+        }
     }
 }

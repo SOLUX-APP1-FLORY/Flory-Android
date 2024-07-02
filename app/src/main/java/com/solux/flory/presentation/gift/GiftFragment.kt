@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.solux.flory.databinding.FragmentGiftBinding
-import com.solux.flory.presentation.gift.searchneighbor.SearchneighborActivity
 import com.solux.flory.presentation.gift.confirm.ConfirmActivity
 import com.solux.flory.presentation.gift.send.SelectneighborActivity
 import com.solux.flory.util.base.BindingFragment
