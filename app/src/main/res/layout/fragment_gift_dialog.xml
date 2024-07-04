@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:text="튤립"
-                android:textAppearance="@style/TextAppearance.subtitle1"
+                android:textAppearance="@style/TextAppearance.subtitle2"
                 android:textColor="@color/gray4_919191"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_bouquet_meaning" />
