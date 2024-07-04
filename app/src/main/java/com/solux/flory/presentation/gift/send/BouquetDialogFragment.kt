@@ -6,13 +6,14 @@ import android.os.Bundle
 import android.view.View
 import coil.load
 import com.solux.flory.R
-import com.solux.flory.databinding.FragmentBouquetDialogBinding
+import com.solux.flory.databinding.FragmentGiftBinding
+import com.solux.flory.databinding.FragmentGiftDialogBinding
 import com.solux.flory.presentation.date.record.RecordActivity
 import com.solux.flory.util.base.BindingDialogFragment
 
 class BouquetDialogFragment(
     private val bouquet: Bouquet
-) : BindingDialogFragment<FragmentBouquetDialogBinding>(FragmentBouquetDialogBinding::inflate) {
+) : BindingDialogFragment<FragmentGiftDialogBinding>(FragmentGiftDialogBinding::inflate) {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = Dialog(requireContext(), R.style.CustomDialogTheme)

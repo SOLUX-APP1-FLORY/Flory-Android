@@ -12,5 +12,13 @@ class ConfirmActivity : BindingActivity<ActivityGiftConfirmBinding> ({
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //꽃다발 확인
+
+        impossibleBtnClick()
+    }
+
+    private fun impossibleBtnClick(){
+        binding.ivGiftconfirmImpossible.setOnClickListener{
+            finish()
+        }
     }
 }
