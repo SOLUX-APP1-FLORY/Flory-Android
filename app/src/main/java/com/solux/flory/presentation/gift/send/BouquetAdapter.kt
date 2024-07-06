@@ -5,11 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.solux.flory.databinding.ItemSelectBouquetBinding
-import com.solux.flory.presentation.date.record.Flower
 
 class BouquetAdapter(
-    private val onClick: (Bouquet) -> Unit,
-) : ListAdapter<Bouquet, BouquetViewHolder>(DiffUtil) {
+    private val onClick: (BouquetInfo) -> Unit,
+) : ListAdapter<BouquetInfo, BouquetViewHolder>(DiffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BouquetViewHolder {
         return BouquetViewHolder(
             ItemSelectBouquetBinding.inflate(
@@ -25,12 +24,12 @@ class BouquetAdapter(
     }
 
     companion object {
-        private val DiffUtil = object : DiffUtil.ItemCallback<Bouquet>() {
-            override fun areItemsTheSame(oldItem: Bouquet, newItem: Bouquet): Boolean {
+        private val DiffUtil = object : DiffUtil.ItemCallback<BouquetInfo>() {
+            override fun areItemsTheSame(oldItem: BouquetInfo, newItem: BouquetInfo): Boolean {
                 return oldItem.name == newItem.name
             }
 
-            override fun areContentsTheSame(oldItem: Bouquet, newItem: Bouquet): Boolean {
+            override fun areContentsTheSame(oldItem: BouquetInfo, newItem: BouquetInfo): Boolean {
                 return oldItem == newItem
             }
         }
