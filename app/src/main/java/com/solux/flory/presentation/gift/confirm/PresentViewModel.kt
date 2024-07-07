@@ -26,14 +26,13 @@ class PresentViewModel : ViewModel(){
         ),
         PresentInfo(
             imageUrl = "https://github.com/SOLUX-APP1-FLORY/Flory-Frontend/assets/65457903/fc91c268-b6ec-4771-ba60-6cf836fe832e",
-            sender = "혜원",
-            message = "흠냐...환연?",
+            sender = "해원",
+            message = "홍창기안타안타날려홍창기~ 홍창기안타날료버려라~",
         ),
         PresentInfo(
             imageUrl = "https://github.com/SOLUX-APP1-FLORY/Flory-Frontend/assets/65457903/070c4e0b-58a0-49c3-8d09-7b5e1af282d8",
             sender = "주빈",
             message = "눈물의여왕눈물이줄줄우엥상반기최고의드라마요",
         ),
-
     )
 }

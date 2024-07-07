@@ -11,6 +11,11 @@ class BouquetViewHolder(
 ) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(position: Int, bouquetInfo: BouquetInfo) {
+        if (position % 2 == 0) {
+            binding.clBouquetArea.setBackgroundResource(R.drawable.shape_peach_line_20_rect_shadow)
+        } else {
+            binding.clBouquetArea.setBackgroundResource(R.drawable.shape_white_line_20_rect_shadow)
+        }
         binding.ivBouquet.load(bouquetInfo.imageUrl)
         binding.tvBouquetMeaning.text = bouquetInfo.meaning
         binding.tvBouquetName.text = bouquetInfo.name
