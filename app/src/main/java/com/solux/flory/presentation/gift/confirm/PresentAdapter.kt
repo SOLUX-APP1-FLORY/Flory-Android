@@ -30,13 +30,11 @@ class PresentAdapter (
         private val DiffUtil = object : DiffUtil.ItemCallback<PresentInfo>() {
             override fun areItemsTheSame(oldItem: PresentInfo, newItem: PresentInfo): Boolean {
                 return oldItem.message == newItem.message
-                // 이걸 message 로 하는게 맞을까요? 흠..
             }
 
             @SuppressLint("DiffUtilEquals")
             override fun areContentsTheSame(oldItem: PresentInfo, newItem: PresentInfo): Boolean {
                 return oldItem == newItem
-                // 여기서 오류가 뜨는데 왜일까요? BouquetAdapter 파일에서도 뜹니다..
             }
         }
     }
