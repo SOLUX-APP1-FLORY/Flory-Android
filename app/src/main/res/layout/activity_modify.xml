@@ -86,7 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="2024. 05"
+                android:text="2024. 05. 24"
                 android:textAppearance="@style/TextAppearance.subtitle2"
                 android:textColor="@color/gray4_919191"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -181,6 +181,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
+                        android:id="@+id/iv_modify_flower_avatar"
                         android:layout_width="28dp"
                         android:layout_height="0dp"
                         android:src="@drawable/ic_modify_rose"
@@ -287,6 +288,7 @@
                 android:layout_marginTop="8dp"/>
 
             <Button
+                android:id="@+id/btn_modify_confirm"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/peach1_FF8D6F"
