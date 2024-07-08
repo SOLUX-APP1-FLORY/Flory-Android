@@ -3,6 +3,7 @@ package com.solux.flory.presentation.gift.send
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.solux.flory.databinding.ActivityGiftSelectbouquetBinding
+import com.solux.flory.presentation.gift.send.adapter.BouquetAdapter
 import com.solux.flory.util.base.BindingActivity
 
 class SelectBouquetActivity : BindingActivity<ActivityGiftSelectbouquetBinding>(ActivityGiftSelectbouquetBinding::inflate){

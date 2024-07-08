@@ -36,7 +36,9 @@ class BouquetDialogFragment(
     private fun confirmBtnClick() {
         binding.btnConfirm.setOnClickListener {
             dismiss()
-            val intent = Intent(requireContext(), RecordActivity::class.java)
+
+            // 선물페이지4로 이동
+            val intent = Intent(requireContext(), WriteMessageActivity::class.java)
             intent.putExtra("bouquet", bouquetInfo)
             startActivity(intent)
         }
