@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/peach4_FFF6F4"
+    android:background="@color/peach3_FFE7E1"
     tools:context=".presentation.date.DateFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,8 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Emotions of Special Moments"
-            android:textAppearance="@style/title2"
-            android:textColor="@color/gray4_565656"
+            android:textAppearance="@style/TextAppearance.title2"
+            android:textColor="@color/gray1_525252"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,8 +32,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="특별한 날에 느꼈던 감정들을 확인하고,\n그 순간들을 천천히 되돌아 보세요."
-            android:textAppearance="@style/body3"
-            android:textColor="@color/gray2_919191"
+            android:textAppearance="@style/TextAppearance.body3"
+            android:textColor="@color/gray3_7F7F7F"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_date_header" />
 
@@ -62,10 +62,10 @@
             android:id="@+id/tv_date_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
             android:text="2024"
-            android:textAppearance="@style/subtitle1"
+            android:textAppearance="@style/TextAppearance.subtitle1"
             android:textColor="@color/peach1_FF8D6F"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,31 +74,43 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:paddingHorizontal="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_date_year">
+
+            <ImageView
+                android:id="@+id/iv_date_left_arrow"
+                android:layout_width="14dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="6dp"
+                android:src="@drawable/ic_date_left_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_date_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="34dp"
                 android:text="May"
-                android:textAppearance="@style/title1"
+                android:textAppearance="@style/TextAppearance.title1"
                 android:textColor="@color/peach1_FF8D6F"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/iv_date_arrow"
+                android:id="@+id/iv_date_right_arrow"
                 android:layout_width="14dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="6dp"
-                android:src="@drawable/ic_date_arrow_down"
+                android:src="@drawable/ic_date_right_arrow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1"
-                app:layout_constraintStart_toEndOf="@id/tv_date_month"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -106,7 +118,7 @@
             android:id="@+id/ll_date_week"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="34dp"
+            android:layout_marginHorizontal="48dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -118,81 +130,92 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="S"
-                android:textAlignment="center"
-                android:textAppearance="@style/subtitle3"
-                android:textColor="@color/gray3_717171" />
+                android:textAppearance="@style/TextAppearance.subtitle3"
+                android:textColor="@color/gray2_717171" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="M"
-                android:textAlignment="center"
-                android:textAppearance="@style/subtitle3"
-                android:textColor="@color/gray3_717171" />
+                android:textAppearance="@style/TextAppearance.subtitle3"
+                android:textColor="@color/gray2_717171" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="T"
-                android:textAlignment="center"
-                android:textAppearance="@style/subtitle3"
-                android:textColor="@color/gray3_717171" />
+                android:textAppearance="@style/TextAppearance.subtitle3"
+                android:textColor="@color/gray2_717171" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="W"
-                android:textAlignment="center"
-                android:textAppearance="@style/subtitle3"
-                android:textColor="@color/gray3_717171" />
+                android:textAppearance="@style/TextAppearance.subtitle3"
+                android:textColor="@color/gray2_717171" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="T"
-                android:textAlignment="center"
-                android:textAppearance="@style/subtitle3"
-                android:textColor="@color/gray3_717171" />
+                android:textAppearance="@style/TextAppearance.subtitle3"
+                android:textColor="@color/gray2_717171" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="F"
-                android:textAlignment="center"
-                android:textAppearance="@style/subtitle3"
-                android:textColor="@color/gray3_717171" />
+                android:textAppearance="@style/TextAppearance.subtitle3"
+                android:textColor="@color/gray2_717171" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="S"
-                android:textAlignment="center"
-                android:textAppearance="@style/subtitle3"
-                android:textColor="@color/gray3_717171" />
+                android:textAppearance="@style/TextAppearance.subtitle3"
+                android:textColor="@color/gray2_717171" />
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_date"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="44dp"
-            android:layout_marginEnd="28dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="34dp"
+            android:paddingEnd="18dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll_date_week"
-            app:spanCount="7"
-            tools:itemCount="30"
-            tools:listitem="@layout/item_date" />
+            app:layout_constraintTop_toBottomOf="@id/ll_date_week">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:spanCount="7"
+                tools:itemCount="30"
+                tools:listitem="@layout/item_date" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_date_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/peach1_FF8D6F"
+        android:src="@drawable/ic_date_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge"
+        app:tint="@null" />
 </androidx.constraintlayout.widget.ConstraintLayout>
