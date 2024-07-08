@@ -3,13 +3,6 @@ package com.solux.flory.presentation.date.record
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.databinding.DataBindingUtil.setContentView
-import coil.load
-import com.solux.flory.R
 import com.solux.flory.databinding.ActivityModifyBinding
 import com.solux.flory.presentation.date.DateInfo
 import com.solux.flory.util.base.BindingActivity
@@ -19,18 +12,18 @@ class ModifyActivity : BindingActivity<ActivityModifyBinding>(ActivityModifyBind
         super.onCreate(savedInstanceState)
         initView()
         modifyFlowerAreaClick()
-        btnConfirmClick()
-        btnCancelClick()
+        confirmBtnClick()
+        cancelBtnClick()
     }
 
-    private fun btnConfirmClick() {
+    private fun confirmBtnClick() {
         binding.btnModifyConfirm.setOnClickListener {
             Toast.makeText(this, "수정되었습니다.", Toast.LENGTH_SHORT).show()
             finish()
         }
     }
 
-    private fun btnCancelClick() {
+    private fun cancelBtnClick() {
         binding.btnModifyCancel.setOnClickListener {
             finish()
         }
