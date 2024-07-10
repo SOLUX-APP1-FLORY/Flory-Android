@@ -3,6 +3,7 @@ package com.solux.flory.presentation.date.record
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import coil.load
 import com.solux.flory.databinding.ActivityModifyBinding
 import com.solux.flory.presentation.date.DateInfo
 import com.solux.flory.util.base.BindingActivity
@@ -14,6 +15,18 @@ class ModifyActivity : BindingActivity<ActivityModifyBinding>(ActivityModifyBind
         modifyFlowerAreaClick()
         confirmBtnClick()
         cancelBtnClick()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK) {
+            val flower = data?.getSerializableExtra("flower") as Flower
+            with(binding) {
+                ivModifyFlowerAvatar.load(flower.imageUrl)
+                tvModifyFlowerMeaning.text = flower.meaning
+                tvModifyFlowerName.text = flower.name
+            }
+        }
     }
 
     private fun confirmBtnClick() {
@@ -32,7 +45,7 @@ class ModifyActivity : BindingActivity<ActivityModifyBinding>(ActivityModifyBind
     private fun modifyFlowerAreaClick() {
         binding.clModifyFlowerImage.setOnClickListener {
             val intent = Intent(this, SelectFlowerActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, 0)
         }
     }
 
