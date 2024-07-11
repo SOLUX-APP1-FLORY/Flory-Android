@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_peach_fill_20_rect"
+    android:paddingTop="30dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_neighbor_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_flower"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_profile_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_neighbor_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="파타"
+            android:layout_marginTop="10dp"
+            android:textAppearance="@style/TextAppearance.subtitle4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_flower" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/cl_followcancle_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_neighbor_area"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:id="@id/tv_neighbor_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="파타"
+            android:textAppearance="@style/TextAppearance.body3"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/tv_select_notification" />
+
+        <TextView
+            android:id="@+id/tv_select_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 님을 팔로우 취소 하시겠습니까?"
+            android:textAppearance="@style/TextAppearance.body3"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_divider_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/peach1_FF8D6F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_followcancle_text" />
+
+    <Button
+        android:id="@+id/btn_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/peach4_FFF9F8"
+        android:text="예"
+        android:textAppearance="@style/TextAppearance.subtitle1"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/v_divider_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_divider_horizontal" />
+
+    <View
+        android:id="@+id/v_divider_vertical"
+        android:layout_width="2dp"
+        android:layout_height="50dp"
+        android:background="@color/peach1_FF8D6F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_divider_horizontal" />
+
+    <Button
+        android:id="@+id/btn_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/peach4_FFF9F8"
+        android:text="아니오"
+        android:textAppearance="@style/TextAppearance.subtitle1"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/v_divider_vertical"
+        app:layout_constraintTop_toBottomOf="@id/v_divider_horizontal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
