@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_modify_left_arrow"
+            android:id="@+id/iv_neighborlist_left_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_left_arrow"
@@ -33,12 +33,12 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_modify_left_arrow"
+            app:layout_constraintStart_toEndOf="@id/iv_neighborlist_left_arrow"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
-        android:id="@+id/md_profile_divider"
+        android:id="@+id/md_neighborlist_divider"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@drawable/shadow_down_white"
@@ -54,13 +54,16 @@
         android:paddingVertical="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/md_profile_divider">
+        app:layout_constraintTop_toBottomOf="@id/md_neighborlist_divider"
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/tv_my_neighbors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:text="나의 이웃"
             android:textAppearance="@style/TextAppearance.body2"
             android:textColor="@color/black"
@@ -68,13 +71,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
             android:layout_marginTop="14dp"
             android:background="@drawable/shape_white_line_20_rect"
             android:paddingHorizontal="20dp"
             android:paddingVertical="14dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_profile_modify"
+            android:layout_marginBottom="230dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_neighborlist"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_my_neighbors">
@@ -92,13 +96,14 @@
                 tools:listitem="@layout/item_profile_neighborlist" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <Button
-            android:id="@+id/btn_profile_modify"
+            android:id="@+id/btn_neighborlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/peach1_FF8D6F"
             android:text="확인"
-            android:textAppearance="@style/TextAppearance.title1"
+            android:textAppearance="@style/TextAppearance.body2"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

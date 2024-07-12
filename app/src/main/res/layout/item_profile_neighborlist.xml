@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="50dp">
+    android:layout_height="33dp"
+    android:layout_marginBottom="14dp"
+    >
 
     <ImageView
         android:id="@+id/iv_selectneighbor_image"
@@ -27,20 +29,28 @@
         app:layout_constraintStart_toEndOf="@+id/iv_selectneighbor_image"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_neighborlist_cancle"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="150dp"
-        android:backgroundTint="@color/peach4_FFF9F8"
-        android:text="팔로우 취소"
-        android:textAppearance="@style/TextAppearance.body4"
-        android:textColor="@color/gray1_525252"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_followcancle"
+        android:layout_width="75dp"
+        android:layout_height="20dp"
+        android:background="@drawable/shape_white_line_7_rect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_selectneighbor_nickname"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/peach1_FF8D6F"
-        app:strokeWidth="1dp" />
+        android:layout_marginStart="120dp"
+        >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="팔로우 취소"
+            android:textAppearance="@style/TextAppearance.body4"
+            android:textColor="@color/gray1_525252"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
