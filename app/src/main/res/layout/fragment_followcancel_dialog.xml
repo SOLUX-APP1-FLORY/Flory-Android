@@ -16,9 +16,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_flower"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:id="@+id/iv_neighbor_image"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
             android:src="@drawable/ic_profile_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +32,7 @@
             android:textAppearance="@style/TextAppearance.subtitle4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_flower" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_neighbor_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -46,7 +46,7 @@
         android:layout_marginTop="40dp">
 
         <TextView
-            android:id="@id/tv_neighbor_nickname"
+            android:id="@+id/tv_neighbor_nickname_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="파타"
