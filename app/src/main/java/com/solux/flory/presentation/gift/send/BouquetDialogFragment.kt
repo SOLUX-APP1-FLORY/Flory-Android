@@ -3,6 +3,7 @@ package com.solux.flory.presentation.gift.send
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import coil.load
 import com.solux.flory.R
@@ -40,6 +41,7 @@ class BouquetDialogFragment(
             // 선물페이지4로 이동
             val intent = Intent(requireContext(), WriteMessageActivity::class.java)
             intent.putExtra("bouquet", bouquetInfo)
+            Log.d("bouquetInfo", bouquetInfo.toString())
             startActivity(intent)
         }
     }

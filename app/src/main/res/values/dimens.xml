@@ -1,3 +1,12 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    //card
+    <dimen name="selected_width">66dp</dimen>
+    <dimen name="selected_height">23dp</dimen>
+    <dimen name="unselected_width">40dp</dimen>
+    <dimen name="unselected_height">20dp</dimen>
+
+    <dimen name="selected_margin">0dp</dimen>
+    <dimen name="unselected_margin">5dp</dimen>
 </resources>

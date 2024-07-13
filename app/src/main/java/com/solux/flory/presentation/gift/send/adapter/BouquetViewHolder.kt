@@ -1,9 +1,10 @@
-package com.solux.flory.presentation.gift.send
+package com.solux.flory.presentation.gift.send.adapter
 
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.ItemSelectBouquetBinding
+import com.solux.flory.presentation.gift.send.BouquetInfo
 
 class BouquetViewHolder(
     private val binding: ItemSelectBouquetBinding,

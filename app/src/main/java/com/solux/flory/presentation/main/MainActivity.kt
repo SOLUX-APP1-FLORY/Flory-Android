@@ -19,9 +19,18 @@ class MainActivity : AppCompatActivity() {
 
         val currentFragment = supportFragmentManager.findFragmentById(binding.fcvMain.id)
         if (currentFragment == null) {
-            supportFragmentManager.beginTransaction()
-                .add(binding.fcvMain.id, HomeFragment())
-                .commit()
+
+            if(intent.getStringExtra("gotoFragment") == "GiftFragment") {
+                supportFragmentManager.beginTransaction()
+                    .add(binding.fcvMain.id, GiftFragment())
+                    .commit()
+                binding.bnvMain.selectedItemId = R.id.menu_gift
+            }
+            else {
+                supportFragmentManager.beginTransaction()
+                    .add(binding.fcvMain.id, HomeFragment())
+                    .commit()
+            }
         }
 
         clickBottomNavigation()
