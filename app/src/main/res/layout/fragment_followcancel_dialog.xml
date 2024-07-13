@@ -21,14 +21,16 @@
             android:layout_height="52dp"
             android:src="@drawable/ic_profile_image"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
         <TextView
             android:id="@+id/tv_neighbor_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="파타"
             android:layout_marginTop="10dp"
+            android:text="파타"
             android:textAppearance="@style/TextAppearance.subtitle4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,10 +42,10 @@
         android:id="@+id/cl_followcancle_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_neighbor_area"
-        android:layout_marginTop="40dp">
+        app:layout_constraintTop_toBottomOf="@+id/cl_neighbor_area">
 
         <TextView
             android:id="@+id/tv_neighbor_nickname_info"
