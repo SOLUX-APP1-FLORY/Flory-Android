@@ -9,6 +9,7 @@ import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.ActivityWriteMessageBinding
 import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
+import com.solux.flory.presentation.main.MainActivity
 
 class WriteMessageActivity : AppCompatActivity() {
     lateinit var bouquetInfo: BouquetInfo
@@ -23,6 +24,7 @@ class WriteMessageActivity : AppCompatActivity() {
 
         initView()
         gotoNext()
+        gotoBack()
     }
 
     fun initView() {
@@ -38,6 +40,18 @@ class WriteMessageActivity : AppCompatActivity() {
             val intent = Intent(this, SelectCardActivity::class.java).apply {
                 putExtra("message", viewModel.message.value)
                 putExtra("bouquet", bouquetInfo)
+            }
+            startActivity(intent)
+        }
+    }
+
+    fun gotoBack() {
+        bindig.backBtn.setOnClickListener {
+            finish()
+        }
+        bindig.closeBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("gotoFragment", "GiftFragment")
             }
             startActivity(intent)
         }

@@ -9,6 +9,7 @@ import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.ActivitySelectCardBinding
 import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
+import com.solux.flory.presentation.main.MainActivity
 import com.solux.flory.util.base.BindingActivity
 
 class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySelectCardBinding::inflate) {
@@ -31,6 +32,7 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         initView()
         selectColor()
         sendPresent()
+        gotoBack()
 
     }
 
@@ -117,6 +119,18 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         binding.goNextBtn.setOnClickListener {
             val intent = Intent(this, SendCompleteActivity::class.java).apply {
                 putExtra("bouquet", bouquetInfo)
+            }
+            startActivity(intent)
+        }
+    }
+
+    fun gotoBack() {
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
+        binding.closeBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("gotoFragment", "GiftFragment")
             }
             startActivity(intent)
         }
