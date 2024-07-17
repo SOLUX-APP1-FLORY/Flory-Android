@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_neighborlist_left_arrow"
+            android:id="@+id/iv_neighbors_list_left_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_left_arrow"
@@ -33,12 +33,12 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_neighborlist_left_arrow"
+            app:layout_constraintStart_toEndOf="@id/iv_neighbors_list_left_arrow"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
-        android:id="@+id/md_neighborlist_divider"
+        android:id="@+id/md_neighbors_list_divider"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@drawable/shadow_down_white"
@@ -56,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/md_neighborlist_divider"
+        app:layout_constraintTop_toBottomOf="@id/md_neighbors_list_divider"
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
@@ -79,16 +79,18 @@
             android:paddingHorizontal="20dp"
             android:paddingVertical="14dp"
             android:layout_marginBottom="230dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_neighborlist"
+            app:layout_constraintBottom_toTopOf="@+id/btn_neighbors_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_my_neighbors">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_neighborslist"
+                android:id="@+id/rv_neighbors"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
+                android:paddingHorizontal="20dp"
+                android:paddingBottom="14dp"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +101,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/btn_neighborlist"
+            android:id="@+id/btn_neighbors_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/peach1_FF8D6F"

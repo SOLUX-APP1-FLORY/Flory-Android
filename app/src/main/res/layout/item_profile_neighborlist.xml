@@ -2,16 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
-    android:layout_height="33dp"
-    android:layout_marginBottom="14dp"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/iv_selectneighbor_image"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="16dp"
         android:src="@drawable/ic_profile_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,34 +19,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="선재"
+        tools:text="선재"
         android:textAppearance="@style/TextAppearance.subtitle4"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_selectneighbor_image"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_followcancle"
-        android:layout_width="75dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="120dp"
-        android:background="@drawable/shape_white_line_7_rect"
+    <Button
+        android:id="@+id/btn_followcancle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/peach6_FFF4F2"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="3dp"
+        android:text="팔로우 취소"
+        android:textAppearance="@style/TextAppearance.body4"
+        android:textColor="@color/gray1_525252"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_selectneighbor_image"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="팔로우 취소"
-            android:textAppearance="@style/TextAppearance.body4"
-            android:textColor="@color/gray1_525252"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/peach1_FF8D6F"
+        app:strokeWidth="0.5dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

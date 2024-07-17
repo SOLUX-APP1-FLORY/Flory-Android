@@ -18,7 +18,8 @@
         <ImageView
             android:id="@+id/iv_neighbor_image"
             android:layout_width="52dp"
-            android:layout_height="52dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1"
             android:src="@drawable/ic_profile_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,8 +30,8 @@
             android:id="@+id/tv_neighbor_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="파타"
+            android:layout_marginTop="8dp"
+            tools:text="파타"
             android:textAppearance="@style/TextAppearance.subtitle4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,7 @@
         android:id="@+id/cl_followcancle_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cl_neighbor_area">
@@ -51,7 +52,7 @@
             android:id="@+id/tv_neighbor_nickname_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="파타"
+            tools:text="파타"
             android:textAppearance="@style/TextAppearance.body3"
             android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/tv_select_notification" />
@@ -70,14 +71,14 @@
         android:id="@+id/v_divider_horizontal"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="28dp"
         android:background="@color/peach1_FF8D6F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cl_followcancle_text" />
 
     <Button
-        android:id="@+id/btn_yes"
+        android:id="@+id/btn_follow_cancle_yes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/peach4_FFF9F8"
@@ -99,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@id/v_divider_horizontal" />
 
     <Button
-        android:id="@+id/btn_no"
+        android:id="@+id/btn_follow_cancle_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/peach4_FFF9F8"
