@@ -18,9 +18,10 @@ class ConfirmActivity : BindingActivity<ActivityGiftConfirmBinding>(ActivityGift
 
     private fun initAdapter() {
         adapter = PresentAdapter{
-            val intent = Intent(this, PresentDetailActivity::class.java)
-            intent.putExtra("presentInfo", it)
-            startActivity(intent)
+            Intent(this, PresentDetailActivity::class.java).apply{
+                putExtra("presentInfo", it)
+                startActivity(this)
+            }
         }
         binding.rvPresents.adapter = adapter
         adapter.submitList(viewModel.mockPresent)
