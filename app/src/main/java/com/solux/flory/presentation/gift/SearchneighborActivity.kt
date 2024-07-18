@@ -2,12 +2,12 @@ package com.solux.flory.presentation.gift
 
 import android.os.Bundle
 import com.solux.flory.R
-import com.solux.flory.databinding.ActivityGiftSearchneighborBinding
+import com.solux.flory.databinding.ActivityGiftSearchNeighborBinding
 import com.solux.flory.presentation.gift.GiftFragment
 import com.solux.flory.util.base.BindingActivity
 
-class SearchneighborActivity : BindingActivity<ActivityGiftSearchneighborBinding>({
-    ActivityGiftSearchneighborBinding.inflate(it)
+class SearchneighborActivity : BindingActivity<ActivityGiftSearchNeighborBinding>({
+    ActivityGiftSearchNeighborBinding.inflate(it)
 }) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +16,7 @@ class SearchneighborActivity : BindingActivity<ActivityGiftSearchneighborBinding
     }
 
     private fun leftArrowClick() {
-        binding.ivSearchneighborLeftArrow.setOnClickListener {
+        binding.ivSearchNeighborLeftArrow.setOnClickListener {
             finish()
         }
     }

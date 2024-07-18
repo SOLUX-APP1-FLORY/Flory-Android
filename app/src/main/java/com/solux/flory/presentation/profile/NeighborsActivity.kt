@@ -29,18 +29,18 @@ class NeighborsActivity : BindingActivity<ActivityNeighborsBinding>(ActivityNeig
             val dialog = NeighborDialogFragment(it)
             dialog.show(supportFragmentManager, dialog.tag)
         }
-        binding.rvNeighborslist.adapter = adapter
+        binding.rvNeighbors.adapter = adapter
         adapter.submitList(viewModel.mockNeighbors)
     }
 
     private fun leftArrowClick() {
-        binding.ivNeighborlistLeftArrow.setOnClickListener {
+        binding.ivNeighborsLeftArrow.setOnClickListener {
             finish()
         }
     }
 
     private fun confirmBtnClick() {
-        binding.btnNeighborlist.setOnClickListener {
+        binding.btnNeighborsConfirm.setOnClickListener {
             finish()
         }
     }

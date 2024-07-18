@@ -6,12 +6,12 @@ import android.view.View
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.solux.flory.R
-import com.solux.flory.databinding.FragmentFollowcancelDialogBinding
+import com.solux.flory.databinding.FragmentFollowCancelDialogBinding
 import com.solux.flory.util.base.BindingDialogFragment
 
 class NeighborDialogFragment(
     private val neighborInfo: NeighborInfo
-) : BindingDialogFragment<FragmentFollowcancelDialogBinding>(FragmentFollowcancelDialogBinding::inflate) {
+) : BindingDialogFragment<FragmentFollowCancelDialogBinding>(FragmentFollowCancelDialogBinding::inflate) {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = Dialog(requireContext(), R.style.CustomDialogTheme)
@@ -35,14 +35,14 @@ class NeighborDialogFragment(
     }
 
     private fun confirmBtnClick() {
-        binding.btnYes.setOnClickListener {
+        binding.btnFollowCancleYes.setOnClickListener {
             dismiss()
             //팔로우 끊기 기능 구현
         }
     }
 
     private fun cancelBtnClick() {
-        binding.btnNo.setOnClickListener {
+        binding.btnFollowCancleNo.setOnClickListener {
             dismiss()
         }
     }

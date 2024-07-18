@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.solux.flory.databinding.ItemGiftSelectneighborsBinding
+import com.solux.flory.databinding.ItemGiftSelectNeighborBinding
 import com.solux.flory.presentation.profile.NeighborInfo
 
 class SelectneighborAdapter(
@@ -14,7 +14,7 @@ class SelectneighborAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectneighborViewHolder {
         return SelectneighborViewHolder(
-            ItemGiftSelectneighborsBinding.inflate(
+            ItemGiftSelectNeighborBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false

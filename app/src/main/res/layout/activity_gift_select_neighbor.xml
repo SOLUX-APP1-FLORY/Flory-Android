@@ -79,7 +79,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="27dp"
+        android:layout_marginVertical="29dp"
         android:layout_marginStart="38dp"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toTopOf="@+id/textView"
@@ -135,25 +135,22 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_gift_select_neighbor"
-        android:layout_width="match_parent"
-        android:layout_height="331dp"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
         android:layout_marginTop="150dp"
         android:background="@drawable/shape_white_line_20_rect"
-        android:layout_marginHorizontal="12dp"
-        android:paddingHorizontal="15dp"
+        android:layout_marginHorizontal="15dp"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cl_select_neighbor_header">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_gift_send_neighbor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/item_gift_select_neighbor" />
@@ -163,10 +160,10 @@
         android:id="@+id/btn_select_neighbor_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/peach4_FFF9F8"
-        android:text="확인"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="15dp"
+        android:backgroundTint="@color/peach4_FFF9F8"
+        android:text="확인"
         android:textAppearance="@style/TextAppearance.subtitle1"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

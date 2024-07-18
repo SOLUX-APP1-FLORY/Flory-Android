@@ -4,12 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.solux.flory.databinding.ActivityGiftSelectneighborBinding
+import com.solux.flory.databinding.ActivityGiftSelectNeighborBinding
 import com.solux.flory.presentation.profile.NeighborInfo
 import com.solux.flory.presentation.profile.ProfileViewModel
 import com.solux.flory.util.base.BindingActivity
 
-class SelectneighborActivity : BindingActivity<ActivityGiftSelectneighborBinding>(ActivityGiftSelectneighborBinding::inflate){
+class SelectneighborActivity : BindingActivity<ActivityGiftSelectNeighborBinding>(ActivityGiftSelectNeighborBinding::inflate){
     private lateinit var adapter: SelectneighborAdapter
     private val viewModel by viewModels<ProfileViewModel>()
     private var selectedNeighbor: NeighborInfo? = null
@@ -24,13 +24,13 @@ class SelectneighborActivity : BindingActivity<ActivityGiftSelectneighborBinding
 
     private fun initAdapter() {
         adapter = SelectneighborAdapter { _ -> }
-        binding.rvGiftSendneighbor.adapter = adapter
+        binding.rvGiftSendNeighbor.adapter = adapter
         adapter.submitList(viewModel.mockNeighbors)
 
     }
 
     private fun confimBtnClick() {
-        binding.clSelectneighborConfirm.setOnClickListener {
+        binding.btnSelectNeighborConfirm.setOnClickListener {
             selectedNeighbor = adapter.getSelectedNeighbor()
             selectedNeighbor?.let { neighbor ->
                 val intent = Intent(this@SelectneighborActivity, SelectBouquetActivity::class.java)
@@ -43,7 +43,7 @@ class SelectneighborActivity : BindingActivity<ActivityGiftSelectneighborBinding
     }
 
     private fun impossibleBtnClick(){
-        binding.ivSelectneighborImpossible.setOnClickListener{
+        binding.ivSelectNeighborImpossible.setOnClickListener{
             finish()
         }
     }

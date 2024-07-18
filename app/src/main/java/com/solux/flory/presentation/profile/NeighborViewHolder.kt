@@ -11,11 +11,11 @@ class NeighborViewHolder(
 ) :
     RecyclerView.ViewHolder(binding.root){
     fun bind(neighborInfo: NeighborInfo) {
-        binding.ivSelectneighborImage.load(neighborInfo.profileImage) {
+        binding.ivSelectNeighborImage.load(neighborInfo.profileImage) {
             transformations(CircleCropTransformation())
         }
-        binding.tvSelectneighborNickname.text = neighborInfo.profileName
-        binding.clFollowcancle.setOnClickListener{
+        binding.tvSelectNeighborNickname.text = neighborInfo.profileName
+        binding.btnFollowCancle.setOnClickListener{
             onClick(neighborInfo)
         }
     }
