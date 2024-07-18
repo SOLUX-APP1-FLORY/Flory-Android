@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.solux.flory.databinding.FragmentGiftBinding
 import com.solux.flory.presentation.gift.confirm.ConfirmActivity
-import com.solux.flory.presentation.gift.send.SelectneighborActivity
+import com.solux.flory.presentation.gift.send.SelectNeighborActivity
 import com.solux.flory.util.base.BindingFragment
 
 class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::inflate) {
@@ -19,7 +19,7 @@ class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::i
 
     private fun leftArrowClick() {
         binding.ivGiftLeftArrow.setOnClickListener {
-            val intent = Intent(requireContext(), SearchneighborActivity::class.java)
+            val intent = Intent(requireContext(), SearchNeighborActivity::class.java)
             startActivity(intent)
         }
     }
@@ -33,7 +33,7 @@ class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::i
 
     private fun flowersendImageClick() {
         binding.ivGiftFlowersend.setOnClickListener {
-            val intent = Intent(requireContext(), SelectneighborActivity::class.java)
+            val intent = Intent(requireContext(), SelectNeighborActivity::class.java)
             startActivity(intent)
         }
     }

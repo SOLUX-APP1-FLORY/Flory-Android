@@ -8,15 +8,17 @@ import com.solux.flory.databinding.ItemProfileNeighborlistBinding
 class NeighborViewHolder(
     private val binding: ItemProfileNeighborlistBinding,
     private val onClick: (NeighborInfo) -> Unit,
-) :
-    RecyclerView.ViewHolder(binding.root){
+) : RecyclerView.ViewHolder(binding.root) {
+
     fun bind(neighborInfo: NeighborInfo) {
-        binding.ivSelectNeighborImage.load(neighborInfo.profileImage) {
-            transformations(CircleCropTransformation())
-        }
-        binding.tvSelectNeighborNickname.text = neighborInfo.profileName
-        binding.btnFollowCancle.setOnClickListener{
-            onClick(neighborInfo)
+        with(binding) {
+            ivSelectNeighborImage.load(neighborInfo.profileImage) {
+                transformations(CircleCropTransformation())
+            }
+            tvSelectNeighborNickname.text = neighborInfo.profileName
+            btnFollowCancle.setOnClickListener {
+                onClick(neighborInfo)
+            }
         }
     }
 }

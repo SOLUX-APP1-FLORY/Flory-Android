@@ -4,9 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.solux.flory.databinding.ActivityGiftConfirmBinding
-import com.solux.flory.presentation.date.record.FlowerAdapter
-import com.solux.flory.presentation.date.record.FlowerDialogFragment
-import com.solux.flory.presentation.gift.send.SelectneighborActivity
 import com.solux.flory.util.base.BindingActivity
 
 class ConfirmActivity : BindingActivity<ActivityGiftConfirmBinding>(ActivityGiftConfirmBinding::inflate){

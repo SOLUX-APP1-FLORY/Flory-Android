@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.DiffUtil
 import com.solux.flory.databinding.ItemGiftSelectNeighborBinding
 import com.solux.flory.presentation.profile.NeighborInfo
 
-class SelectneighborAdapter(
+class SelectNeighborAdapter(
     private val onNeighborClick: (NeighborInfo) -> Unit
-) : ListAdapter<NeighborInfo, SelectneighborViewHolder>(DiffUtil) {
+) : ListAdapter<NeighborInfo, SelectNeighborViewHolder>(DiffUtil) {
     private var selectedNeighbor: NeighborInfo? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectneighborViewHolder {
-        return SelectneighborViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectNeighborViewHolder {
+        return SelectNeighborViewHolder(
             ItemGiftSelectNeighborBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -30,7 +30,7 @@ class SelectneighborAdapter(
         }
     }
 
-        override fun onBindViewHolder(holder: SelectneighborViewHolder, position: Int) {
+        override fun onBindViewHolder(holder: SelectNeighborViewHolder, position: Int) {
             val neighborInfo = getItem(position)
             holder.bind(neighborInfo, neighborInfo == selectedNeighbor)
         }

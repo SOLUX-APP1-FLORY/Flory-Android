@@ -16,8 +16,9 @@ class SelectBouquetActivity : BindingActivity<ActivityGiftSelectBouquetBinding>(
 
         initAdapter()
         impossibleBtnClick()
-
-        val neighborInfo = intent.getSerializableExtra("selectedNeighbor") as? NeighborInfo
+        
+        val NEIGHBOR_KEY = "selectedNeighbor"
+        val neighborInfo = intent.getSerializableExtra(NEIGHBOR_KEY) as? NeighborInfo
         neighborInfo?.let {
             binding.ivGiftImage.load(neighborInfo.profileImage) {
                 transformations(CircleCropTransformation())

@@ -9,8 +9,8 @@ import com.solux.flory.presentation.profile.NeighborInfo
 import com.solux.flory.presentation.profile.ProfileViewModel
 import com.solux.flory.util.base.BindingActivity
 
-class SelectneighborActivity : BindingActivity<ActivityGiftSelectNeighborBinding>(ActivityGiftSelectNeighborBinding::inflate){
-    private lateinit var adapter: SelectneighborAdapter
+class SelectNeighborActivity : BindingActivity<ActivityGiftSelectNeighborBinding>(ActivityGiftSelectNeighborBinding::inflate){
+    private lateinit var adapter: SelectNeighborAdapter
     private val viewModel by viewModels<ProfileViewModel>()
     private var selectedNeighbor: NeighborInfo? = null
 
@@ -23,7 +23,7 @@ class SelectneighborActivity : BindingActivity<ActivityGiftSelectNeighborBinding
     }
 
     private fun initAdapter() {
-        adapter = SelectneighborAdapter { _ -> }
+        adapter = SelectNeighborAdapter { _ -> }
         binding.rvGiftSendNeighbor.adapter = adapter
         adapter.submitList(viewModel.mockNeighbors)
 
@@ -33,9 +33,10 @@ class SelectneighborActivity : BindingActivity<ActivityGiftSelectNeighborBinding
         binding.btnSelectNeighborConfirm.setOnClickListener {
             selectedNeighbor = adapter.getSelectedNeighbor()
             selectedNeighbor?.let { neighbor ->
-                val intent = Intent(this@SelectneighborActivity, SelectBouquetActivity::class.java)
-                intent.putExtra("selectedNeighbor", neighbor)
-                startActivity(intent)
+                Intent(this@SelectNeighborActivity, SelectBouquetActivity::class.java).apply {
+                    putExtra("selectedNeighbor", neighbor)
+                    startActivity(this)
+                }
             } ?: run {
                 Toast.makeText(this, "선택된 이웃이 없습니다", Toast.LENGTH_SHORT).show()
             }

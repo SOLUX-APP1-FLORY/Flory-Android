@@ -27,11 +27,13 @@ class NeighborDialogFragment(
     }
 
     private fun initView() {
-        binding.ivNeighborImage.load(neighborInfo.profileImage) {
-            transformations(CircleCropTransformation())
+        with(binding){
+            ivNeighborImage.load(neighborInfo.profileImage) {
+                transformations(CircleCropTransformation())
+            }
+            tvNeighborNickname.text = neighborInfo.profileName
+            tvNeighborNicknameInfo.text = neighborInfo.profileName
         }
-        binding.tvNeighborNickname.text = neighborInfo.profileName
-        binding.tvNeighborNicknameInfo.text = neighborInfo.profileName
     }
 
     private fun confirmBtnClick() {

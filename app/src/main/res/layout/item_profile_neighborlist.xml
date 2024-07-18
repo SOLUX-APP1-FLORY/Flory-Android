@@ -35,7 +35,7 @@
         android:backgroundTint="@color/peach6_FFF4F2"
         android:layout_marginStart="150dp"
         android:paddingHorizontal="16dp"
-        android:paddingVertical="3dp"
+        android:paddingVertical="5dp"
         android:text="팔로우 취소"
         android:textAppearance="@style/TextAppearance.body4"
         android:textColor="@color/gray1_525252"
