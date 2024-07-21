@@ -19,22 +19,25 @@ class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::i
 
     private fun leftArrowClick() {
         binding.ivGiftLeftArrow.setOnClickListener {
-            val intent = Intent(requireContext(), SearchNeighborActivity::class.java)
-            startActivity(intent)
+            Intent(requireContext(), SearchNeighborActivity::class.java).apply {
+                startActivity(this)
+            }
         }
     }
 
     private fun flowerconfirmImageClick() {
         binding.ivGiftFlowerconfirm.setOnClickListener {
-            val intent = Intent(requireContext(), ConfirmActivity::class.java)
-            startActivity(intent)
+            Intent(requireContext(), ConfirmActivity::class.java).apply {
+                startActivity(this)
+            }
         }
     }
 
     private fun flowersendImageClick() {
         binding.ivGiftFlowersend.setOnClickListener {
-            val intent = Intent(requireContext(), SelectNeighborActivity::class.java)
-            startActivity(intent)
+            Intent(requireContext(), SelectNeighborActivity::class.java).apply {
+                startActivity(this)
+            }
         }
     }
 }

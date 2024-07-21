@@ -16,8 +16,7 @@ class SelectBouquetActivity : BindingActivity<ActivityGiftSelectBouquetBinding>(
 
         initAdapter()
         impossibleBtnClick()
-        
-        val NEIGHBOR_KEY = "selectedNeighbor"
+
         val neighborInfo = intent.getSerializableExtra(NEIGHBOR_KEY) as? NeighborInfo
         neighborInfo?.let {
             binding.ivGiftImage.load(neighborInfo.profileImage) {
@@ -40,5 +39,8 @@ class SelectBouquetActivity : BindingActivity<ActivityGiftSelectBouquetBinding>(
         binding.ivSelectBouquetImpossible.setOnClickListener{
             finish()
         }
+    }
+    companion object {
+        const val NEIGHBOR_KEY = "selectedNeighbor"
     }
 }

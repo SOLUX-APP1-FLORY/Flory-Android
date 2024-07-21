@@ -117,7 +117,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/text_search_neighbor_nouser"
+                android:id="@+id/tv_search_neighbor_nouser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="해당 닉네임의 회원이 없습니다."
