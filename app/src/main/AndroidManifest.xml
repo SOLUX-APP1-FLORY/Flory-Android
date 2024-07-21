@@ -48,7 +48,7 @@
             android:name=".presentation.main.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.gift.SearchneighborActivity"
+            android:name=".presentation.gift.SearchNeighborActivity"
             android:exported="true" />
         <activity
             android:name=".presentation.gift.confirm.ConfirmActivity"
@@ -57,7 +57,7 @@
             android:name=".presentation.gift.confirm.PresentDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.gift.send.SelectneighborActivity"
+            android:name=".presentation.gift.send.SelectNeighborActivity"
             android:exported="true" />
         <activity android:name=".presentation.gift.send.SelectBouquetActivity"
             android:exported="true" />

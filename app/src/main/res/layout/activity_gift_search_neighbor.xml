@@ -7,7 +7,7 @@
     android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_searchneighbor_header"
+        android:id="@+id/cl_search_neighbor_header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="24dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_searchneighbor_left_arrow"
+            android:id="@+id/iv_search_neighbor_left_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_left_arrow"
@@ -33,18 +33,18 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_searchneighbor_left_arrow"
+            app:layout_constraintStart_toEndOf="@id/iv_search_neighbor_left_arrow"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
-        android:id="@+id/md_searchneighbor_divider"
+        android:id="@+id/md_search_neighbor_divider"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:background="@drawable/shadow_down_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_searchneighbor_header" />
+        app:layout_constraintTop_toBottomOf="@id/cl_search_neighbor_header" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -54,21 +54,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_searchneighbor_header">
+        app:layout_constraintTop_toBottomOf="@+id/cl_search_neighbor_header">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_searchneighbor_searchbar"
+            android:id="@+id/cl_search_neighbor_searchbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="24dp"
-            app:layout_constraintBottom_toTopOf="@+id/cl_searchneighbor_nouser"
+            app:layout_constraintBottom_toTopOf="@+id/cl_search_neighbor_nouser"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
-                android:id="@+id/et_search_nickname"
+                android:id="@+id/et_search_neighbor_nickname"
                 android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:background="@drawable/shape_white_radius26"
@@ -83,20 +83,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/btn_searchneighbors_search"
+                android:id="@+id/btn_search_neighbor_search"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="200dp"
                 android:src="@drawable/ic_gift_search"
-                app:layout_constraintBottom_toBottomOf="@+id/et_search_nickname"
-                app:layout_constraintEnd_toEndOf="@+id/et_search_nickname"
-                app:layout_constraintStart_toStartOf="@+id/et_search_nickname"
-                app:layout_constraintTop_toTopOf="@+id/et_search_nickname" />
+                app:layout_constraintBottom_toBottomOf="@+id/et_search_neighbor_nickname"
+                app:layout_constraintEnd_toEndOf="@+id/et_search_neighbor_nickname"
+                app:layout_constraintStart_toStartOf="@+id/et_search_neighbor_nickname"
+                app:layout_constraintTop_toTopOf="@+id/et_search_neighbor_nickname" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_searchneighbor_nouser"
+            android:id="@+id/cl_search_neighbor_nouser"
             android:layout_width="350dp"
             android:layout_height="0dp"
             android:layout_marginBottom="446dp"
@@ -104,10 +104,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cl_searchneighbor_searchbar">
+            app:layout_constraintTop_toBottomOf="@+id/cl_search_neighbor_searchbar">
 
             <ImageView
-                android:id="@+id/iv_searchneighbor_nouser"
+                android:id="@+id/iv_search_neighbor_nouser"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/ic_gift_nouser"
@@ -117,7 +117,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/text_nouser"
+                android:id="@+id/tv_search_neighbor_nouser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="해당 닉네임의 회원이 없습니다."
@@ -126,7 +126,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_searchneighbor_nouser" />
+                app:layout_constraintTop_toBottomOf="@+id/iv_search_neighbor_nouser" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -138,14 +138,14 @@
             android:layout_marginBottom="80dp">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_searchneighbor"
+                android:id="@+id/rv_search_neighbor"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_gift_searchneighbors" />
+                tools:listitem="@layout/item_gift_search_neighbors" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

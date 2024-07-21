@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="6dp"
+    android:paddingHorizontal="17dp">
+
+    <ImageView
+        android:id="@+id/iv_select_neighbor_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_profile_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_select_neighbor_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        tools:text="선재"
+        android:textAppearance="@style/TextAppearance.subtitle4"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_select_neighbor_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_follow_cancle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/peach6_FFF4F2"
+        android:layout_marginStart="150dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="5dp"
+        android:text="팔로우 취소"
+        android:textAppearance="@style/TextAppearance.body4"
+        android:textColor="@color/gray1_525252"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_select_neighbor_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/peach1_FF8D6F"
+        app:strokeWidth="0.5dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

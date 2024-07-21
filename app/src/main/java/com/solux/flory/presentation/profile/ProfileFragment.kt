@@ -33,8 +33,8 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
     private fun neighborsTextClick() {
         binding.tvProfileNeighbors.setOnClickListener {
-            //이웃 목록 페이지로 이동
-
+            val intent = Intent(requireContext(), NeighborsActivity::class.java)
+            startActivity(intent)
         }
     }
 
