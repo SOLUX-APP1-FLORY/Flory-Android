@@ -40,5 +40,20 @@
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile">
 
+        <action
+            android:id="@+id/action_fragment_profile_to_fragment_profile_modify"
+            app:destination="@id/fragment_profile_modify" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_profile_modify"
+        android:name="com.solux.flory.presentation.profile.ProfileModifyFragment"
+        android:label="ProfileModifyFragment"
+        tools:layout="@layout/fragment_profile_modify">
+
+        <action
+            android:id="@+id/action_fragment_profile_modify_to_fragment_profile"
+            app:destination="@id/fragment_profile"
+            app:popUpTo="@id/fragment_profile"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>

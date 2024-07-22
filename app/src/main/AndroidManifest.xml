@@ -47,11 +47,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.profile.ProfileModifyActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Flory" />
-        <activity
             android:name=".presentation.main.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
