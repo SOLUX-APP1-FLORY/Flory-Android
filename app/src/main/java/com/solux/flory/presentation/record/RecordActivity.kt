@@ -1,4 +1,4 @@
-package com.solux.flory.presentation.date.record
+package com.solux.flory.presentation.record
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,11 +14,18 @@ class RecordActivity : BindingActivity<ActivityRecordBinding>({
         super.onCreate(savedInstanceState)
         plantAreaClick()
         confirmBtnClick()
+        leftArrowBtnClick()
         val flower = intent.getSerializableExtra("flower") as? Flower
         flower?.let {
             binding.ivRecordPlant.load(it.imageUrl)
             binding.tvRecordFlowerMeaning.text = it.meaning
             binding.tvRecordFlowerName.text = it.name
+        }
+    }
+
+    private fun leftArrowBtnClick() {
+        binding.ivModifyLeftArrow.setOnClickListener {
+            finish()
         }
     }
 

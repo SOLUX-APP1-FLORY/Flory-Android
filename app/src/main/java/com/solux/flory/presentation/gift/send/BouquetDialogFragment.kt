@@ -7,7 +7,7 @@ import android.view.View
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftDialogBinding
-import com.solux.flory.presentation.date.record.RecordActivity
+import com.solux.flory.presentation.record.RecordActivity
 import com.solux.flory.util.base.BindingDialogFragment
 
 class BouquetDialogFragment(

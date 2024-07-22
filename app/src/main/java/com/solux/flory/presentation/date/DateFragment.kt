@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import com.solux.flory.databinding.FragmentDateBinding
-import com.solux.flory.presentation.date.record.RecordActivity
+import com.solux.flory.presentation.record.RecordActivity
 import com.solux.flory.util.base.BindingFragment
 
 class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::inflate) {

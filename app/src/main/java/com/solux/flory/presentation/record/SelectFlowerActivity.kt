@@ -1,4 +1,4 @@
-package com.solux.flory.presentation.date.record
+package com.solux.flory.presentation.record
 
 import android.graphics.Color
 import android.os.Bundle

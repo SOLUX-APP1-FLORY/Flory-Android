@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.date.record.RecordActivity">
+    tools:context=".presentation.record.RecordActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_modify_header"
@@ -215,6 +215,7 @@
                     android:layout_height="120dp"
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
+                    android:gravity="top"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

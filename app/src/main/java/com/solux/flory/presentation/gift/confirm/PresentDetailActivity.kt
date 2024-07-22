@@ -9,7 +9,7 @@ import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.ActivityGiftDetailBinding
 import com.solux.flory.databinding.ActivityRecordBinding
-import com.solux.flory.presentation.date.record.Flower
+import com.solux.flory.presentation.record.Flower
 import com.solux.flory.presentation.gift.confirm.PresentInfo
 import com.solux.flory.presentation.gift.send.SelectBouquetActivity
 import com.solux.flory.util.base.BindingActivity
