@@ -19,26 +19,26 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment using data binding
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
-        // Initialize ViewModel
         viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
-
-        // Set the ViewModel in the binding
         binding.viewModel = viewModel
 
-        // Observe LiveData for background change
         viewModel.rangeValue.observe(viewLifecycleOwner) { rangeValue ->
             updateBackgroundForRange(rangeValue)
+            updateUserIconForRange(rangeValue)
         }
 
-        // Return the root view of the fragment
         return binding.root
     }
     private fun updateBackgroundForRange(value: Int) {
         val backgroundResource = getBackgroundResourceForRange(value)
         binding.clHomeFragment.setBackgroundResource(backgroundResource)
+    }
+
+    private fun updateUserIconForRange(value: Int){
+        val usericonResource = getUserIconResourceForRange(value)
+        binding.ivHomeUserIcon.setImageResource(usericonResource)
     }
 
     private fun getBackgroundResourceForRange(value: Int): Int {
@@ -48,6 +48,14 @@ class HomeFragment : Fragment() {
             value <= 17 -> R.drawable.background_home3
             value <= 23 -> R.drawable.background_home4
             else -> R.drawable.background_home5
+        }
+    }
+
+    private fun getUserIconResourceForRange(value: Int): Int {
+        return when {
+            value <= 11 -> R.drawable.ic_home_user_female1
+            value <= 17 -> R.drawable.ic_home_user_female2
+            else -> R.drawable.ic_home_user_female3
         }
     }
 

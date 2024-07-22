@@ -47,14 +47,14 @@
 
     <ImageView
         android:id="@+id/iv_home_user_icon"
-        android:layout_width="99.75dp"
-        android:layout_height="108dp"
-        android:src="@drawable/ic_home_girl_user1"
+        android:layout_width="110dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_home_user_female1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="120dp"/>
+        android:layout_marginTop="200dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
