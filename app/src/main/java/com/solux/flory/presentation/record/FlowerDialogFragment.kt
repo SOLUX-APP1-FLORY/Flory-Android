@@ -1,5 +1,6 @@
 package com.solux.flory.presentation.record
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
@@ -35,9 +36,10 @@ class FlowerDialogFragment(
     private fun confirmBtnClick() {
         binding.btnConfirm.setOnClickListener {
             dismiss()
-            val intent = Intent(requireContext(), RecordActivity::class.java)
+            val intent = Intent()
             intent.putExtra("flower", flower)
-            startActivity(intent)
+            activity?.setResult(Activity.RESULT_OK, intent)
+            activity?.finish()
         }
     }
 

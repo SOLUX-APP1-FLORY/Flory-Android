@@ -3,9 +3,11 @@ package com.solux.flory.presentation.date
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import com.solux.flory.databinding.FragmentDateBinding
 import com.solux.flory.presentation.record.RecordActivity
+import com.solux.flory.presentation.date.record.ModifyActivity
 import com.solux.flory.util.base.BindingFragment
 
 class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::inflate) {
@@ -22,7 +24,11 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
     }
 
     private fun initAdapter() {
-        adapter = DateAdapter()
+        adapter = DateAdapter() {
+            val intent = Intent(requireContext(), ModifyActivity::class.java)
+            intent.putExtra("date", it)
+            startActivity(intent)
+        }
         binding.rvDate.adapter = adapter
         viewModel.dateList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
