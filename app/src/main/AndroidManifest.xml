@@ -25,10 +25,6 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".presentation.profile.NeighborsActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".presentation.auth.UserInfoActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>

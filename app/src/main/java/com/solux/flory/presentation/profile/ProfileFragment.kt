@@ -35,8 +35,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
     private fun neighborsTextClick() {
         binding.tvProfileNeighbors.setOnClickListener {
-            val intent = Intent(requireContext(), NeighborsActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_fragment_profile_to_fragment_neighbors)
         }
     }
 

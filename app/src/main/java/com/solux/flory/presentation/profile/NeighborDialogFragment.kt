@@ -3,6 +3,7 @@ package com.solux.flory.presentation.profile
 import android.app.Dialog
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.solux.flory.R
@@ -39,7 +40,7 @@ class NeighborDialogFragment(
     private fun confirmBtnClick() {
         binding.btnFollowCancleYes.setOnClickListener {
             dismiss()
-            //팔로우 끊기 기능 구현
+            findNavController().navigate(R.id.action_fragment_neighbors_to_fragment_profile)
         }
     }
 

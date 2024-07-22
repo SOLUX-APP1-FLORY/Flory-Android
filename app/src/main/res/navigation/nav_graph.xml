@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_fragment_profile_to_fragment_profile_modify"
             app:destination="@id/fragment_profile_modify" />
+        <action
+            android:id="@+id/action_fragment_profile_to_fragment_neighbors"
+            app:destination="@id/fragment_neighbors" />
     </fragment>
     <fragment
         android:id="@+id/fragment_profile_modify"
@@ -52,6 +55,18 @@
 
         <action
             android:id="@+id/action_fragment_profile_modify_to_fragment_profile"
+            app:destination="@id/fragment_profile"
+            app:popUpTo="@id/fragment_profile"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_neighbors"
+        android:name="com.solux.flory.presentation.profile.NeighborsFragment"
+        android:label="NeighborsFragment"
+        tools:layout="@layout/fragment_neighbors">
+
+        <action
+            android:id="@+id/action_fragment_neighbors_to_fragment_profile"
             app:destination="@id/fragment_profile"
             app:popUpTo="@id/fragment_profile"
             app:popUpToInclusive="true"/>
