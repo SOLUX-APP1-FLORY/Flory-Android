@@ -2,6 +2,8 @@ package com.solux.flory.presentation.date.record
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import coil.load
 import com.solux.flory.databinding.ActivityRecordBinding
 import com.solux.flory.presentation.main.MainActivity
@@ -14,26 +16,30 @@ class RecordActivity : BindingActivity<ActivityRecordBinding>({
         super.onCreate(savedInstanceState)
         plantAreaClick()
         confirmBtnClick()
-        val flower = intent.getSerializableExtra("flower") as? Flower
-        flower?.let {
-            binding.ivRecordPlant.load(it.imageUrl)
-            binding.tvRecordFlowerMeaning.text = it.meaning
-            binding.tvRecordFlowerName.text = it.name
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK) {
+            val flower = data?.getSerializableExtra("flower") as Flower
+            with(binding) {
+                ivRecordPlant.load(flower.imageUrl)
+                tvRecordFlowerMeaning.text = flower.meaning
+                tvRecordFlowerName.text = flower.name
+            }
         }
     }
 
     private fun plantAreaClick() {
         binding.clRecordPlant.setOnClickListener {
             val intent = Intent(this@RecordActivity, SelectFlowerActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, 0)
         }
     }
 
     private fun confirmBtnClick() {
         binding.btnRecordConfirm.setOnClickListener {
-            val intent = Intent(this@RecordActivity, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
+            finish()
         }
     }
 }
