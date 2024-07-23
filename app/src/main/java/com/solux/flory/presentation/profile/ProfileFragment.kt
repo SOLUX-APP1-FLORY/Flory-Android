@@ -9,15 +9,25 @@ import com.solux.flory.R
 import com.solux.flory.databinding.FragmentProfileBinding
 import com.solux.flory.presentation.auth.LoginActivity
 import com.solux.flory.util.base.BindingFragment
+import com.solux.flory.util.fragment.stringOf
+import com.solux.flory.util.setupToolbarClickListener
 
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
     private val viewModel by activityViewModels<ProfileViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initToolbar()
         initAdapter()
         profileModifyTextClick()
         neighborsTextClick()
         logoutBtnClick()
+    }
+
+    private fun initToolbar() {
+        with(binding.toolbarProfile) {
+            tvToolbarTitle.text = stringOf(R.string.tv_profile_toolbar_title)
+            setupToolbarClickListener(ibToolbarIcon)
+        }
     }
 
     private fun initAdapter() {

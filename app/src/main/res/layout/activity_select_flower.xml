@@ -54,7 +54,7 @@
         android:id="@+id/rv_flowers"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingHorizontal="24dp"
+        android:paddingHorizontal="20dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

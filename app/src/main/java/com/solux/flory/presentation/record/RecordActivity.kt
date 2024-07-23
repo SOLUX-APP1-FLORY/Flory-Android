@@ -2,20 +2,29 @@ package com.solux.flory.presentation.record
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import coil.load
+import com.solux.flory.R
 import com.solux.flory.databinding.ActivityRecordBinding
-import com.solux.flory.presentation.main.MainActivity
 import com.solux.flory.util.base.BindingActivity
+import com.solux.flory.util.context.stringOf
+import com.solux.flory.util.setupToolbarClickListener
 
 class RecordActivity : BindingActivity<ActivityRecordBinding>({
     ActivityRecordBinding.inflate(it)
 }) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initToolbar()
         plantAreaClick()
         confirmBtnClick()
+        leftArrowBtnClick()
+    }
+
+    private fun initToolbar() {
+        with(binding.toolbarRecord) {
+            tvToolbarTitle.text = stringOf(R.string.tv_record_toolbar_title)
+            setupToolbarClickListener(ibToolbarIcon)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -27,17 +36,11 @@ class RecordActivity : BindingActivity<ActivityRecordBinding>({
                 tvRecordFlowerMeaning.text = flower.meaning
                 tvRecordFlowerName.text = flower.name
             }
-        leftArrowBtnClick()
-        val flower = intent.getSerializableExtra("flower") as? Flower
-        flower?.let {
-            binding.ivRecordPlant.load(it.imageUrl)
-            binding.tvRecordFlowerMeaning.text = it.meaning
-            binding.tvRecordFlowerName.text = it.name
         }
     }
 
     private fun leftArrowBtnClick() {
-        binding.ivModifyLeftArrow.setOnClickListener {
+        binding.toolbarRecord.ibToolbarIcon.setOnClickListener {
             finish()
         }
     }
