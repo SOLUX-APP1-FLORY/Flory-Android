@@ -26,6 +26,9 @@
         android:label="DateFragment"
         tools:layout="@layout/fragment_date">
 
+        <action
+            android:id="@+id/action_fragment_date_to_fragment_modify"
+            app:destination="@id/fragment_modify" />
     </fragment>
     <fragment
         android:id="@+id/fragment_gift"
@@ -57,7 +60,7 @@
             android:id="@+id/action_fragment_profile_modify_to_fragment_profile"
             app:destination="@id/fragment_profile"
             app:popUpTo="@id/fragment_profile"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragment_neighbors"
@@ -69,6 +72,18 @@
             android:id="@+id/action_fragment_neighbors_to_fragment_profile"
             app:destination="@id/fragment_profile"
             app:popUpTo="@id/fragment_profile"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_modify"
+        android:name="com.solux.flory.presentation.record.ModifyFragment"
+        android:label="ModifyFragment"
+        tools:layout="@layout/fragment_modify">
+
+        <action
+            android:id="@+id/action_fragment_modify_to_fragment_date"
+            app:destination="@id/fragment_date"
+            app:popUpTo="@id/fragment_date"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

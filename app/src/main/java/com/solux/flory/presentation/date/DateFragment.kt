@@ -4,8 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.solux.flory.R
 import com.solux.flory.databinding.FragmentDateBinding
-import com.solux.flory.presentation.record.ModifyActivity
+import com.solux.flory.presentation.record.ModifyFragment
 import com.solux.flory.presentation.record.RecordActivity
 import com.solux.flory.util.base.BindingFragment
 
@@ -24,9 +26,10 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
 
     private fun initAdapter() {
         adapter = DateAdapter() {
-            val intent = Intent(requireContext(), ModifyActivity::class.java)
-            intent.putExtra("date", it)
-            startActivity(intent)
+            val bundle = Bundle().apply {
+                putSerializable("date", it)
+            }
+            findNavController().navigate(R.id.action_fragment_date_to_fragment_modify, bundle)
         }
         binding.rvDate.adapter = adapter
         viewModel.dateList.observe(viewLifecycleOwner) {
