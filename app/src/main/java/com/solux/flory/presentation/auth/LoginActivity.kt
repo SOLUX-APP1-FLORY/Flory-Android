@@ -3,6 +3,7 @@ package com.solux.flory.presentation.auth
 import android.content.Intent
 import android.os.Bundle
 import com.solux.flory.databinding.ActivityLoginBinding
+import com.solux.flory.presentation.main.MainActivity
 import com.solux.flory.util.base.BindingActivity
 
 class LoginActivity : BindingActivity<ActivityLoginBinding>({
@@ -10,13 +11,20 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>({
 }) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         loginBtnClick()
+        gotoSignup()
     }
 
     private fun loginBtnClick() {
-        binding.loginBtn.setOnClickListener {
-            val intent = Intent(this@LoginActivity, UserInfoActivity::class.java)
-            startActivity(intent)
+        binding.btnLogin.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+    }
+
+    private fun gotoSignup() {
+        binding.tvLoginGoSignup.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
     }
 }

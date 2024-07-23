@@ -130,7 +130,7 @@
         app:layout_constraintTop_toTopOf="@id/remember_pw" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/login_btn"
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="41dp"
@@ -152,41 +152,15 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/social_login_tv"
+        android:id="@+id/tv_login_goSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="SNS계정으로 간편로그인 하세요."
+        android:text="회원가입 하기"
         android:textAppearance="@style/TextAppearance.body4"
         android:textColor="@color/gray1_525252"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_login"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_btn" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <ImageView
-        android:id="@+id/kakao_login_btn"
-        android:layout_width="49dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="7dp"
-        android:src="@drawable/ic_social_login_kakao"
-        app:layout_constraintEnd_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/social_login_tv" />
-
-    <ImageView
-        android:layout_width="49dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="11dp"
-        android:src="@drawable/ic_social_login_google"
-        app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/social_login_tv" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

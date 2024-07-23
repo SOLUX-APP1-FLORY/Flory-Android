@@ -90,4 +90,10 @@
         <item name="lineHeight">12dp</item>
     </style>
 
+    <style name="TextAppearance.body8" parent="TextAppearance.Flory">
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:textSize">9sp</item>
+        <item name="lineHeight">12dp</item>
+    </style>
+
 </resources>

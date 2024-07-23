@@ -16,11 +16,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.auth.SignUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.gift.send.SendCompleteActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.gift.send.SelectCardActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".presentation.gift.send.WriteMessageActivity"
             android:exported="false" />
@@ -43,12 +46,11 @@
             android:name=".presentation.auth.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.Flory">
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".presentation.profile.ProfileModifyActivity"
@@ -71,8 +73,7 @@
             android:exported="true" />
         <activity
             android:name=".presentation.gift.send.SelectBouquetActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

@@ -2,8 +2,10 @@ package com.solux.flory.presentation.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import com.solux.flory.R
 import com.solux.flory.databinding.ActivityUserInfoBinding
 import com.solux.flory.presentation.main.MainActivity
@@ -12,20 +14,23 @@ import com.solux.flory.util.base.BindingActivity
 class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
     ActivityUserInfoBinding.inflate(it)
 }) {
-    private var gender = "male"
+
+    private val viewModel: SignupViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         nicknameCheckBtnClick()
         genderMaleBtnClick()
         genderFemaleBtnClick()
         infoConfirmBtnClick()
+        getSignupInfo()
     }
 
     private fun genderFemaleBtnClick() {
         with(binding) {
             genderFemale.setOnClickListener {
-                if (gender != "female") {
-                    gender = "female"
+                if (viewModel.gender.value != "female") {
+                    viewModel.setGender("female")
                     genderImage.setImageResource(R.drawable.user_female)
                     genderMaleChecked.visibility = View.GONE
                     genderFemaleChecked.visibility = View.VISIBLE
@@ -39,8 +44,8 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
     private fun genderMaleBtnClick() {
         with(binding) {
             genderMale.setOnClickListener {
-                if (gender != "male") {
-                    gender = "male"
+                if (viewModel.gender.value != "male") {
+                    viewModel.setGender("male")
                     genderImage.setImageResource(R.drawable.user_male)
                     genderMaleChecked.visibility = View.VISIBLE
                     genderFemaleChecked.visibility = View.GONE
@@ -72,8 +77,15 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
 
     private fun infoConfirmBtnClick() {
         binding.clInfoConfirm.setOnClickListener {
-            val intent = Intent(this@UserInfoActivity, MainActivity::class.java)
-            startActivity(intent)
+            viewModel._nickname.value = binding.inputNickname.text.toString()
+
+            startActivity(Intent(this@UserInfoActivity, LoginActivity::class.java))
         }
+    }
+
+    private fun getSignupInfo() {
+        viewModel._id.value = intent.getStringExtra("ID")
+        viewModel._pw.value = intent.getStringExtra("PASSWORD")
+        viewModel._email.value = intent.getStringExtra("EMAIL")
     }
 }
