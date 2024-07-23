@@ -7,7 +7,7 @@ import android.view.View
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftDialogBinding
-import com.solux.flory.presentation.record.RecordActivity
+import com.solux.flory.presentation.record.RecordFragment
 import com.solux.flory.util.base.BindingDialogFragment
 
 class BouquetDialogFragment(
@@ -36,7 +36,7 @@ class BouquetDialogFragment(
     private fun confirmBtnClick() {
         binding.btnConfirm.setOnClickListener {
             dismiss()
-            val intent = Intent(requireContext(), RecordActivity::class.java)
+            val intent = Intent(requireContext(), RecordFragment::class.java)
             intent.putExtra("bouquet", bouquetInfo)
             startActivity(intent)
         }

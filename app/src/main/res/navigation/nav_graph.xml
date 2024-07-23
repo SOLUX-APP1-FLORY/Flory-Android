@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_fragment_date_to_fragment_modify"
             app:destination="@id/fragment_modify" />
+        <action
+            android:id="@+id/action_fragment_date_to_fragment_record"
+            app:destination="@id/fragment_record" />
     </fragment>
     <fragment
         android:id="@+id/fragment_gift"
@@ -82,6 +85,18 @@
 
         <action
             android:id="@+id/action_fragment_modify_to_fragment_date"
+            app:destination="@id/fragment_date"
+            app:popUpTo="@id/fragment_date"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_record"
+        android:name="com.solux.flory.presentation.record.RecordFragment"
+        android:label="RecordFragment"
+        tools:layout="@layout/fragment_record">
+
+        <action
+            android:id="@+id/action_fragment_record_to_fragment_date"
             app:destination="@id/fragment_date"
             app:popUpTo="@id/fragment_date"
             app:popUpToInclusive="true" />

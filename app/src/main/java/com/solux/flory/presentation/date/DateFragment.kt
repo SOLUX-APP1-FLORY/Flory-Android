@@ -7,8 +7,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentDateBinding
-import com.solux.flory.presentation.record.ModifyFragment
-import com.solux.flory.presentation.record.RecordActivity
+import com.solux.flory.presentation.record.RecordFragment
 import com.solux.flory.util.base.BindingFragment
 
 class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::inflate) {
@@ -63,8 +62,7 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
 
     private fun addFabClick() {
         binding.fabDateAdd.setOnClickListener {
-            val intent = Intent(requireContext(), RecordActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_fragment_date_to_fragment_record)
         }
     }
 

@@ -1,23 +1,25 @@
 package com.solux.flory.presentation.record
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
-import com.solux.flory.databinding.ActivityRecordBinding
-import com.solux.flory.util.base.BindingActivity
-import com.solux.flory.util.context.stringOf
+import com.solux.flory.databinding.FragmentRecordBinding
+import com.solux.flory.util.base.BindingFragment
+import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener
 
-class RecordActivity : BindingActivity<ActivityRecordBinding>({
-    ActivityRecordBinding.inflate(it)
+class RecordFragment : BindingFragment<FragmentRecordBinding>({
+    FragmentRecordBinding.inflate(it)
 }) {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initToolbar()
         plantAreaClick()
         confirmBtnClick()
-        leftArrowBtnClick()
     }
 
     private fun initToolbar() {
@@ -39,22 +41,16 @@ class RecordActivity : BindingActivity<ActivityRecordBinding>({
         }
     }
 
-    private fun leftArrowBtnClick() {
-        binding.toolbarRecord.ibToolbarIcon.setOnClickListener {
-            finish()
-        }
-    }
-
     private fun plantAreaClick() {
         binding.clRecordPlant.setOnClickListener {
-            val intent = Intent(this@RecordActivity, SelectFlowerActivity::class.java)
+            val intent = Intent(requireContext(), SelectFlowerActivity::class.java)
             startActivityForResult(intent, 0)
         }
     }
 
     private fun confirmBtnClick() {
         binding.btnRecordConfirm.setOnClickListener {
-            finish()
+            findNavController().navigate(R.id.action_fragment_record_to_fragment_date)
         }
     }
 }
