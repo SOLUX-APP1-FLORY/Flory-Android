@@ -16,7 +16,7 @@ class NeighborViewHolder(
                 transformations(CircleCropTransformation())
             }
             tvSelectNeighborNickname.text = neighborInfo.profileName
-            btnFollowCancle.setOnClickListener {
+            btnFollowCancel.setOnClickListener {
                 onClick(neighborInfo)
             }
         }
