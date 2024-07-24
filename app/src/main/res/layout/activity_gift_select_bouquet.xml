@@ -35,11 +35,12 @@
             android:textAppearance="@style/TextAppearance.body3"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layout_select_bouquet_icons"
             app:layout_constraintStart_toEndOf="@id/iv_select_bouquet_giftbox"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
+            android:id="@+id/layout_select_bouquet_icons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
@@ -47,7 +48,6 @@
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_select_bouquet_title"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView

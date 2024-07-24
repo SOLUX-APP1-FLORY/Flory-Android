@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".FloryApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,27 +17,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.date.record.ModifyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.date.record.SelectFlowerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.date.record.RecordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.profile.NeighborsActivity"
-            android:exported="false" />
+            android:name=".presentation.record.SelectFlowerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".presentation.auth.UserInfoActivity"
-            android:exported="true" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".presentation.auth.LoginActivity"
-            android:exported="true" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".presentation.auth.SplashActivity"
+            android:name=".presentation.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.Flory">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,26 +39,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.profile.ProfileModifyActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Flory" />
-        <activity
             android:name=".presentation.main.MainActivity"
-            android:exported="true" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".presentation.gift.SearchNeighborActivity"
-            android:exported="true" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".presentation.gift.confirm.ConfirmActivity"
-            android:exported="true" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".presentation.gift.confirm.PresentDetailActivity"
-            android:exported="true" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".presentation.gift.send.SelectNeighborActivity"
-            android:exported="true" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity android:name=".presentation.gift.send.SelectBouquetActivity"
-            android:exported="true" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

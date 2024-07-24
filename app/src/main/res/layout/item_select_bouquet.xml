@@ -4,11 +4,11 @@
     android:id="@+id/cl_bouquet_area"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="8dp"
     android:background="@drawable/shape_white_line_20_rect_shadow"
     android:paddingHorizontal="16dp"
     android:paddingTop="14dp"
-    android:paddingBottom="10dp">
+    android:paddingBottom="9dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,7 +17,8 @@
         <ImageView
             android:id="@+id/iv_bouquet"
             android:layout_width="56dp"
-            android:layout_height="70dp"
+            android:layout_height="66dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_bouquet_tulip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

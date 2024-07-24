@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="6dp"
-    android:paddingHorizontal="17dp">
+    android:layout_marginBottom="12dp">
 
     <ImageView
         android:id="@+id/iv_select_neighbor_image"
         android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_height="0dp"
         android:src="@drawable/ic_profile_image"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,27 +21,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
-        tools:text="선재"
         android:textAppearance="@style/TextAppearance.subtitle4"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_select_neighbor_image"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="선재" />
 
-    <Button
-        android:id="@+id/btn_follow_cancle"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_follow_cancel"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/peach6_FFF4F2"
-        android:layout_marginStart="150dp"
+        android:background="@drawable/shape_peach_line_6_rect"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
         android:paddingHorizontal="16dp"
         android:paddingVertical="5dp"
         android:text="팔로우 취소"
         android:textAppearance="@style/TextAppearance.body4"
         android:textColor="@color/gray1_525252"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_select_neighbor_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/peach1_FF8D6F"
-        app:strokeWidth="0.5dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

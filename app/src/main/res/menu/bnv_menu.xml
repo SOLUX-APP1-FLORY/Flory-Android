@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/menu_home"
+        android:id="@+id/fragment_home"
         android:enabled="true"
         android:icon="@drawable/ic_home_unselected"
         android:title="Home" />
     <item
-        android:id="@+id/menu_date"
+        android:id="@+id/fragment_date"
         android:enabled="true"
         android:icon="@drawable/ic_date_unselected"
         android:title="Date" />
     <item
-        android:id="@+id/menu_gift"
+        android:id="@+id/fragment_gift"
         android:enabled="true"
         android:icon="@drawable/ic_gift_unselected"
         android:title="Gift" />
     <item
-        android:id="@+id/menu_profile"
+        android:id="@+id/fragment_profile"
         android:enabled="true"
         android:icon="@drawable/ic_profile_unselected"
         android:title="Profile" />
