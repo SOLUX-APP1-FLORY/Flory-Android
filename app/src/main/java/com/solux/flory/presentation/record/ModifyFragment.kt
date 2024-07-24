@@ -8,7 +8,9 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentModifyBinding
+import com.solux.flory.presentation.date.DateFragment.Companion.DATE_KEY
 import com.solux.flory.presentation.date.DateInfo
+import com.solux.flory.presentation.record.FlowerDialogFragment.Companion.FLOWER_KEY
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.fragment.toast
@@ -32,14 +34,18 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
     }
 
     private fun initView() {
-        val date = arguments?.getSerializable("date") as DateInfo
-        binding.tvModifyDate.text = "2024. ${date.month}. ${date.dayOfWeek}"
+        val date = arguments?.getSerializable(DATE_KEY) as DateInfo
+        with(binding) {
+            ivModifyFlowerAvatar.load(date.imageUrl)
+            // 추후 꽃 이름과 의미 넣기
+            tvModifyDate.text = "${date.year}. ${date.month}. ${date.dayOfMonth}"
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
-            val flower = data?.getSerializableExtra("flower") as Flower
+            val flower = data?.getSerializableExtra(FLOWER_KEY) as Flower
             with(binding) {
                 ivModifyFlowerAvatar.load(flower.imageUrl)
                 tvModifyFlowerMeaning.text = flower.meaning
@@ -50,7 +56,7 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
 
     private fun confirmBtnClick() {
         binding.btnModifyConfirm.setOnClickListener {
-            toast("수정되었습니다.")
+            toast(stringOf(R.string.tv_modify_complete))
             navigateToDateFragment()
         }
     }

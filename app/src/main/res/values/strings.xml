@@ -49,4 +49,6 @@
     <string name="tv_profile_toolbar_title">마이페이지</string>
     <string name="tv_profile_modify_toolbar_title">정보 수정</string>
     <string name="tv_neighbors_toolbar_title">이웃목록</string>
+    <string name="tv_modify_complete">일기가 수정되었습니다.</string>
+    <string name="tv_date_modify_impossible">오늘의 일기만 수정할 수 있습니다.</string>
 </resources>

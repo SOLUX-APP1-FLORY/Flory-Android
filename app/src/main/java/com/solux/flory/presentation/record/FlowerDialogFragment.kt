@@ -36,8 +36,7 @@ class FlowerDialogFragment(
     private fun confirmBtnClick() {
         binding.btnConfirm.setOnClickListener {
             dismiss()
-            val intent = Intent()
-            intent.putExtra("flower", flower)
+            val intent = Intent().putExtra(FLOWER_KEY, flower)
             activity?.setResult(Activity.RESULT_OK, intent)
             activity?.finish()
         }
@@ -47,5 +46,9 @@ class FlowerDialogFragment(
         binding.btnCancel.setOnClickListener {
             dismiss()
         }
+    }
+
+    companion object {
+        const val FLOWER_KEY = "selectedFlower"
     }
 }
