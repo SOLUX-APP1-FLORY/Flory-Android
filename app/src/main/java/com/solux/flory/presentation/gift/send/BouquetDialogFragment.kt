@@ -40,8 +40,7 @@ class BouquetDialogFragment(
 
             // 선물페이지4로 이동
             val intent = Intent(requireContext(), WriteMessageActivity::class.java)
-            intent.putExtra("bouquet", bouquetInfo)
-            Log.d("bouquetInfo", bouquetInfo.toString())
+            intent.putExtra("FLOWER_KEY", bouquetInfo)
             startActivity(intent)
         }
     }

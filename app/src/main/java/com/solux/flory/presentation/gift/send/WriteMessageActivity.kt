@@ -10,17 +10,16 @@ import com.solux.flory.R
 import com.solux.flory.databinding.ActivityWriteMessageBinding
 import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
 import com.solux.flory.presentation.main.MainActivity
+import com.solux.flory.util.base.BindingActivity
 
-class WriteMessageActivity : AppCompatActivity() {
+class WriteMessageActivity : BindingActivity<ActivityWriteMessageBinding>({
+    ActivityWriteMessageBinding.inflate(it)
+}) {
     lateinit var bouquetInfo: BouquetInfo
-    lateinit var bindig: ActivityWriteMessageBinding
     private val viewModel by viewModels<SendViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindig = DataBindingUtil.setContentView(this, R.layout.activity_write_message)
-        bindig.viewModel = viewModel
-        bindig.lifecycleOwner = this
 
         initView()
         gotoNext()
@@ -28,32 +27,32 @@ class WriteMessageActivity : AppCompatActivity() {
     }
 
     fun initView() {
-        bouquetInfo = (intent.getSerializableExtra("bouquet") as BouquetInfo?)!!
+        bouquetInfo = (intent.getSerializableExtra("FLOWER_KEY") as BouquetInfo?)!!
 
-        bindig.bouquetImg.load(bouquetInfo.imageUrl)
-        bindig.bouquetName.text = bouquetInfo.name
-        bindig.bouquetMeaning.text = bouquetInfo.meaning
+        binding.ivBouquet.load(bouquetInfo.imageUrl)
+        binding.tvBouquetName.text = bouquetInfo.name
+        binding.tvBouquetMeaning.text = bouquetInfo.meaning
     }
 
     fun gotoNext() {
-        bindig.goNextBtn.setOnClickListener {
-            val intent = Intent(this, SelectCardActivity::class.java).apply {
-                putExtra("message", viewModel.message.value)
-                putExtra("bouquet", bouquetInfo)
+        binding.btnGoNext.setOnClickListener {
+            Intent(this, SelectCardActivity::class.java).apply {
+                putExtra("MESSAGE", binding.etGiftMessage.text.toString())
+                putExtra("FLOWER_KEY", bouquetInfo)
+                startActivity(this)
             }
-            startActivity(intent)
         }
     }
 
     fun gotoBack() {
-        bindig.backBtn.setOnClickListener {
+        binding.btnGoBack.setOnClickListener {
             finish()
         }
-        bindig.closeBtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java).apply {
-                putExtra("gotoFragment", "GiftFragment")
+        binding.btnClose.setOnClickListener {
+            Intent(this, MainActivity::class.java).apply {
+                putExtra("GOTO_FRAGMENT", "GIFT_FRAGMENT")
+                startActivity(this)
             }
-            startActivity(intent)
         }
     }
 }
