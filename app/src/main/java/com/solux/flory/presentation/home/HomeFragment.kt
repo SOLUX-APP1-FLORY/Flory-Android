@@ -1,44 +1,42 @@
 package com.solux.flory.presentation.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentHomeBinding
-import com.solux.flory.presentation.home.HomeViewModel
+import com.solux.flory.util.base.BindingFragment
 
-class HomeFragment : Fragment() {
-    private lateinit var viewModel: HomeViewModel
-    private lateinit var binding: FragmentHomeBinding
+class HomeFragment: BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+    private val viewModel by viewModels<HomeViewModel>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
-        binding.viewModel = viewModel
+        setViewModelData()
+        observeRangeValue()
+    }
 
+
+    private fun setViewModelData() {
+        viewModel.setRangeValue(18)
+    }
+
+    private fun observeRangeValue() {
         viewModel.rangeValue.observe(viewLifecycleOwner) { rangeValue ->
             updateBackgroundForRange(rangeValue)
             updateUserIconForRange(rangeValue)
         }
-
-        return binding.root
     }
+
     private fun updateBackgroundForRange(value: Int) {
         val backgroundResource = getBackgroundResourceForRange(value)
         binding.clHomeFragment.setBackgroundResource(backgroundResource)
     }
 
-    private fun updateUserIconForRange(value: Int){
-        val usericonResource = getUserIconResourceForRange(value)
-        binding.ivHomeUserIcon.setImageResource(usericonResource)
+    private fun updateUserIconForRange(value: Int) {
+        val userIconResource = getUserIconResourceForRange(value)
+        binding.ivHomeUserIcon.setImageResource(userIconResource)
     }
 
     private fun getBackgroundResourceForRange(value: Int): Int {
@@ -57,14 +55,5 @@ class HomeFragment : Fragment() {
             value <= 17 -> R.drawable.ic_home_user_female2
             else -> R.drawable.ic_home_user_female3
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setViewModelData()
-    }
-
-    private fun setViewModelData() {
-        viewModel.setRangeValue(18)
     }
 }
