@@ -20,19 +20,24 @@ class SendCompleteActivity : BindingActivity<ActivitySendCompleteBinding>(Activi
         super.onCreate(savedInstanceState)
 
         // bouquet
-        bouquetInfo = (intent.getSerializableExtra("FLOWER_KEY") as? BouquetInfo)!!
+        bouquetInfo = (intent.getSerializableExtra(FLOWER_KEY) as? BouquetInfo)!!
         // name
         userName = "userName" // 선물페이지2에서 받아서 연결
 
         binding.ivBouquet.load(bouquetInfo.imageUrl)
         binding.tvCompleteMessage.text = getString(R.string.send_complete, userName)
 
-        binding.btnGoNext.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java).apply {
-                putExtra("GOTO_FRAGMENT", "GIFT_FRAGMENT")
-            }
-            startActivity(intent)
-        }
+        gotoMain()
 
+    }
+
+    fun gotoMain() {
+        binding.btnGoNext.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+    }
+
+    companion object {
+        const val FLOWER_KEY = "selectedFlower"
     }
 }

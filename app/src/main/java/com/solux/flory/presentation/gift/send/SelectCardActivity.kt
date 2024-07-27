@@ -23,16 +23,17 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         super.onCreate(savedInstanceState)
 
         //message
-        message = intent.getStringExtra("MESSAGE")!!
+        message = intent.getStringExtra(MESSAGE)!!
         viewModel.setMessage(message)
         //bouquet
-        bouquetInfo = (intent.getSerializableExtra("FLOWER_KEY") as BouquetInfo?)!!
+        bouquetInfo = (intent.getSerializableExtra(FLOWER_KEY) as BouquetInfo?)!!
         viewModel.setBouquetInfo(bouquetInfo)
 
         initView()
         selectColor()
         sendPresent()
         gotoBack()
+        gotoMain()
 
     }
 
@@ -111,7 +112,7 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
     fun sendPresent() {
         binding.goNextBtn.setOnClickListener {
             Intent(this, SendCompleteActivity::class.java).apply {
-                putExtra("FLOWER_KEY", bouquetInfo)
+                putExtra(FLOWER_KEY, bouquetInfo)
                 startActivity(this)
             }
         }
@@ -121,11 +122,16 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         binding.btnGoBack.setOnClickListener {
             finish()
         }
+    }
+
+    fun gotoMain() {
         binding.btnClose.setOnClickListener {
-            Intent(this, MainActivity::class.java).apply {
-                putExtra("GOTO_FRAGMENT", "GIFT_FRAGMENT")
-                startActivity(this)
-            }
+            startActivity(Intent(this, MainActivity::class.java))
         }
+    }
+
+    companion object {
+        const val FLOWER_KEY = "selectedFlower"
+        const val MESSAGE = "message"
     }
 }

@@ -227,8 +227,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="27dp">
 
-
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

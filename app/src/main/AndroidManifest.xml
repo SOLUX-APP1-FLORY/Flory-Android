@@ -20,23 +20,18 @@
             android:name=".presentation.record.SelectFlowerActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
+        <activity
             android:name=".presentation.gift.send.SendCompleteActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.gift.send.SelectCardActivity"
-            android:exported="true"></activity>
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.gift.send.WriteMessageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.date.record.SelectFlowerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.date.record.RecordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.profile.NeighborsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.auth.UserInfoActivity"
             android:exported="false"

@@ -24,10 +24,11 @@ class WriteMessageActivity : BindingActivity<ActivityWriteMessageBinding>({
         initView()
         gotoNext()
         gotoBack()
+        gotoMain()
     }
 
     fun initView() {
-        bouquetInfo = (intent.getSerializableExtra("FLOWER_KEY") as BouquetInfo?)!!
+        bouquetInfo = (intent.getSerializableExtra(FLOWER_KEY) as BouquetInfo?)!!
 
         binding.ivBouquet.load(bouquetInfo.imageUrl)
         binding.tvBouquetName.text = bouquetInfo.name
@@ -37,8 +38,8 @@ class WriteMessageActivity : BindingActivity<ActivityWriteMessageBinding>({
     fun gotoNext() {
         binding.btnGoNext.setOnClickListener {
             Intent(this, SelectCardActivity::class.java).apply {
-                putExtra("MESSAGE", binding.etGiftMessage.text.toString())
-                putExtra("FLOWER_KEY", bouquetInfo)
+                putExtra(MESSAGE, binding.etGiftMessage.text.toString())
+                putExtra(FLOWER_KEY, bouquetInfo)
                 startActivity(this)
             }
         }
@@ -48,11 +49,16 @@ class WriteMessageActivity : BindingActivity<ActivityWriteMessageBinding>({
         binding.btnGoBack.setOnClickListener {
             finish()
         }
+    }
+
+    fun gotoMain() {
         binding.btnClose.setOnClickListener {
-            Intent(this, MainActivity::class.java).apply {
-                putExtra("GOTO_FRAGMENT", "GIFT_FRAGMENT")
-                startActivity(this)
-            }
+            startActivity(Intent(this, MainActivity::class.java))
         }
+    }
+
+    companion object {
+        const val FLOWER_KEY = "selectedFlower"
+        const val MESSAGE = "message"
     }
 }
