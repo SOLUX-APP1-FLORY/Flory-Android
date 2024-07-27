@@ -3,26 +3,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/fragment_home">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.solux.flory.presentation.profile.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/fragment_home"
+        android:name="com.solux.flory.presentation.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_fragment_home_to_fragment_date"
+            app:destination="@id/fragment_date" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_gift"
+            app:destination="@id/fragment_gift" />
+        <action
+            android:id="@+id/action_fragment_home_to_fragment_profile"
+            app:destination="@id/fragment_profile" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.solux.flory.presentation.profile.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/fragment_date"
+        android:name="com.solux.flory.presentation.date.DateFragment"
+        android:label="DateFragment"
+        tools:layout="@layout/fragment_date">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_fragment_date_to_fragment_modify"
+            app:destination="@id/fragment_modify" />
+        <action
+            android:id="@+id/action_fragment_date_to_fragment_record"
+            app:destination="@id/fragment_record" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_gift"
+        android:name="com.solux.flory.presentation.gift.GiftFragment"
+        android:label="GiftFragment"
+        tools:layout="@layout/fragment_gift">
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_profile"
+        android:name="com.solux.flory.presentation.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_fragment_profile_to_fragment_profile_modify"
+            app:destination="@id/fragment_profile_modify" />
+        <action
+            android:id="@+id/action_fragment_profile_to_fragment_neighbors"
+            app:destination="@id/fragment_neighbors" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_profile_modify"
+        android:name="com.solux.flory.presentation.profile.ProfileModifyFragment"
+        android:label="ProfileModifyFragment"
+        tools:layout="@layout/fragment_profile_modify">
+
+        <action
+            android:id="@+id/action_fragment_profile_modify_to_fragment_profile"
+            app:destination="@id/fragment_profile"
+            app:popUpTo="@id/fragment_profile"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_neighbors"
+        android:name="com.solux.flory.presentation.profile.NeighborsFragment"
+        android:label="NeighborsFragment"
+        tools:layout="@layout/fragment_neighbors">
+
+        <action
+            android:id="@+id/action_fragment_neighbors_to_fragment_profile"
+            app:destination="@id/fragment_profile"
+            app:popUpTo="@id/fragment_profile"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_modify"
+        android:name="com.solux.flory.presentation.record.ModifyFragment"
+        android:label="ModifyFragment"
+        tools:layout="@layout/fragment_modify">
+
+        <action
+            android:id="@+id/action_fragment_modify_to_fragment_date"
+            app:destination="@id/fragment_date"
+            app:popUpTo="@id/fragment_date"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_record"
+        android:name="com.solux.flory.presentation.record.RecordFragment"
+        android:label="RecordFragment"
+        tools:layout="@layout/fragment_record">
+
+        <action
+            android:id="@+id/action_fragment_record_to_fragment_date"
+            app:destination="@id/fragment_date"
+            app:popUpTo="@id/fragment_date"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

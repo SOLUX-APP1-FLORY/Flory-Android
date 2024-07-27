@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import com.solux.flory.databinding.ActivityLoginBinding
 import com.solux.flory.util.base.BindingActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : BindingActivity<ActivityLoginBinding>({
     ActivityLoginBinding.inflate(it)
 }) {
@@ -13,10 +15,16 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>({
         loginBtnClick()
     }
 
+    private fun navigateToUserInfoActivity() {
+        Intent(this@LoginActivity, UserInfoActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(this)
+        }
+    }
+
     private fun loginBtnClick() {
         binding.loginBtn.setOnClickListener {
-            val intent = Intent(this@LoginActivity, UserInfoActivity::class.java)
-            startActivity(intent)
+            navigateToUserInfoActivity() // 추후 삭제 예정
         }
     }
 }
