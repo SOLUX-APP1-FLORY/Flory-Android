@@ -11,4 +11,11 @@
     </style>
 
     <style name="Theme.Flory" parent="Base.Theme.Flory" />
+
+    <!--Splash-->
+    <style name="Theme.Flory.Splash" parent="Theme.SplashScreen">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowSplashScreenAnimationDuration">3000</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.Flory</item>
+    </style>
 </resources>

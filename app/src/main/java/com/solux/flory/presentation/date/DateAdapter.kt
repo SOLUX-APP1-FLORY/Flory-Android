@@ -6,14 +6,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.solux.flory.databinding.ItemDateBinding
 
-class DateAdapter: ListAdapter<DateInfo, DateViewHolder>(DiffUtil) {
+class DateAdapter(
+    private val onClick: (DateInfo) -> Unit,
+) : ListAdapter<DateInfo, DateViewHolder>(DiffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DateViewHolder {
         return DateViewHolder(
             ItemDateBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ), onClick
         )
     }
 
@@ -24,7 +26,7 @@ class DateAdapter: ListAdapter<DateInfo, DateViewHolder>(DiffUtil) {
     companion object {
         private val DiffUtil = object : DiffUtil.ItemCallback<DateInfo>() {
             override fun areItemsTheSame(oldItem: DateInfo, newItem: DateInfo): Boolean {
-                return oldItem.dayOfWeek == newItem.dayOfWeek
+                return oldItem.dayOfMonth == newItem.dayOfMonth
             }
 
             override fun areContentsTheSame(oldItem: DateInfo, newItem: DateInfo): Boolean {

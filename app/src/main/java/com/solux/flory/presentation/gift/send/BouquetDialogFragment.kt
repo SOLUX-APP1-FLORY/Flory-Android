@@ -3,12 +3,11 @@ package com.solux.flory.presentation.gift.send
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftDialogBinding
-import com.solux.flory.presentation.date.record.RecordActivity
+import com.solux.flory.presentation.record.RecordFragment
 import com.solux.flory.util.base.BindingDialogFragment
 
 class BouquetDialogFragment(
