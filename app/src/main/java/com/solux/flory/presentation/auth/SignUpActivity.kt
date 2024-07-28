@@ -26,9 +26,9 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
     private fun gotoUserInfo() {
         binding.btnSignupGotoUserInfo.setOnClickListener {
             Intent(this, UserInfoActivity::class.java).apply {
-                putExtra("ID", binding.etSignupId.text.toString())
-                putExtra("PASSWORD", binding.etSignupPw.text.toString())
-                putExtra("EMAIL", getEmail())
+                putExtra(ID, binding.etSignupId.text.toString())
+                putExtra(PASSWORD, binding.etSignupPw.text.toString())
+                putExtra(EMAIL, getEmail())
             }.also {
                 startActivity(it)
             }
@@ -77,5 +77,11 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
             }
 
         })
+    }
+
+    companion object {
+        const val ID = "id"
+        const val PASSWORD = "password"
+        const val EMAIL = "email"
     }
 }

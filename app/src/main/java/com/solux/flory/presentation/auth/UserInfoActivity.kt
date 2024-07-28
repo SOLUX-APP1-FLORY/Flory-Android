@@ -84,8 +84,14 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
     }
 
     private fun getSignupInfo() {
-        viewModel._id.value = intent.getStringExtra("ID")
-        viewModel._pw.value = intent.getStringExtra("PASSWORD")
-        viewModel._email.value = intent.getStringExtra("EMAIL")
+        viewModel._id.value = intent.getStringExtra(ID)
+        viewModel._pw.value = intent.getStringExtra(PASSWORD)
+        viewModel._email.value = intent.getStringExtra(EMAIL)
+    }
+
+    companion object {
+        const val ID = "id"
+        const val PASSWORD = "password"
+        const val EMAIL = "email"
     }
 }
