@@ -1,0 +1,7 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style android:name="CustomButtonShape">
+        <item android:name="cornerSize">6dp</item>
+        <item android:name="strokeColor">@color/peach1_FF8D6F</item>
+        <item android:name="strokeWidth">0.5dp</item>
+    </style>
+</resources>

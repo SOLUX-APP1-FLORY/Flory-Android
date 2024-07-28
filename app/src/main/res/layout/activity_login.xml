@@ -71,6 +71,7 @@
         android:layout_marginTop="14dp"
         android:background="@drawable/shape_transparent_radius15_gray2_stroke"
         android:hint="비밀번호 입력"
+        android:inputType="textPassword"
         android:paddingHorizontal="55dp"
         android:textAppearance="@style/TextAppearance.body5"
         android:textColorHint="@color/gray1_525252"

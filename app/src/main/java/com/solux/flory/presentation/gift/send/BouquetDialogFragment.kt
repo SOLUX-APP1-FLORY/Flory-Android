@@ -3,12 +3,11 @@ package com.solux.flory.presentation.gift.send
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftDialogBinding
-import com.solux.flory.presentation.date.record.RecordActivity
+import com.solux.flory.presentation.record.RecordFragment
 import com.solux.flory.util.base.BindingDialogFragment
 
 class BouquetDialogFragment(
@@ -40,8 +39,7 @@ class BouquetDialogFragment(
 
             // 선물페이지4로 이동
             val intent = Intent(requireContext(), WriteMessageActivity::class.java)
-            intent.putExtra("bouquet", bouquetInfo)
-            Log.d("bouquetInfo", bouquetInfo.toString())
+            intent.putExtra(FLOWER_KEY, bouquetInfo)
             startActivity(intent)
         }
     }
@@ -50,5 +48,9 @@ class BouquetDialogFragment(
         binding.btnCancel.setOnClickListener {
             dismiss()
         }
+    }
+
+    companion object {
+        const val FLOWER_KEY = "selectedFlower"
     }
 }

@@ -15,7 +15,7 @@ import com.solux.flory.util.base.BindingActivity
 class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySelectCardBinding::inflate) {
     private val viewModel by viewModels<SendViewModel>()
 
-    var selectedImageView: ImageView? = null
+//    var selectedImageView: ImageView? = null
     lateinit var bouquetInfo: BouquetInfo
     var message: String =""
 
@@ -23,116 +23,115 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         super.onCreate(savedInstanceState)
 
         //message
-        message = intent.getStringExtra("message")!!
+        message = intent.getStringExtra(MESSAGE)!!
         viewModel.setMessage(message)
         //bouquet
-        bouquetInfo = (intent.getSerializableExtra("bouquet") as BouquetInfo?)!!
+        bouquetInfo = (intent.getSerializableExtra(FLOWER_KEY) as BouquetInfo?)!!
         viewModel.setBouquetInfo(bouquetInfo)
 
         initView()
         selectColor()
         sendPresent()
         gotoBack()
+        gotoMain()
 
     }
 
     fun initView() {
-        binding.bouquetImg.load(bouquetInfo.imageUrl)
-        binding.cardMessage.text = viewModel.message.value.toString()
+        binding.ivBouquet.load(bouquetInfo.imageUrl)
+        binding.tvCardMessage.text = viewModel.message.value.toString()
         // peach 로 기본 설정
-        setImageView(binding.selectPeach)
+        viewModel.setImageView(binding.ivSelectPeach)
     }
 
     fun selectColor() {
 
+        initPeachClickListener()
+        initGrayClickListener()
+        initBlueClickListener()
+        initPurpleClickListener()
+        initYellowClickListener()
+
+    }
+
+    fun initPeachClickListener() {
         // peach
-        binding.selectPeach.setOnClickListener {
-            if(selectedImageView != binding.selectPeach) {
-                setImageView(binding.selectPeach)
+        binding.ivSelectPeach.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectPeach) {
+                viewModel.setImageView(binding.ivSelectPeach)
                 binding.ivCard.setImageResource(R.drawable.ic_card_peach)
                 viewModel.setCardColor("peach")
             }
         }
+    }
+
+    fun initGrayClickListener() {
         // gray
-        binding.selectGray.setOnClickListener {
-            if(selectedImageView != binding.selectGray) {
-                setImageView(binding.selectGray)
+        binding.ivSelectGray.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectGray) {
+                viewModel.setImageView(binding.ivSelectGray)
                 binding.ivCard.setImageResource(R.drawable.ic_card_gray)
                 viewModel.setCardColor("gray")
             }
         }
+    }
+
+    fun initBlueClickListener() {
         // blue
-        binding.selectBlue.setOnClickListener {
-            if(selectedImageView != binding.selectBlue) {
-                setImageView(binding.selectBlue)
+        binding.ivSelectBlue.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectBlue) {
+                viewModel.setImageView(binding.ivSelectBlue)
                 binding.ivCard.setImageResource(R.drawable.ic_card_blue)
                 viewModel.setCardColor("blue")
             }
         }
+    }
+
+    fun initPurpleClickListener() {
         // purple
-        binding.selectPurple.setOnClickListener {
-            if(selectedImageView != binding.selectPurple) {
-                setImageView(binding.selectPurple)
+        binding.ivSelectPurple.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectPurple) {
+                viewModel.setImageView(binding.ivSelectPurple)
                 binding.ivCard.setImageResource(R.drawable.ic_card_purple)
                 viewModel.setCardColor("purple")
             }
         }
+    }
+
+    fun initYellowClickListener() {
         // yellow
-        binding.selectYellow.setOnClickListener {
-            if(selectedImageView != binding.selectYellow) {
-                setImageView(binding.selectYellow)
+        binding.ivSelectYellow.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectYellow) {
+                viewModel.setImageView(binding.ivSelectYellow)
                 binding.ivCard.setImageResource(R.drawable.ic_card_yellow)
                 viewModel.setCardColor("yellow")
             }
         }
-
-    }
-
-    fun setImageView(currentImageView: ImageView) {
-
-        selectedImageView?.run {
-            isSelected = false
-            // width, height
-            layoutParams.width = resources.getDimensionPixelSize(R.dimen.unselected_width)
-            layoutParams.height = resources.getDimensionPixelSize(R.dimen.unselected_height)
-            // margin
-            val marginLayoutParams = layoutParams as ViewGroup.MarginLayoutParams
-            marginLayoutParams.topMargin = resources.getDimensionPixelSize(R.dimen.unselected_margin)
-            requestLayout()
-        }
-
-        currentImageView.run {
-            isSelected = true
-            //width, height
-            layoutParams.width = resources.getDimensionPixelSize(R.dimen.selected_width)
-            layoutParams.height = resources.getDimensionPixelSize(R.dimen.selected_height)
-            // margin
-            val marginLayoutParams = layoutParams as ViewGroup.MarginLayoutParams
-            marginLayoutParams.topMargin = resources.getDimensionPixelSize(R.dimen.selected_margin)
-            requestLayout()
-        }
-
-        selectedImageView = currentImageView
     }
 
     fun sendPresent() {
         binding.goNextBtn.setOnClickListener {
-            val intent = Intent(this, SendCompleteActivity::class.java).apply {
-                putExtra("bouquet", bouquetInfo)
+            Intent(this, SendCompleteActivity::class.java).apply {
+                putExtra(FLOWER_KEY, bouquetInfo)
+                startActivity(this)
             }
-            startActivity(intent)
         }
     }
 
     fun gotoBack() {
-        binding.backBtn.setOnClickListener {
+        binding.btnGoBack.setOnClickListener {
             finish()
         }
-        binding.closeBtn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java).apply {
-                putExtra("gotoFragment", "GiftFragment")
-            }
-            startActivity(intent)
+    }
+
+    fun gotoMain() {
+        binding.btnClose.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
+    }
+
+    companion object {
+        const val FLOWER_KEY = "selectedFlower"
+        const val MESSAGE = "message"
     }
 }
