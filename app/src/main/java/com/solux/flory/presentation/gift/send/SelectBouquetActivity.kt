@@ -5,6 +5,8 @@ import androidx.activity.viewModels
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.solux.flory.databinding.ActivityGiftSelectBouquetBinding
+import com.solux.flory.presentation.gift.send.adapter.BouquetAdapter
+import com.solux.flory.presentation.gift.send.viewModel.BouquetViewModel
 import com.solux.flory.presentation.profile.NeighborInfo
 import com.solux.flory.util.base.BindingActivity
 

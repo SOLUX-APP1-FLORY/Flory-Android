@@ -36,8 +36,10 @@ class BouquetDialogFragment(
     private fun confirmBtnClick() {
         binding.btnConfirm.setOnClickListener {
             dismiss()
-            val intent = Intent(requireContext(), RecordFragment::class.java)
-            intent.putExtra("bouquet", bouquetInfo)
+
+            // 선물페이지4로 이동
+            val intent = Intent(requireContext(), WriteMessageActivity::class.java)
+            intent.putExtra(FLOWER_KEY, bouquetInfo)
             startActivity(intent)
         }
     }
@@ -46,5 +48,9 @@ class BouquetDialogFragment(
         binding.btnCancel.setOnClickListener {
             dismiss()
         }
+    }
+
+    companion object {
+        const val FLOWER_KEY = "selectedFlower"
     }
 }

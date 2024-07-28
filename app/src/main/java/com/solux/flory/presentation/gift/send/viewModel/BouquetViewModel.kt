@@ -1,5 +1,6 @@
-package com.solux.flory.presentation.gift.send
+package com.solux.flory.presentation.gift.send.viewModel
 import androidx.lifecycle.ViewModel
+import com.solux.flory.presentation.gift.send.BouquetInfo
 
 class BouquetViewModel : ViewModel(){
     val mockBouquet = listOf(

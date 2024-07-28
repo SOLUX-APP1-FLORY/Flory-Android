@@ -21,6 +21,18 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".presentation.gift.send.SendCompleteActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.gift.send.SelectCardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.gift.send.WriteMessageActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".presentation.auth.UserInfoActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
