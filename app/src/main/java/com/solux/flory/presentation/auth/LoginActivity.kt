@@ -17,16 +17,12 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>({
         gotoSignup()
     }
 
-//    private fun navigateToUserInfoActivity() {
-//        Intent(this@LoginActivity, UserInfoActivity::class.java).apply {
-//            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-//            startActivity(this)
-//        }
-//    }
-
     private fun loginBtnClick() {
         binding.btnLogin.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            Intent(this, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(this)
+            }
         }
     }
 

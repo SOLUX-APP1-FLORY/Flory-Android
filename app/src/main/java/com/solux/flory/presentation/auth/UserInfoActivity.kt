@@ -79,7 +79,10 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
         binding.clInfoConfirm.setOnClickListener {
             viewModel._nickname.value = binding.inputNickname.text.toString()
 
-            startActivity(Intent(this@UserInfoActivity, LoginActivity::class.java))
+            Intent(this, LoginActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(this)
+            }
         }
     }
 

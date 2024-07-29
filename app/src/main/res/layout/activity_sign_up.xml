@@ -235,40 +235,6 @@
             app:layout_constraintStart_toEndOf="@id/tv_signup_emailAt"
             android:layout_marginStart="11dp" />
 
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:id="@+id/cl_signup_selectEmail"-->
-<!--            android:layout_width="120dp"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:background="@drawable/shape_lightgray_radius7"-->
-<!--            app:layout_constraintTop_toTopOf="@id/et_signup_email"-->
-<!--            app:layout_constraintStart_toEndOf="@id/tv_signup_emailAt"-->
-<!--            android:layout_marginStart="11dp">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/tv_signup_emailAfter"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="선택"-->
-<!--                android:textAppearance="@style/TextAppearance.body4"-->
-<!--                android:textColor="@color/gray1_525252"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                android:layout_marginStart="16dp" />-->
-<!--            -->
-<!--            <ImageView-->
-<!--                android:id="@+id/btn_signup_selectEmail"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:src="@drawable/ic_signup_down_arrow"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                android:layout_marginEnd="13dp" />-->
-
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
