@@ -39,7 +39,35 @@
         android:label="GiftFragment"
         tools:layout="@layout/fragment_gift">
 
+        <action
+            android:id="@+id/action_fragment_gift_to_fragment_gift_confirm"
+            app:destination="@id/fragment_gift_confirm"/>
+
     </fragment>
+    <fragment
+        android:id="@+id/fragment_gift_confirm"
+        android:name="com.solux.flory.presentation.gift.confirm.ConfirmFragment"
+        android:label="GiftConfirmFragment"
+        tools:layout="@layout/fragment_gift_confirm">
+
+        <action
+            android:id="@+id/action_fragment_gift_confirm_to_fragment_gift_detail"
+            app:destination="@id/fragment_gift_detail"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_gift_detail"
+        android:name="com.solux.flory.presentation.gift.confirm.PresentDetailFragment"
+        android:label="GiftDetailFragment"
+        tools:layout="@layout/fragment_gift_detail">
+
+        <action
+            android:id="@+id/action_fragment_gift_detail_to_fragment_gift_confirm"
+            app:destination="@id/fragment_gift_confirm" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/fragment_profile"
         android:name="com.solux.flory.presentation.profile.ProfileFragment"
