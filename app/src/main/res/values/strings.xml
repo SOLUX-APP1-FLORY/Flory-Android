@@ -56,5 +56,6 @@
     <string name="tv_gift_search_neighbor_title">이웃 검색</string>
     <string name="tv_gift_toolbar_title">선물하기</string>
     <string name="tv_gift_confirm_toolbar_title">받은 선물 확인하기</string>
+    <string name="tv_sign_up_toolbar_title">회원가입</string>
 
 </resources>

@@ -41,7 +41,9 @@
             android:textColorHint="@color/gray1_525252"
             android:textAppearance="@style/TextAppearance.body4"
             android:paddingStart="17dp"
-            android:paddingEnd="25dp" />
+            android:paddingEnd="15dp"
+            android:drawableEnd="@drawable/ic_delete_all"
+            android:drawablePadding="8dp" />
 
         <TextView
             android:id="@+id/tv_sign_up_id_impossible"
