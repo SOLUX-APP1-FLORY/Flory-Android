@@ -78,7 +78,7 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
     }
 
     private fun infoConfirmBtnClick() {
-        binding.clInfoConfirm.setOnClickListener {
+        binding.btnInfoConfirm.setOnClickListener {
             viewModel._nickname.value = binding.inputNickname.text.toString()
 
             Intent(this, LoginActivity::class.java).apply {
