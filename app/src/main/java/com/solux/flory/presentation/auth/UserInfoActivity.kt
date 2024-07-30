@@ -10,7 +10,9 @@ import com.solux.flory.R
 import com.solux.flory.databinding.ActivityUserInfoBinding
 import com.solux.flory.presentation.main.MainActivity
 import com.solux.flory.util.base.BindingActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
     ActivityUserInfoBinding.inflate(it)
 }) {
