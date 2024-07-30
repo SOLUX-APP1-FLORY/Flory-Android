@@ -59,7 +59,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
         binding.etSignupId.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                binding.btnSignupCheckId.isEnabled = s?.length!! >= 5
+                binding.btnSignupCheckId.isEnabled = s?.length!! <= 20
             }
 
             override fun afterTextChanged(s: Editable?) {}

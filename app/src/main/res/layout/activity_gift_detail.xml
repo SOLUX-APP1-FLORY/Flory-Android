@@ -117,7 +117,7 @@
         android:id="@+id/cl_selectneighbor_confirm"
         android:layout_width="335dp"
         android:layout_height="30dp"
-        android:background="@drawable/shape_peach1_radius15"
+        android:background="@drawable/shape_peach1_fill_24_rect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
