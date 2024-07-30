@@ -38,7 +38,7 @@
         android:id="@+id/tv_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="메시지 카드를 꾸며보세요!"
+        android:text="원하는 색상을 선택해 보세요!"
         android:textColor="@color/peach1_FF8D6F"
         android:textAppearance="@style/TextAppearance.body3"
         app:layout_constraintTop_toBottomOf="@id/progress_bar"
@@ -152,16 +152,16 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="원하는 색상을 선택해 보세요."
-            android:textColor="@color/gray4_919191"
-            android:textAppearance="@style/TextAppearance.body4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/select_card_color"
-            android:layout_marginTop="10dp" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="원하는 색상을 선택해 보세요."-->
+<!--            android:textColor="@color/gray4_919191"-->
+<!--            android:textAppearance="@style/TextAppearance.body4"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/select_card_color"-->
+<!--            android:layout_marginTop="10dp" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
