@@ -118,7 +118,7 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
     }
 
     fun sendPresent() {
-        binding.goNextBtn.setOnClickListener {
+        binding.btnSelectCardNext.setOnClickListener {
             Intent(this, SendCompleteActivity::class.java).apply {
                 putExtra(FLOWER_KEY, bouquetInfo)
                 startActivity(this)
