@@ -8,6 +8,9 @@ import com.solux.flory.databinding.ActivityGiftSelectNeighborBinding
 import com.solux.flory.presentation.profile.NeighborInfo
 import com.solux.flory.presentation.profile.ProfileViewModel
 import com.solux.flory.util.base.BindingActivity
+import com.solux.flory.util.context.stringOf
+import com.solux.flory.util.fragment.stringOf
+import com.solux.flory.util.setupToolbarClickListener
 
 class SelectNeighborActivity : BindingActivity<ActivityGiftSelectNeighborBinding>(ActivityGiftSelectNeighborBinding::inflate){
     private lateinit var adapter: SelectNeighborAdapter
@@ -19,7 +22,7 @@ class SelectNeighborActivity : BindingActivity<ActivityGiftSelectNeighborBinding
 
         initAdapter()
         confimBtnClick()
-        impossibleBtnClick()
+        initToolbar()
     }
 
     private fun initAdapter() {
@@ -43,9 +46,11 @@ class SelectNeighborActivity : BindingActivity<ActivityGiftSelectNeighborBinding
         }
     }
 
-    private fun impossibleBtnClick(){
-        binding.ivSelectNeighborImpossible.setOnClickListener{
-            finish()
+    private fun initToolbar() {
+        with(binding.toolbarSelectNeighbor) {
+            tvToolbarTitle.text = stringOf(com.solux.flory.R.string.tv_gift_toolbar_title)
+            setupToolbarClickListener(ibToolbarIcon)
         }
     }
+
 }

@@ -11,6 +11,8 @@ import com.solux.flory.databinding.ActivityWriteMessageBinding
 import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
 import com.solux.flory.presentation.main.MainActivity
 import com.solux.flory.util.base.BindingActivity
+import com.solux.flory.util.context.stringOf
+import com.solux.flory.util.setupToolbarClickListener
 
 class WriteMessageActivity : BindingActivity<ActivityWriteMessageBinding>({
     ActivityWriteMessageBinding.inflate(it)
@@ -22,9 +24,8 @@ class WriteMessageActivity : BindingActivity<ActivityWriteMessageBinding>({
         super.onCreate(savedInstanceState)
 
         initView()
+        initToolbar()
         gotoNext()
-        gotoBack()
-        gotoMain()
     }
 
     fun initView() {
@@ -33,6 +34,13 @@ class WriteMessageActivity : BindingActivity<ActivityWriteMessageBinding>({
         binding.ivBouquet.load(bouquetInfo.imageUrl)
         binding.tvBouquetName.text = bouquetInfo.name
         binding.tvBouquetMeaning.text = bouquetInfo.meaning
+    }
+
+    private fun initToolbar() {
+        with(binding.toolbarWriteMessage) {
+            tvToolbarTitle.text = stringOf(com.solux.flory.R.string.tv_gift_toolbar_title)
+            setupToolbarClickListener(ibToolbar2LeftIcon)
+        }
     }
 
     fun gotoNext() {
@@ -45,17 +53,6 @@ class WriteMessageActivity : BindingActivity<ActivityWriteMessageBinding>({
         }
     }
 
-    fun gotoBack() {
-        binding.btnGoBack.setOnClickListener {
-            finish()
-        }
-    }
-
-    fun gotoMain() {
-        binding.btnClose.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-    }
 
     companion object {
         const val FLOWER_KEY = "selectedFlower"

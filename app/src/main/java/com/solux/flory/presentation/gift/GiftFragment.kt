@@ -24,7 +24,9 @@ class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::i
     private fun initToolbar() {
         with(binding.toolbarGift) {
             tvToolbarTitle.text = stringOf(com.solux.flory.R.string.tv_gift_fragment_toolbar_title)
-            setupToolbarClickListener(ibToolbarIcon)
+            ibToolbarIcon.setOnClickListener{
+                navigateToSearchNeighborFragment()
+            }
         }
     }
 
@@ -44,5 +46,9 @@ class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::i
 
     private fun navigateToGiftConfirmFragment(){
         findNavController().navigate(R.id.action_fragment_gift_to_fragment_gift_confirm)
+    }
+
+    private fun navigateToSearchNeighborFragment(){
+        findNavController().navigate(R.id.action_fragment_gift_to_fragment_search_neighbor)
     }
 }

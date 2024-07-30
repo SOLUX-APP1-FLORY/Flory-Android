@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_presents_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="10dp"
         android:background="@drawable/shape_peach4_radius30_peach1_stroke"
         android:paddingHorizontal="6dp"
@@ -21,8 +21,8 @@
 
         <ImageView
             android:id="@+id/iv_presents_image"
-            android:layout_width="80dp"
-            android:layout_height="100dp"
+            android:layout_width="77dp"
+            android:layout_height="102dp"
             android:src="@drawable/ic_bouquet_tulip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="from. "
+            android:text="from."
             android:textAppearance="@style/TextAppearance.subtitle2"
             android:textColor="@color/black" />
 

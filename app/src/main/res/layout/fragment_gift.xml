@@ -10,15 +10,6 @@
         android:id="@+id/toolbar_gift"
         layout="@layout/item_toolbar" />
 
-    <View
-        android:id="@+id/md_gift_divider"
-        android:layout_width="0dp"
-        android:background="@drawable/shadow_down_white"
-        android:layout_height="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_gift"/>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

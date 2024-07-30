@@ -11,6 +11,8 @@ import com.solux.flory.databinding.ActivitySelectCardBinding
 import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
 import com.solux.flory.presentation.main.MainActivity
 import com.solux.flory.util.base.BindingActivity
+import com.solux.flory.util.context.stringOf
+import com.solux.flory.util.setupToolbarClickListener
 
 class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySelectCardBinding::inflate) {
     private val viewModel by viewModels<SendViewModel>()
@@ -30,11 +32,9 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         viewModel.setBouquetInfo(bouquetInfo)
 
         initView()
+        initToolbar()
         selectColor()
         sendPresent()
-        gotoBack()
-        gotoMain()
-
     }
 
     fun initView() {
@@ -43,6 +43,14 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         // peach 로 기본 설정
         viewModel.setImageView(binding.ivSelectPeach)
     }
+
+    private fun initToolbar() {
+        with(binding.toolbarSelectCard) {
+            tvToolbarTitle.text = stringOf(com.solux.flory.R.string.tv_gift_toolbar_title)
+            setupToolbarClickListener(ibToolbar2LeftIcon)
+        }
+    }
+
 
     fun selectColor() {
 
@@ -115,18 +123,6 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
                 putExtra(FLOWER_KEY, bouquetInfo)
                 startActivity(this)
             }
-        }
-    }
-
-    fun gotoBack() {
-        binding.btnGoBack.setOnClickListener {
-            finish()
-        }
-    }
-
-    fun gotoMain() {
-        binding.btnClose.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 

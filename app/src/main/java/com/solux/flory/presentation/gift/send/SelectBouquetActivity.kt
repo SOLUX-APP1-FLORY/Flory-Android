@@ -9,6 +9,8 @@ import com.solux.flory.presentation.gift.send.adapter.BouquetAdapter
 import com.solux.flory.presentation.gift.send.viewModel.BouquetViewModel
 import com.solux.flory.presentation.profile.NeighborInfo
 import com.solux.flory.util.base.BindingActivity
+import com.solux.flory.util.context.stringOf
+import com.solux.flory.util.setupToolbarClickListener
 
 class SelectBouquetActivity : BindingActivity<ActivityGiftSelectBouquetBinding>(ActivityGiftSelectBouquetBinding::inflate){
     private val viewModel by viewModels<BouquetViewModel>()
@@ -17,7 +19,7 @@ class SelectBouquetActivity : BindingActivity<ActivityGiftSelectBouquetBinding>(
         super.onCreate(savedInstanceState)
 
         initAdapter()
-        impossibleBtnClick()
+        initToolbar()
 
         val neighborInfo = intent.getSerializableExtra(NEIGHBOR_KEY) as? NeighborInfo
         neighborInfo?.let {
@@ -37,11 +39,13 @@ class SelectBouquetActivity : BindingActivity<ActivityGiftSelectBouquetBinding>(
         adapter.submitList(viewModel.mockBouquet)
     }
 
-    private fun impossibleBtnClick(){
-        binding.ivSelectBouquetImpossible.setOnClickListener{
-            finish()
+    private fun initToolbar() {
+        with(binding.toolbarSelectBouquet) {
+            tvToolbarTitle.text = stringOf(com.solux.flory.R.string.tv_gift_toolbar_title)
+            setupToolbarClickListener(ibToolbar2LeftIcon)
         }
     }
+
     companion object {
         const val NEIGHBOR_KEY = "selectedNeighbor"
     }
