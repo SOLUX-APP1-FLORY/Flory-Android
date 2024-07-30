@@ -9,21 +9,22 @@ import com.solux.flory.databinding.FragmentGiftBinding
 import com.solux.flory.presentation.gift.confirm.ConfirmFragment
 import com.solux.flory.presentation.gift.send.SelectNeighborActivity
 import com.solux.flory.util.base.BindingFragment
+import com.solux.flory.util.fragment.stringOf
+import com.solux.flory.util.setupToolbarClickListener
 
 class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        leftArrowClick()
+        initToolbar()
         flowerConfirmImageClick()
         flowerSendImageClick()
     }
 
-    private fun leftArrowClick() {
-        binding.ivGiftLeftArrow.setOnClickListener {
-            Intent(requireContext(), SearchNeighborActivity::class.java).apply {
-                startActivity(this)
-            }
+    private fun initToolbar() {
+        with(binding.toolbarGift) {
+            tvToolbarTitle.text = stringOf(com.solux.flory.R.string.tv_gift_fragment_toolbar_title)
+            setupToolbarClickListener(ibToolbarIcon)
         }
     }
 
