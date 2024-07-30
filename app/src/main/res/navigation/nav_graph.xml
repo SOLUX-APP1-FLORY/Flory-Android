@@ -41,9 +41,22 @@
 
         <action
             android:id="@+id/action_fragment_gift_to_fragment_gift_confirm"
-            app:destination="@id/fragment_gift_confirm"/>
+            app:destination="@id/fragment_gift_confirm" />
+
+        <action
+            android:id="@+id/action_fragment_gift_to_fragment_search_neighbor"
+            app:destination="@id/fragment_search_neighbor"/>
 
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_search_neighbor"
+        android:name="com.solux.flory.presentation.gift.SearchNeighborFragment"
+        android:label="SearchNeighborFragment"
+        tools:layout="@layout/fragment_gift_search_neighbor">
+
+    </fragment>
+
     <fragment
         android:id="@+id/fragment_gift_confirm"
         android:name="com.solux.flory.presentation.gift.confirm.ConfirmFragment"

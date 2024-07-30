@@ -13,15 +13,13 @@ class PresentDetailFragment : BindingFragment<FragmentGiftDetailBinding>(Fragmen
 
     private var presentInfo: PresentInfo? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         arguments?.let {
             presentInfo = it.getSerializable(GIFTCONFIRM_KEY) as? PresentInfo
         }
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         initView()
         confirmBtnClick()
     }

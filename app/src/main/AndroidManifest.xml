@@ -58,10 +58,6 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".presentation.gift.SearchNeighborActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
-        <activity
             android:name=".presentation.gift.send.SelectNeighborActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
