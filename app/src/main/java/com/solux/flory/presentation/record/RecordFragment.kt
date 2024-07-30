@@ -12,15 +12,22 @@ import com.solux.flory.presentation.record.FlowerDialogFragment.Companion.FLOWER
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener
+import java.time.LocalDate
 
 class RecordFragment : BindingFragment<FragmentRecordBinding>({
     FragmentRecordBinding.inflate(it)
 }) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         initToolbar()
         plantAreaClick()
         confirmBtnClick()
+    }
+
+    private fun initView() {
+        binding.tvRecordDate.text =
+            LocalDate.now().month.toString() + "." + LocalDate.now().dayOfMonth.toString()
     }
 
     private fun initToolbar() {
