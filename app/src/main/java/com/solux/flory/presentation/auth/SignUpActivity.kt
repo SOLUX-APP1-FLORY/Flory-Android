@@ -10,6 +10,7 @@ import com.solux.flory.R
 import com.solux.flory.databinding.ActivitySignUpBinding
 import com.solux.flory.util.base.BindingActivity
 import com.solux.flory.util.context.stringOf
+import com.solux.flory.util.context.toast
 import com.solux.flory.util.setupToolbarClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,12 +38,19 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
 
     private fun gotoUserInfo() {
         binding.btnSignupGotoUserInfo.setOnClickListener {
-            Intent(this, UserInfoActivity::class.java).apply {
-                putExtra(ID, binding.etSignupId.text.toString())
-                putExtra(PASSWORD, binding.etSignupPw.text.toString())
-                putExtra(EMAIL, getEmail())
-            }.also {
-                startActivity(it)
+            with(binding) {
+                if (etSignupId.text.isNotBlank() && tvPwPossible.visibility == View.VISIBLE && etSignupEmail.text.isNotBlank() && etSignupEmailAfter.text.isNotBlank()) {
+                    Intent(this@SignUpActivity, UserInfoActivity::class.java).apply {
+                        putExtra(ID, binding.etSignupId.text.toString())
+                        putExtra(PASSWORD, binding.etSignupPw.text.toString())
+                        putExtra(EMAIL, getEmail())
+                    }.also {
+                        startActivity(it)
+                    }
+                }
+                else {
+                    toast(stringOf(R.string.tv_signup_notice))
+                }
             }
         }
     }
@@ -50,9 +58,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
     private fun getEmail(): String {
         val emailBefore = binding.etSignupEmail.text.toString()
         val emailAfter = binding.etSignupEmailAfter.text.toString()
-
-        val email = "$emailBefore@$emailAfter"
-        return email
+        return "$emailBefore@$emailAfter"
     }
 
     private fun checkId() {

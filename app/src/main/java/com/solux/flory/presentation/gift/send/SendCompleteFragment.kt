@@ -24,7 +24,7 @@ class SendCompleteFragment :
                 meaning = "",
                 name = ""
             )
-            neighborName = it.getString(NEIGHBOR_KEY, "User")
+            neighborName = it.getString(NEIGHBOR_KEY)
         }
 
         // 데이터 설정

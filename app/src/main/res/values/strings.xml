@@ -14,5 +14,8 @@
     <string name="tv_gift_toolbar_title">선물하기</string>
     <string name="tv_gift_confirm_toolbar_title">받은 선물 확인하기</string>
     <string name="tv_sign_up_toolbar_title">회원가입</string>
+    <string name="tv_signup_notice">모든 정보를 입력해주세요</string>
+    <string name="tv_login_impossible">아이디와 비밀번호를 입력해주세요</string>
+    <string name="tv_select_neighbor_error">선택된 이웃이 없습니다</string>
 
 </resources>

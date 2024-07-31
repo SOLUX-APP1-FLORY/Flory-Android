@@ -11,6 +11,7 @@ import com.solux.flory.presentation.profile.NeighborInfo
 import com.solux.flory.presentation.profile.ProfileViewModel
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
+import com.solux.flory.util.fragment.toast
 import com.solux.flory.util.setupToolbarClickListener
 
 class SelectNeighborFragment :
@@ -52,7 +53,7 @@ class SelectNeighborFragment :
                     bundle
                 )
             } ?: run {
-                Toast.makeText(requireContext(), "선택된 이웃이 없습니다", Toast.LENGTH_SHORT).show()
+                toast(stringOf(R.string.tv_select_neighbor_error))
             }
         }
     }
