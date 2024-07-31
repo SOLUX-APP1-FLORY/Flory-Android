@@ -1,68 +1,75 @@
 package com.solux.flory.presentation.gift.send
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.activity.viewModels
+import android.view.View
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
-import com.solux.flory.databinding.ActivitySelectCardBinding
+import com.solux.flory.databinding.FragmentGiftSelectCardBinding
 import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
-import com.solux.flory.presentation.main.MainActivity
-import com.solux.flory.util.base.BindingActivity
-import com.solux.flory.util.context.stringOf
+import com.solux.flory.util.base.BindingFragment
+import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener
 
-class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySelectCardBinding::inflate) {
+class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(FragmentGiftSelectCardBinding::inflate) {
     private val viewModel by viewModels<SendViewModel>()
 
 //    var selectedImageView: ImageView? = null
     lateinit var bouquetInfo: BouquetInfo
-    var message: String =""
+    var message: String = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        //message
-        message = intent.getStringExtra(MESSAGE)!!
+        arguments?.let {
+            message = it.getString(MESSAGE, "")
+            bouquetInfo = it.getSerializable(FLOWER_KEY) as? BouquetInfo
+                ?: BouquetInfo(
+                    imageUrl = "",
+                    meaning = "",
+                    name = ""
+                )
+        } ?: run {
+            throw IllegalStateException("Arguments are required")
+        }
+
         viewModel.setMessage(message)
-        //bouquet
-        bouquetInfo = (intent.getSerializableExtra(FLOWER_KEY) as BouquetInfo?)!!
         viewModel.setBouquetInfo(bouquetInfo)
 
         initView()
         initToolbar()
         selectColor()
-        sendPresent()
+        sendBtnClick()
     }
 
-    fun initView() {
-        binding.ivBouquet.load(bouquetInfo.imageUrl)
-        binding.tvCardMessage.text = viewModel.message.value.toString()
-        // peach 로 기본 설정
+    private fun initView() {
+        bouquetInfo?.let {
+            binding.ivBouquet.load(it.imageUrl)
+            binding.tvCardMessage.text = viewModel.message.value ?: ""
+        }
+
+        // peach로 기본 설정
         viewModel.setImageView(binding.ivSelectPeach)
     }
 
     private fun initToolbar() {
         with(binding.toolbarSelectCard) {
-            tvToolbarTitle.text = stringOf(com.solux.flory.R.string.tv_gift_toolbar_title)
+            tvToolbarTitle.text = stringOf(R.string.tv_gift_toolbar_title)
             setupToolbarClickListener(ibToolbar2LeftIcon)
         }
     }
 
 
-    fun selectColor() {
-
+    private fun selectColor() {
         initPeachClickListener()
         initGrayClickListener()
         initBlueClickListener()
         initPurpleClickListener()
         initYellowClickListener()
-
     }
 
-    fun initPeachClickListener() {
+    private fun initPeachClickListener() {
         // peach
         binding.ivSelectPeach.setOnClickListener {
             if(viewModel.selectedImageView != binding.ivSelectPeach) {
@@ -73,7 +80,7 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         }
     }
 
-    fun initGrayClickListener() {
+    private fun initGrayClickListener() {
         // gray
         binding.ivSelectGray.setOnClickListener {
             if(viewModel.selectedImageView != binding.ivSelectGray) {
@@ -84,7 +91,7 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         }
     }
 
-    fun initBlueClickListener() {
+    private fun initBlueClickListener() {
         // blue
         binding.ivSelectBlue.setOnClickListener {
             if(viewModel.selectedImageView != binding.ivSelectBlue) {
@@ -95,7 +102,7 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         }
     }
 
-    fun initPurpleClickListener() {
+    private fun initPurpleClickListener() {
         // purple
         binding.ivSelectPurple.setOnClickListener {
             if(viewModel.selectedImageView != binding.ivSelectPurple) {
@@ -106,7 +113,7 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         }
     }
 
-    fun initYellowClickListener() {
+    private fun initYellowClickListener() {
         // yellow
         binding.ivSelectYellow.setOnClickListener {
             if(viewModel.selectedImageView != binding.ivSelectYellow) {
@@ -117,12 +124,13 @@ class SelectCardActivity : BindingActivity<ActivitySelectCardBinding>(ActivitySe
         }
     }
 
-    fun sendPresent() {
+    private fun sendBtnClick() {
         binding.btnSelectCardNext.setOnClickListener {
-            Intent(this, SendCompleteActivity::class.java).apply {
-                putExtra(FLOWER_KEY, bouquetInfo)
-                startActivity(this)
+            val bundle = Bundle().apply {
+                putSerializable(FLOWER_KEY, bouquetInfo)
             }
+
+            findNavController().navigate(R.id.action_fragment_select_card_to_fragment_send_complete, bundle)
         }
     }
 

@@ -103,6 +103,46 @@
         android:label="SelectBouquetFragment"
         tools:layout="@layout/fragment_gift_select_bouquet">
 
+
+        <action
+            android:id="@+id/action_fragment_select_bouquet_to_fragment_write_message"
+            app:destination="@id/fragment_write_message" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_write_message"
+        android:name="com.solux.flory.presentation.gift.send.WriteMessageFragment"
+        android:label="WriteMessageFragment"
+        tools:layout="@layout/fragment_gift_write_message">
+
+        <action
+            android:id="@+id/action_fragment_write_message_to_fragment_select_card"
+            app:destination="@id/fragment_select_card" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_select_card"
+        android:name="com.solux.flory.presentation.gift.send.SelectCardFragment"
+        android:label="SelectCardFragment"
+        tools:layout="@layout/fragment_gift_select_card">
+
+        <action
+            android:id="@+id/action_fragment_select_card_to_fragment_send_complete"
+            app:destination="@id/fragment_send_complete" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_send_complete"
+        android:name="com.solux.flory.presentation.gift.send.SendCompleteFragment"
+        android:label="SendCompleteFragment"
+        tools:layout="@layout/fragment_gift_send_complete">
+
+        <action
+            android:id="@+id/action_fragment_send_complete_to_fragment_home"
+            app:destination="@id/fragment_home" />
     </fragment>
 
 
