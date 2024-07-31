@@ -5,86 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_select_neighbor_header"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/iv_select_neighbor_giftbox"
-            android:layout_width="31dp"
-            android:layout_height="18dp"
-            android:src="@drawable/ic_giftbox"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_select_neighbor_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_gift_flower1"
-            android:drawableRight="@drawable/ic_gift_flower2"
-            android:drawablePadding="3dp"
-            android:text="선물하기"
-            android:textAppearance="@style/TextAppearance.body3"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_select_neighbor_giftbox"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_select_neighbor_title"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/iv_select_neighbor_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="0dp"
-                app:srcCompat="@drawable/ic_search_peach" />
-
-            <ImageView
-                android:id="@+id/iv_select_neighbor_impossible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                app:srcCompat="@drawable/ic_impossible_peach" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/toolbar_select_neighbor"
+        layout="@layout/item_toolbar" />
 
     <View
-        android:id="@+id/md_select_neighbor_divider"
+        android:id="@+id/diver"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/gray6_C3C3C3"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_select_neighbor" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.2"
+        android:orientation="vertical"/>
+
+    <View
+        android:id="@+id/progress_bar"
         android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@drawable/shadow_down_white"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="3dp"
+        android:background="@color/peach1_FF8D6F"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_select_neighbor_header" />
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/diver" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="29dp"
-        android:layout_marginStart="38dp"
+        android:layout_marginStart="44dp"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_select_neighbor_header">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_select_neighbor">
 
         <ImageView
             android:id="@+id/iv_gift_image"
@@ -97,29 +53,44 @@
             app:srcCompat="@drawable/ic_profile_image" />
 
         <LinearLayout
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_gift_image"
+            app:layout_constraintStart_toEndOf="@id/iv_gift_image"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tv_select_neighbor_name"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.subtitle2"
-                tools:text="워녕님" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_select_neighbor_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.subtitle2"
+                    tools:text="워녕" />
+
+                <TextView
+                    android:id="@+id/tv_select_neighbor_info1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.subtitle2"
+                    android:text="님" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tv_select_neighbor_info"
+                android:id="@+id/tv_select_neighbor_info2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="선물할 이웃을 선택해주세요"
                 android:textAppearance="@style/TextAppearance.subtitle2" />
         </LinearLayout>
+
+
     </LinearLayout>
 
     <TextView
@@ -143,7 +114,7 @@
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_select_neighbor_header">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_select_neighbor">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_gift_send_neighbor"

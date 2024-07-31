@@ -1,5 +1,6 @@
 package com.solux.flory.presentation.auth
 
+import android.widget.EditText
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,5 +25,9 @@ class SignupViewModel: ViewModel() {
 
     fun setGender(gender: String) {
         _gender.value = gender
+    }
+
+    fun clearText(editText: EditText) {
+        editText.setText("")
     }
 }

@@ -5,57 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_giftdetail_header"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/iv_giftdetail_left_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_left_arrow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_giftdetail_impossible"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_impossible_peach" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/toolbar_gift_detail"
+        layout="@layout/item_toolbar" />
 
     <LinearLayout
-        android:id="@+id/ll_giftdetail_info"
+        android:id="@+id/ll_gift_detail_info"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginBottom="400dp"
+        android:layout_marginBottom="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/cl_giftdetail_header"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar_gift_detail"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_giftdetail_header">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_gift_detail">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tv_giftdetail_sender"
+                android:id="@+id/tv_gift_detail_sender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="신세기"
+                tools:text="신세기"
                 android:textAppearance="@style/TextAppearance.title2" />
 
             <TextView
@@ -67,27 +41,27 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_giftdetail_date"
+            android:id="@+id/tv_gift_detail_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="2023.09.03"
+            tools:text="2023.09.03"
             android:textAppearance="@style/TextAppearance.subtitle2"
             android:textColor="@color/gray5_969696"/>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="335dp"
-        android:layout_height="350dp"
-        android:id="@+id/cl_giftdetail_message"
+        android:layout_height="354dp"
+        android:id="@+id/cl_gift_detail_message"
         android:layout_marginTop="24dp"
         android:background="@drawable/shape_transparent_radius20_peach3_stroke"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_giftdetail_info">
+        app:layout_constraintTop_toBottomOf="@id/ll_gift_detail_info">
 
         <ImageView
-            android:id="@+id/iv_giftdetail_image"
+            android:id="@+id/iv_gift_detail_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@drawable/shape_transparent_circle_peach3_stroke"
@@ -99,43 +73,33 @@
             app:srcCompat="@drawable/ic_bouquet_tulip" />
 
         <TextView
-            android:id="@+id/tv_giftdetail_text"
+            android:id="@+id/tv_gift_detail_text"
             android:layout_width="300dp"
             android:layout_height="200dp"
             android:background="@drawable/shape_peach_fill_20_rect"
-            android:text="안매!매!안매!매!안매매매매!매매매매매!"
+            tools:text="안매!매!안매!매!안매매매매!매매매매매!"
             android:paddingVertical="20dp"
             android:paddingHorizontal="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_giftdetail_image" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_gift_detail_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_selectneighbor_confirm"
-        android:layout_width="335dp"
-        android:layout_height="30dp"
-        android:background="@drawable/shape_peach1_fill_24_rect"
+    <Button
+        android:id="@+id/btn_gift_detail_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/peach1_FF8D6F"
+        android:text="확인"
+        android:textAppearance="@style/TextAppearance.body2"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_giftdetail_message"
-        app:layout_constraintVertical_bias="0.255">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="확인"
-            android:textAppearance="@style/TextAppearance.subtitle3"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@+id/cl_gift_detail_message" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
