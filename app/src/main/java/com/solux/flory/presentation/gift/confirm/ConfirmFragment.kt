@@ -27,7 +27,9 @@ class ConfirmFragment: BindingFragment<FragmentGiftConfirmBinding>(FragmentGiftC
     private fun initToolbar() {
         with(binding.toolbarGiftConfirm) {
             tvToolbarTitle.text = stringOf(R.string.tv_gift_confirm_toolbar_title)
-            setupToolbarClickListener(ibToolbarIcon)
+            ibToolbarIcon.setOnClickListener{
+                navigateToGiftConfirmFragment()
+            }
         }
     }
 
@@ -42,5 +44,9 @@ class ConfirmFragment: BindingFragment<FragmentGiftConfirmBinding>(FragmentGiftC
 
         binding.rvPresents.adapter = adapter
         adapter.submitList(viewModel.mockPresent)
+    }
+
+    private fun navigateToGiftConfirmFragment(){
+        findNavController().navigate(R.id.action_fragment_gift_confirm_to_fragment_gift)
     }
 }

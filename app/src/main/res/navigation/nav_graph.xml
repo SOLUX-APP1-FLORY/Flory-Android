@@ -63,6 +63,10 @@
             android:id="@+id/action_fragment_gift_confirm_to_fragment_gift_detail"
             app:destination="@id/fragment_gift_detail"/>
 
+        <action
+            android:id="@+id/action_fragment_gift_confirm_to_fragment_gift"
+            app:destination="@id/fragment_gift"/>
+
     </fragment>
 
     <fragment
