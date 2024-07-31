@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.gift.GiftFragment">
+    android:background="@color/white">
 
     <include
         android:id="@+id/toolbar_gift"
@@ -12,8 +12,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="@id/toolbar_gift">
+        android:layout_height="0dp"
+        android:background="@color/peach4_FFF9F8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_gift">
 
         <ImageView
             android:id="@+id/iv_gift_flowerconfirm"
@@ -95,8 +99,5 @@
             android:textColor="@color/peach1_FF8D6F"
             app:layout_constraintBottom_toBottomOf="@id/iv_gift_flowersend"
             app:layout_constraintStart_toStartOf="@id/iv_gift_flowersend" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
