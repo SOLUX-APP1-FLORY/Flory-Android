@@ -6,11 +6,9 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftBinding
-import com.solux.flory.presentation.gift.confirm.ConfirmFragment
-import com.solux.flory.presentation.gift.send.SelectNeighborActivity
+import com.solux.flory.presentation.gift.send.SelectNeighborFragment
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
-import com.solux.flory.util.setupToolbarClickListener
 
 class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::inflate) {
 
@@ -38,17 +36,20 @@ class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::i
 
     private fun flowerSendImageClick() {
         binding.ivGiftFlowersend.setOnClickListener {
-            Intent(requireContext(), SelectNeighborActivity::class.java).apply {
-                startActivity(this)
-            }
+            navigateToSelectNeighborFragment()
         }
+    }
+
+    private fun navigateToSearchNeighborFragment(){
+        findNavController().navigate(R.id.action_fragment_gift_to_fragment_search_neighbor)
     }
 
     private fun navigateToGiftConfirmFragment(){
         findNavController().navigate(R.id.action_fragment_gift_to_fragment_gift_confirm)
     }
 
-    private fun navigateToSearchNeighborFragment(){
-        findNavController().navigate(R.id.action_fragment_gift_to_fragment_search_neighbor)
+    private fun navigateToSelectNeighborFragment(){
+        findNavController().navigate(R.id.action_fragment_gift_to_fragment_select_neighbor)
     }
+
 }

@@ -47,13 +47,9 @@
             android:id="@+id/action_fragment_gift_to_fragment_search_neighbor"
             app:destination="@id/fragment_search_neighbor"/>
 
-    </fragment>
-
-    <fragment
-        android:id="@+id/fragment_search_neighbor"
-        android:name="com.solux.flory.presentation.gift.SearchNeighborFragment"
-        android:label="SearchNeighborFragment"
-        tools:layout="@layout/fragment_gift_search_neighbor">
+        <action
+            android:id="@+id/action_fragment_gift_to_fragment_select_neighbor"
+            app:destination="@id/fragment_select_neighbor"/>
 
     </fragment>
 
@@ -80,6 +76,36 @@
             app:destination="@id/fragment_gift_confirm" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_search_neighbor"
+        android:name="com.solux.flory.presentation.gift.SearchNeighborFragment"
+        android:label="SearchNeighborFragment"
+        tools:layout="@layout/fragment_gift_search_neighbor">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_select_neighbor"
+        android:name="com.solux.flory.presentation.gift.send.SelectNeighborFragment"
+        android:label="SelectNeighborFragment"
+        tools:layout="@layout/fragment_gift_select_neighbor">
+
+        <action
+            android:id="@+id/action_fragment_select_neighbor_to_fragment_select_bouquet"
+            app:destination="@id/fragment_select_bouquet" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_select_bouquet"
+        android:name="com.solux.flory.presentation.gift.send.SelectBouquetFragment"
+        android:label="SelectBouquetFragment"
+        tools:layout="@layout/fragment_gift_select_bouquet">
+
+    </fragment>
+
+
 
     <fragment
         android:id="@+id/fragment_profile"

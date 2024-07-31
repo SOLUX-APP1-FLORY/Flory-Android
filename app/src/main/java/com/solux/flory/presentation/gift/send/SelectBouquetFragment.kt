@@ -1,39 +1,47 @@
 package com.solux.flory.presentation.gift.send
 
 import android.os.Bundle
-import androidx.activity.viewModels
+import android.view.View
+import androidx.fragment.app.viewModels
 import coil.load
 import coil.transform.CircleCropTransformation
-import com.solux.flory.databinding.ActivityGiftSelectBouquetBinding
+import com.solux.flory.databinding.FragmentGiftSelectBouquetBinding
 import com.solux.flory.presentation.gift.send.adapter.BouquetAdapter
 import com.solux.flory.presentation.gift.send.viewModel.BouquetViewModel
 import com.solux.flory.presentation.profile.NeighborInfo
-import com.solux.flory.util.base.BindingActivity
-import com.solux.flory.util.context.stringOf
+import com.solux.flory.util.base.BindingFragment
+import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener
 
-class SelectBouquetActivity : BindingActivity<ActivityGiftSelectBouquetBinding>(ActivityGiftSelectBouquetBinding::inflate){
+class SelectBouquetFragment : BindingFragment<FragmentGiftSelectBouquetBinding>(FragmentGiftSelectBouquetBinding::inflate){
+    private var neighborInfo: NeighborInfo? = null
+
     private val viewModel by viewModels<BouquetViewModel>()
     private lateinit var adapter: BouquetAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        arguments?.let {
+            neighborInfo = it.getSerializable(NEIGHBOR_KEY) as? NeighborInfo
+        }
+        initView()
         initAdapter()
         initToolbar()
+    }
 
-        val neighborInfo = intent.getSerializableExtra(NEIGHBOR_KEY) as? NeighborInfo
+    private fun initView() {
         neighborInfo?.let {
-            binding.ivGiftImage.load(neighborInfo.profileImage) {
+            binding.ivGiftImage.load(it.profileImage) {
                 transformations(CircleCropTransformation())
             }
-            binding.tvSelectBouquetNeighborName.text = neighborInfo.profileName
+            binding.tvSelectBouquetNeighborName.text = it.profileName
         }
     }
 
     private fun initAdapter() {
-        adapter = BouquetAdapter(){
+        adapter = BouquetAdapter {
             val dialog = BouquetDialogFragment(it)
-            dialog.show(supportFragmentManager, dialog.tag)
+            dialog.show(parentFragmentManager, dialog.tag)
         }
         binding.rvBouquets.adapter = adapter
         adapter.submitList(viewModel.mockBouquet)

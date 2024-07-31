@@ -24,6 +24,7 @@ class PresentDetailFragment : BindingFragment<FragmentGiftDetailBinding>(Fragmen
         }
 
         initView()
+        initToolbar()
         confirmBtnClick()
     }
 
