@@ -45,12 +45,12 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
 
     private fun initView() {
         bouquetInfo?.let {
-            binding.ivBouquet.load(it.imageUrl)
-            binding.tvCardMessage.text = viewModel.message.value ?: ""
+            binding.ivSelectCardBouquet.load(it.imageUrl)
+            binding.tvSelectCardMessage.text = viewModel.message.value ?: ""
         }
 
         // peach로 기본 설정
-        viewModel.setImageView(binding.ivSelectPeach)
+        viewModel.setImageView(binding.ivSelectCardPeach)
     }
 
     private fun initToolbar() {
@@ -71,10 +71,10 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
 
     private fun initPeachClickListener() {
         // peach
-        binding.ivSelectPeach.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectPeach) {
-                viewModel.setImageView(binding.ivSelectPeach)
-                binding.ivCard.setImageResource(R.drawable.ic_card_peach)
+        binding.ivSelectCardPeach.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectCardPeach) {
+                viewModel.setImageView(binding.ivSelectCardPeach)
+                binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_peach)
                 viewModel.setCardColor("peach")
             }
         }
@@ -82,10 +82,10 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
 
     private fun initGrayClickListener() {
         // gray
-        binding.ivSelectGray.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectGray) {
-                viewModel.setImageView(binding.ivSelectGray)
-                binding.ivCard.setImageResource(R.drawable.ic_card_gray)
+        binding.ivSelectCardGray.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectCardGray) {
+                viewModel.setImageView(binding.ivSelectCardGray)
+                binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_gray)
                 viewModel.setCardColor("gray")
             }
         }
@@ -93,10 +93,10 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
 
     private fun initBlueClickListener() {
         // blue
-        binding.ivSelectBlue.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectBlue) {
-                viewModel.setImageView(binding.ivSelectBlue)
-                binding.ivCard.setImageResource(R.drawable.ic_card_blue)
+        binding.ivSelectCardBlue.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectCardBlue) {
+                viewModel.setImageView(binding.ivSelectCardBlue)
+                binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_blue)
                 viewModel.setCardColor("blue")
             }
         }
@@ -104,10 +104,10 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
 
     private fun initPurpleClickListener() {
         // purple
-        binding.ivSelectPurple.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectPurple) {
-                viewModel.setImageView(binding.ivSelectPurple)
-                binding.ivCard.setImageResource(R.drawable.ic_card_purple)
+        binding.ivSelectCardPurple.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectCardPurple) {
+                viewModel.setImageView(binding.ivSelectCardPurple)
+                binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_purple)
                 viewModel.setCardColor("purple")
             }
         }
@@ -115,10 +115,10 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
 
     private fun initYellowClickListener() {
         // yellow
-        binding.ivSelectYellow.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectYellow) {
-                viewModel.setImageView(binding.ivSelectYellow)
-                binding.ivCard.setImageResource(R.drawable.ic_card_yellow)
+        binding.ivSelectCardYellow.setOnClickListener {
+            if(viewModel.selectedImageView != binding.ivSelectCardYellow) {
+                viewModel.setImageView(binding.ivSelectCardYellow)
+                binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_yellow)
                 viewModel.setCardColor("yellow")
             }
         }
