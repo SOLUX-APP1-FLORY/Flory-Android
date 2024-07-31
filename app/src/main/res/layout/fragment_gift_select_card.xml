@@ -5,69 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.gift.send.SelectCardActivity">
+    tools:context=".presentation.gift.send.SelectCardFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_select_card_header"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/btn_go_back"
-            android:layout_width="31dp"
-            android:layout_height="18dp"
-            android:src="@drawable/ic_left_arrow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_gift_flower1"
-            android:drawableRight="@drawable/ic_gift_flower2"
-            android:drawablePadding="3dp"
-            android:text="선물하기"
-            android:textAppearance="@style/TextAppearance.body3"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btn_go_back"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_title"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/btn_close"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                app:srcCompat="@drawable/ic_impossible_peach" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/toolbar_select_card"
+        layout="@layout/item_toolbar2" />
 
     <View
-        android:id="@+id/view_diver"
+        android:id="@+id/diver"
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:background="@color/gray6_C3C3C3"
-        app:layout_constraintTop_toBottomOf="@id/cl_select_card_header" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_select_card" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -83,31 +32,31 @@
         android:background="@color/peach1_FF8D6F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="@id/view_diver" />
+        app:layout_constraintTop_toTopOf="@id/diver" />
 
     <TextView
-        android:id="@+id/tv_info"
+        android:id="@+id/tv_select_card_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="메시지 카드를 수정해보세요"
+        android:text="원하는 색상을 선택해 보세요!"
         android:textColor="@color/peach1_FF8D6F"
         android:textAppearance="@style/TextAppearance.body3"
         app:layout_constraintTop_toBottomOf="@id/progress_bar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="62dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/card_layout"
+        android:id="@+id/cl_select_card_area"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:background="@drawable/shape_transparent_radius20_peach3_stroke"
-        app:layout_constraintTop_toBottomOf="@id/tv_info"
+        app:layout_constraintTop_toBottomOf="@id/tv_select_card_info"
         android:layout_marginTop="28dp"
         android:layout_marginHorizontal="13dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/bouquet_area"
+            android:id="@+id/cl_select_card_bouquet_area"
             android:layout_width="57dp"
             android:layout_height="57dp"
             android:background="@drawable/shape_transparent_circle_peach3_stroke"
@@ -117,7 +66,7 @@
             android:layout_marginTop="12dp">
 
             <ImageView
-                android:id="@+id/iv_bouquet"
+                android:id="@+id/iv_select_card_bouquet"
                 android:layout_width="38dp"
                 android:layout_height="45dp"
                 android:src="@drawable/ic_bouquet_tulip"
@@ -130,11 +79,11 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/iv_card"
+            android:id="@+id/iv_select_card_image"
             android:layout_width="300dp"
             android:layout_height="0dp"
             android:src="@drawable/ic_card_peach"
-            app:layout_constraintTop_toBottomOf="@id/bouquet_area"
+            app:layout_constraintTop_toBottomOf="@id/cl_select_card_bouquet_area"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -142,29 +91,29 @@
             android:layout_marginTop="7dp" />
         
         <TextView
-            android:id="@+id/tv_card_message"
+            android:id="@+id/tv_select_card_message"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:text=""
             android:textAppearance="@style/TextAppearance.body4"
             android:textColor="@color/black"
             android:maxLines="5"
-            app:layout_constraintStart_toStartOf="@id/iv_card"
-            app:layout_constraintEnd_toEndOf="@id/iv_card"
-            app:layout_constraintTop_toTopOf="@id/iv_card"
+            app:layout_constraintStart_toStartOf="@id/iv_select_card_image"
+            app:layout_constraintEnd_toEndOf="@id/iv_select_card_image"
+            app:layout_constraintTop_toTopOf="@id/iv_select_card_image"
             android:layout_marginTop="60dp" />
 
         <LinearLayout
-            android:id="@+id/select_card_color"
+            android:id="@+id/ll_select_card_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/iv_card"
+            app:layout_constraintTop_toBottomOf="@id/iv_select_card_image"
             android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/iv_select_gray"
+                android:id="@+id/iv_select_card_gray"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:src="@drawable/selector_card_gray"
@@ -172,14 +121,14 @@
                 android:layout_marginTop="5dp"/>
 
             <ImageView
-                android:id="@+id/iv_select_peach"
+                android:id="@+id/iv_select_card_peach"
                 android:layout_width="66dp"
                 android:layout_height="23dp"
                 android:src="@drawable/selector_card_peach"
                 android:layout_marginEnd="10dp" />
 
             <ImageView
-                android:id="@+id/iv_select_blue"
+                android:id="@+id/iv_select_card_blue"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:src="@drawable/selector_card_blue"
@@ -187,7 +136,7 @@
                 android:layout_marginTop="5dp" />
 
             <ImageView
-                android:id="@+id/iv_select_purple"
+                android:id="@+id/iv_select_card_purple"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:src="@drawable/selector_card_purple"
@@ -195,7 +144,7 @@
                 android:layout_marginTop="5dp" />
 
             <ImageView
-                android:id="@+id/iv_select_yellow"
+                android:id="@+id/iv_select_card_yellow"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:src="@drawable/selector_card_yellow"
@@ -203,45 +152,32 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="원하는 색상을 선택해 보세요."
-            android:textColor="@color/gray4_919191"
-            android:textAppearance="@style/TextAppearance.body4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/select_card_color"
-            android:layout_marginTop="10dp" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="원하는 색상을 선택해 보세요."-->
+<!--            android:textColor="@color/gray4_919191"-->
+<!--            android:textAppearance="@style/TextAppearance.body4"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/select_card_color"-->
+<!--            android:layout_marginTop="10dp" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/go_next_btn"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_select_card_next"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_peach1_radius15"
-        app:layout_constraintTop_toBottomOf="@id/card_layout"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/peach1_FF8D6F"
+        android:text="다음"
+        android:textAppearance="@style/TextAppearance.body2"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/cl_select_card_area"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="27dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="선물하기"
-            android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.body2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="113dp"
-            android:layout_marginVertical="8dp" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="27dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

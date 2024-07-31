@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.gift.send.SendCompleteActivity"
+    tools:context=".presentation.gift.send.SendCompleteFragment"
     android:background="@color/peach4_FFF9F8">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,32 +43,19 @@
         app:layout_constraintTop_toBottomOf="@id/bouquet_area"
         android:layout_marginTop="23dp" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/btn_go_next"
+    <Button
+        android:id="@+id/btn_send_complete_go_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_peach1_radius15"
+        android:layout_marginHorizontal="20dp"
+        android:paddingHorizontal="100dp"
+        android:backgroundTint="@color/peach1_FF8D6F"
+        android:text="확인"
+        android:textAppearance="@style/TextAppearance.title1"
+        android:textColor="@color/white"
+        android:layout_marginTop="36dp"
         app:layout_constraintTop_toBottomOf="@id/tv_complete_message"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="36dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="확인"
-            android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.body2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="113dp"
-            android:layout_marginVertical="9dp" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

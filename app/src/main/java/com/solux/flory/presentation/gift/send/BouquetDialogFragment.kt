@@ -1,13 +1,12 @@
 package com.solux.flory.presentation.gift.send
 
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftDialogBinding
-import com.solux.flory.presentation.record.RecordFragment
 import com.solux.flory.util.base.BindingDialogFragment
 
 class BouquetDialogFragment(
@@ -36,11 +35,11 @@ class BouquetDialogFragment(
     private fun confirmBtnClick() {
         binding.btnConfirm.setOnClickListener {
             dismiss()
+            val bundle = Bundle().apply {
+                putSerializable(FLOWER_KEY, bouquetInfo)
+            }
 
-            // 선물페이지4로 이동
-            val intent = Intent(requireContext(), WriteMessageActivity::class.java)
-            intent.putExtra(FLOWER_KEY, bouquetInfo)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_fragment_select_bouquet_to_fragment_write_message, bundle)
         }
     }
 

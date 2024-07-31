@@ -6,45 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_search_neighbor_header"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/iv_search_neighbor_left_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_left_arrow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이웃 검색"
-            android:textAppearance="@style/TextAppearance.body3"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_search_neighbor_left_arrow"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <View
-        android:id="@+id/md_search_neighbor_divider"
-        android:layout_width="0dp"
-        android:layout_height="2dp"
-        android:background="@drawable/shadow_down_white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_search_neighbor_header" />
+    <include
+        android:id="@+id/toolbar_search_neighbor"
+        layout="@layout/item_toolbar" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -54,13 +18,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_search_neighbor_header">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_search_neighbor">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_search_neighbor_searchbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="13dp"
             android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toTopOf="@+id/cl_search_neighbor_nouser"
             app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +65,6 @@
             android:layout_height="0dp"
             android:layout_marginBottom="446dp"
             android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_search_neighbor_searchbar">
@@ -130,12 +93,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="350dp"
-            android:layout_height="350dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="470dp"
+            android:layout_marginBottom="80dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginBottom="80dp">
+            app:layout_constraintTop_toBottomOf="@+id/cl_search_neighbor_nouser">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_search_neighbor"

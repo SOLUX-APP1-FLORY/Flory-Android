@@ -24,18 +24,6 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".presentation.gift.send.SendCompleteActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".presentation.gift.send.SelectCardActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".presentation.gift.send.WriteMessageActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".presentation.auth.UserInfoActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
@@ -55,25 +43,6 @@
         </activity>
         <activity
             android:name=".presentation.main.MainActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".presentation.gift.SearchNeighborActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".presentation.gift.confirm.ConfirmActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".presentation.gift.confirm.PresentDetailActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".presentation.gift.send.SelectNeighborActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".presentation.gift.send.SelectBouquetActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
     </application>
