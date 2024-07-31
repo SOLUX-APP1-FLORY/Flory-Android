@@ -6,11 +6,13 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSendCompleteBinding
+import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
 import com.solux.flory.util.base.BindingFragment
 
-class SendCompleteFragment : BindingFragment<FragmentGiftSendCompleteBinding>(FragmentGiftSendCompleteBinding::inflate) {
-    lateinit var bouquetInfo: BouquetInfo
-    lateinit var userName: String
+class SendCompleteFragment :
+    BindingFragment<FragmentGiftSendCompleteBinding>(FragmentGiftSendCompleteBinding::inflate) {
+    private lateinit var bouquetInfo: BouquetInfo
+    private var neighborName: String? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,12 +24,12 @@ class SendCompleteFragment : BindingFragment<FragmentGiftSendCompleteBinding>(Fr
                 meaning = "",
                 name = ""
             )
-            userName = it.getString(USER_NAME_KEY, "User")
+            neighborName = it.getString(NEIGHBOR_KEY, "User")
         }
 
         // 데이터 설정
         binding.ivBouquet.load(bouquetInfo.imageUrl)
-        binding.tvCompleteMessage.text = getString(R.string.send_complete, userName)
+        binding.tvCompleteMessage.text = getString(R.string.send_complete, neighborName)
         gotoMain()
 
     }
@@ -40,6 +42,5 @@ class SendCompleteFragment : BindingFragment<FragmentGiftSendCompleteBinding>(Fr
 
     companion object {
         const val FLOWER_KEY = "selectedFlower"
-        const val USER_NAME_KEY = "userName"
     }
 }

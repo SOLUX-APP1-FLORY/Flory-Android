@@ -39,6 +39,7 @@ class PresentDetailFragment : BindingFragment<FragmentGiftDetailBinding>(Fragmen
     private fun initToolbar() {
         with(binding.toolbarGiftDetail) {
             setupToolbarClickListener(ibToolbarIcon)
+            mdProfileDivider.visibility = View.GONE
         }
     }
 

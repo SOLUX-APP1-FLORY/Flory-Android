@@ -10,7 +10,8 @@ import com.solux.flory.databinding.FragmentGiftDialogBinding
 import com.solux.flory.util.base.BindingDialogFragment
 
 class BouquetDialogFragment(
-    private val bouquetInfo: BouquetInfo
+    private val bouquetInfo: BouquetInfo,
+    private val neighborName: String,
 ) : BindingDialogFragment<FragmentGiftDialogBinding>(FragmentGiftDialogBinding::inflate) {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -37,9 +38,13 @@ class BouquetDialogFragment(
             dismiss()
             val bundle = Bundle().apply {
                 putSerializable(FLOWER_KEY, bouquetInfo)
+                putString(NEIGHBOR_KEY, neighborName)
             }
 
-            findNavController().navigate(R.id.action_fragment_select_bouquet_to_fragment_write_message, bundle)
+            findNavController().navigate(
+                R.id.action_fragment_select_bouquet_to_fragment_write_message,
+                bundle
+            )
         }
     }
 
@@ -51,5 +56,6 @@ class BouquetDialogFragment(
 
     companion object {
         const val FLOWER_KEY = "selectedFlower"
+        const val NEIGHBOR_KEY = "selectedNeighbor"
     }
 }

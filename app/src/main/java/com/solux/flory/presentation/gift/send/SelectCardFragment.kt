@@ -7,17 +7,20 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectCardBinding
+import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
 import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener
 
-class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(FragmentGiftSelectCardBinding::inflate) {
+class SelectCardFragment :
+    BindingFragment<FragmentGiftSelectCardBinding>(FragmentGiftSelectCardBinding::inflate) {
     private val viewModel by viewModels<SendViewModel>()
 
-//    var selectedImageView: ImageView? = null
+    //    var selectedImageView: ImageView? = null
     lateinit var bouquetInfo: BouquetInfo
     var message: String = ""
+    var neighborName: String? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,6 +33,7 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
                     meaning = "",
                     name = ""
                 )
+            neighborName = it.getString(NEIGHBOR_KEY)
         } ?: run {
             throw IllegalStateException("Arguments are required")
         }
@@ -72,7 +76,7 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
     private fun initPeachClickListener() {
         // peach
         binding.ivSelectCardPeach.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectCardPeach) {
+            if (viewModel.selectedImageView != binding.ivSelectCardPeach) {
                 viewModel.setImageView(binding.ivSelectCardPeach)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_peach)
                 viewModel.setCardColor("peach")
@@ -83,7 +87,7 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
     private fun initGrayClickListener() {
         // gray
         binding.ivSelectCardGray.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectCardGray) {
+            if (viewModel.selectedImageView != binding.ivSelectCardGray) {
                 viewModel.setImageView(binding.ivSelectCardGray)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_gray)
                 viewModel.setCardColor("gray")
@@ -94,7 +98,7 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
     private fun initBlueClickListener() {
         // blue
         binding.ivSelectCardBlue.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectCardBlue) {
+            if (viewModel.selectedImageView != binding.ivSelectCardBlue) {
                 viewModel.setImageView(binding.ivSelectCardBlue)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_blue)
                 viewModel.setCardColor("blue")
@@ -105,7 +109,7 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
     private fun initPurpleClickListener() {
         // purple
         binding.ivSelectCardPurple.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectCardPurple) {
+            if (viewModel.selectedImageView != binding.ivSelectCardPurple) {
                 viewModel.setImageView(binding.ivSelectCardPurple)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_purple)
                 viewModel.setCardColor("purple")
@@ -116,7 +120,7 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
     private fun initYellowClickListener() {
         // yellow
         binding.ivSelectCardYellow.setOnClickListener {
-            if(viewModel.selectedImageView != binding.ivSelectCardYellow) {
+            if (viewModel.selectedImageView != binding.ivSelectCardYellow) {
                 viewModel.setImageView(binding.ivSelectCardYellow)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_yellow)
                 viewModel.setCardColor("yellow")
@@ -128,9 +132,13 @@ class SelectCardFragment : BindingFragment<FragmentGiftSelectCardBinding>(Fragme
         binding.btnSelectCardNext.setOnClickListener {
             val bundle = Bundle().apply {
                 putSerializable(FLOWER_KEY, bouquetInfo)
+                putString(NEIGHBOR_KEY, neighborName)
             }
 
-            findNavController().navigate(R.id.action_fragment_select_card_to_fragment_send_complete, bundle)
+            findNavController().navigate(
+                R.id.action_fragment_select_card_to_fragment_send_complete,
+                bundle
+            )
         }
     }
 

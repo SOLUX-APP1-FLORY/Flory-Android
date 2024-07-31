@@ -77,7 +77,9 @@
 
         <action
             android:id="@+id/action_fragment_gift_detail_to_fragment_gift_confirm"
-            app:destination="@id/fragment_gift_confirm" />
+            app:destination="@id/fragment_gift_confirm"
+            app:popUpTo="@id/fragment_gift_confirm"
+            app:popUpToInclusive="true" />
 
     </fragment>
 
@@ -146,7 +148,9 @@
 
         <action
             android:id="@+id/action_fragment_send_complete_to_fragment_home"
-            app:destination="@id/fragment_home" />
+            app:destination="@id/fragment_home"
+            app:popUpTo="@id/fragment_home"
+            app:popUpToInclusive="true" />
     </fragment>
 
 
