@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import coil.load
 import coil.transform.CircleCropTransformation
+import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectBouquetBinding
+import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
 import com.solux.flory.presentation.gift.send.adapter.BouquetAdapter
 import com.solux.flory.presentation.gift.send.viewModel.BouquetViewModel
 import com.solux.flory.presentation.profile.NeighborInfo
@@ -13,7 +15,8 @@ import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener
 
-class SelectBouquetFragment : BindingFragment<FragmentGiftSelectBouquetBinding>(FragmentGiftSelectBouquetBinding::inflate){
+class SelectBouquetFragment :
+    BindingFragment<FragmentGiftSelectBouquetBinding>(FragmentGiftSelectBouquetBinding::inflate) {
     private var neighborInfo: NeighborInfo? = null
 
     private val viewModel by viewModels<BouquetViewModel>()
@@ -40,8 +43,8 @@ class SelectBouquetFragment : BindingFragment<FragmentGiftSelectBouquetBinding>(
 
     private fun initAdapter() {
         adapter = BouquetAdapter {
-            val dialog = BouquetDialogFragment(it)
-            dialog.show(parentFragmentManager, dialog.tag)
+            val dialog = neighborInfo?.let { it1 -> BouquetDialogFragment(it, it1.profileName) }
+            dialog?.show(parentFragmentManager, dialog.tag)
         }
         binding.rvBouquets.adapter = adapter
         adapter.submitList(viewModel.mockBouquet)
@@ -49,12 +52,8 @@ class SelectBouquetFragment : BindingFragment<FragmentGiftSelectBouquetBinding>(
 
     private fun initToolbar() {
         with(binding.toolbarSelectBouquet) {
-            tvToolbarTitle.text = stringOf(com.solux.flory.R.string.tv_gift_toolbar_title)
+            tvToolbarTitle.text = stringOf(R.string.tv_gift_toolbar_title)
             setupToolbarClickListener(ibToolbar2LeftIcon)
         }
-    }
-
-    companion object {
-        const val NEIGHBOR_KEY = "selectedNeighbor"
     }
 }

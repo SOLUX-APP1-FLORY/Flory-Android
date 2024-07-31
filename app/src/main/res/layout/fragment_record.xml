@@ -142,12 +142,12 @@
                 android:id="@+id/tv_record_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="May.21"
                 android:textAppearance="@style/TextAppearance.title1"
                 android:textColor="@color/peach1_FF8D6F"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="May.21" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_record_memo"
@@ -181,7 +181,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:gravity="top"
-                    android:textAppearance="@style/TextAppearance.body5"
+                    android:maxLength="200"
+                    android:textAppearance="@style/TextAppearance.body4"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

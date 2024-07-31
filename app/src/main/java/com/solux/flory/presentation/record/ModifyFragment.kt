@@ -15,6 +15,7 @@ import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.fragment.toast
 import com.solux.flory.util.setupToolbarClickListener
+import java.time.LocalDate
 
 class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBinding::inflate) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,10 +36,20 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
 
     private fun initView() {
         val date = arguments?.getSerializable(DATE_KEY) as DateInfo
+        val now = LocalDate.now()
         with(binding) {
-            ivModifyFlowerAvatar.load(date.imageUrl)
-            // 추후 꽃 이름과 의미 넣기
             tvModifyDate.text = "${date.year}. ${date.month}. ${date.dayOfMonth}"
+            ivModifyFlowerAvatar.load(date.imageUrl)
+            if (now.year == date.year && now.monthValue == date.month && now.dayOfMonth == date.dayOfMonth) {
+                btnModifyConfirm.visibility = View.VISIBLE
+                etModifyTitle.isEnabled = true
+                etModifyContent.isEnabled = true
+            } else {
+                btnModifyConfirm.visibility = View.INVISIBLE
+                etModifyTitle.isEnabled = false
+                etModifyContent.isEnabled = false
+            }
+            // 추후 꽃 이름과 의미 넣기
         }
     }
 

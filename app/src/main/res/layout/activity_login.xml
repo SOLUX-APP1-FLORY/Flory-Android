@@ -7,7 +7,7 @@
     tools:context=".presentation.auth.LoginActivity">
 
     <ImageView
-        android:id="@+id/main_image"
+        android:id="@+id/iv_login_image"
         android:layout_width="67dp"
         android:layout_height="62dp"
         android:layout_marginTop="81dp"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/main_text"
+        android:id="@+id/tv_login_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -26,10 +26,10 @@
         android:textColor="@color/peach1_FF8D6F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_image" />
+        app:layout_constraintTop_toBottomOf="@id/iv_login_image" />
 
     <TextView
-        android:id="@+id/login_tv"
+        android:id="@+id/tv_login_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -38,11 +38,11 @@
         android:textAppearance="@style/TextAppearance.body2"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/main_text" />
+        app:layout_constraintTop_toBottomOf="@id/tv_login_title" />
 
 
     <EditText
-        android:id="@+id/input_id"
+        android:id="@+id/et_login_id"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginHorizontal="41dp"
@@ -51,20 +51,21 @@
         android:hint="이메일 아이디 입력"
         android:paddingHorizontal="55dp"
         android:textAppearance="@style/TextAppearance.body5"
-        android:textColorHint="@color/gray1_525252"
-        app:layout_constraintTop_toBottomOf="@id/login_tv" />
+        android:textColor="@color/gray1_525252"
+        android:textColorHint="@color/gray2_717171"
+        app:layout_constraintTop_toBottomOf="@id/tv_login_subtitle" />
 
     <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="14dp"
         android:src="@drawable/ic_login_id"
-        app:layout_constraintBottom_toBottomOf="@id/input_id"
-        app:layout_constraintStart_toStartOf="@id/input_id"
-        app:layout_constraintTop_toTopOf="@id/input_id" />
+        app:layout_constraintBottom_toBottomOf="@id/et_login_id"
+        app:layout_constraintStart_toStartOf="@id/et_login_id"
+        app:layout_constraintTop_toTopOf="@id/et_login_id" />
 
     <EditText
-        android:id="@+id/input_pw"
+        android:id="@+id/et_login_pw"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginHorizontal="41dp"
@@ -74,30 +75,31 @@
         android:inputType="textPassword"
         android:paddingHorizontal="55dp"
         android:textAppearance="@style/TextAppearance.body5"
-        android:textColorHint="@color/gray1_525252"
-        app:layout_constraintTop_toBottomOf="@id/input_id" />
+        android:textColor="@color/gray1_525252"
+        android:textColorHint="@color/gray2_717171"
+        app:layout_constraintTop_toBottomOf="@id/et_login_id" />
 
     <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="14dp"
         android:src="@drawable/ic_login_pw"
-        app:layout_constraintBottom_toBottomOf="@id/input_pw"
-        app:layout_constraintStart_toStartOf="@id/input_pw"
-        app:layout_constraintTop_toTopOf="@id/input_pw" />
+        app:layout_constraintBottom_toBottomOf="@id/et_login_pw"
+        app:layout_constraintStart_toStartOf="@id/et_login_pw"
+        app:layout_constraintTop_toTopOf="@id/et_login_pw" />
 
     <ImageView
-        android:id="@+id/pw_visible"
+        android:id="@+id/iv_login_pw_visible"
         android:layout_width="13dp"
         android:layout_height="13dp"
         android:layout_marginEnd="14dp"
         android:src="@drawable/ic_pw_visible"
-        app:layout_constraintBottom_toBottomOf="@id/input_pw"
-        app:layout_constraintEnd_toEndOf="@id/input_pw"
-        app:layout_constraintTop_toTopOf="@id/input_pw" />
+        app:layout_constraintBottom_toBottomOf="@id/et_login_pw"
+        app:layout_constraintEnd_toEndOf="@id/et_login_pw"
+        app:layout_constraintTop_toTopOf="@id/et_login_pw" />
 
     <Switch
-        android:id="@+id/remember_pw"
+        android:id="@+id/switch_login_remember_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -105,8 +107,8 @@
         android:checked="true"
         android:thumb="@drawable/switch_thumb"
         android:track="@drawable/switch_track_selector"
-        app:layout_constraintStart_toStartOf="@id/input_pw"
-        app:layout_constraintTop_toBottomOf="@id/input_pw" />
+        app:layout_constraintStart_toStartOf="@id/et_login_pw"
+        app:layout_constraintTop_toBottomOf="@id/et_login_pw" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -115,9 +117,9 @@
         android:text="Remember"
         android:textAppearance="@style/TextAppearance.body6"
         android:textColor="@color/gray1_525252"
-        app:layout_constraintBottom_toBottomOf="@id/remember_pw"
-        app:layout_constraintStart_toEndOf="@id/remember_pw"
-        app:layout_constraintTop_toTopOf="@id/remember_pw" />
+        app:layout_constraintBottom_toBottomOf="@id/switch_login_remember_pw"
+        app:layout_constraintStart_toEndOf="@id/switch_login_remember_pw"
+        app:layout_constraintTop_toTopOf="@id/switch_login_remember_pw" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -126,9 +128,9 @@
         android:text="Forget password"
         android:textAppearance="@style/TextAppearance.body6"
         android:textColor="@color/peach1_FF8D6F"
-        app:layout_constraintBottom_toBottomOf="@id/remember_pw"
-        app:layout_constraintEnd_toEndOf="@id/input_pw"
-        app:layout_constraintTop_toTopOf="@id/remember_pw" />
+        app:layout_constraintBottom_toBottomOf="@id/switch_login_remember_pw"
+        app:layout_constraintEnd_toEndOf="@id/et_login_pw"
+        app:layout_constraintTop_toTopOf="@id/switch_login_remember_pw" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btn_login"
@@ -136,15 +138,15 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="41dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/shape_peach1_radius15"
-        app:layout_constraintTop_toBottomOf="@id/remember_pw">
+        android:background="@drawable/shape_peach1_fill_24_rect"
+        app:layout_constraintTop_toBottomOf="@id/switch_login_remember_pw">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="15dp"
             android:text="Log in"
-            android:textAppearance="@style/TextAppearance.body2"
+            android:textAppearance="@style/TextAppearance.title2"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -156,12 +158,12 @@
         android:id="@+id/tv_login_goSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="회원가입 하기"
         android:textAppearance="@style/TextAppearance.body4"
         android:textColor="@color/gray1_525252"
-        app:layout_constraintTop_toBottomOf="@id/btn_login"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
