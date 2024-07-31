@@ -16,7 +16,7 @@ constructor(
         var accessToken = userPreferencesDataSource.getUserAccessToken().first()
 
         val request = chain.request().newBuilder()
-            .addHeader("Authorization", "Bearer $accessToken")
+            .addHeader("Authorization", "$accessToken")
             .build()
 
         val response = chain.proceed(request)
