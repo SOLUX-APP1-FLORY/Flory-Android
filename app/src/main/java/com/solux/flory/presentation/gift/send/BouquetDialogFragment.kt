@@ -1,7 +1,6 @@
 package com.solux.flory.presentation.gift.send
 
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController

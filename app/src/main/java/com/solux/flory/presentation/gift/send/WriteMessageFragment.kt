@@ -1,6 +1,5 @@
 package com.solux.flory.presentation.gift.send
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -31,9 +30,9 @@ class WriteMessageFragment : BindingFragment<FragmentGiftWriteMessageBinding>(Fr
 
     private fun initView() {
         bouquetInfo?.let {
-            binding.ivBouquet.load(it.imageUrl)
-            binding.tvBouquetName.text = it.name
-            binding.tvBouquetMeaning.text = it.meaning
+            binding.ivWriteMessageBouquet.load(it.imageUrl)
+            binding.tvWriteMessageBouquetName.text = it.name
+            binding.tvWriteMessageBouquetMeaning.text = it.meaning
         }
     }
 
@@ -45,8 +44,8 @@ class WriteMessageFragment : BindingFragment<FragmentGiftWriteMessageBinding>(Fr
     }
 
     private fun nextBtnClick() {
-        binding.btnGoNext.setOnClickListener {
-            val giftMessage = binding.etGiftMessage.text.toString()
+        binding.btnWriteMessageGoNext.setOnClickListener {
+            val giftMessage = binding.etWriteMessage.text.toString()
             val bouquetInfo = bouquetInfo
 
             val bundle = Bundle().apply {

@@ -33,7 +33,7 @@ class SendCompleteFragment : BindingFragment<FragmentGiftSendCompleteBinding>(Fr
     }
 
     private fun gotoMain() {
-        binding.btnGoNext.setOnClickListener {
+        binding.btnSendCompleteGoNext.setOnClickListener {
             findNavController().navigate(R.id.action_fragment_send_complete_to_fragment_home)
         }
     }
