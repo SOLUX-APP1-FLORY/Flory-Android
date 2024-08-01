@@ -1,8 +1,16 @@
 package com.solux.flory.presentation.profile
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.solux.flory.domain.repository.UserPreferencesRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProfileViewModel : ViewModel() {
+@HiltViewModel
+class ProfileViewModel @Inject constructor(
+    private val userPreferencesRepository: UserPreferencesRepository
+) : ViewModel() {
     val mockNeighbors = listOf(
         NeighborInfo(
             profileImage = "https://avatars.githubusercontent.com/u/91470334?v=4",
@@ -41,4 +49,7 @@ class ProfileViewModel : ViewModel() {
             profileName = "최상현상"
         ),
     )
+
+    fun saveCheckLogin(checkLogin: Boolean) =
+        viewModelScope.launch { userPreferencesRepository.saveCheckLogin(checkLogin) }
 }
