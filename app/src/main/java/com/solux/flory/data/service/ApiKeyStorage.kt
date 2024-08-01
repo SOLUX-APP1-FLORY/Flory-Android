@@ -10,6 +10,7 @@ object ApiKeyStorage {
     const val USER_ID = "user-id"
     const val MEMBER = "member"
     const val DIARY = "diary"
+    const val DIARIES = "diaries"
     const val FLOWER = "flower"
     const val DIARY_ID = "diary-id"
     const val USER = "user"

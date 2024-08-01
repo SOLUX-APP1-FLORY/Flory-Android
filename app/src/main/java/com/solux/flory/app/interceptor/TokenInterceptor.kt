@@ -16,7 +16,6 @@ constructor(
         var accessToken = userPreferencesDataSource.getUserAccessToken().first()
 
         val request = chain.request().newBuilder()
-            // Authorization : Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjA4NTc4MTEsImV4cCI6MTcyMjA2NzQxMSwidXNlcklkIjo0OSwicm9sZXMiOlsiQVBQUk9WRVVTRVIiXX0.6KkSizCvrwMBuUj-F27GuGn0UdLyGcEoP_eZNy0rUvp6tzKQuyuJEEZBP3d2i6Dn6JfsAKuXH6VboYD1_nQRvQ
             .addHeader("Authorization", "Bearer $accessToken")
             .build()
 
