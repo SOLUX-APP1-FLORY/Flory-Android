@@ -3,6 +3,7 @@ package com.solux.flory.data.service
 object ApiKeyStorage {
     const val API = "api"
     const val V1 = "v1"
+    const val AUTH = "auth"
     const val SIGNUP = "signup"
     const val LOGIN = "login"
     const val MAIN = "main"

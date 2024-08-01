@@ -24,7 +24,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
     ActivitySignUpBinding.inflate(it)
 }) {
 
-    private val viewModel: SignupViewModel by viewModels()
+    private val signupViewModel by viewModels<SignupViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
     }
 
     private fun observePostSignUpState() {
-        viewModel.postSignUpState.flowWithLifecycle(lifecycle).onEach {
+        signupViewModel.postSignUpState.flowWithLifecycle(lifecycle).onEach {
             when (it) {
                 is UiState.Loading -> Unit
                 is UiState.Success -> {
@@ -65,7 +65,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
         binding.btnSignupGotoUserInfo.setOnClickListener {
             with(binding) {
                 if (etSignupId.text.isNotBlank() && tvIdPossible.visibility == View.VISIBLE && tvPwPossible.visibility == View.VISIBLE && getEmail().isNotBlank()) {
-                    viewModel.postSignUp(
+                    signupViewModel.postSignUp(
                         etSignupId.text.toString(),
                         etSignupPw.text.toString(),
                         getEmail()
