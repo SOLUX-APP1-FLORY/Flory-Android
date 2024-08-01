@@ -4,6 +4,7 @@ import com.solux.flory.data.datasource.DiaryDataSource
 import com.solux.flory.data.dto.BaseResponse
 import com.solux.flory.data.dto.request.RequestDiaryModifyDto
 import com.solux.flory.data.dto.request.RequestDiaryWriteDto
+import com.solux.flory.data.dto.response.ResponseDiariesDto
 import com.solux.flory.data.dto.response.ResponseDiaryModifyDto
 import com.solux.flory.data.service.DiaryApiService
 import javax.inject.Inject
@@ -17,5 +18,9 @@ class DiaryDataSourceImpl @Inject constructor(
 
     override suspend fun patchDiary(requestDiaryModifyDto: RequestDiaryModifyDto): BaseResponse<ResponseDiaryModifyDto> {
         return diaryApiService.patchDiary(requestDiaryModifyDto)
+    }
+
+    override suspend fun getDiaries(year: Int, month: Int, day: Int): BaseResponse<ResponseDiariesDto?> {
+        return diaryApiService.getDiaries(year, month, day)
     }
 }

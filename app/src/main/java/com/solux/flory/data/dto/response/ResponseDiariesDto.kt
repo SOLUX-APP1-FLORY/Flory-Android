@@ -5,6 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ResponseDiariesDto (
-    @SerialName("flowerUrl") val flowerUrl: String,
-    @SerialName("createdAt") val createdAt: String,
+    @SerialName("flowerUrl") val flowerUrl: String? = null,
+    @SerialName("createdAt") val createdAt: String? = null,
 )

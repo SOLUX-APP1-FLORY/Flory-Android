@@ -59,20 +59,10 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
 
     private fun initView() {
         val date = arguments?.getSerializable(DATE_KEY) as DateInfo
-        val now = LocalDate.now()
         with(binding) {
             tvModifyDate.text = "${date.year}. ${date.month}. ${date.dayOfMonth}"
             ivModifyFlowerAvatar.load(date.imageUrl)
-            if (now.year == date.year && now.monthValue == date.month && now.dayOfMonth == date.dayOfMonth) {
-                btnModifyConfirm.visibility = View.VISIBLE
-                etModifyTitle.isEnabled = true
-                etModifyContent.isEnabled = true
-            } else {
-                btnModifyConfirm.visibility = View.INVISIBLE
-                etModifyTitle.isEnabled = false
-                etModifyContent.isEnabled = false
-            }
-            // 추후 꽃 이름과 의미 넣기
+            // 추후 꽃 이름과 의미 넣기, editText setText
         }
     }
 

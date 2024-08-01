@@ -3,9 +3,21 @@ package com.solux.flory.presentation.date
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.solux.flory.domain.entity.DiariesEntity
+import com.solux.flory.domain.repository.DiaryRepository
+import com.solux.flory.util.UiState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import java.util.Calendar
+import javax.inject.Inject
 
-class DateViewModel : ViewModel() {
+@HiltViewModel
+class DateViewModel @Inject constructor(
+    private val diaryRepository: DiaryRepository
+) : ViewModel() {
     private val calendar = Calendar.getInstance()
     private val monthNames = arrayOf(
         "January", "February", "March", "April", "May", "June",
@@ -20,8 +32,24 @@ class DateViewModel : ViewModel() {
     private val _dateList = MutableLiveData<List<DateInfo>>()
     val dateList: LiveData<List<DateInfo>> = _dateList
 
+    private val _getDiariesState = MutableStateFlow<UiState<DiariesEntity?>>(UiState.Empty)
+    val getDiariesState: StateFlow<UiState<DiariesEntity?>> = _getDiariesState
+
     init {
         updateCalendar()
+    }
+
+    private fun getDiaries(year: Int, month: Int, day: Int) = viewModelScope.launch {
+        _getDiariesState.emit(UiState.Loading)
+        diaryRepository.getDiaries(year, month, day).fold(
+            {
+                if (it != null) {
+                    _getDiariesState.emit(UiState.Success(it))
+                }
+                else _getDiariesState.emit(UiState.Failure("400"))
+            },
+            { _getDiariesState.emit(UiState.Failure(it.message.toString())) }
+        )
     }
 
     private fun updateCalendar() {
@@ -44,10 +72,7 @@ class DateViewModel : ViewModel() {
     }
 
     private fun getImageUrlForDate(year: Int, month: Int, day: Int): String? {
-        // 추후 꽃 정보 받아 오는 서버 통신 로직 구현하기
-        if(year == 2024 && month == 7 && day == 24) return "https://github.com/SOLUX-APP1-FLORY/Flory-Frontend/assets/91470334/c30f7d95-8b84-4790-b1de-54cdfa7f7e70"
-        else if(year == 2024 && month == 7 && day == 15) return "https://github.com/SOLUX-APP1-FLORY/Flory-Frontend/assets/91470334/ab9a2d92-c7e3-4f86-aae2-a23d9eb9ddfe"
-        return null
+        return getDiaries(year, month, day).toString()
     }
 
     fun moveToPreviousMonth() {
