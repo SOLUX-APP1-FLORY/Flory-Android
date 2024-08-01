@@ -66,15 +66,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_record_plant" />
 
-        <TextView
-            android:id="@+id/tv_record_description"
+        <EditText
+            android:id="@+id/et_record_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:background="@android:color/transparent"
             android:gravity="center"
-            android:text="이렇게 예쁜 꽃들로 내 감정을 기록할 수 있다니!\n완전 럭키비키잖아!!"
+            android:hint="일기 제목을 입력하세요 (100자 이내)"
+            android:maxLength="100"
             android:textAppearance="@style/TextAppearance.body6"
             android:textColor="@color/gray1_525252"
+            android:textColorHint="@color/gray2_717171"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_record_nickname" />
@@ -88,7 +91,7 @@
             android:paddingVertical="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_record_description">
+            app:layout_constraintTop_toBottomOf="@id/et_record_title">
 
             <TextView
                 android:id="@+id/tv_record_flower_name"
@@ -175,14 +178,17 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/et_record_memo"
+                    android:id="@+id/et_record_content"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_marginTop="10dp"
                     android:background="@android:color/transparent"
                     android:gravity="top"
+                    android:hint="일기 내용을 입력하세요 (200자 이내)"
                     android:maxLength="200"
-                    android:textAppearance="@style/TextAppearance.body4"
+                    android:textAppearance="@style/TextAppearance.body3"
+                    android:textColor="@color/gray1_525252"
+                    android:textColorHint="@color/gray2_717171"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
