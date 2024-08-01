@@ -1,33 +1,58 @@
 package com.solux.flory.presentation.auth
 
-import android.widget.EditText
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.solux.flory.data.dto.request.RequestSignUpDto
+import com.solux.flory.data.dto.request.RequestUserInfoDto
+import com.solux.flory.domain.repository.SignUpRepository
+import com.solux.flory.util.UiState
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SignupViewModel: ViewModel() {
+@HiltViewModel
+class SignupViewModel @Inject constructor(
+    private val signUpRepository: SignUpRepository
+) : ViewModel() {
 
-    var _id = MutableLiveData<String>()
-    val id: LiveData<String> get() = _id
+    private val _postSignUpState = MutableStateFlow<UiState<Int?>>(UiState.Empty)
+    val postSignUpState: StateFlow<UiState<Int?>> = _postSignUpState
 
-    var _pw = MutableLiveData<String>()
-    val pw: LiveData<String> get() = _pw
+    private val _patchUserInfoState = MutableStateFlow<UiState<String>>(UiState.Empty)
+    val patchUserInfoState: StateFlow<UiState<String>> = _patchUserInfoState
 
-    var _email = MutableLiveData<String>()
-    val email: LiveData<String> get() = _email
-
-    var _nickname = MutableLiveData<String>()
-    val nickname: LiveData<String> get() = _nickname
-
-    var _gender = MutableLiveData<String>("male")
+    private var _gender = MutableLiveData("male")
     val gender: LiveData<String> get() = _gender
 
+    fun postSignUp(id: String, password: String, email: String) = viewModelScope.launch {
+        _postSignUpState.emit(UiState.Loading)
+        signUpRepository.postSignUp(RequestSignUpDto(id, password, email)).fold(
+            {
+                if (it != null) _postSignUpState.emit(UiState.Success(it.result?.userId)) else _postSignUpState.emit(
+                    UiState.Failure("400")
+                )
+            },
+            { _postSignUpState.emit(UiState.Failure(it.message.toString())) }
+        )
+    }
+
+    fun patchUserInfo(id: Int, nickname: String, gender: String) = viewModelScope.launch {
+        _patchUserInfoState.emit(UiState.Loading)
+        signUpRepository.patchUserInfo(id, RequestUserInfoDto(id, nickname, gender)).fold(
+            {
+                if (it != null) _patchUserInfoState.emit(UiState.Success(it.result.toString())) else _patchUserInfoState.emit(
+                    UiState.Failure("400")
+                )
+            },
+            { _patchUserInfoState.emit(UiState.Failure(it.message.toString())) }
+        )
+    }
 
     fun setGender(gender: String) {
         _gender.value = gender
-    }
-
-    fun clearText(editText: EditText) {
-        editText.setText("")
     }
 }

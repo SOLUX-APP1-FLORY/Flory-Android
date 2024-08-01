@@ -35,11 +35,6 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideDataStore(dataStore: UserPreferencesDataSourceImpl): UserPreferencesDataSource =
-        dataStore
-
-    @Provides
-    @Singleton
     @AccessToken
     fun provideAuthInterceptor(interceptor: TokenInterceptor): Interceptor = interceptor
 

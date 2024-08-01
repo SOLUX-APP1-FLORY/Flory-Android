@@ -6,13 +6,18 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import com.solux.flory.R
 import com.solux.flory.databinding.ActivitySignUpBinding
+import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingActivity
 import com.solux.flory.util.context.stringOf
 import com.solux.flory.util.context.toast
 import com.solux.flory.util.setupToolbarClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
@@ -27,6 +32,26 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
         gotoUserInfo()
         checkId()
         checkPW()
+        observePostSignUpState()
+    }
+
+    private fun observePostSignUpState() {
+        viewModel.postSignUpState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> {
+                    Intent(this, UserInfoActivity::class.java).apply {
+                        // 유저 아이디 보내기
+                        putExtra(ID_KEY, it.data.toString())
+                        startActivity(this)
+                        finish()
+                    }
+                }
+
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+            }
+        }.launchIn(lifecycleScope)
     }
 
     private fun initToolbar() {
@@ -39,16 +64,13 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
     private fun gotoUserInfo() {
         binding.btnSignupGotoUserInfo.setOnClickListener {
             with(binding) {
-                if (etSignupId.text.isNotBlank() && tvPwPossible.visibility == View.VISIBLE && etSignupEmail.text.isNotBlank() && etSignupEmailAfter.text.isNotBlank()) {
-                    Intent(this@SignUpActivity, UserInfoActivity::class.java).apply {
-                        putExtra(ID, binding.etSignupId.text.toString())
-                        putExtra(PASSWORD, binding.etSignupPw.text.toString())
-                        putExtra(EMAIL, getEmail())
-                    }.also {
-                        startActivity(it)
-                    }
-                }
-                else {
+                if (etSignupId.text.isNotBlank() && tvIdPossible.visibility == View.VISIBLE && tvPwPossible.visibility == View.VISIBLE && getEmail().isNotBlank()) {
+                    viewModel.postSignUp(
+                        etSignupId.text.toString(),
+                        etSignupPw.text.toString(),
+                        getEmail()
+                    )
+                } else {
                     toast(stringOf(R.string.tv_signup_notice))
                 }
             }
@@ -108,8 +130,6 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
     }
 
     companion object {
-        const val ID = "id"
-        const val PASSWORD = "password"
-        const val EMAIL = "email"
+        const val ID_KEY = "userId"
     }
 }
