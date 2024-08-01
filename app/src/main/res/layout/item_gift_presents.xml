@@ -5,7 +5,7 @@
     android:id="@+id/cl_presents_area"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="20dp">
+    android:layout_marginTop="40dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_presents_image"
@@ -13,16 +13,16 @@
         android:layout_height="0dp"
         android:layout_margin="10dp"
         android:background="@drawable/shape_peach4_radius30_peach1_stroke"
-        android:paddingHorizontal="6dp"
-        android:paddingVertical="9dp"
+        android:paddingHorizontal="3dp"
+        android:paddingVertical="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_presents_image"
-            android:layout_width="77dp"
-            android:layout_height="102dp"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
             android:src="@drawable/ic_bouquet_tulip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
