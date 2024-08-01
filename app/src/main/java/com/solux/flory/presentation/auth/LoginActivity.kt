@@ -38,7 +38,6 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>({
                     Intent(this@LoginActivity, MainActivity::class.java).apply {
                         addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(this)
-                        finish()
                     }
                 }
 
@@ -64,7 +63,6 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>({
         binding.tvLoginGoSignup.setOnClickListener {
             Intent(this, SignUpActivity::class.java).apply {
                 startActivity(this)
-                finish()
             }
         }
     }
