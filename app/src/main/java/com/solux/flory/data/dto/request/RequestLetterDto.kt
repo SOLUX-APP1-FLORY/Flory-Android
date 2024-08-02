@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class RequestLetterDto (
     @SerialName("flowerName") val flowerName: String,
-    @SerialName("receiverName") val receiverName: String,
+    @SerialName("receiverNickname") val receiverNickname: String,
     @SerialName("content") val content: String
 )

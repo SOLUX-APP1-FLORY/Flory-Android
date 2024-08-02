@@ -27,7 +27,6 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
-        initAdapter()
         profileModifyTextClick()
         neighborsTextClick()
         logoutBtnClick()
@@ -42,7 +41,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
                 is UiState.Success -> {
                     neighborList.clear()
                     neighborList.addAll(convertStringsToNeighborInfo(it.data))
-                    adapter.submitList(neighborList)
+                    initAdapter(neighborList)
                 }
 
                 is UiState.Empty -> Unit
@@ -86,7 +85,7 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         }
     }
 
-    private fun initAdapter() {
+    private fun initAdapter(neighborList: List<NeighborInfo>) {
         adapter = ProfileAdapter()
         binding.rvProfileNeighbors.adapter = adapter
         adapter.submitList(neighborList)

@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import com.solux.flory.databinding.FragmentGiftSearchNeighborBinding
+import com.solux.flory.domain.entity.NeighborSearchEntity
 import com.solux.flory.util.Debouncer
 import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
@@ -26,7 +27,6 @@ class SearchNeighborFragment : BindingFragment<FragmentGiftSearchNeighborBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
-        initAdapter()
         etSearchNeighborFilter()
         observeNeighborSearchState()
         observeNeighborFollowState()
@@ -43,14 +43,14 @@ class SearchNeighborFragment : BindingFragment<FragmentGiftSearchNeighborBinding
         }.launchIn(lifecycleScope)
     }
 
-    private fun initAdapter() {
+    private fun initAdapter(data: List<NeighborSearchEntity>) {
         adapter = SearchNeighborAdapter() { nickname ->
             debouncer.setDelay(nickname, 1000L) {
                 searchNeighborViewModel.postNeighborFollow(nickname)
             }
         }
-        adapter.submitList(emptyList())
         binding.rvSearchNeighbor.adapter = adapter
+        adapter.submitList(data)
     }
 
     private fun observeNeighborSearchState() {
@@ -58,7 +58,7 @@ class SearchNeighborFragment : BindingFragment<FragmentGiftSearchNeighborBinding
             when (it) {
                 is UiState.Loading -> Unit
                 is UiState.Success -> {
-                    adapter.submitList(it.data)
+                    it.data?.let { it1 -> initAdapter(it1) }
                 }
 
                 is UiState.Empty -> Unit
