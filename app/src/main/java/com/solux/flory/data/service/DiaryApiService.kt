@@ -6,6 +6,8 @@ import com.solux.flory.data.dto.request.RequestDiaryWriteDto
 import com.solux.flory.data.dto.response.ResponseDiariesDto
 import com.solux.flory.data.dto.response.ResponseDiaryCountDto
 import com.solux.flory.data.dto.response.ResponseDiaryModifyDto
+import com.solux.flory.data.dto.response.ResponseDiaryViewDto
+import com.solux.flory.data.dto.response.ResponseDiaryWriteDto
 import com.solux.flory.data.service.ApiKeyStorage.API
 import com.solux.flory.data.service.ApiKeyStorage.DIARIES
 import com.solux.flory.data.service.ApiKeyStorage.DIARY
@@ -21,7 +23,7 @@ interface DiaryApiService {
     @POST("/$API/$V1/$DIARY")
     suspend fun postDiary(
         @Body requestDiaryWriteDto: RequestDiaryWriteDto
-    ): BaseResponse<String>
+    ): BaseResponse<ResponseDiaryWriteDto>
 
     @PATCH("/$API/$V1/$DIARY")
     suspend fun patchDiary(
@@ -33,8 +35,15 @@ interface DiaryApiService {
         @Query("year") year: Int,
         @Query("month") month: Int,
         @Query("day") day: Int,
-    ): BaseResponse<ResponseDiariesDto?>
+    ): BaseResponse<ResponseDiariesDto>
 
     @GET("/$API/$V1/$MAIN")
     suspend fun getDiaryCount(): BaseResponse<ResponseDiaryCountDto>
+
+    @GET("/$API/$V1/$DIARIES")
+    suspend fun getDiaryView(
+        @Query("year") year: Int,
+        @Query("month") month: Int,
+        @Query("day") day: Int,
+    ): BaseResponse<ResponseDiaryViewDto>
 }
