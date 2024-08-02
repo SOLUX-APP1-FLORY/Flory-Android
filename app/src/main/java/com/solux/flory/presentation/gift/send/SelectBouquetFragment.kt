@@ -3,12 +3,9 @@ package com.solux.flory.presentation.gift.send
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import coil.load
-import coil.transform.CircleCropTransformation
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectBouquetBinding
 import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
-import com.solux.flory.presentation.gift.send.SelectNeighborFragment.Companion.NEIGHBOR_NAME_KEY
 import com.solux.flory.presentation.gift.send.adapter.BouquetAdapter
 import com.solux.flory.presentation.gift.send.viewModel.BouquetViewModel
 import com.solux.flory.presentation.profile.NeighborInfo
@@ -26,7 +23,7 @@ class SelectBouquetFragment :
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            neighborInfo = it.getSerializable(NEIGHBOR_NAME_KEY) as? NeighborInfo
+            neighborInfo = it.getSerializable(NEIGHBOR_KEY) as? NeighborInfo
         }
         initView()
         initAdapter()
