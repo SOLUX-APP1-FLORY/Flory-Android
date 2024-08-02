@@ -2,6 +2,7 @@ package com.solux.flory.presentation.gift
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.solux.flory.R

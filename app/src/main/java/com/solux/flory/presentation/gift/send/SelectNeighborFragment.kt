@@ -18,7 +18,6 @@ import com.solux.flory.util.setupToolbarClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.selects.select
 
 @AndroidEntryPoint
 class SelectNeighborFragment :
@@ -34,6 +33,18 @@ class SelectNeighborFragment :
         confirmBtnClick()
         initToolbar()
         observeNeighborInfoState()
+        observeProfileState()
+    }
+
+    private fun observeProfileState() {
+        selectNeighborViewModel.getProfileState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> binding.tvSelectNeighborName.text = it.data.nickname
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+            }
+        }.launchIn(lifecycleScope)
     }
 
     private fun observeNeighborInfoState() {
@@ -45,6 +56,7 @@ class SelectNeighborFragment :
                     neighborList.addAll(convertStringsToNeighborInfo(it.data))
                     adapter.submitList(neighborList)
                 }
+
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }
@@ -64,7 +76,7 @@ class SelectNeighborFragment :
     }
 
     private fun initAdapter() {
-        val adapter = SelectNeighborAdapter(){
+        adapter = SelectNeighborAdapter() {
             selectedNeighbor = it
         }
         binding.rvGiftSendNeighbor.adapter = adapter

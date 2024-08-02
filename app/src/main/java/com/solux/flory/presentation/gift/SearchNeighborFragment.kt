@@ -6,6 +6,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSearchNeighborBinding
 import com.solux.flory.domain.entity.NeighborSearchEntity
 import com.solux.flory.util.Debouncer
@@ -14,15 +15,16 @@ import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.fragment.toast
 import com.solux.flory.util.setupToolbarClickListener
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
+@AndroidEntryPoint
 class SearchNeighborFragment : BindingFragment<FragmentGiftSearchNeighborBinding>({
     FragmentGiftSearchNeighborBinding.inflate(it)
 }) {
     private val searchNeighborViewModel by viewModels<SearchNeighborViewModel>()
     private lateinit var adapter: SearchNeighborAdapter
-    private val debouncer = Debouncer<String>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,7 +38,7 @@ class SearchNeighborFragment : BindingFragment<FragmentGiftSearchNeighborBinding
         searchNeighborViewModel.postNeighborFollowState.flowWithLifecycle(lifecycle).onEach {
             when (it) {
                 is UiState.Loading -> Unit
-                is UiState.Success -> toast(it.data)
+                is UiState.Success -> toast(stringOf(R.string.tv_search_neighbor_follow_complete))
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }
@@ -45,9 +47,7 @@ class SearchNeighborFragment : BindingFragment<FragmentGiftSearchNeighborBinding
 
     private fun initAdapter(data: List<NeighborSearchEntity>) {
         adapter = SearchNeighborAdapter() { nickname ->
-            debouncer.setDelay(nickname, 1000L) {
-                searchNeighborViewModel.postNeighborFollow(nickname)
-            }
+            searchNeighborViewModel.postNeighborFollow(nickname)
         }
         binding.rvSearchNeighbor.adapter = adapter
         adapter.submitList(data)
@@ -58,7 +58,7 @@ class SearchNeighborFragment : BindingFragment<FragmentGiftSearchNeighborBinding
             when (it) {
                 is UiState.Loading -> Unit
                 is UiState.Success -> {
-                    it.data?.let { it1 -> initAdapter(it1) }
+                    it.data?.let { data -> initAdapter(data) }
                 }
 
                 is UiState.Empty -> Unit
