@@ -6,5 +6,5 @@ interface NeighborRepository {
     suspend fun getNeighborInfo(): Result<List<String>>
     suspend fun getNeighborSearch(nickname: String): Result<List<NeighborSearchEntity>?>
     suspend fun postNeighborFollow(nickname: String): Result<String>
-    suspend fun patchNeighborUnfollow(nickname: String): Result<String>
+    suspend fun patchNeighborUnfollow(targetUserNickname: String): Result<String>
 }

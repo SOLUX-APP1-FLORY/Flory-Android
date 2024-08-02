@@ -2,28 +2,46 @@ package com.solux.flory.presentation.date
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentDateBinding
+import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.toast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import java.time.LocalDate
 
 @AndroidEntryPoint
 class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::inflate) {
-    private val viewModel by viewModels<DateViewModel>()
+    private val dateViewModel by viewModels<DateViewModel>()
     private lateinit var adapter: DateAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initAdapter()
         observeDateYear()
         observeDateMonth()
         leftArrowClick()
         rightArrowClick()
         addFabClick()
+        observeDiariesState()
+    }
+
+    private fun observeDiariesState() {
+        dateViewModel.getDiariesState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> {
+                    initAdapter()
+                }
+
+                is UiState.Empty -> Unit
+                is UiState.Failure -> toast(it.msg)
+            }
+        }.launchIn(lifecycleScope)
     }
 
     private fun initAdapter() {
@@ -39,7 +57,7 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
             }
         }
         binding.rvDate.adapter = adapter
-        viewModel.dateList.observe(viewLifecycleOwner) {
+        dateViewModel.dateList.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
     }
@@ -57,26 +75,26 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
     }
 
     private fun observeDateYear() {
-        viewModel.year.observe(viewLifecycleOwner) {
+        dateViewModel.year.observe(viewLifecycleOwner) {
             binding.tvDateYear.text = it
         }
     }
 
     private fun observeDateMonth() {
-        viewModel.month.observe(viewLifecycleOwner) {
+        dateViewModel.month.observe(viewLifecycleOwner) {
             binding.tvDateMonth.text = it
         }
     }
 
     private fun leftArrowClick() {
         binding.ivDateLeftArrow.setOnClickListener {
-            viewModel.moveToPreviousMonth()
+            dateViewModel.moveToPreviousMonth()
         }
     }
 
     private fun rightArrowClick() {
         binding.ivDateRightArrow.setOnClickListener {
-            viewModel.moveToNextMonth()
+            dateViewModel.moveToNextMonth()
         }
     }
 

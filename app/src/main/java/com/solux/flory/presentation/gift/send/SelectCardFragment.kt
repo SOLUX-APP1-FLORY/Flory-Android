@@ -1,6 +1,7 @@
 package com.solux.flory.presentation.gift.send
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -69,8 +70,7 @@ class SelectCardFragment :
                 }
 
                 is UiState.Empty -> Unit
-                is UiState.Failure -> Unit
-
+                is UiState.Failure -> Log.e("SelectCardFragment", it.msg)
             }
         }
     }

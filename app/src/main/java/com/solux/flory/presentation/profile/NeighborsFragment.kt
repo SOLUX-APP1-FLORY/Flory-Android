@@ -2,7 +2,7 @@ package com.solux.flory.presentation.profile
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -19,7 +19,7 @@ import kotlinx.coroutines.flow.onEach
 @AndroidEntryPoint
 class NeighborsFragment :
     BindingFragment<FragmentNeighborsBinding>(FragmentNeighborsBinding::inflate) {
-    private val neighborsViewModel by viewModels<NeighborsViewModel>()
+    private val neighborsViewModel by activityViewModels<NeighborsViewModel>()
     private val neighborList = mutableListOf<NeighborInfo>()
     private lateinit var adapter: NeighborAdapter
 

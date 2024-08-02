@@ -2,7 +2,9 @@ package com.solux.flory.presentation.profile
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.navigation.fragment.findNavController
@@ -20,7 +22,7 @@ import kotlinx.coroutines.flow.onEach
 class NeighborDialogFragment(
     private val neighborInfo: NeighborInfo
 ) : BindingDialogFragment<FragmentFollowCancelDialogBinding>(FragmentFollowCancelDialogBinding::inflate) {
-    private val neighborViewModel by viewModels<NeighborsViewModel>()
+    private val neighborViewModel by activityViewModels<NeighborsViewModel>()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = Dialog(requireContext(), R.style.CustomDialogTheme)
