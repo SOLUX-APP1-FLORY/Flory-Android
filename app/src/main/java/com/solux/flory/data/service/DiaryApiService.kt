@@ -35,11 +35,10 @@ interface DiaryApiService {
         @Query("year") year: Int,
         @Query("month") month: Int,
         @Query("day") day: Int,
-    ): BaseResponse<ResponseDiariesDto?>
+    ): BaseResponse<ResponseDiariesDto>
 
     @GET("/$API/$V1/$MAIN")
     suspend fun getDiaryCount(): BaseResponse<ResponseDiaryCountDto>
-    ): BaseResponse<ResponseDiariesDto>
 
     @GET("/$API/$V1/$DIARIES")
     suspend fun getDiaryView(
