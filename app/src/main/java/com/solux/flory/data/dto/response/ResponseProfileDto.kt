@@ -8,7 +8,7 @@ data class ResponseProfileDto(
     @SerialName("userId") val userId: String,
     @SerialName("nickname") val nickname: String,
     @SerialName("email") val email: String,
-    @SerialName("birthdate") val birthdate: String,
+    @SerialName("birthdate") val birthdate: String? = null,
     @SerialName("gender") val gender: String,
     @SerialName("createdAt") val createdAt: String
 )

@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_white_line_7_rect"
-            android:hint="생년월일을 입력해주세요 ex) 02.12.15"
+            android:hint="생년월일을 입력해주세요 ex) 2002-12-02"
             android:padding="12dp"
             android:textAppearance="@style/TextAppearance.title3"
             android:textColor="@color/black"
