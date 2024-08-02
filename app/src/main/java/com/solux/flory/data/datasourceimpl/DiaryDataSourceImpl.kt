@@ -5,6 +5,7 @@ import com.solux.flory.data.dto.BaseResponse
 import com.solux.flory.data.dto.request.RequestDiaryModifyDto
 import com.solux.flory.data.dto.request.RequestDiaryWriteDto
 import com.solux.flory.data.dto.response.ResponseDiariesDto
+import com.solux.flory.data.dto.response.ResponseDiaryCountDto
 import com.solux.flory.data.dto.response.ResponseDiaryModifyDto
 import com.solux.flory.data.dto.response.ResponseDiaryViewDto
 import com.solux.flory.data.dto.response.ResponseDiaryWriteDto
@@ -32,5 +33,9 @@ class DiaryDataSourceImpl @Inject constructor(
         day: Int
     ): BaseResponse<ResponseDiaryViewDto> {
         return diaryApiService.getDiaryView(year, month, day)
+    }
+
+    override suspend fun getDiaryCount(): BaseResponse<ResponseDiaryCountDto> {
+        return diaryApiService.getDiaryCount()
     }
 }

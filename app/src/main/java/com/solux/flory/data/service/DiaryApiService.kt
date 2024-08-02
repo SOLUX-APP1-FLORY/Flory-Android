@@ -4,6 +4,7 @@ import com.solux.flory.data.dto.BaseResponse
 import com.solux.flory.data.dto.request.RequestDiaryModifyDto
 import com.solux.flory.data.dto.request.RequestDiaryWriteDto
 import com.solux.flory.data.dto.response.ResponseDiariesDto
+import com.solux.flory.data.dto.response.ResponseDiaryCountDto
 import com.solux.flory.data.dto.response.ResponseDiaryModifyDto
 import com.solux.flory.data.dto.response.ResponseDiaryViewDto
 import com.solux.flory.data.dto.response.ResponseDiaryWriteDto
@@ -34,6 +35,10 @@ interface DiaryApiService {
         @Query("year") year: Int,
         @Query("month") month: Int,
         @Query("day") day: Int,
+    ): BaseResponse<ResponseDiariesDto?>
+
+    @GET("/$API/$V1/$MAIN")
+    suspend fun getDiaryCount(): BaseResponse<ResponseDiaryCountDto>
     ): BaseResponse<ResponseDiariesDto>
 
     @GET("/$API/$V1/$DIARIES")

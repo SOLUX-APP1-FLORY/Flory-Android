@@ -48,4 +48,10 @@ class DiaryRepositoryImpl @Inject constructor(
             diaryDataSource.getDiaryView(year, month, day).result?.toDiaryViewEntity()
         }
     }
+
+    override suspend fun getDiaryCount(): Result<Int?> {
+        return runCatching{
+            diaryDataSource.getDiaryCount().result?.count
+        }
+    }
 }

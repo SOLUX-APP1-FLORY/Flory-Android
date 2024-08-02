@@ -3,27 +3,49 @@ package com.solux.flory.presentation.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentHomeBinding
+import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import timber.log.Timber
 
+@AndroidEntryPoint
 class HomeFragment: BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
-    private val viewModel by viewModels<HomeViewModel>()
+    private val homeViewModel by viewModels<HomeViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setViewModelData()
+        observeGetDiaryCount()
         observeRangeValue()
     }
 
+    private fun observeGetDiaryCount(){
+        homeViewModel.getDiaryCountState.flowWithLifecycle(lifecycle).onEach {
+            when(it){
+                is UiState.Loading -> Unit
+                is UiState.Success -> {
+                    Timber.d("flower count ${it.data}")
+                    setViewModelData(it.data)
+                }
 
-    private fun setViewModelData() {
-        viewModel.setRangeValue(18)
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+            }
+        }.launchIn(lifecycleScope)
+    }
+
+
+    private fun setViewModelData(data: Int) {
+        homeViewModel.setRangeValue(data)
     }
 
     private fun observeRangeValue() {
-        viewModel.rangeValue.observe(viewLifecycleOwner) { rangeValue ->
+        homeViewModel.rangeValue.observe(viewLifecycleOwner) { rangeValue ->
             updateBackgroundForRange(rangeValue)
             updateUserIconForRange(rangeValue)
         }
