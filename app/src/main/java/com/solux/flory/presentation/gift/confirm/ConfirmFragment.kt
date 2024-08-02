@@ -54,7 +54,7 @@ class ConfirmFragment :
     private fun initAdapter(data: List<BouquetInfoEntity>) {
         val adapter = PresentAdapter {
             val bundle = Bundle().apply {
-                putInt(GIFTCONFIRM_KEY, it.id)
+                putInt(GIFTCONFIRM_KEY, it.giftId)
             }
 
             findNavController().navigate(
