@@ -15,10 +15,6 @@ class SelectNeighborViewHolder(
         with(binding){
             tvSelectneighborNickname.text = neighborInfo.profileName
 
-            ivSelectneighborImage.load(neighborInfo.profileImage) {
-                transformations(CircleCropTransformation())
-            }
-
             ivSelectneighborCheckcircle.setImageResource(
                 if (isSelected) R.drawable.ic_gift_checkcircle else R.drawable.ic_gift_uncheckcircle
             )

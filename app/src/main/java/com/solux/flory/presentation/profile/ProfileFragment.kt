@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
+    private lateinit var adapter: ProfileAdapter
     private val profileViewModel by viewModels<ProfileViewModel>()
     private val neighborList = mutableListOf<NeighborInfo>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,7 +42,9 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
                 is UiState.Success -> {
                     neighborList.clear()
                     neighborList.addAll(convertStringsToNeighborInfo(it.data))
+                    adapter.submitList(neighborList)
                 }
+
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }
@@ -84,10 +87,10 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
     }
 
     private fun initAdapter() {
-        ProfileAdapter().apply {
-            binding.rvProfileNeighbors.adapter = this
-            submitList(neighborList)
-        }
+        adapter = ProfileAdapter()
+        binding.rvProfileNeighbors.adapter = adapter
+        adapter.submitList(neighborList)
+
     }
 
     private fun profileModifyTextClick() {

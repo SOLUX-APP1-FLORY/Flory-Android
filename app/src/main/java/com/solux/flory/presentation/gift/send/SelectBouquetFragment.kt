@@ -34,9 +34,6 @@ class SelectBouquetFragment :
 
     private fun initView() {
         neighborInfo?.let {
-            binding.ivGiftImage.load(it.profileImage) {
-                transformations(CircleCropTransformation())
-            }
             binding.tvSelectBouquetNeighborName.text = it.profileName
         }
     }

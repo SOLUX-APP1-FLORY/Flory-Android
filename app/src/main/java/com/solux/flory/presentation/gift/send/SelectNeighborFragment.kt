@@ -2,22 +2,29 @@ package com.solux.flory.presentation.gift.send
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectNeighborBinding
 import com.solux.flory.presentation.profile.NeighborInfo
-import com.solux.flory.presentation.profile.ProfileViewModel
+import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.fragment.toast
 import com.solux.flory.util.setupToolbarClickListener
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.selects.select
 
+@AndroidEntryPoint
 class SelectNeighborFragment :
     BindingFragment<FragmentGiftSelectNeighborBinding>(FragmentGiftSelectNeighborBinding::inflate) {
     private lateinit var adapter: SelectNeighborAdapter
-    private val viewModel by viewModels<ProfileViewModel>()
+    private val selectNeighborViewModel by viewModels<SelectNeighborViewModel>()
+    private val neighborList = mutableListOf<NeighborInfo>()
     private var selectedNeighbor: NeighborInfo? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -25,6 +32,26 @@ class SelectNeighborFragment :
         initAdapter()
         confirmBtnClick()
         initToolbar()
+        observeNeighborInfoState()
+    }
+
+    private fun observeNeighborInfoState() {
+        selectNeighborViewModel.getNeighborInfoState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> {
+                    neighborList.clear()
+                    neighborList.addAll(convertStringsToNeighborInfo(it.data))
+                    adapter.submitList(neighborList)
+                }
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+            }
+        }.launchIn(lifecycleScope)
+    }
+
+    private fun convertStringsToNeighborInfo(strings: List<String>): List<NeighborInfo> {
+        return strings.map { NeighborInfo(profileName = it) }
     }
 
     private fun initToolbar() {
@@ -36,9 +63,11 @@ class SelectNeighborFragment :
     }
 
     private fun initAdapter() {
-        adapter = SelectNeighborAdapter { _ -> }
+        val adapter = SelectNeighborAdapter(){
+            selectedNeighbor = it
+        }
         binding.rvGiftSendNeighbor.adapter = adapter
-        adapter.submitList(viewModel.mockNeighbors)
+        adapter.submitList(neighborList)
     }
 
     private fun confirmBtnClick() {
