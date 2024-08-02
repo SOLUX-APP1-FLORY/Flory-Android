@@ -8,12 +8,10 @@ import com.solux.flory.data.dto.response.ResponseUserInfoDto
 import com.solux.flory.data.service.ApiKeyStorage.API
 import com.solux.flory.data.service.ApiKeyStorage.MEMBER
 import com.solux.flory.data.service.ApiKeyStorage.SIGNUP
-import com.solux.flory.data.service.ApiKeyStorage.USER_ID
 import com.solux.flory.data.service.ApiKeyStorage.V1
 import retrofit2.http.Body
 import retrofit2.http.PATCH
 import retrofit2.http.POST
-import retrofit2.http.Path
 
 interface SignUpApiService {
     @POST("/$API/$V1/$SIGNUP")
