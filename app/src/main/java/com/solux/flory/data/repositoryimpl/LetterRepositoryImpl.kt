@@ -10,16 +10,14 @@ class LetterRepositoryImpl @Inject constructor(
 ) : LetterRepository {
     override suspend fun postLetter(
         flowerName: String,
-        cardId: Int,
-        receiver: String,
+        receiverNickname: String,
         content: String
     ): Result<String?> {
         return runCatching {
             letterDataSource.postLetter(
                 RequestLetterDto(
                     flowerName,
-                    cardId,
-                    receiver,
+                    receiverNickname,
                     content
                 )
             ).result?.message

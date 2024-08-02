@@ -75,7 +75,7 @@ class SelectNeighborFragment :
             selectedNeighbor = adapter.getSelectedNeighbor()
             selectedNeighbor?.let { neighborInfo ->
                 val bundle = Bundle().apply {
-                    putSerializable("selectedNeighbor", neighborInfo)
+                    putString(NEIGHBOR_NAME_KEY, neighborInfo.profileName)
                 }
                 findNavController().navigate(
                     R.id.action_fragment_select_neighbor_to_fragment_select_bouquet,
@@ -85,6 +85,10 @@ class SelectNeighborFragment :
                 toast(stringOf(R.string.tv_select_neighbor_error))
             }
         }
+    }
+
+    companion object {
+        const val NEIGHBOR_NAME_KEY = "selectedNeighbor"
     }
 
 }
