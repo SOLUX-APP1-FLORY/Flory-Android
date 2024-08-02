@@ -10,5 +10,5 @@ data class ResponseUserInfoDto (
     @SerialName("email") val email: String = "",
     @SerialName("gender") val gender: String = "",
     @SerialName("createdAt") val createdAt: String = "",
-    @SerialName("updatedAt") val updatedAt: String? = "",
+    @SerialName("updatedAt") val updatedAt: String? = null,
 )

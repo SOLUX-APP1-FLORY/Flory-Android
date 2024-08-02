@@ -52,6 +52,10 @@ class DateViewModel @Inject constructor(
         )
     }
 
+    init {
+        updateCalendar()
+    }
+
     private fun updateCalendar() {
         calendar.set(Calendar.DAY_OF_MONTH, 1)
 

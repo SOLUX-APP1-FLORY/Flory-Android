@@ -34,9 +34,9 @@ class NeighborsViewModel @Inject constructor(
         )
     }
 
-    fun patchNeighborUnfollow(nickname: String) = viewModelScope.launch {
+    fun patchNeighborUnfollow(targetUserNickname: String) = viewModelScope.launch {
         _patchNeighborUnfollowState.emit(UiState.Loading)
-        neighborRepository.patchNeighborUnfollow(nickname).fold(
+        neighborRepository.patchNeighborUnfollow(targetUserNickname).fold(
             {
                 _patchNeighborUnfollowState.emit(UiState.Success(it))
             },

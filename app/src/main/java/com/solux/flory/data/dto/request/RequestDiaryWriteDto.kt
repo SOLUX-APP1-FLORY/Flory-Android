@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RequestDiaryWriteDto (
-    @SerialName("flower") val flower: String,
+    @SerialName("flowerName") val flowerName: String,
     @SerialName("title") val title: String,
     @SerialName("content") val content: String,
 )

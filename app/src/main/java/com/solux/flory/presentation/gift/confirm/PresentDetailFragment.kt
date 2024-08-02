@@ -30,7 +30,7 @@ class PresentDetailFragment : BindingFragment<FragmentGiftDetailBinding>(Fragmen
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val giftId = arguments?.getInt(GIFTCONFIRM_KEY) ?: return
+        val giftId = arguments?.getInt(GIFTCONFIRM_KEY) ?: 0
         presentViewModel.getBouquetDetail(giftId)
 
         initToolbar()
