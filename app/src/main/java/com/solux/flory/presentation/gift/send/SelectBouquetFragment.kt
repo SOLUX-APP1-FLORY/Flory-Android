@@ -3,8 +3,6 @@ package com.solux.flory.presentation.gift.send
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import coil.load
-import coil.transform.CircleCropTransformation
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectBouquetBinding
 import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
