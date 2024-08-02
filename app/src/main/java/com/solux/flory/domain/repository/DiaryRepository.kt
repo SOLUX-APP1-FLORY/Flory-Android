@@ -14,4 +14,5 @@ interface DiaryRepository {
         flower: String
     ): Result<Unit>
     suspend fun getDiaries(year: Int, month: Int, day: Int): Result<DiariesEntity?>
+    suspend fun getDiaryCount(): Result<Int?>
 }
