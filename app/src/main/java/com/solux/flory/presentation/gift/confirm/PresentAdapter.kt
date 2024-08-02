@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.solux.flory.databinding.ItemGiftPresentsBinding
 import com.solux.flory.domain.entity.BouquetInfoEntity
-import com.solux.flory.presentation.gift.send.BouquetInfo
-import com.solux.flory.presentation.gift.confirm.PresentViewModel
 
 class PresentAdapter (
     private val onClick: (BouquetInfoEntity) -> Unit,

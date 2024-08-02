@@ -1,6 +1,8 @@
 package com.solux.flory.presentation.gift.confirm
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.solux.flory.data.dto.request.RequestBouquetDetailDto
+import com.solux.flory.domain.entity.BouquetDetailEntity
 import com.solux.flory.domain.entity.BouquetInfoEntity
 import com.solux.flory.domain.repository.BouquetRepository
 import com.solux.flory.util.UiState
@@ -16,6 +18,9 @@ class PresentViewModel @Inject constructor(
     private val _getBouquetState = MutableStateFlow<UiState<List<BouquetInfoEntity>>>(UiState.Empty)
     val getBouquetState: StateFlow<UiState<List<BouquetInfoEntity>>> = _getBouquetState
 
+    private val _getBouquetDetailState = MutableStateFlow<UiState<BouquetDetailEntity>>(UiState.Empty)
+    val getBouquetDetailState: StateFlow<UiState<BouquetDetailEntity>> = _getBouquetDetailState
+
     init{
         getBouquetInfo()
     }
@@ -29,6 +34,18 @@ class PresentViewModel @Inject constructor(
                 )
             },
             { _getBouquetState.emit(UiState.Failure(it.message.toString())) }
+        )
+    }
+
+    fun getBouquetDetail(giftId: Int) = viewModelScope.launch {
+        _getBouquetDetailState.emit(UiState.Loading)
+        bouquetRepository.getBouquetDetail(giftId, RequestBouquetDetailDto(giftId)).fold(
+            {
+                if (it.result != null) _getBouquetDetailState.emit(UiState.Success(it.result)) else _getBouquetDetailState.emit(
+                    UiState.Failure("400")
+                )
+            },
+            { _getBouquetDetailState.emit(UiState.Failure(it.message.toString())) }
         )
     }
 }

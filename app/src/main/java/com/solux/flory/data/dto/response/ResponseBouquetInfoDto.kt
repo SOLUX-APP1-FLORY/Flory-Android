@@ -5,7 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ResponseBouquetInfoDto(
-    @SerialName("id") val id: Int,
+    @SerialName("giftId") val giftId: Int,
     @SerialName("sender") val sender: String,
     @SerialName("bouquetId") val bouquetId: Int,
+    @SerialName("bouquetUrl") val bouquetUrl: String,
 )
