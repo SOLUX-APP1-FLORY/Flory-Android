@@ -8,5 +8,5 @@ import com.solux.flory.data.dto.response.ResponseUserInfoDto
 
 interface SignUpDataSource {
     suspend fun postSignUp(requestSignUpDto: RequestSignUpDto): BaseResponse<ResponseSignUpDto>
-    suspend fun patchUserInfo(userId: Int, requestUserInfoDto: RequestUserInfoDto): BaseResponse<ResponseUserInfoDto>
+    suspend fun patchUserInfo(requestUserInfoDto: RequestUserInfoDto): BaseResponse<ResponseUserInfoDto>
 }

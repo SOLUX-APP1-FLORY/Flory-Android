@@ -21,11 +21,10 @@ class SignUpRepositoryImpl @Inject constructor(
     }
 
     override suspend fun patchUserInfo(
-        userId: Int,
         requestUserInfoDto: RequestUserInfoDto
     ): Result<BaseResponse<ResponseUserInfoDto>> {
         return runCatching {
-            signUpDataSource.patchUserInfo(userId, requestUserInfoDto)
+            signUpDataSource.patchUserInfo(requestUserInfoDto)
         }
     }
 
