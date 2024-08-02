@@ -15,30 +15,45 @@ import kotlinx.coroutines.flow.onEach
 import timber.log.Timber
 
 @AndroidEntryPoint
-class HomeFragment: BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
     private val homeViewModel by viewModels<HomeViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeGetDiaryCount()
         observeRangeValue()
+        observeProfileState()
     }
 
-    private fun observeGetDiaryCount(){
-        homeViewModel.getDiaryCountState.flowWithLifecycle(lifecycle).onEach {
-            when(it){
+    private fun observeProfileState() {
+        homeViewModel.getProfileState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
                 is UiState.Loading -> Unit
                 is UiState.Success -> {
-                    Timber.d("flower count ${it.data}")
-                    setViewModelData(it.data)
+                    val gender = it.data.gender
+                    val rangeValue = homeViewModel.rangeValue.value ?: 0
+                    binding.tvHomeUserNickname.text = it.data.nickname
+                    updateUserIconForGenderAndRange(gender, rangeValue)
                 }
-
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }
         }.launchIn(lifecycleScope)
     }
 
+    private fun observeGetDiaryCount() {
+        homeViewModel.getDiaryCountState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> {
+                    Timber.d("flower count ${it.data}")
+                    setViewModelData(it.data)
+                }
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+            }
+        }.launchIn(lifecycleScope)
+    }
 
     private fun setViewModelData(data: Int) {
         homeViewModel.setRangeValue(data)
@@ -47,7 +62,11 @@ class HomeFragment: BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::in
     private fun observeRangeValue() {
         homeViewModel.rangeValue.observe(viewLifecycleOwner) { rangeValue ->
             updateBackgroundForRange(rangeValue)
-            updateUserIconForRange(rangeValue)
+            homeViewModel.getProfileState.value?.let {
+                if (it is UiState.Success) {
+                    updateUserIconForGenderAndRange(it.data.gender, rangeValue)
+                }
+            }
         }
     }
 
@@ -56,8 +75,8 @@ class HomeFragment: BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         binding.clHomeFragment.setBackgroundResource(backgroundResource)
     }
 
-    private fun updateUserIconForRange(value: Int) {
-        val userIconResource = getUserIconResourceForRange(value)
+    private fun updateUserIconForGenderAndRange(gender: String, value: Int) {
+        val userIconResource = getUserIconResourceForGenderAndRange(gender, value)
         binding.ivHomeUserIcon.setImageResource(userIconResource)
     }
 
@@ -71,11 +90,19 @@ class HomeFragment: BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::in
         }
     }
 
-    private fun getUserIconResourceForRange(value: Int): Int {
-        return when {
-            value <= 11 -> R.drawable.ic_home_user_female1
-            value <= 17 -> R.drawable.ic_home_user_female2
-            else -> R.drawable.ic_home_user_female3
+    private fun getUserIconResourceForGenderAndRange(gender: String, value: Int): Int {
+        return when (gender) {
+            "FEMALE" -> when {
+                value <= 11 -> R.drawable.ic_home_user_female1
+                value <= 17 -> R.drawable.ic_home_user_female2
+                else -> R.drawable.ic_home_user_female3
+            }
+            "MALE" -> when {
+                value <= 11 -> R.drawable.ic_home_user_male1
+                value <= 17 -> R.drawable.ic_home_user_male2
+                else -> R.drawable.ic_home_user_male3
+            }
+            else -> R.drawable.ic_home_user_female1
         }
     }
 }

@@ -45,6 +45,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_signup_id" />
 
+        <ImageButton
+            android:id="@+id/btn_clear_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_signup_delete_all"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/et_signup_id"
+            app:layout_constraintEnd_toEndOf="@+id/et_signup_id"
+            app:layout_constraintTop_toTopOf="@+id/et_signup_id" />
+
         <TextView
             android:id="@+id/tv_id_impossible"
             android:layout_width="wrap_content"
@@ -105,6 +116,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/shape_light_gray_fill_7_rect"
             android:hint="비밀번호"
+            android:inputType="textPassword"
             android:paddingHorizontal="17dp"
             android:textAppearance="@style/TextAppearance.body4"
             android:textColor="@color/gray1_525252"
@@ -118,6 +130,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/shape_light_gray_fill_7_rect"
             android:hint="비밀번호 확인"
+            android:inputType="textPassword"
             android:paddingHorizontal="17dp"
             android:textAppearance="@style/TextAppearance.body4"
             android:textColor="@color/gray1_525252"
