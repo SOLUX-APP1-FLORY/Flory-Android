@@ -16,7 +16,7 @@ interface BouquetApiService {
     @GET("/$API/$V1/$GIFT/$BOUQUET")
     suspend fun getBouquetInfo(): BaseResponse<List<ResponseBouquetInfoDto>>
 
-    @GET("/$API/$V1/$GIFT/${GIFT_ID}/$LETTER")
+    @GET("/$API/$V1/$GIFT/{$GIFT_ID}/$LETTER")
     suspend fun getBouquetDetail(
         @Path("giftId") giftId: Int,
     ): BaseResponse<ResponseBouquetDetailDto>

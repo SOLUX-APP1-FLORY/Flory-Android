@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectNeighborBinding
+import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
 import com.solux.flory.presentation.profile.NeighborInfo
 import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
@@ -75,7 +76,7 @@ class SelectNeighborFragment :
             selectedNeighbor = adapter.getSelectedNeighbor()
             selectedNeighbor?.let { neighborInfo ->
                 val bundle = Bundle().apply {
-                    putSerializable("selectedNeighbor", neighborInfo)
+                    putSerializable(NEIGHBOR_KEY, neighborInfo)
                 }
                 findNavController().navigate(
                     R.id.action_fragment_select_neighbor_to_fragment_select_bouquet,

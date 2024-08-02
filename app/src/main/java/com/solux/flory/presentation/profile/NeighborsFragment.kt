@@ -26,7 +26,6 @@ class NeighborsFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
-        initAdapter()
         confirmBtnClick()
         observeNeighborInfoState()
     }
@@ -38,7 +37,7 @@ class NeighborsFragment :
                 is UiState.Success -> {
                     neighborList.clear()
                     neighborList.addAll(convertStringsToNeighborInfo(it.data))
-                    adapter.submitList(neighborList)
+                    initAdapter(neighborList)
                 }
 
                 is UiState.Empty -> Unit
@@ -58,7 +57,7 @@ class NeighborsFragment :
         }
     }
 
-    private fun initAdapter() {
+    private fun initAdapter(neighborList: List<NeighborInfo>) {
         adapter = NeighborAdapter() {
             val dialog = NeighborDialogFragment(it)
             dialog.show(parentFragmentManager, dialog.tag)

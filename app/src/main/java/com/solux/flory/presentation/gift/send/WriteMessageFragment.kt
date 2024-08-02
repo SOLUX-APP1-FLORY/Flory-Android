@@ -17,7 +17,6 @@ class WriteMessageFragment :
     BindingFragment<FragmentGiftWriteMessageBinding>(FragmentGiftWriteMessageBinding::inflate) {
     private var bouquetInfo: BouquetInfo? = null
     private var neighborName: String? = null
-    private val viewModel by viewModels<SendViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

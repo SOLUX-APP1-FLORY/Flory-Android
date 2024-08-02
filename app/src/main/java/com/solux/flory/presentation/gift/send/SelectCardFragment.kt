@@ -3,19 +3,24 @@ package com.solux.flory.presentation.gift.send
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.flowWithLifecycle
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectCardBinding
 import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
 import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
+import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.onEach
 
+@AndroidEntryPoint
 class SelectCardFragment :
     BindingFragment<FragmentGiftSelectCardBinding>(FragmentGiftSelectCardBinding::inflate) {
-    private val viewModel by viewModels<SendViewModel>()
+    private val sendViewModel by viewModels<SendViewModel>()
 
     //    var selectedImageView: ImageView? = null
     lateinit var bouquetInfo: BouquetInfo
@@ -38,23 +43,46 @@ class SelectCardFragment :
             throw IllegalStateException("Arguments are required")
         }
 
-        viewModel.setMessage(message)
-        viewModel.setBouquetInfo(bouquetInfo)
+        sendViewModel.setMessage(message)
+        sendViewModel.setBouquetInfo(bouquetInfo)
 
         initView()
         initToolbar()
         selectColor()
         sendBtnClick()
+        observeLetterState()
+    }
+
+    private fun observeLetterState() {
+        sendViewModel.postLetterState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> {
+                    val bundle = Bundle().apply {
+                        putSerializable(FLOWER_KEY, bouquetInfo)
+                        putString(NEIGHBOR_KEY, neighborName)
+                    }
+                    findNavController().navigate(
+                        R.id.action_fragment_select_card_to_fragment_send_complete,
+                        bundle
+                    )
+                }
+
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+
+            }
+        }
     }
 
     private fun initView() {
         bouquetInfo?.let {
             binding.ivSelectCardBouquet.load(it.imageUrl)
-            binding.tvSelectCardMessage.text = viewModel.message.value ?: ""
+            binding.tvSelectCardMessage.text = sendViewModel.message.value ?: ""
         }
 
         // peach로 기본 설정
-        viewModel.setImageView(binding.ivSelectCardPeach)
+        sendViewModel.setImageView(binding.ivSelectCardPeach)
     }
 
     private fun initToolbar() {
@@ -76,10 +104,10 @@ class SelectCardFragment :
     private fun initPeachClickListener() {
         // peach
         binding.ivSelectCardPeach.setOnClickListener {
-            if (viewModel.selectedImageView != binding.ivSelectCardPeach) {
-                viewModel.setImageView(binding.ivSelectCardPeach)
+            if (sendViewModel.selectedImageView != binding.ivSelectCardPeach) {
+                sendViewModel.setImageView(binding.ivSelectCardPeach)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_peach)
-                viewModel.setCardColor("peach")
+                sendViewModel.setCardColor("peach")
             }
         }
     }
@@ -87,10 +115,10 @@ class SelectCardFragment :
     private fun initGrayClickListener() {
         // gray
         binding.ivSelectCardGray.setOnClickListener {
-            if (viewModel.selectedImageView != binding.ivSelectCardGray) {
-                viewModel.setImageView(binding.ivSelectCardGray)
+            if (sendViewModel.selectedImageView != binding.ivSelectCardGray) {
+                sendViewModel.setImageView(binding.ivSelectCardGray)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_gray)
-                viewModel.setCardColor("gray")
+                sendViewModel.setCardColor("gray")
             }
         }
     }
@@ -98,10 +126,10 @@ class SelectCardFragment :
     private fun initBlueClickListener() {
         // blue
         binding.ivSelectCardBlue.setOnClickListener {
-            if (viewModel.selectedImageView != binding.ivSelectCardBlue) {
-                viewModel.setImageView(binding.ivSelectCardBlue)
+            if (sendViewModel.selectedImageView != binding.ivSelectCardBlue) {
+                sendViewModel.setImageView(binding.ivSelectCardBlue)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_blue)
-                viewModel.setCardColor("blue")
+                sendViewModel.setCardColor("blue")
             }
         }
     }
@@ -109,10 +137,10 @@ class SelectCardFragment :
     private fun initPurpleClickListener() {
         // purple
         binding.ivSelectCardPurple.setOnClickListener {
-            if (viewModel.selectedImageView != binding.ivSelectCardPurple) {
-                viewModel.setImageView(binding.ivSelectCardPurple)
+            if (sendViewModel.selectedImageView != binding.ivSelectCardPurple) {
+                sendViewModel.setImageView(binding.ivSelectCardPurple)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_purple)
-                viewModel.setCardColor("purple")
+                sendViewModel.setCardColor("purple")
             }
         }
     }
@@ -120,25 +148,17 @@ class SelectCardFragment :
     private fun initYellowClickListener() {
         // yellow
         binding.ivSelectCardYellow.setOnClickListener {
-            if (viewModel.selectedImageView != binding.ivSelectCardYellow) {
-                viewModel.setImageView(binding.ivSelectCardYellow)
+            if (sendViewModel.selectedImageView != binding.ivSelectCardYellow) {
+                sendViewModel.setImageView(binding.ivSelectCardYellow)
                 binding.ivSelectCardImage.setImageResource(R.drawable.ic_card_yellow)
-                viewModel.setCardColor("yellow")
+                sendViewModel.setCardColor("yellow")
             }
         }
     }
 
     private fun sendBtnClick() {
         binding.btnSelectCardNext.setOnClickListener {
-            val bundle = Bundle().apply {
-                putSerializable(FLOWER_KEY, bouquetInfo)
-                putString(NEIGHBOR_KEY, neighborName)
-            }
-
-            findNavController().navigate(
-                R.id.action_fragment_select_card_to_fragment_send_complete,
-                bundle
-            )
+            neighborName?.let { it1 -> sendViewModel.postLetter(bouquetInfo.name, it1, message) }
         }
     }
 

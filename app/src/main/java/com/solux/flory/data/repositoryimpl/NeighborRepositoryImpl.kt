@@ -2,7 +2,6 @@ package com.solux.flory.data.repositoryimpl
 
 import com.solux.flory.data.datasource.NeighborDataSource
 import com.solux.flory.data.dto.request.RequestNeighborFollowDto
-import com.solux.flory.data.dto.request.RequestNeighborSearchDto
 import com.solux.flory.data.mapper.toNeighborSearchEntity
 import com.solux.flory.domain.entity.NeighborSearchEntity
 import com.solux.flory.domain.repository.NeighborRepository
@@ -19,7 +18,7 @@ class NeighborRepositoryImpl @Inject constructor(
 
     override suspend fun getNeighborSearch(nickname: String): Result<List<NeighborSearchEntity>?> {
         return runCatching {
-            neighborDataSource.getNeighborSearch(RequestNeighborSearchDto(nickname)).result?.map { it.toNeighborSearchEntity() }
+            neighborDataSource.getNeighborSearch(nickname).result?.map { it.toNeighborSearchEntity() }
         }
     }
 

@@ -1,5 +1,7 @@
 package com.solux.flory.presentation.record
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.DiaryViewEntity
@@ -21,9 +23,13 @@ class ModifyViewModel @Inject constructor(
     private val _getDiaryViewState = MutableStateFlow<UiState<DiaryViewEntity>>(UiState.Empty)
     val getDiaryViewState: StateFlow<UiState<DiaryViewEntity>> = _getDiaryViewState
 
-    fun patchDiary(diaryId: Int, flower: String, title: String, content: String) = viewModelScope.launch {
+    private val _diaryId = MutableLiveData<Int>()
+    val diaryId: LiveData<Int> get() = _diaryId
+
+
+    fun patchDiary(diaryId: Int, title: String, content: String,  flower: String) = viewModelScope.launch {
         _patchDiaryState.emit(UiState.Loading)
-        diaryRepository.patchDiary(diaryId, flower, title, content).fold(
+        diaryRepository.patchDiary(diaryId, title, content, flower).fold(
             {
                 if (it != null) _patchDiaryState.emit(UiState.Success(it)) else _patchDiaryState.emit(
                     UiState.Failure("400")
@@ -43,5 +49,9 @@ class ModifyViewModel @Inject constructor(
             },
             { _getDiaryViewState.value = UiState.Failure(it.message.toString()) }
         )
+    }
+
+    fun setDiaryId(diaryId: Int) {
+        _diaryId.value = diaryId
     }
 }

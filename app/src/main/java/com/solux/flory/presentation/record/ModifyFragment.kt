@@ -47,6 +47,7 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
                         tvModifyFlowerMeaning.text = it.data.flowerMeaning
                         etModifyTitle.setText(it.data.title)
                         etModifyContent.setText(it.data.content)
+                        modifyViewModel.setDiaryId(it.data.diaryId)
                     }
                 }
 
@@ -102,10 +103,10 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
         binding.btnModifyConfirm.setOnClickListener {
             with(binding) {
                 modifyViewModel.patchDiary(
-                    1,
-                    tvModifyFlowerName.text.toString(),
+                    modifyViewModel.diaryId.value!!,
                     etModifyTitle.text.toString(),
-                    etModifyContent.text.toString()
+                    etModifyContent.text.toString(),
+                    tvModifyFlowerName.text.toString()
                 )
             }
         }

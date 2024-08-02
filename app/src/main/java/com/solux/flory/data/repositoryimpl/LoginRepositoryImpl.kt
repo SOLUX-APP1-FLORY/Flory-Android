@@ -12,7 +12,6 @@ class LoginRepositoryImpl @Inject constructor(
     override suspend fun postLogin(uid: String, password: String): Result<String?> {
         return runCatching {
             val data = loginDataSource.postLogin(RequestLoginDto(uid, password))
-            Timber.d(data.message)
             data.result?.token
         }
     }

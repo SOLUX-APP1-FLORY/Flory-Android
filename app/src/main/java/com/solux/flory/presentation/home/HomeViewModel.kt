@@ -24,7 +24,7 @@ class HomeViewModel @Inject constructor(
         getDiaryCount()
     }
 
-    fun getDiaryCount() = viewModelScope.launch {
+    private fun getDiaryCount() = viewModelScope.launch {
         _getDiaryCountState.emit(UiState.Loading)
         diaryRepository.getDiaryCount().fold(
             {
