@@ -21,7 +21,9 @@ import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
+    private lateinit var adapter: ProfileAdapter
     private val profileViewModel by viewModels<ProfileViewModel>()
+    private val neighborList = mutableListOf<NeighborInfo>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
@@ -30,6 +32,27 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         neighborsTextClick()
         logoutBtnClick()
         observeProfileState()
+        observeNeighborInfoState()
+    }
+
+    private fun observeNeighborInfoState() {
+        profileViewModel.getNeighborInfoState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> {
+                    neighborList.clear()
+                    neighborList.addAll(convertStringsToNeighborInfo(it.data))
+                    adapter.submitList(neighborList)
+                }
+
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+            }
+        }.launchIn(lifecycleScope)
+    }
+
+    private fun convertStringsToNeighborInfo(strings: List<String>): List<NeighborInfo> {
+        return strings.map { NeighborInfo(profileName = it) }
     }
 
     private fun observeProfileState() {
@@ -64,10 +87,10 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
     }
 
     private fun initAdapter() {
-        ProfileAdapter().apply {
-            binding.rvProfileNeighbors.adapter = this
-            submitList(profileViewModel.mockNeighbors)
-        }
+        adapter = ProfileAdapter()
+        binding.rvProfileNeighbors.adapter = adapter
+        adapter.submitList(neighborList)
+
     }
 
     private fun profileModifyTextClick() {

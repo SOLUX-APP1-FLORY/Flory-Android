@@ -3,6 +3,7 @@ package com.solux.flory.presentation.profile
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.CircleCropTransformation
+import com.solux.flory.R
 import com.solux.flory.databinding.ItemProfileNeighborlistBinding
 
 class NeighborViewHolder(
@@ -12,9 +13,7 @@ class NeighborViewHolder(
 
     fun bind(neighborInfo: NeighborInfo) {
         with(binding) {
-            ivSelectNeighborImage.load(neighborInfo.profileImage) {
-                transformations(CircleCropTransformation())
-            }
+            ivSelectNeighborImage.setImageResource(R.drawable.ic_gift_user)
             tvSelectNeighborNickname.text = neighborInfo.profileName
             btnFollowCancel.setOnClickListener {
                 onClick(neighborInfo)
