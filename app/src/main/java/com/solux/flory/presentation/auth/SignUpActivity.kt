@@ -18,6 +18,7 @@ import com.solux.flory.util.setupToolbarClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import timber.log.Timber
 
 @AndroidEntryPoint
 class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
@@ -42,6 +43,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
                 is UiState.Success -> {
                     Intent(this, UserInfoActivity::class.java).apply {
                         // 유저 아이디 보내기
+                        Timber.d("userId: ${it.data.toString()}")
                         putExtra(ID_KEY, it.data.toString())
                         startActivity(this)
                         finish()
