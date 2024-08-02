@@ -30,7 +30,6 @@ class SelectNeighborFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initAdapter()
         confirmBtnClick()
         initToolbar()
         observeNeighborInfoState()
@@ -64,7 +63,7 @@ class SelectNeighborFragment :
                 is UiState.Success -> {
                     neighborList.clear()
                     neighborList.addAll(convertStringsToNeighborInfo(it.data))
-                    adapter.submitList(neighborList)
+                    initAdapter(neighborList)
                 }
 
                 is UiState.Empty -> Unit
@@ -85,7 +84,7 @@ class SelectNeighborFragment :
         }
     }
 
-    private fun initAdapter() {
+    private fun initAdapter(neighborList: List<NeighborInfo>) {
         adapter = SelectNeighborAdapter() {
             selectedNeighbor = it
         }

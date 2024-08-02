@@ -22,9 +22,9 @@ class RecordViewModel @Inject constructor(
     private val _isFlowerSelected = MutableLiveData<Boolean>()
     val isFlowerSelected: LiveData<Boolean> = _isFlowerSelected
 
-    fun postDiary(flower: String, title: String, content: String) = viewModelScope.launch {
+    fun postDiary(flowerName: String, title: String, content: String) = viewModelScope.launch {
         _postDiaryState.emit(UiState.Loading)
-        diaryRepository.postDiary(flower, title, content).fold(
+        diaryRepository.postDiary(flowerName, title, content).fold(
             {
                 if (it != null) _postDiaryState.emit(UiState.Success(it)) else _postDiaryState.emit(
                     UiState.Failure("400")

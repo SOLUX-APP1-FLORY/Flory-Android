@@ -11,7 +11,7 @@ class PresentViewHolder(
 ) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(position: Int, bouquetInfo: BouquetInfoEntity) {
-        // image url 추후에 넣기
+        binding.ivPresentsImage.load(bouquetInfo.bouquetUrl)
         binding.tvPresentsSender.text = bouquetInfo.sender
         binding.root.setOnClickListener {
             onClick(bouquetInfo)

@@ -28,9 +28,9 @@ class NeighborRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun patchNeighborUnfollow(nickname: String): Result<String> {
+    override suspend fun patchNeighborUnfollow(targetUserNickname: String): Result<String> {
         return runCatching {
-            neighborDataSource.patchNeighborUnfollow(RequestNeighborFollowDto(nickname)).result ?: ""
+            neighborDataSource.patchNeighborUnfollow(RequestNeighborFollowDto(targetUserNickname)).result ?: ""
         }
     }
 }

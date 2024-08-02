@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentProfileModifyBinding
@@ -13,6 +14,7 @@ import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.fragment.toast
 import com.solux.flory.util.setupToolbarClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
@@ -44,7 +46,7 @@ class ProfileModifyFragment : BindingFragment<FragmentProfileModifyBinding>({
                 is UiState.Failure -> Unit
 
             }
-        }
+        }.launchIn(lifecycleScope)
     }
 
     private fun initToolbar() {

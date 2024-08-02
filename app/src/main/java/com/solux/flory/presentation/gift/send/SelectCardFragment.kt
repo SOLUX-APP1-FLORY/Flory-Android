@@ -1,9 +1,11 @@
 package com.solux.flory.presentation.gift.send
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
@@ -15,6 +17,7 @@ import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
@@ -69,10 +72,9 @@ class SelectCardFragment :
                 }
 
                 is UiState.Empty -> Unit
-                is UiState.Failure -> Unit
-
+                is UiState.Failure -> Log.e("SelectCardFragment", it.msg)
             }
-        }
+        }.launchIn(lifecycleScope)
     }
 
     private fun initView() {
