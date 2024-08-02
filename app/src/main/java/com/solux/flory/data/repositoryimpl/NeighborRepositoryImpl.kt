@@ -7,9 +7,9 @@ import javax.inject.Inject
 class NeighborRepositoryImpl @Inject constructor(
     private val neighborDataSource: NeighborDataSource
 ) : NeighborRepository {
-    override suspend fun getNeighborInfo(): Result<List<String>?> {
+    override suspend fun getNeighborInfo(): Result<List<String>> {
         return runCatching {
-            neighborDataSource.getNeighborInfo().result
+            neighborDataSource.getNeighborInfo().result ?: emptyList()
         }
     }
 }
