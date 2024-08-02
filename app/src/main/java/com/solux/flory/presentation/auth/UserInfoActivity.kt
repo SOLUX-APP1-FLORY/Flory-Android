@@ -2,21 +2,26 @@ package com.solux.flory.presentation.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import com.solux.flory.R
 import com.solux.flory.databinding.ActivityUserInfoBinding
-import com.solux.flory.presentation.main.MainActivity
+import com.solux.flory.presentation.auth.SignUpActivity.Companion.ID_KEY
+import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingActivity
+import com.solux.flory.util.context.stringOf
+import com.solux.flory.util.context.toast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
     ActivityUserInfoBinding.inflate(it)
 }) {
-
     private val viewModel: SignupViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +30,23 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
         genderMaleBtnClick()
         genderFemaleBtnClick()
         infoConfirmBtnClick()
-        getSignupInfo()
+        observePatchUserInfo()
+    }
+
+    private fun observePatchUserInfo() {
+        viewModel.patchUserInfoState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> {
+                    Intent(this, LoginActivity::class.java).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(this)
+                    }
+                }
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+            }
+        }.launchIn(lifecycleScope)
     }
 
     private fun genderFemaleBtnClick() {
@@ -61,7 +82,7 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
     private fun nicknameCheckBtnClick() {
         with(binding) {
             nicknameCheckBtn.setOnClickListener {
-                val nickname = inputNickname.text
+                val nickname = etUserInfoNickname.text
 
                 if (nickname.isEmpty()) {
                     Toast.makeText(this@UserInfoActivity, "닉네임을 입력해주세요", Toast.LENGTH_SHORT).show()
@@ -79,24 +100,20 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
 
     private fun infoConfirmBtnClick() {
         binding.btnInfoConfirm.setOnClickListener {
-            viewModel._nickname.value = binding.inputNickname.text.toString()
-
-            Intent(this, LoginActivity::class.java).apply {
-                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(this)
+            val userId = intent.getStringExtra(ID_KEY)?.toInt()
+            userId?.let {
+                if (binding.etUserInfoNickname.text.isNotBlank() && viewModel.gender.value != null) {
+                    viewModel.patchUserInfo(
+                        userId,
+                        binding.etUserInfoNickname.text.toString(),
+                        viewModel.gender.value!!
+                    )
+                } else {
+                    toast(stringOf(R.string.tv_user_info_error))
+                }
             }
+
         }
     }
 
-    private fun getSignupInfo() {
-        viewModel._id.value = intent.getStringExtra(ID)
-        viewModel._pw.value = intent.getStringExtra(PASSWORD)
-        viewModel._email.value = intent.getStringExtra(EMAIL)
-    }
-
-    companion object {
-        const val ID = "id"
-        const val PASSWORD = "password"
-        const val EMAIL = "email"
-    }
 }

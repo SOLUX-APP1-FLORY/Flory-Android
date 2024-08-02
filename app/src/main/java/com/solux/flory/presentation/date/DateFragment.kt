@@ -3,15 +3,18 @@ package com.solux.flory.presentation.date
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentDateBinding
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.toast
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDate
 
+@AndroidEntryPoint
 class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::inflate) {
-    private val viewModel by activityViewModels<DateViewModel>()
+    private val viewModel by viewModels<DateViewModel>()
     private lateinit var adapter: DateAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
