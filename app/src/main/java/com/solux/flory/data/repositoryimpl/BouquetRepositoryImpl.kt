@@ -2,7 +2,7 @@ package com.solux.flory.data.repositoryimpl
 
 import com.solux.flory.data.datasource.BouquetDataSource
 import com.solux.flory.data.dto.BaseResponse
-import com.solux.flory.data.dto.request.RequestBouquetDetailDto
+import com.solux.flory.data.mapper.toBouquetDetailEntity
 import com.solux.flory.data.mapper.toBouquetInfoEntity
 import com.solux.flory.domain.entity.BouquetDetailEntity
 import com.solux.flory.domain.entity.BouquetInfoEntity
@@ -20,10 +20,11 @@ class BouquetRepositoryImpl @Inject constructor(
 
     override suspend fun getBouquetDetail(
         giftId: Int,
-        requestBouquetDetailDto: RequestBouquetDetailDto
-    ): Result<BaseResponse<BouquetDetailEntity>> {
+    ): Result<BouquetDetailEntity> {
         return runCatching {
-            bouquetDataSource.getBouquetDetail(giftId, requestBouquetDetailDto)
+            bouquetDataSource.getBouquetDetail(giftId).result?.toBouquetDetailEntity() ?: BouquetDetailEntity(
+                "", "", "",""
+            )
         }
     }
 }

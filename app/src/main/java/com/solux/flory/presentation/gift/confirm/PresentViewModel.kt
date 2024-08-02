@@ -1,7 +1,6 @@
 package com.solux.flory.presentation.gift.confirm
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.solux.flory.data.dto.request.RequestBouquetDetailDto
 import com.solux.flory.domain.entity.BouquetDetailEntity
 import com.solux.flory.domain.entity.BouquetInfoEntity
 import com.solux.flory.domain.repository.BouquetRepository
@@ -39,9 +38,9 @@ class PresentViewModel @Inject constructor(
 
     fun getBouquetDetail(giftId: Int) = viewModelScope.launch {
         _getBouquetDetailState.emit(UiState.Loading)
-        bouquetRepository.getBouquetDetail(giftId, RequestBouquetDetailDto(giftId)).fold(
+        bouquetRepository.getBouquetDetail(giftId).fold(
             {
-                if (it.result != null) _getBouquetDetailState.emit(UiState.Success(it.result)) else _getBouquetDetailState.emit(
+                if (it != null) _getBouquetDetailState.emit(UiState.Success(it)) else _getBouquetDetailState.emit(
                     UiState.Failure("400")
                 )
             },

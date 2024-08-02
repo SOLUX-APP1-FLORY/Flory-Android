@@ -4,5 +4,5 @@ import com.solux.flory.data.dto.response.ResponseBouquetDetailDto
 import com.solux.flory.domain.entity.BouquetDetailEntity
 
 fun ResponseBouquetDetailDto.toBouquetDetailEntity() = BouquetDetailEntity(
-    createdAt, bouquetImageUrl, content
+    sender, createdAt, bouquetImageUrl, content
 )

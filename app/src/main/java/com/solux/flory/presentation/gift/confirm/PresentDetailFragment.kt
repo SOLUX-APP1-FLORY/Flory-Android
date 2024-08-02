@@ -56,7 +56,7 @@ class PresentDetailFragment : BindingFragment<FragmentGiftDetailBinding>(Fragmen
         presentInfo?.let {
             binding.ivGiftDetailImage.load(it.bouquetImageUrl)
             binding.tvGiftDetailText.text = it.content
-            //binding.tvGiftDetailSender.text = it.sender 보낸사람
+            binding.tvGiftDetailSender.text = it.sender
             binding.tvGiftDetailCreatedat.text = formatDateTime(it.createdAt)
         }
     }
@@ -79,7 +79,7 @@ class PresentDetailFragment : BindingFragment<FragmentGiftDetailBinding>(Fragmen
         const val GIFTCONFIRM_KEY = "presentInfo"
     }
 
-    fun formatDateTime(dateTimeStr: String): String {
+    private fun formatDateTime(dateTimeStr: String): String {
         val inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
         val outputFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd")
         val dateTime = LocalDateTime.parse(dateTimeStr, inputFormatter)
