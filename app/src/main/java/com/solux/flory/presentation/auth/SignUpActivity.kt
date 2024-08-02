@@ -33,6 +33,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
         gotoUserInfo()
         checkId()
         checkPW()
+        clearIdText()
         observePostSignUpState()
     }
 
@@ -129,6 +130,14 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
 
             override fun afterTextChanged(s: Editable?) {}
         })
+    }
+
+    private fun clearIdText(){
+        binding.btnClearId.setOnClickListener {
+            binding.etSignupId.text.clear()
+            binding.btnSignupCheckId.isEnabled = false
+            binding.btnSignupGotoUserInfo.isEnabled = false
+        }
     }
 
     companion object {

@@ -106,12 +106,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_gift_select_neighbor"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
         android:layout_marginTop="150dp"
         android:background="@drawable/shape_white_line_20_rect"
         android:layout_marginHorizontal="15dp"
-        android:padding="15dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_select_neighbor">
@@ -131,7 +132,7 @@
         android:id="@+id/btn_select_neighbor_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="15dp"
         android:layout_marginTop="15dp"
         android:backgroundTint="@color/peach4_FFF9F8"
         android:text="확인"
