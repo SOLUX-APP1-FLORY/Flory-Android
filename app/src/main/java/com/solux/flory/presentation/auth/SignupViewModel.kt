@@ -43,7 +43,7 @@ class SignupViewModel @Inject constructor(
 
     fun patchUserInfo(id: Int, nickname: String, gender: String) = viewModelScope.launch {
         _patchUserInfoState.emit(UiState.Loading)
-        signUpRepository.patchUserInfo(id, RequestUserInfoDto(id, nickname, gender)).fold(
+        signUpRepository.patchUserInfo(RequestUserInfoDto(id, nickname, gender)).fold(
             {
                 if (it != null) _patchUserInfoState.emit(UiState.Success(it.result.toString())) else _patchUserInfoState.emit(
                     UiState.Failure("400")

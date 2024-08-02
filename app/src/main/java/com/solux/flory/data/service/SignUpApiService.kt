@@ -21,9 +21,8 @@ interface SignUpApiService {
         @Body requestSignUpDto: RequestSignUpDto
     ): BaseResponse<ResponseSignUpDto>
 
-    @PATCH("/$API/$V1/$MEMBER/{$USER_ID}")
+    @PATCH("/$API/$V1/$MEMBER")
     suspend fun patchUserInfo(
-        @Path(USER_ID) userId: Int,
         @Body requestUserInfoDto: RequestUserInfoDto
     ): BaseResponse<ResponseUserInfoDto>
 }

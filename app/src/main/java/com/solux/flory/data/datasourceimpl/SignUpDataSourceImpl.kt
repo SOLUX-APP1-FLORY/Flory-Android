@@ -18,9 +18,8 @@ SignUpDataSourceImpl @Inject constructor(
     }
 
     override suspend fun patchUserInfo(
-        userId: Int,
         requestUserInfoDto: RequestUserInfoDto
     ): BaseResponse<ResponseUserInfoDto> {
-        return signUpApiService.patchUserInfo(userId, requestUserInfoDto)
+        return signUpApiService.patchUserInfo(requestUserInfoDto)
     }
 }

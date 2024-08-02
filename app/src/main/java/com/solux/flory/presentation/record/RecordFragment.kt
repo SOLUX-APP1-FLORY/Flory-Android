@@ -41,7 +41,7 @@ class RecordFragment : BindingFragment<FragmentRecordBinding>({
             when (it) {
                 is UiState.Loading -> Unit
                 is UiState.Success -> {
-                    toast(stringOf(R.string.tv_record_success))
+                    toast(it.data)
                     findNavController().navigate(R.id.action_fragment_record_to_fragment_date)
                 }
                 is UiState.Empty -> Unit

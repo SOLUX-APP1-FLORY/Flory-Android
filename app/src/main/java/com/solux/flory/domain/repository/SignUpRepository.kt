@@ -12,7 +12,6 @@ interface SignUpRepository {
     ): Result<BaseResponse<ResponseSignUpDto>>
 
     suspend fun patchUserInfo(
-        userId: Int,
         requestUserInfoDto: RequestUserInfoDto
     ): Result<BaseResponse<ResponseUserInfoDto>>
 }

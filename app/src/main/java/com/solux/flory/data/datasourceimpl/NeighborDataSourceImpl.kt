@@ -3,7 +3,6 @@ package com.solux.flory.data.datasourceimpl
 import com.solux.flory.data.datasource.NeighborDataSource
 import com.solux.flory.data.dto.BaseResponse
 import com.solux.flory.data.dto.request.RequestNeighborFollowDto
-import com.solux.flory.data.dto.request.RequestNeighborSearchDto
 import com.solux.flory.data.dto.response.ResponseNeighborSearchDto
 import com.solux.flory.data.service.NeighborApiService
 import javax.inject.Inject
@@ -15,8 +14,8 @@ class NeighborDataSourceImpl @Inject constructor(
         return neighborApiService.getNeighborInfo()
     }
 
-    override suspend fun getNeighborSearch(requestNeighborSearchDto: RequestNeighborSearchDto): BaseResponse<List<ResponseNeighborSearchDto>> {
-        return neighborApiService.getNeighborSearch(requestNeighborSearchDto)
+    override suspend fun getNeighborSearch(nickname: String): BaseResponse<List<ResponseNeighborSearchDto>> {
+        return neighborApiService.getNeighborSearch(nickname)
     }
 
     override suspend fun postNeighborFollow(requestNeighborFollowDto: RequestNeighborFollowDto): BaseResponse<String> {
