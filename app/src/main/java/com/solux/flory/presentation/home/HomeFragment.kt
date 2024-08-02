@@ -32,6 +32,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::i
                 is UiState.Success -> {
                     val gender = it.data.gender
                     val rangeValue = homeViewModel.rangeValue.value ?: 0
+                    binding.tvHomeUserNickname.text = it.data.nickname
                     updateUserIconForGenderAndRange(gender, rangeValue)
                 }
                 is UiState.Empty -> Unit
