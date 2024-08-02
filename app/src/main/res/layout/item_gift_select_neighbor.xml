@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="9dp"
-    android:paddingHorizontal="26dp">
+    android:paddingHorizontal="26dp"
+    android:paddingVertical="9dp">
 
     <ImageView
         android:id="@+id/iv_selectneighbor_image"
         android:layout_width="33dp"
         android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1"
-        android:src="@drawable/ic_profile_image"
+        android:src="@drawable/ic_gift_user"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

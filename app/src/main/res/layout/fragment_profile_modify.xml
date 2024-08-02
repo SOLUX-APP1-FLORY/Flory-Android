@@ -21,36 +21,14 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar_profile_modify">
 
         <TextView
-            android:id="@+id/tv_modify_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이름"
-            android:textAppearance="@style/TextAppearance.body2"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/et_modify_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/shape_white_line_7_rect"
-            android:padding="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_modify_name" />
-
-        <TextView
             android:id="@+id/tv_modify_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
             android:text="닉네임"
             android:textAppearance="@style/TextAppearance.body2"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_modify_name" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/et_modify_nickname"
@@ -58,10 +36,38 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/shape_white_line_7_rect"
+            android:hint="닉네임을 입력해주세요"
             android:padding="12dp"
+            android:textAppearance="@style/TextAppearance.title3"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_modify_nickname" />
+
+        <TextView
+            android:id="@+id/tv_modify_birthdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="생년월일"
+            android:textAppearance="@style/TextAppearance.body2"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_modify_nickname" />
+
+        <EditText
+            android:id="@+id/et_modify_birthdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_white_line_7_rect"
+            android:hint="생년월일을 입력해주세요 ex) 02.12.15"
+            android:padding="12dp"
+            android:textAppearance="@style/TextAppearance.title3"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_modify_birthdate" />
 
         <TextView
             android:id="@+id/tv_modify_sex"
@@ -72,7 +78,7 @@
             android:textAppearance="@style/TextAppearance.body2"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_modify_nickname" />
+            app:layout_constraintTop_toBottomOf="@id/et_modify_birthdate" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

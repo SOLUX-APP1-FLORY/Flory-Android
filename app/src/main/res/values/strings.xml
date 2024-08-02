@@ -20,4 +20,6 @@
     <string name="tv_user_info_error">닉네임과 성별을 입력해주세요</string>
     <string name="tv_record_impossible">모든 내용을 입력해주세요.</string>
     <string name="tv_record_success">오늘의 일기를 기록하였습니다.</string>
+    <string name="tv_profile_modify_error">모든 정보를 입력해주세요</string>
+    <string name="tv_profile_modify_complete">회원 정보 수정 완료</string>
 </resources>

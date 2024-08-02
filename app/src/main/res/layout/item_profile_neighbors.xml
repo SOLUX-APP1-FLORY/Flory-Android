@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         app:layout_constraintDimensionRatio="1"
-        android:src="@drawable/ic_profile_image"
+        android:src="@drawable/ic_gift_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
