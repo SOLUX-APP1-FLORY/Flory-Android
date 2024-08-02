@@ -10,6 +10,7 @@ import com.solux.flory.data.service.ApiKeyStorage.SEARCH
 import com.solux.flory.data.service.ApiKeyStorage.UNFOLLOW
 import com.solux.flory.data.service.ApiKeyStorage.USER
 import com.solux.flory.data.service.ApiKeyStorage.V1
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.POST
@@ -25,8 +26,12 @@ interface NeighborApiService {
     ): BaseResponse<List<ResponseNeighborSearchDto>>
 
     @POST("/$API/$V1/$NEIGHBOR/$FOLLOW")
-    suspend fun postNeighborFollow(requestNeighborFollowDto: RequestNeighborFollowDto): BaseResponse<String>
+    suspend fun postNeighborFollow(
+        @Body requestNeighborFollowDto: RequestNeighborFollowDto
+    ): BaseResponse<String>
 
     @PATCH("/$API/$V1/$NEIGHBOR/$UNFOLLOW")
-    suspend fun patchNeighborUnfollow(requestNeighborFollowDto: RequestNeighborFollowDto): BaseResponse<String>
+    suspend fun patchNeighborUnfollow(
+        @Body requestNeighborFollowDto: RequestNeighborFollowDto
+    ): BaseResponse<String>
 }

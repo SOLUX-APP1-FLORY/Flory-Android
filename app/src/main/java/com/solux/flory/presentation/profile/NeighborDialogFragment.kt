@@ -7,6 +7,7 @@ import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import coil.load
 import coil.transform.CircleCropTransformation
@@ -16,6 +17,7 @@ import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingDialogFragment
 import com.solux.flory.util.fragment.toast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
@@ -51,7 +53,7 @@ class NeighborDialogFragment(
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }
-        }
+        }.launchIn(lifecycleScope)
     }
 
     private fun initView() {
