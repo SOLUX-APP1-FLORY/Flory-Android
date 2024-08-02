@@ -18,7 +18,9 @@ import com.solux.flory.presentation.gift.GiftFragment
 import com.solux.flory.presentation.home.HomeFragment
 import com.solux.flory.presentation.profile.ProfileFragment
 import com.solux.flory.util.base.BindingActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BindingActivity<ActivityMainBinding>({
     ActivityMainBinding.inflate(it)
 }) {

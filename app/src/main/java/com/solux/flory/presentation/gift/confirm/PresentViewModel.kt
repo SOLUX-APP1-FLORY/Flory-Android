@@ -5,12 +5,13 @@ import com.solux.flory.domain.entity.BouquetDetailEntity
 import com.solux.flory.domain.entity.BouquetInfoEntity
 import com.solux.flory.domain.repository.BouquetRepository
 import com.solux.flory.util.UiState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
+@HiltViewModel
 class PresentViewModel @Inject constructor(
     private val bouquetRepository: BouquetRepository,
 ) : ViewModel(){

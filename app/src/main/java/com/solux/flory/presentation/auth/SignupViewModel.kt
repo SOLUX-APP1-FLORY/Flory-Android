@@ -29,9 +29,9 @@ class SignupViewModel @Inject constructor(
     private var _gender = MutableLiveData("male")
     val gender: LiveData<String> get() = _gender
 
-    fun postSignUp(id: String, password: String, email: String) = viewModelScope.launch {
+    fun postSignUp(uid: String, password: String, email: String) = viewModelScope.launch {
         _postSignUpState.emit(UiState.Loading)
-        signUpRepository.postSignUp(RequestSignUpDto(id, password, email)).fold(
+        signUpRepository.postSignUp(RequestSignUpDto(uid, password, email)).fold(
             {
                 if (it != null) _postSignUpState.emit(UiState.Success(it.result?.userId)) else _postSignUpState.emit(
                     UiState.Failure("400")

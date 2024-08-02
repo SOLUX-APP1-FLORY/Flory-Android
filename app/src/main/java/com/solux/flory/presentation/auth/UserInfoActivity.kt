@@ -2,6 +2,7 @@ package com.solux.flory.presentation.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -36,15 +37,16 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
     private fun observePatchUserInfo() {
         viewModel.patchUserInfoState.flowWithLifecycle(lifecycle).onEach {
             when (it) {
-                is UiState.Loading -> Unit
+                is UiState.Loading -> Log.e("UserInfoActivity", "Loading")
                 is UiState.Success -> {
                     Intent(this, LoginActivity::class.java).apply {
                         addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(this)
                     }
                 }
-                is UiState.Empty -> Unit
-                is UiState.Failure -> Unit
+
+                is UiState.Empty -> Log.e("UserInfoActivity", "Empty")
+                is UiState.Failure -> Log.e("UserInfoActivity", "Failure ${it.msg}")
             }
         }.launchIn(lifecycleScope)
     }
@@ -98,6 +100,14 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
         }
     }
 
+    private fun convertSex(gender: String): String {
+        when (gender) {
+            "male" -> return "MALE"
+            "female" -> return "FEMALE"
+            else -> return "FEMALE"
+        }
+    }
+
     private fun infoConfirmBtnClick() {
         binding.btnInfoConfirm.setOnClickListener {
             val userId = intent.getStringExtra(ID_KEY)?.toInt()
@@ -106,7 +116,7 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
                     viewModel.patchUserInfo(
                         userId,
                         binding.etUserInfoNickname.text.toString(),
-                        viewModel.gender.value!!
+                        convertSex(viewModel.gender.value!!)
                     )
                 } else {
                     toast(stringOf(R.string.tv_user_info_error))
