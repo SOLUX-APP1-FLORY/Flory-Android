@@ -38,6 +38,7 @@ class NeighborsFragment :
                 is UiState.Success -> {
                     neighborList.clear()
                     neighborList.addAll(convertStringsToNeighborInfo(it.data))
+                    adapter.submitList(neighborList)
                 }
 
                 is UiState.Empty -> Unit
@@ -64,23 +65,6 @@ class NeighborsFragment :
         }
         binding.rvNeighbors.adapter = adapter
         adapter.submitList(neighborList)
-    }
-
-    private fun observeGetNeighborInfo() {
-        neighborsViewModel.getNeighborInfoState.flowWithLifecycle(lifecycle).onEach {
-            when (it) {
-                is UiState.Loading -> Unit
-                is UiState.Success -> it.data?.let { it1 -> initNeighborInfo(it1) }
-                is UiState.Empty -> Unit
-                is UiState.Failure -> Unit
-            }
-        }
-    }
-
-    private fun initNeighborInfo(data: List<String>) {
-        with(binding) {
-
-        }
     }
 
     private fun confirmBtnClick() {

@@ -17,6 +17,9 @@ class NeighborsViewModel @Inject constructor(
     private val _getNeighborInfoState = MutableStateFlow<UiState<List<String>>>(UiState.Empty)
     val getNeighborInfoState: StateFlow<UiState<List<String>>> = _getNeighborInfoState
 
+    private val _patchNeighborUnfollowState = MutableStateFlow<UiState<String>>(UiState.Empty)
+    val patchNeighborUnfollowState: StateFlow<UiState<String>> = _patchNeighborUnfollowState
+
     init {
         getNeighborInfo()
     }
@@ -28,6 +31,16 @@ class NeighborsViewModel @Inject constructor(
                 _getNeighborInfoState.emit(UiState.Success(it))
             },
             { _getNeighborInfoState.emit(UiState.Failure(it.message.toString())) }
+        )
+    }
+
+    fun patchNeighborUnfollow(nickname: String) = viewModelScope.launch {
+        _patchNeighborUnfollowState.emit(UiState.Loading)
+        neighborRepository.patchNeighborUnfollow(nickname).fold(
+            {
+                _patchNeighborUnfollowState.emit(UiState.Success(it))
+            },
+            { _patchNeighborUnfollowState.emit(UiState.Failure(it.message.toString())) }
         )
     }
 }

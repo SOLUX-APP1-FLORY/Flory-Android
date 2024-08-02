@@ -1,6 +1,10 @@
 package com.solux.flory.data.repositoryimpl
 
 import com.solux.flory.data.datasource.NeighborDataSource
+import com.solux.flory.data.dto.request.RequestNeighborFollowDto
+import com.solux.flory.data.dto.request.RequestNeighborSearchDto
+import com.solux.flory.data.mapper.toNeighborSearchEntity
+import com.solux.flory.domain.entity.NeighborSearchEntity
 import com.solux.flory.domain.repository.NeighborRepository
 import javax.inject.Inject
 
@@ -10,6 +14,24 @@ class NeighborRepositoryImpl @Inject constructor(
     override suspend fun getNeighborInfo(): Result<List<String>> {
         return runCatching {
             neighborDataSource.getNeighborInfo().result ?: emptyList()
+        }
+    }
+
+    override suspend fun getNeighborSearch(nickname: String): Result<List<NeighborSearchEntity>?> {
+        return runCatching {
+            neighborDataSource.getNeighborSearch(RequestNeighborSearchDto(nickname)).result?.map { it.toNeighborSearchEntity() }
+        }
+    }
+
+    override suspend fun postNeighborFollow(nickname: String): Result<String> {
+        return runCatching {
+            neighborDataSource.postNeighborFollow(RequestNeighborFollowDto(nickname)).result ?: ""
+        }
+    }
+
+    override suspend fun patchNeighborUnfollow(nickname: String): Result<String> {
+        return runCatching {
+            neighborDataSource.patchNeighborUnfollow(RequestNeighborFollowDto(nickname)).result ?: ""
         }
     }
 }
