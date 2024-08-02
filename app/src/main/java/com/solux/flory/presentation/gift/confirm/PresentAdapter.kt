@@ -28,7 +28,7 @@ class PresentAdapter (
     companion object {
         private val DiffUtil = object : DiffUtil.ItemCallback<BouquetInfoEntity>() {
             override fun areItemsTheSame(oldItem: BouquetInfoEntity, newItem: BouquetInfoEntity): Boolean {
-                return oldItem.id == newItem.id
+                return oldItem.giftId == newItem.giftId
             }
 
             @SuppressLint("DiffUtilEquals")
