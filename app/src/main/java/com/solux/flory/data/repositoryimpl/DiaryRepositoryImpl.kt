@@ -7,7 +7,9 @@ import com.solux.flory.data.dto.request.RequestDiaryWriteDto
 import com.solux.flory.data.dto.response.ResponseDiariesDto
 import com.solux.flory.data.dto.response.ResponseDiaryModifyDto
 import com.solux.flory.data.mapper.toDiariesEntity
+import com.solux.flory.data.mapper.toDiaryViewEntity
 import com.solux.flory.domain.entity.DiariesEntity
+import com.solux.flory.domain.entity.DiaryViewEntity
 import com.solux.flory.domain.repository.DiaryRepository
 import javax.inject.Inject
 
@@ -20,7 +22,7 @@ class DiaryRepositoryImpl @Inject constructor(
         content: String
     ): Result<String?> {
         return runCatching {
-            diaryDataSource.postDiary(RequestDiaryWriteDto(flower, title, content)).result
+            diaryDataSource.postDiary(RequestDiaryWriteDto(flower, title, content)).result?.message
         }
     }
 
@@ -38,6 +40,12 @@ class DiaryRepositoryImpl @Inject constructor(
     override suspend fun getDiaries(year: Int, month: Int, day: Int): Result<DiariesEntity?> {
         return runCatching {
             diaryDataSource.getDiaries(year, month, day).result?.toDiariesEntity()
+        }
+    }
+
+    override suspend fun getDiaryView(year: Int, month: Int, day: Int): Result<DiaryViewEntity?> {
+        return runCatching {
+            diaryDataSource.getDiaryView(year, month, day).result?.toDiaryViewEntity()
         }
     }
 }

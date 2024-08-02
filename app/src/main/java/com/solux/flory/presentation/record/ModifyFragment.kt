@@ -33,6 +33,27 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
         confirmBtnClick()
         cancelBtnClick()
         observePatchDiaryState()
+        observeGetDiaryViewState()
+    }
+
+    private fun observeGetDiaryViewState() {
+        modifyViewModel.getDiaryViewState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> {
+                    with(binding) {
+                        ivModifyFlowerAvatar.load(it.data.flowerImageUrl)
+                        tvModifyFlowerName.text = it.data.flowerName
+                        tvModifyFlowerMeaning.text = it.data.flowerMeaning
+                        etModifyTitle.setText(it.data.title)
+                        etModifyContent.setText(it.data.content)
+                    }
+                }
+
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+            }
+        }
     }
 
     private fun observePatchDiaryState() {
@@ -59,10 +80,9 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
 
     private fun initView() {
         val date = arguments?.getSerializable(DATE_KEY) as DateInfo
+        modifyViewModel.getDiaryView(date.year, date.month, date.dayOfMonth)
         with(binding) {
             tvModifyDate.text = "${date.year}. ${date.month}. ${date.dayOfMonth}"
-            ivModifyFlowerAvatar.load(date.imageUrl)
-            // 추후 꽃 이름과 의미 넣기, editText setText
         }
     }
 
