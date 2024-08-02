@@ -20,7 +20,7 @@ class PresentDetailFragment : BindingFragment<FragmentGiftDetailBinding>(Fragmen
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            presentInfo = it.getSerializable(GIFTCONFIRM_KEY) as? PresentInfo
+            presentInfo = it.getInt(GIFTCONFIRM_KEY) as? PresentInfo
         }
 
         initView()

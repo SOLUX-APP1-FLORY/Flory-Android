@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.solux.flory.databinding.ItemGiftPresentsBinding
+import com.solux.flory.domain.entity.BouquetInfoEntity
 import com.solux.flory.presentation.gift.send.BouquetInfo
 import com.solux.flory.presentation.gift.confirm.PresentViewModel
 
 class PresentAdapter (
-    private val onClick: (PresentInfo) -> Unit,
-): ListAdapter<PresentInfo, PresentViewHolder>(DiffUtil) {
+    private val onClick: (BouquetInfoEntity) -> Unit,
+): ListAdapter<BouquetInfoEntity, PresentViewHolder>(DiffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PresentViewHolder {
         return PresentViewHolder(
             ItemGiftPresentsBinding.inflate(
@@ -27,13 +28,13 @@ class PresentAdapter (
     }
 
     companion object {
-        private val DiffUtil = object : DiffUtil.ItemCallback<PresentInfo>() {
-            override fun areItemsTheSame(oldItem: PresentInfo, newItem: PresentInfo): Boolean {
-                return oldItem.message == newItem.message
+        private val DiffUtil = object : DiffUtil.ItemCallback<BouquetInfoEntity>() {
+            override fun areItemsTheSame(oldItem: BouquetInfoEntity, newItem: BouquetInfoEntity): Boolean {
+                return oldItem.id == newItem.id
             }
 
             @SuppressLint("DiffUtilEquals")
-            override fun areContentsTheSame(oldItem: PresentInfo, newItem: PresentInfo): Boolean {
+            override fun areContentsTheSame(oldItem: BouquetInfoEntity, newItem: BouquetInfoEntity): Boolean {
                 return oldItem == newItem
             }
         }
