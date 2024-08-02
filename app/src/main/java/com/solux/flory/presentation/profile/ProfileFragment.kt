@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentProfileBinding
 import com.solux.flory.domain.entity.ProfileUserEntity
@@ -67,6 +68,13 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
 
     private fun initUserProfile(data: ProfileUserEntity) {
         with(binding) {
+            ivProfileImage.load(
+                when(data.gender){
+                    "FEMALE" -> R.drawable.user_female
+                    "MALE" -> R.drawable.user_male
+                    else -> {R.drawable.user_female}
+                }
+            )
             tvProfileName.text = data.nickname
             tvProfileEmail.text = data.email
             tvProfileBirth.text = data.birthdate

@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectNeighborBinding
 import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
@@ -40,7 +41,16 @@ class SelectNeighborFragment :
         selectNeighborViewModel.getProfileState.flowWithLifecycle(lifecycle).onEach {
             when (it) {
                 is UiState.Loading -> Unit
-                is UiState.Success -> binding.tvSelectNeighborName.text = it.data.nickname
+                is UiState.Success -> {
+                    binding.tvSelectNeighborName.text = it.data.nickname
+                    binding.ivGiftImage.load(
+                        when(it.data.gender){
+                            "FEMALE" -> R.drawable.user_female
+                            "MALE" -> R.drawable.user_male
+                            else -> {R.drawable.user_female}
+                        }
+                    )
+                }
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }

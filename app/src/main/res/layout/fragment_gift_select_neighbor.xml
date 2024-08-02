@@ -36,26 +36,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="29dp"
-        android:layout_marginStart="44dp"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_select_neighbor">
 
         <ImageView
             android:id="@+id/iv_gift_image"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_profile_image" />
+            app:srcCompat="@drawable/user_female" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginHorizontal="17dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,8 +78,8 @@
                     android:id="@+id/tv_select_neighbor_info1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.subtitle2"
-                    android:text="님" />
+                    android:text="님"
+                    android:textAppearance="@style/TextAppearance.subtitle2" />
             </LinearLayout>
 
             <TextView
@@ -100,7 +100,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="4dp"
         android:text="나의 이웃"
-        android:textAppearance="@style/TextAppearance.subtitle3"
+        android:textAppearance="@style/TextAppearance.subtitle1"
         app:layout_constraintBottom_toTopOf="@+id/cl_gift_select_neighbor"
         app:layout_constraintStart_toStartOf="parent" />
 
