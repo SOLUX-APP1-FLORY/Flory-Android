@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.data.dto.request.RequestSignUpDto
 import com.solux.flory.data.dto.request.RequestUserInfoDto
+import com.solux.flory.domain.repository.NeighborRepository
 import com.solux.flory.domain.repository.SignUpRepository
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
