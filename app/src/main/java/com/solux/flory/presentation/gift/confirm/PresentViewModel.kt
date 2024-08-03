@@ -25,7 +25,7 @@ class PresentViewModel @Inject constructor(
         getBouquetInfo()
     }
 
-    private fun getBouquetInfo() = viewModelScope.launch {
+    fun getBouquetInfo() = viewModelScope.launch {
         _getBouquetState.emit(UiState.Loading)
         bouquetRepository.getBouquetInfo().fold(
             {

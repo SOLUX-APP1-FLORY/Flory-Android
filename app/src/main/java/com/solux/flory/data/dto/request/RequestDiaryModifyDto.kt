@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RequestDiaryModifyDto (
-    @SerialName("id") val id: Int,
+    @SerialName("diary_id") val diaryId: Int,
     @SerialName("title") val title: String,
     @SerialName("content") val content: String,
     @SerialName("flower") val flower: String,

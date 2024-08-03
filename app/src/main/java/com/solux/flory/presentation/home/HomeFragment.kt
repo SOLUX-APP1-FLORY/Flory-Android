@@ -25,6 +25,12 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::i
         observeProfileState()
     }
 
+    override fun onResume() {
+        super.onResume()
+        homeViewModel.getDiaryCount()
+        homeViewModel.getProfile()
+    }
+
     private fun observeProfileState() {
         homeViewModel.getProfileState.flowWithLifecycle(lifecycle).onEach {
             when (it) {

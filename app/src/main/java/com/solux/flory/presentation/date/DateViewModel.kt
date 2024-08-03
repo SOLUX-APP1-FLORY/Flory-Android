@@ -1,5 +1,6 @@
 package com.solux.flory.presentation.date
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,9 +9,11 @@ import com.solux.flory.domain.entity.DiariesEntity
 import com.solux.flory.domain.repository.DiaryRepository
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.Calendar
 import javax.inject.Inject
 
@@ -39,44 +42,43 @@ class DateViewModel @Inject constructor(
         updateCalendar()
     }
 
-    private fun getDiaries(year: Int, month: Int, day: Int) = viewModelScope.launch {
-        _getDiariesState.emit(UiState.Loading)
-        diaryRepository.getDiaries(year, month, day).fold(
-            {
-                if (it != null) {
+    private suspend fun getImageUrlForDate(year: Int, month: Int, day: Int): String? {
+        return withContext(Dispatchers.IO) {
+            var imageUrl: String? = null
+            diaryRepository.getDiaries(year, month, day).fold(
+                {
+                    imageUrl = it?.flowerUrl
                     _getDiariesState.emit(UiState.Success(it))
+                },
+                {
+                    _getDiariesState.emit(UiState.Failure(it.message.toString()))
                 }
-                else _getDiariesState.emit(UiState.Failure("400"))
-            },
-            { _getDiariesState.emit(UiState.Failure(it.message.toString())) }
-        )
-    }
-
-    init {
-        updateCalendar()
+            )
+            imageUrl
+        }
     }
 
     private fun updateCalendar() {
-        calendar.set(Calendar.DAY_OF_MONTH, 1)
+        viewModelScope.launch {
+            calendar.set(Calendar.DAY_OF_MONTH, 1)
 
-        _year.value = calendar.get(Calendar.YEAR).toString()
-        val currentMonth = calendar.get(Calendar.MONTH)
-        _month.value = monthNames[currentMonth]
+            _year.value = calendar.get(Calendar.YEAR).toString()
+            val currentMonth = calendar.get(Calendar.MONTH)
+            _month.value = monthNames[currentMonth]
 
-        val maxDate = calendar.getActualMaximum(Calendar.DATE)
-        val year = calendar.get(Calendar.YEAR)
-        val week = calendar.get(Calendar.DAY_OF_WEEK) - 1
-        val month = currentMonth + 1
-        val list = MutableList(week, init = { DateInfo() })
-        for (i in 1..maxDate) {
-            val imageUrl = getImageUrlForDate(year, month, i)
-            list.add(DateInfo(year, month, i, imageUrl))
+            val maxDate = calendar.getActualMaximum(Calendar.DATE)
+            val year = calendar.get(Calendar.YEAR)
+            val week = calendar.get(Calendar.DAY_OF_WEEK) - 1
+            val month = currentMonth + 1
+            val list = MutableList(week, init = { DateInfo() })
+
+            for (i in 1..maxDate) {
+                val imageUrl = getImageUrlForDate(year, month, i) // 비동기 처리 기다리기
+                Log.e("DateViewModel", "year: $year, month: $month, day: $i, imageUrl: $imageUrl")
+                list.add(DateInfo(year, month, i, imageUrl))
+            }
+            _dateList.value = list
         }
-        _dateList.value = list
-    }
-
-    private fun getImageUrlForDate(year: Int, month: Int, day: Int): String? {
-        return getDiaries(year, month, day).toString()
     }
 
     fun moveToPreviousMonth() {

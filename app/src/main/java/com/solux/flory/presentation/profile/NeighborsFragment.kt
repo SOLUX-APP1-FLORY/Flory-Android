@@ -30,6 +30,11 @@ class NeighborsFragment :
         observeNeighborInfoState()
     }
 
+    override fun onResume() {
+        super.onResume()
+        neighborsViewModel.getNeighborInfo()
+    }
+
     private fun observeNeighborInfoState() {
         neighborsViewModel.getNeighborInfoState.flowWithLifecycle(lifecycle).onEach {
             when (it) {

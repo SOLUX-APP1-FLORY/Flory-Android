@@ -28,6 +28,11 @@ class ConfirmFragment :
         observeGetBouquetState()
     }
 
+    override fun onResume() {
+        super.onResume()
+        presentViewModel.getBouquetInfo()
+    }
+
     private fun observeGetBouquetState() {
         presentViewModel.getBouquetState.flowWithLifecycle(lifecycle).onEach {
             when (it) {

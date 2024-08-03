@@ -38,10 +38,9 @@
                 android:hint="닉네임 입력"
                 android:inputType="text"
                 android:paddingHorizontal="30dp"
-                android:textAppearance="@style/TextAppearance.body5"
+                android:textAppearance="@style/TextAppearance.body3"
                 android:textColorHint="@color/gray1_525252"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,26 +57,17 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_neighbors"
-            android:layout_width="350dp"
-            android:layout_height="530dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search_neighbor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="19dp"
             android:layout_marginTop="40dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cl_search_neighbor_searchbar">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_search_neighbor"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_gift_search_neighbors" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/cl_search_neighbor_searchbar"
+            tools:listitem="@layout/item_gift_search_neighbors" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
