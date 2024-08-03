@@ -26,7 +26,7 @@
 | Design Pattern | Repository Pattern, Adapter Pattern, Observer Pattern |
 | Jetpack Components | AAC Bottom Navigation, Preference Datastore, Lifecycle, ViewModel  |
 | Dependency Injection | Hilt  |
-| Network | Retrofit, OkHttp, Multipart  |
+| Network | Retrofit, OkHttp  |
 | Asynchronous Processing | Coroutine(+ Flow)  |
 | Third Party Library | Coil, Timber, kotlinSerialization |
 | CI | Github Action(KtLint, Compile Check)  |
