@@ -63,8 +63,5 @@
 │  ├─📂record
 │  ├─📂searchNeighbor
 └─📂util
-│  ├─📂base
-│  ├─📂context
-│  ├─📂fragment
 ```
 </br>
