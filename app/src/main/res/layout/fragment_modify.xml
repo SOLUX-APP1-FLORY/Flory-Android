@@ -138,8 +138,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_peach_line_7_rect"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="3dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -207,7 +207,7 @@
                             android:drawableStart="@drawable/ic_modify_left_arrow"
                             android:drawablePadding="3dp"
                             android:text="꽃을 눌러 기분을 수정해보세요."
-                            android:textAppearance="@style/TextAppearance.body6"
+                            android:textAppearance="@style/TextAppearance.body3"
                             android:textColor="@color/gray5_969696" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -234,7 +234,7 @@
                 android:hint="제목을 입력해주세요."
                 android:textColorHint="@color/gray2_717171"
                 android:inputType="text"
-                android:textAppearance="@style/TextAppearance.title3"
+                android:textAppearance="@style/TextAppearance.subtitle2"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@id/tv_date_title"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -264,7 +264,7 @@
                 android:hint="하루를 기록해보세요."
                 android:textColorHint="@color/gray2_717171"
                 android:inputType="text"
-                android:textAppearance="@style/TextAppearance.title3"
+                android:textAppearance="@style/TextAppearance.subtitle2"
                 android:textColor="@color/black"
                 app:layout_constraintTop_toBottomOf="@id/tv_date_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -277,7 +277,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/peach1_FF8D6F"
                 android:text="수정하기"
-                android:textAppearance="@style/TextAppearance.title2"
+                android:textAppearance="@style/TextAppearance.body2"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@id/btn_modify_cancel"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -290,7 +290,7 @@
                 android:backgroundTint="@android:color/transparent"
                 android:text="취소"
                 android:textAppearance="@style/TextAppearance.subtitle3"
-                android:textColor="@color/black"
+                android:textColor="@color/gray1_525252"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
