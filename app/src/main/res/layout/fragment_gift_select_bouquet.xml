@@ -37,12 +37,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
-        android:gravity="center_vertical"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_select_bouquet">
 
         <ImageView
             android:id="@+id/iv_gift_image"
-            android:layout_width="45dp"
+            android:layout_width="66dp"
             android:layout_height="0dp"
             android:layout_marginStart="38dp"
             android:src="@drawable/ic_gift_user"
@@ -52,8 +51,8 @@
 
         <ImageView
             android:id="@+id/icon_addcircle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_gravity="bottom|end"
             android:src="@drawable/ic_add"
             app:layout_constraintBottom_toBottomOf="@id/iv_gift_image"
@@ -72,7 +71,7 @@
                 android:id="@+id/tv_select_bouquet_neighbor_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.title3"
+                android:textAppearance="@style/TextAppearance.subtitle2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="워녕" />
@@ -81,19 +80,10 @@
                 android:id="@+id/tv_select_bouquet_neighbor_sir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.title3"
+                android:textAppearance="@style/TextAppearance.subtitle2"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tv_select_bouquet_neighbor_name"
                 app:layout_constraintStart_toEndOf="@+id/tv_select_bouquet_neighbor_name"
-                tools:text="님" />
-
-            <TextView
-                android:id="@+id/tv_select_bouquet_neighbor_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="에게 선물하기"
-                android:textAppearance="@style/TextAppearance.title3"
-                app:layout_constraintBaseline_toBaselineOf="@+id/tv_select_bouquet_neighbor_sir"
-                app:layout_constraintStart_toEndOf="@+id/tv_select_bouquet_neighbor_sir" />
+                android:text="님에게 선물하기" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

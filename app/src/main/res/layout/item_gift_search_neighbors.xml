@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:text="가을리"
-        android:textAppearance="@style/TextAppearance.subtitle1"
+        android:textAppearance="@style/TextAppearance.subtitle2"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_gift_image"

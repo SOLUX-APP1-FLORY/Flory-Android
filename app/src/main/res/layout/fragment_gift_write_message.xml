@@ -43,12 +43,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progress_bar"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="52dp">
 
         <ImageView
             android:id="@+id/iv_write_message_user"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
             android:src="@drawable/ic_gift_user"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,7 +68,7 @@
         android:id="@+id/cl_write_message_neighbor_name_area"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cl_write_message_user_image">
@@ -78,14 +78,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="윤정"
-            android:textAppearance="@style/TextAppearance.subtitle4" />
+            android:textAppearance="@style/TextAppearance.subtitle2" />
 
         <TextView
             android:id="@+id/tv_write_message_neighbor_name_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="님에게"
-            android:textAppearance="@style/TextAppearance.subtitle4"
+            android:textAppearance="@style/TextAppearance.subtitle2"
             app:layout_constraintStart_toEndOf="@+id/tv_write_message_neighbor_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -149,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="메리골드"
-                android:textAppearance="@style/TextAppearance.body4"
+                android:textAppearance="@style/TextAppearance.body3"
                 android:textColor="@color/green_33AF31"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/flower_line"
@@ -163,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="고마움"
-                android:textAppearance="@style/TextAppearance.body4"
+                android:textAppearance="@style/TextAppearance.body3"
                 android:textColor="@color/green_33AF31"
                 app:layout_constraintStart_toStartOf="@id/flower_line"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -182,7 +182,7 @@
             android:layout_marginTop="16dp"
             android:hint="메시지 카드를 작성해주세요!"
             android:textColorHint="@color/gray2_717171"
-            android:textAppearance="@style/TextAppearance.body3"
+            android:textAppearance="@style/TextAppearance.subtitle2"
             android:paddingHorizontal="19dp"
             android:paddingVertical="15dp"
             android:gravity="top"/>
@@ -196,7 +196,7 @@
         android:layout_marginHorizontal="15dp"
         android:backgroundTint="@color/peach1_FF8D6F"
         android:text="다음"
-        android:textAppearance="@style/TextAppearance.body2"
+        android:textAppearance="@style/TextAppearance.title2"
         android:textColor="@color/white"
         android:layout_marginTop="27dp"
         app:layout_constraintEnd_toEndOf="parent"
