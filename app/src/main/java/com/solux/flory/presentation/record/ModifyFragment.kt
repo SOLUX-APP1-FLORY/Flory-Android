@@ -3,13 +3,16 @@ package com.solux.flory.presentation.record
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentModifyBinding
+import com.solux.flory.domain.entity.DiaryViewEntity
 import com.solux.flory.presentation.date.DateFragment.Companion.DATE_KEY
 import com.solux.flory.presentation.date.DateInfo
 import com.solux.flory.presentation.record.FlowerDialogFragment.Companion.FLOWER_KEY
@@ -19,6 +22,7 @@ import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.fragment.toast
 import com.solux.flory.util.setupToolbarClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.time.LocalDate
 
@@ -54,7 +58,7 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }
-        }
+        }.launchIn(lifecycleScope)
     }
 
     private fun observePatchDiaryState() {
@@ -69,7 +73,7 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }
-        }
+        }.launchIn(lifecycleScope)
     }
 
     private fun initToolbar() {
@@ -82,9 +86,7 @@ class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBind
     private fun initView() {
         val date = arguments?.getSerializable(DATE_KEY) as DateInfo
         modifyViewModel.getDiaryView(date.year, date.month, date.dayOfMonth)
-        with(binding) {
-            tvModifyDate.text = "${date.year}. ${date.month}. ${date.dayOfMonth}"
-        }
+        binding.tvModifyDate.text = "${date.year}. ${date.month}. ${date.dayOfMonth}"
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
