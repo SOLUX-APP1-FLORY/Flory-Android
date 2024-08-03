@@ -28,9 +28,9 @@
                 android:id="@+id/tv_toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:textAppearance="@style/TextAppearance.title3"
-                android:textColor="@color/black"
-                android:layout_gravity="center"/>
+                android:textColor="@color/black" />
 
             <ImageButton
                 android:id="@+id/ib_toolbar2_cancel_icon"

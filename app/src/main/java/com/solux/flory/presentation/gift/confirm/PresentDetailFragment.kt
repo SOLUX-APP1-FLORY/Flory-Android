@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
 
 @AndroidEntryPoint
 class PresentDetailFragment :
@@ -77,9 +78,23 @@ class PresentDetailFragment :
     }
 
     private fun formatDateTime(dateTimeStr: String): String {
-        val inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS")
+        // Convert microseconds to milliseconds by trimming last 3 digits
+        val adjustedDateTimeStr = if (dateTimeStr.length > 23) {
+            dateTimeStr.substring(0, 23) // Trim microseconds to milliseconds
+        } else {
+            dateTimeStr
+        }
+
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS")
         val outputFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd")
-        val dateTime = LocalDateTime.parse(dateTimeStr, inputFormatter)
-        return dateTime.format(outputFormatter)
+
+        return try {
+            val dateTime = LocalDateTime.parse(adjustedDateTimeStr, formatter)
+            dateTime.format(outputFormatter)
+        } catch (e: DateTimeParseException) {
+            // Log the exception message for debugging
+            e.printStackTrace()
+            "Invalid date format"
+        }
     }
 }

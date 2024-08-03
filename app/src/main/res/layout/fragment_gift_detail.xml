@@ -13,9 +13,9 @@
         android:id="@+id/ll_gift_detail_info"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_marginBottom="500dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/toolbar_gift_detail"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,8 +29,8 @@
                 android:id="@+id/tv_gift_detail_sender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="신세기"
-                android:textAppearance="@style/TextAppearance.title2" />
+                android:textAppearance="@style/TextAppearance.title2"
+                tools:text="신세기" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -45,17 +45,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            tools:text="2023.09.03"
             android:textAppearance="@style/TextAppearance.subtitle2"
-            android:textColor="@color/gray5_969696"/>
+            android:textColor="@color/gray5_969696"
+            tools:text="2023.09.03" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_gift_detail_message"
         android:layout_width="match_parent"
         android:layout_height="354dp"
-        android:id="@+id/cl_gift_detail_message"
-        android:layout_marginTop="24dp"
         android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/shape_transparent_radius20_peach3_stroke"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,26 +65,26 @@
             android:id="@+id/iv_gift_detail_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/shape_transparent_circle_peach3_stroke"
             android:paddingVertical="10dp"
-            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_bouquet_tulip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_bouquet_tulip" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_gift_detail_text"
             android:layout_width="300dp"
             android:layout_height="200dp"
             android:background="@drawable/shape_peach_fill_20_rect"
-            tools:text="안매!매!안매!매!안매매매매!매매매매매!"
-            android:paddingVertical="20dp"
             android:paddingHorizontal="10dp"
+            android:paddingVertical="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_gift_detail_image" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_gift_detail_image"
+            tools:text="안매!매!안매!매!안매매매매!매매매매매!" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -93,11 +93,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="27dp"
         android:backgroundTint="@color/peach1_FF8D6F"
         android:text="확인"
         android:textAppearance="@style/TextAppearance.body2"
         android:textColor="@color/white"
-        android:layout_marginTop="27dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cl_gift_detail_message" />

@@ -49,9 +49,9 @@
             android:id="@+id/btn_clear_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             android:background="?attr/selectableItemBackground"
             android:src="@drawable/ic_signup_delete_all"
-            android:layout_marginEnd="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/et_signup_id"
             app:layout_constraintEnd_toEndOf="@+id/et_signup_id"
             app:layout_constraintTop_toTopOf="@+id/et_signup_id" />

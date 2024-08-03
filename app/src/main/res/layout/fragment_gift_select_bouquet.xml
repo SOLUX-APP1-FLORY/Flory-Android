@@ -80,10 +80,10 @@
                 android:id="@+id/tv_select_bouquet_neighbor_sir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="님에게 선물하기"
                 android:textAppearance="@style/TextAppearance.subtitle2"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tv_select_bouquet_neighbor_name"
-                app:layout_constraintStart_toEndOf="@+id/tv_select_bouquet_neighbor_name"
-                android:text="님에게 선물하기" />
+                app:layout_constraintStart_toEndOf="@+id/tv_select_bouquet_neighbor_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
