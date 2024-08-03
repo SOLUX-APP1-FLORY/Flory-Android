@@ -7,7 +7,7 @@
 </br>
 
 ## 🌸 Contributors
-|<img src="https://avatars.githubusercontent.com/u/91470334?s=400&u=4a743fda141cf8a074022b515b0ce3286e6c8560&v=4" width="250" />|<img src="https://avatars.githubusercontent.com/u/145467592?v=4" width="250" />|<img src="https://avatars.githubusercontent.com/u/65457903?v=4" width="250" />|
+|<img src="https://avatars.githubusercontent.com/u/91470334?s=400&u=4a743fda141cf8a074022b515b0ce3286e6c8560&v=4" width="250" />|<img src="https://avatars.githubusercontent.com/u/65457903?v=4" width="250" />|<img src="https://avatars.githubusercontent.com/u/145467592?v=4" width="250" />|
 |:---------:|:---------:|:---------:|
 |[이가을](https://github.com/gaeulzzang)|[김세희](https://github.com/sehee0207)|[윤희재](https://github.com/younheejae)|
 | **[👑 Team Leader]** </br>일기 기록 및 수정</br>마이페이지</br>자동 로그인 | **[🤖 Team Member]** </br>홈</br>선물</br>이웃목록 | **[🤖 Team Member]** </br>로그인</br>회원가입 |
@@ -22,7 +22,7 @@
 ## 👩🏻‍💻 Tech Stack
 | Title | Content |
 | ------------ | -------------------------- |
-| Architecture | Google Architecture, MVVM  |
+| Architecture | Clean Architecture, MVVM  |
 | Design Pattern | Repository Pattern, Adapter Pattern, Observer Pattern |
 | Jetpack Components | AAC Bottom Navigation, Preference Datastore, Lifecycle, ViewModel  |
 | Dependency Injection | Hilt  |
