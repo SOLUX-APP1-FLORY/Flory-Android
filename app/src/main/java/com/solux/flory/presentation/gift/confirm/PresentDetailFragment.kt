@@ -54,7 +54,7 @@ class PresentDetailFragment :
         presentInfo?.let {
             binding.ivGiftDetailImage.load(it.bouquetImageUrl)
             binding.tvGiftDetailText.text = it.content
-            binding.tvGiftDetailSender.text = it.sender
+            binding.tvGiftDetailSender.text = it.sender ?: "익명"
             binding.tvGiftDetailCreatedat.text = formatDateTime(it.createdAt)
         }
     }

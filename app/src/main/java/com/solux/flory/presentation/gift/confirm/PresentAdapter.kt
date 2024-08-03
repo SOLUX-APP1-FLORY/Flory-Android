@@ -1,6 +1,5 @@
 package com.solux.flory.presentation.gift.confirm
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -34,12 +33,11 @@ class PresentAdapter(
                 return oldItem.giftId == newItem.giftId
             }
 
-            @SuppressLint("DiffUtilEquals")
             override fun areContentsTheSame(
                 oldItem: BouquetInfoEntity,
                 newItem: BouquetInfoEntity
             ): Boolean {
-                return oldItem == newItem
+                return oldItem.giftId == newItem.giftId
             }
         }
     }

@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.onEach
 class ConfirmFragment :
     BindingFragment<FragmentGiftConfirmBinding>(FragmentGiftConfirmBinding::inflate) {
     private val presentViewModel by viewModels<PresentViewModel>()
+    private lateinit var adapter: PresentAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,7 +39,7 @@ class ConfirmFragment :
             when (it) {
                 is UiState.Loading -> Unit
                 is UiState.Success -> {
-                    initAdapter(it.data)
+                    initAdapter(it.data)  // 데이터가 업데이트될 때 리스트를 제출
                 }
 
                 is UiState.Empty -> Unit
@@ -57,19 +58,17 @@ class ConfirmFragment :
     }
 
     private fun initAdapter(data: List<BouquetInfoEntity>) {
-        val adapter = PresentAdapter {
+        adapter = PresentAdapter {
             val bundle = Bundle().apply {
                 putInt(GIFTCONFIRM_KEY, it.giftId)
             }
-
             findNavController().navigate(
                 R.id.action_fragment_gift_confirm_to_fragment_gift_detail,
                 bundle
             )
         }
-
-        binding.rvPresents.adapter = adapter
         adapter.submitList(data)
+        binding.rvPresents.adapter = adapter
     }
 
     private fun navigateToGiftConfirmFragment() {

@@ -12,7 +12,8 @@ class PresentViewHolder(
     RecyclerView.ViewHolder(binding.root) {
     fun bind(bouquetInfo: BouquetInfoEntity) {
         binding.ivPresentsImage.load(bouquetInfo.bouquetUrl)
-        binding.tvPresentsSender.text = bouquetInfo.sender
+
+        binding.tvPresentsSender.text = bouquetInfo.sender ?: "unknown"
         binding.root.setOnClickListener {
             onClick(bouquetInfo)
         }
