@@ -9,7 +9,6 @@ import androidx.lifecycle.lifecycleScope
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSearchNeighborBinding
 import com.solux.flory.domain.entity.NeighborSearchEntity
-import com.solux.flory.util.Debouncer
 import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf

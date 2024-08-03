@@ -1,6 +1,5 @@
 package com.solux.flory.presentation.date
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -73,8 +72,7 @@ class DateViewModel @Inject constructor(
             val list = MutableList(week, init = { DateInfo() })
 
             for (i in 1..maxDate) {
-                val imageUrl = getImageUrlForDate(year, month, i) // 비동기 처리 기다리기
-                Log.e("DateViewModel", "year: $year, month: $month, day: $i, imageUrl: $imageUrl")
+                val imageUrl = getImageUrlForDate(year, month, i)
                 list.add(DateInfo(year, month, i, imageUrl))
             }
             _dateList.value = list

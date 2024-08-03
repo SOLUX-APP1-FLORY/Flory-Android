@@ -1,8 +1,6 @@
 package com.solux.flory.presentation.profile
 
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import coil.transform.CircleCropTransformation
 import com.solux.flory.R
 import com.solux.flory.databinding.ItemProfileNeighborlistBinding
 

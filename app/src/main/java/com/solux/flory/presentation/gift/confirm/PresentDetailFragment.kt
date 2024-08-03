@@ -1,9 +1,7 @@
 package com.solux.flory.presentation.gift.confirm
 
 import android.os.Bundle
-import android.text.format.DateUtils.formatDateTime
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -14,8 +12,6 @@ import com.solux.flory.databinding.FragmentGiftDetailBinding
 import com.solux.flory.domain.entity.BouquetDetailEntity
 import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
-import com.solux.flory.util.context.stringOf
-import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -24,7 +20,8 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @AndroidEntryPoint
-class PresentDetailFragment : BindingFragment<FragmentGiftDetailBinding>(FragmentGiftDetailBinding::inflate) {
+class PresentDetailFragment :
+    BindingFragment<FragmentGiftDetailBinding>(FragmentGiftDetailBinding::inflate) {
     private val presentViewModel by viewModels<PresentViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -38,7 +35,7 @@ class PresentDetailFragment : BindingFragment<FragmentGiftDetailBinding>(Fragmen
         observeGetBouquetDetailState()
     }
 
-    private fun observeGetBouquetDetailState(){
+    private fun observeGetBouquetDetailState() {
         presentViewModel.getBouquetDetailState.flowWithLifecycle(lifecycle).onEach {
             when (it) {
                 is UiState.Loading -> Unit

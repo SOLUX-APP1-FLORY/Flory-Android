@@ -43,13 +43,16 @@ class SelectNeighborFragment :
                 is UiState.Success -> {
                     binding.tvSelectNeighborName.text = it.data.nickname
                     binding.ivGiftImage.load(
-                        when(it.data.gender){
+                        when (it.data.gender) {
                             "FEMALE" -> R.drawable.user_female
                             "MALE" -> R.drawable.user_male
-                            else -> {R.drawable.user_female}
+                            else -> {
+                                R.drawable.user_female
+                            }
                         }
                     )
                 }
+
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }

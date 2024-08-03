@@ -44,6 +44,7 @@ class RecordFragment : BindingFragment<FragmentRecordBinding>({
                     toast(it.data)
                     findNavController().navigate(R.id.action_fragment_record_to_fragment_date)
                 }
+
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }

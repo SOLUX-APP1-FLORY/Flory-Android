@@ -3,7 +3,6 @@ package com.solux.flory.presentation.record
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -12,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentModifyBinding
-import com.solux.flory.domain.entity.DiaryViewEntity
 import com.solux.flory.presentation.date.DateFragment.Companion.DATE_KEY
 import com.solux.flory.presentation.date.DateInfo
 import com.solux.flory.presentation.record.FlowerDialogFragment.Companion.FLOWER_KEY
@@ -24,7 +22,6 @@ import com.solux.flory.util.setupToolbarClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import java.time.LocalDate
 
 @AndroidEntryPoint
 class ModifyFragment : BindingFragment<FragmentModifyBinding>(FragmentModifyBinding::inflate) {

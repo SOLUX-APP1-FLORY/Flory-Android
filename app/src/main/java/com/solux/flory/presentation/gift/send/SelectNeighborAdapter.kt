@@ -2,8 +2,8 @@ package com.solux.flory.presentation.gift.send
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.solux.flory.databinding.ItemGiftSelectNeighborBinding
 import com.solux.flory.presentation.profile.NeighborInfo
 
@@ -30,24 +30,24 @@ class SelectNeighborAdapter(
         }
     }
 
-        override fun onBindViewHolder(holder: SelectNeighborViewHolder, position: Int) {
-            val neighborInfo = getItem(position)
-            holder.bind(neighborInfo, neighborInfo == selectedNeighbor)
-        }
+    override fun onBindViewHolder(holder: SelectNeighborViewHolder, position: Int) {
+        val neighborInfo = getItem(position)
+        holder.bind(neighborInfo, neighborInfo == selectedNeighbor)
+    }
 
-        fun getSelectedNeighbor(): NeighborInfo? {
-            return selectedNeighbor
-        }
+    fun getSelectedNeighbor(): NeighborInfo? {
+        return selectedNeighbor
+    }
 
-        companion object {
-            private val DiffUtil = object : DiffUtil.ItemCallback<NeighborInfo>() {
-                override fun areItemsTheSame(oldItem: NeighborInfo, newItem: NeighborInfo): Boolean {
-                    return oldItem.profileName == newItem.profileName
-                }
+    companion object {
+        private val DiffUtil = object : DiffUtil.ItemCallback<NeighborInfo>() {
+            override fun areItemsTheSame(oldItem: NeighborInfo, newItem: NeighborInfo): Boolean {
+                return oldItem.profileName == newItem.profileName
+            }
 
-                override fun areContentsTheSame(oldItem: NeighborInfo, newItem: NeighborInfo): Boolean {
-                    return oldItem == newItem
-                }
+            override fun areContentsTheSame(oldItem: NeighborInfo, newItem: NeighborInfo): Boolean {
+                return oldItem == newItem
             }
         }
+    }
 }

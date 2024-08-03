@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.R
-import com.solux.flory.data.dto.request.RequestLetterDto
 import com.solux.flory.domain.repository.LetterRepository
 import com.solux.flory.presentation.gift.send.BouquetInfo
 import com.solux.flory.util.UiState
@@ -20,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SendViewModel @Inject constructor(
     private val letterRepository: LetterRepository
-): ViewModel() {
+) : ViewModel() {
     var _message = MutableLiveData<String>("")
     val message: LiveData<String> get() = _message
 
@@ -36,15 +35,17 @@ class SendViewModel @Inject constructor(
     private val _postLetterState = MutableStateFlow<UiState<String>>(UiState.Empty)
     val postLetterState: StateFlow<UiState<String>> = _postLetterState
 
-    fun postLetter(flowerName: String, receiverNickname: String, content: String) = viewModelScope.launch {
-        _postLetterState.value = UiState.Loading
-        letterRepository.postLetter(flowerName, receiverNickname, content).fold(
-            {
-                if (it != null) _postLetterState.value = UiState.Success(it) else _postLetterState.value = UiState.Failure("400")
-            },
-            { _postLetterState.value = UiState.Failure(it.message.toString()) }
-        )
-    }
+    fun postLetter(flowerName: String, receiverNickname: String, content: String) =
+        viewModelScope.launch {
+            _postLetterState.value = UiState.Loading
+            letterRepository.postLetter(flowerName, receiverNickname, content).fold(
+                {
+                    if (it != null) _postLetterState.value =
+                        UiState.Success(it) else _postLetterState.value = UiState.Failure("400")
+                },
+                { _postLetterState.value = UiState.Failure(it.message.toString()) }
+            )
+        }
 
 
     fun setMessage(message: String) {
