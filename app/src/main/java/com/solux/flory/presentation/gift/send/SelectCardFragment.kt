@@ -10,7 +10,6 @@ import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectCardBinding
 import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
-import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
 import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf

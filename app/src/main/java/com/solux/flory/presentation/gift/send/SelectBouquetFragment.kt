@@ -6,8 +6,6 @@ import androidx.fragment.app.viewModels
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectBouquetBinding
 import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
-import com.solux.flory.presentation.gift.send.adapter.BouquetAdapter
-import com.solux.flory.presentation.gift.send.viewModel.BouquetViewModel
 import com.solux.flory.presentation.profile.NeighborInfo
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf

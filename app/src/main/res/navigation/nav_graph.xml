@@ -85,7 +85,7 @@
 
     <fragment
         android:id="@+id/fragment_search_neighbor"
-        android:name="com.solux.flory.presentation.gift.SearchNeighborFragment"
+        android:name="com.solux.flory.presentation.searchNeighbor.SearchNeighborFragment"
         android:label="SearchNeighborFragment"
         tools:layout="@layout/fragment_gift_search_neighbor">
 

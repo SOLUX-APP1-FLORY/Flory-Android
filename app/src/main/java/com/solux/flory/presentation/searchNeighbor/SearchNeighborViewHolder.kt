@@ -1,4 +1,4 @@
-package com.solux.flory.presentation.gift
+package com.solux.flory.presentation.searchNeighbor
 
 import androidx.recyclerview.widget.RecyclerView
 import com.solux.flory.databinding.ItemGiftSearchNeighborsBinding

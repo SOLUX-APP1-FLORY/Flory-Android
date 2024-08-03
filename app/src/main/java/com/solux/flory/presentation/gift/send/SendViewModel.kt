@@ -1,4 +1,4 @@
-package com.solux.flory.presentation.gift.send.viewModel
+package com.solux.flory.presentation.gift.send
 
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.R
 import com.solux.flory.domain.repository.LetterRepository
-import com.solux.flory.presentation.gift.send.BouquetInfo
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

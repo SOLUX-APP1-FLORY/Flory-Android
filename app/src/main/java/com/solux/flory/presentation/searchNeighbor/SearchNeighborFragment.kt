@@ -1,4 +1,4 @@
-package com.solux.flory.presentation.gift
+package com.solux.flory.presentation.searchNeighbor
 
 import android.os.Bundle
 import android.view.View
@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSearchNeighborBinding
 import com.solux.flory.domain.entity.NeighborSearchEntity
+import com.solux.flory.util.Debouncer
 import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
@@ -24,6 +25,7 @@ class SearchNeighborFragment : BindingFragment<FragmentGiftSearchNeighborBinding
 }) {
     private val searchNeighborViewModel by viewModels<SearchNeighborViewModel>()
     private lateinit var adapter: SearchNeighborAdapter
+    private val debouncer = Debouncer<String>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,7 +48,9 @@ class SearchNeighborFragment : BindingFragment<FragmentGiftSearchNeighborBinding
 
     private fun initAdapter(data: List<NeighborSearchEntity>) {
         adapter = SearchNeighborAdapter() { nickname ->
-            searchNeighborViewModel.postNeighborFollow(nickname)
+            debouncer.setDelay(nickname, 1000L) {
+                searchNeighborViewModel.postNeighborFollow(nickname)
+            }
         }
         binding.rvSearchNeighbor.adapter = adapter
         adapter.submitList(data)
