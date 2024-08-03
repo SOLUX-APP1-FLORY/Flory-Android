@@ -33,7 +33,19 @@ class RecordFragment : BindingFragment<FragmentRecordBinding>({
         initToolbar()
         plantAreaClick()
         confirmBtnClick()
+        observeProfileState()
         observePostDiaryState()
+    }
+
+    private fun observeProfileState() {
+        recordViewModel.getProfileState.flowWithLifecycle(lifecycle).onEach {
+            when (it) {
+                is UiState.Loading -> Unit
+                is UiState.Success -> binding.tvRecordNickname.text = it.data.nickname
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
+            }
+        }.launchIn(lifecycleScope)
     }
 
     private fun observePostDiaryState() {
