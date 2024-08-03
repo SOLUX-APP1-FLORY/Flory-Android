@@ -1,8 +1,6 @@
 package com.solux.flory.presentation.gift.send
 
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
-import coil.transform.CircleCropTransformation
 import com.solux.flory.R
 import com.solux.flory.databinding.ItemGiftSelectNeighborBinding
 import com.solux.flory.presentation.profile.NeighborInfo
@@ -12,7 +10,7 @@ class SelectNeighborViewHolder(
     private val onClick: (NeighborInfo, Boolean) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(neighborInfo: NeighborInfo, isSelected: Boolean) {
-        with(binding){
+        with(binding) {
             tvSelectneighborNickname.text = neighborInfo.profileName
 
             ivSelectneighborCheckcircle.setImageResource(

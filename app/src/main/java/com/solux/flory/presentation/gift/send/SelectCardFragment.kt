@@ -1,7 +1,6 @@
 package com.solux.flory.presentation.gift.send
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -11,7 +10,6 @@ import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftSelectCardBinding
 import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
-import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
 import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
@@ -72,7 +70,7 @@ class SelectCardFragment :
                 }
 
                 is UiState.Empty -> Unit
-                is UiState.Failure -> Log.e("SelectCardFragment", it.msg)
+                is UiState.Failure -> Unit
             }
         }.launchIn(lifecycleScope)
     }

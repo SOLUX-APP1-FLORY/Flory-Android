@@ -1,4 +1,5 @@
 package com.solux.flory.presentation.gift.confirm
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.BouquetDetailEntity
@@ -14,14 +15,15 @@ import javax.inject.Inject
 @HiltViewModel
 class PresentViewModel @Inject constructor(
     private val bouquetRepository: BouquetRepository,
-) : ViewModel(){
+) : ViewModel() {
     private val _getBouquetState = MutableStateFlow<UiState<List<BouquetInfoEntity>>>(UiState.Empty)
     val getBouquetState: StateFlow<UiState<List<BouquetInfoEntity>>> = _getBouquetState
 
-    private val _getBouquetDetailState = MutableStateFlow<UiState<BouquetDetailEntity>>(UiState.Empty)
+    private val _getBouquetDetailState =
+        MutableStateFlow<UiState<BouquetDetailEntity>>(UiState.Empty)
     val getBouquetDetailState: StateFlow<UiState<BouquetDetailEntity>> = _getBouquetDetailState
 
-    init{
+    init {
         getBouquetInfo()
     }
 

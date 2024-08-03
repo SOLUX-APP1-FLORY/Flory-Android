@@ -23,4 +23,6 @@
     <string name="tv_profile_modify_error">모든 정보를 입력해주세요</string>
     <string name="tv_profile_modify_complete">회원 정보 수정 완료</string>
     <string name="tv_search_neighbor_follow_complete">이웃 신청이 완료되었습니다</string>
+    <string name="tv_date_no_diary_notice">이날 기록한 일기가 없습니다.</string>
+    <string name="tv_user_info_nickname_notice">닉네임을 입력해주세요</string>
 </resources>

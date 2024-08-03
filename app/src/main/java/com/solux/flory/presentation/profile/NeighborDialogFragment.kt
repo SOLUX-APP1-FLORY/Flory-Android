@@ -2,15 +2,11 @@ package com.solux.flory.presentation.profile
 
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import coil.load
-import coil.transform.CircleCropTransformation
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentFollowCancelDialogBinding
 import com.solux.flory.util.UiState
@@ -57,7 +53,7 @@ class NeighborDialogFragment(
     }
 
     private fun initView() {
-        with(binding){
+        with(binding) {
             tvNeighborNickname.text = neighborInfo.profileName
             tvNeighborNicknameInfo.text = neighborInfo.profileName
         }

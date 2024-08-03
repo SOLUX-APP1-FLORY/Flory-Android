@@ -13,17 +13,18 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileModifyViewModel @Inject constructor(
     private val profileRepository: ProfileRepository
-):ViewModel() {
+) : ViewModel() {
     private val _patchProfileModifyState = MutableStateFlow<UiState<Unit>>(UiState.Empty)
     val patchProfileModifyState: StateFlow<UiState<Unit>> = _patchProfileModifyState
 
-    fun patchProfileModify(nickname: String, gender: String, birthdate: String) = viewModelScope.launch {
-        _patchProfileModifyState.emit(UiState.Loading)
-        profileRepository.patchProfile(nickname, gender, birthdate).fold(
-            {
-                _patchProfileModifyState.emit(UiState.Success(it))
-            },
-            { _patchProfileModifyState.emit(UiState.Failure(it.message.toString())) }
-        )
-    }
+    fun patchProfileModify(nickname: String, gender: String, birthdate: String) =
+        viewModelScope.launch {
+            _patchProfileModifyState.emit(UiState.Loading)
+            profileRepository.patchProfile(nickname, gender, birthdate).fold(
+                {
+                    _patchProfileModifyState.emit(UiState.Success(it))
+                },
+                { _patchProfileModifyState.emit(UiState.Failure(it.message.toString())) }
+            )
+        }
 }

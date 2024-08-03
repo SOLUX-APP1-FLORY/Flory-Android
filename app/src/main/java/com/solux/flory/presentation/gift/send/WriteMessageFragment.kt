@@ -2,13 +2,11 @@ package com.solux.flory.presentation.gift.send
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftWriteMessageBinding
 import com.solux.flory.presentation.gift.send.BouquetDialogFragment.Companion.NEIGHBOR_KEY
-import com.solux.flory.presentation.gift.send.viewModel.SendViewModel
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.setupToolbarClickListener

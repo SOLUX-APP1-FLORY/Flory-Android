@@ -2,7 +2,6 @@ package com.solux.flory.presentation.date
 
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.solux.flory.R
 import com.solux.flory.databinding.ItemDateBinding
 
 class DateViewHolder(

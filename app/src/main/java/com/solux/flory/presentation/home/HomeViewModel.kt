@@ -18,7 +18,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val diaryRepository: DiaryRepository,
     private val profileRepository: ProfileRepository
-): ViewModel(){
+) : ViewModel() {
     private val _rangeValue = MutableLiveData<Int>()
     private val _getDiaryCountState = MutableStateFlow<UiState<Int>>(UiState.Empty)
     val getDiaryCountState: StateFlow<UiState<Int>> = _getDiaryCountState
@@ -27,7 +27,6 @@ class HomeViewModel @Inject constructor(
     val getProfileState: StateFlow<UiState<ProfileUserEntity>> = _getProfileState
 
     init {
-        _rangeValue.value = 0
         getDiaryCount()
         getProfile()
     }

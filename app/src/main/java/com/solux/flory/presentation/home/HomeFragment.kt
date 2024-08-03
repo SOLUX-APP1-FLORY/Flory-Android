@@ -41,6 +41,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::i
                     binding.tvHomeUserNickname.text = it.data.nickname
                     updateUserIconForGenderAndRange(gender, rangeValue)
                 }
+
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }
@@ -55,6 +56,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::i
                     Timber.d("flower count ${it.data}")
                     setViewModelData(it.data)
                 }
+
                 is UiState.Empty -> Unit
                 is UiState.Failure -> Unit
             }
@@ -103,11 +105,13 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(FragmentHomeBinding::i
                 value <= 17 -> R.drawable.ic_home_user_female2
                 else -> R.drawable.ic_home_user_female3
             }
+
             "MALE" -> when {
                 value <= 11 -> R.drawable.ic_home_user_male1
                 value <= 17 -> R.drawable.ic_home_user_male2
                 else -> R.drawable.ic_home_user_male3
             }
+
             else -> R.drawable.ic_home_user_female1
         }
     }

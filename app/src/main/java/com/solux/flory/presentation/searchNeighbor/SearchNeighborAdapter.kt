@@ -1,4 +1,4 @@
-package com.solux.flory.presentation.gift
+package com.solux.flory.presentation.searchNeighbor
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,7 +1,6 @@
 package com.solux.flory.presentation.date
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -11,6 +10,7 @@ import com.solux.flory.R
 import com.solux.flory.databinding.FragmentDateBinding
 import com.solux.flory.util.UiState
 import com.solux.flory.util.base.BindingFragment
+import com.solux.flory.util.fragment.stringOf
 import com.solux.flory.util.fragment.toast
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -54,7 +54,7 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
                 isToday && hasImage -> navigateToModify(it)
                 isToday -> findNavController().navigate(R.id.action_fragment_date_to_fragment_record)
                 hasImage -> navigateToModify(it)
-                else -> toast("이날 기록한 일기가 없습니다.")
+                else -> toast(stringOf(R.string.tv_date_no_diary_notice))
             }
         }
         binding.rvDate.adapter = adapter

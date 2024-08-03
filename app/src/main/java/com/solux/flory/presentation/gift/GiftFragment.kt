@@ -1,13 +1,10 @@
 package com.solux.flory.presentation.gift
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.solux.flory.R
 import com.solux.flory.databinding.FragmentGiftBinding
-import com.solux.flory.presentation.gift.send.SelectNeighborFragment
 import com.solux.flory.util.base.BindingFragment
 import com.solux.flory.util.fragment.stringOf
 
@@ -23,7 +20,7 @@ class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::i
     private fun initToolbar() {
         with(binding.toolbarGift) {
             tvToolbarTitle.text = stringOf(com.solux.flory.R.string.tv_gift_fragment_toolbar_title)
-            ibToolbarIcon.setOnClickListener{
+            ibToolbarIcon.setOnClickListener {
                 navigateToSearchNeighborFragment()
             }
         }
@@ -41,15 +38,15 @@ class GiftFragment : BindingFragment<FragmentGiftBinding>(FragmentGiftBinding::i
         }
     }
 
-    private fun navigateToSearchNeighborFragment(){
+    private fun navigateToSearchNeighborFragment() {
         findNavController().navigate(R.id.action_fragment_gift_to_fragment_search_neighbor)
     }
 
-    private fun navigateToGiftConfirmFragment(){
+    private fun navigateToGiftConfirmFragment() {
         findNavController().navigate(R.id.action_fragment_gift_to_fragment_gift_confirm)
     }
 
-    private fun navigateToSelectNeighborFragment(){
+    private fun navigateToSelectNeighborFragment() {
         findNavController().navigate(R.id.action_fragment_gift_to_fragment_select_neighbor)
     }
 

@@ -2,9 +2,7 @@ package com.solux.flory.presentation.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -37,7 +35,7 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
     private fun observePatchUserInfo() {
         viewModel.patchUserInfoState.flowWithLifecycle(lifecycle).onEach {
             when (it) {
-                is UiState.Loading -> Log.e("UserInfoActivity", "Loading")
+                is UiState.Loading -> Unit
                 is UiState.Success -> {
                     Intent(this, LoginActivity::class.java).apply {
                         addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -45,8 +43,8 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
                     }
                 }
 
-                is UiState.Empty -> Log.e("UserInfoActivity", "Empty")
-                is UiState.Failure -> Log.e("UserInfoActivity", "Failure ${it.msg}")
+                is UiState.Empty -> Unit
+                is UiState.Failure -> Unit
             }
         }.launchIn(lifecycleScope)
     }
@@ -87,14 +85,10 @@ class UserInfoActivity : BindingActivity<ActivityUserInfoBinding>({
                 val nickname = etUserInfoNickname.text
 
                 if (nickname.isEmpty()) {
-                    Toast.makeText(this@UserInfoActivity, "닉네임을 입력해주세요", Toast.LENGTH_SHORT).show()
+                    toast(stringOf(R.string.tv_user_info_nickname_notice))
                 } else {
-                    //사용가능한 닉네임의 경우
                     nickCheckOk.visibility = View.VISIBLE
                     nicknamePossible.visibility = View.VISIBLE
-
-                    //사용불가능한 닉네임의 경우
-                    // nicknameImpossible.visibility = View.VISIBLE
                 }
             }
         }

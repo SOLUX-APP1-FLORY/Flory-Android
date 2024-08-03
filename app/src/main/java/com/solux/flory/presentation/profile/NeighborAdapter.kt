@@ -2,8 +2,8 @@ package com.solux.flory.presentation.profile
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.solux.flory.databinding.ItemProfileNeighborlistBinding
 
 class NeighborAdapter(
