@@ -12,5 +12,5 @@ data class ResponseDiaryModifyDto (
     @SerialName("title") val title: String,
     @SerialName("content") val content: String,
     @SerialName("createdAt") val createdAt: String,
-    @SerialName("updatedAt") val updatedAt: String,
+    @SerialName("updatedAt") val updatedAt: String? = null,
 )
