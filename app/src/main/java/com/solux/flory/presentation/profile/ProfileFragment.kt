@@ -35,6 +35,12 @@ class ProfileFragment : BindingFragment<FragmentProfileBinding>(FragmentProfileB
         observeNeighborInfoState()
     }
 
+    override fun onResume() {
+        super.onResume()
+        profileViewModel.getProfile()
+        profileViewModel.getNeighborInfo()
+    }
+
     private fun observeNeighborInfoState() {
         profileViewModel.getNeighborInfoState.flowWithLifecycle(lifecycle).onEach {
             when (it) {

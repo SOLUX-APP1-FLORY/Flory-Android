@@ -30,7 +30,7 @@ class ProfileViewModel @Inject constructor(
         getNeighborInfo()
     }
 
-    private fun getProfile() = viewModelScope.launch {
+    fun getProfile() = viewModelScope.launch {
         _getProfileState.emit(UiState.Loading)
         profileRepository.getProfile().fold(
             {
@@ -40,7 +40,7 @@ class ProfileViewModel @Inject constructor(
         )
     }
 
-    private fun getNeighborInfo() = viewModelScope.launch {
+    fun getNeighborInfo() = viewModelScope.launch {
         _getNeighborInfoState.emit(UiState.Loading)
         neighborRepository.getNeighborInfo().fold(
             {
