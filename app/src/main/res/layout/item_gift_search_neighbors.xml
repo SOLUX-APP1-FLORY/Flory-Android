@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="30dp"
-    android:layout_width="350dp"
-    android:layout_height="70dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/shape_white_line_20_rect"
+    android:paddingVertical="15dp"
+    android:paddingHorizontal="19dp"
     >
 
     <ImageView

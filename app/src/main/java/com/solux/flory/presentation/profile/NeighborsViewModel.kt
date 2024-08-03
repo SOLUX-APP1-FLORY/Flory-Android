@@ -24,7 +24,7 @@ class NeighborsViewModel @Inject constructor(
         getNeighborInfo()
     }
 
-    private fun getNeighborInfo() = viewModelScope.launch {
+    fun getNeighborInfo() = viewModelScope.launch {
         _getNeighborInfoState.emit(UiState.Loading)
         neighborRepository.getNeighborInfo().fold(
             {

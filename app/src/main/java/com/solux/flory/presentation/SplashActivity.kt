@@ -37,7 +37,6 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>({
                 }
                 finish()
             }
-            navigateTo<LoginActivity>() // 추후 삭제 예정
         }, 2000)
     }
 

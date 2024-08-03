@@ -35,7 +35,7 @@ class HomeViewModel @Inject constructor(
     val rangeValue: LiveData<Int>
         get() = _rangeValue
 
-    private fun getDiaryCount() = viewModelScope.launch {
+    fun getDiaryCount() = viewModelScope.launch {
         _getDiaryCountState.emit(UiState.Loading)
         diaryRepository.getDiaryCount().fold(
             {
@@ -47,7 +47,7 @@ class HomeViewModel @Inject constructor(
         )
     }
 
-    private fun getProfile() = viewModelScope.launch {
+    fun getProfile() = viewModelScope.launch {
         _getProfileState.emit(UiState.Loading)
         profileRepository.getProfile().fold(
             {
