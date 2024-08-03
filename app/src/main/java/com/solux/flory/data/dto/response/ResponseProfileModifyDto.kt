@@ -10,7 +10,7 @@ data class ResponseProfileModifyDto (
     @SerialName("nickname") val nickname: String,
     @SerialName("email") val email: String,
     @SerialName("gender") val gender: String,
-    @SerialName("birthdate") val birthdate: String,
+    @SerialName("birthdate") val birthdate: String? = null,
     @SerialName("createdAt") val createdAt: String,
-    @SerialName("updatedAt") val updatedAt: String,
+    @SerialName("updatedAt") val updatedAt: String? = null,
 )

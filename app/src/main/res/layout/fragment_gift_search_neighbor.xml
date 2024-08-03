@@ -24,7 +24,6 @@
             android:id="@+id/cl_search_neighbor_searchbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
             android:layout_marginBottom="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,13 +31,13 @@
 
             <EditText
                 android:id="@+id/et_search_neighbor_nickname"
-                android:layout_width="250dp"
-                android:layout_height="50dp"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
                 android:background="@drawable/shape_white_fill_26_rect"
                 android:hint="닉네임 입력"
                 android:inputType="text"
                 android:paddingHorizontal="30dp"
-                android:textAppearance="@style/TextAppearance.body3"
+                android:textAppearance="@style/TextAppearance.subtitle2"
                 android:textColorHint="@color/gray1_525252"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,17 +56,23 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_search_neighbor"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="19dp"
-            android:layout_marginTop="40dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cl_search_neighbor_searchbar"
-            tools:listitem="@layout/item_gift_search_neighbors" />
+            app:layout_constraintTop_toBottomOf="@+id/cl_search_neighbor_searchbar">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_search_neighbor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="19dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_gift_search_neighbors" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,9 @@ package com.solux.flory.presentation.record
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
+import com.solux.flory.R
 import com.solux.flory.databinding.ActivitySelectFlowerBinding
 import com.solux.flory.util.base.BindingActivity
 

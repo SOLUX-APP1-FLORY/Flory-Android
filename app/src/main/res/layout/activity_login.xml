@@ -50,7 +50,7 @@
         android:background="@drawable/shape_transparent_radius15_gray2_stroke"
         android:hint="이메일 아이디 입력"
         android:paddingHorizontal="55dp"
-        android:textAppearance="@style/TextAppearance.body5"
+        android:textAppearance="@style/TextAppearance.body3"
         android:textColor="@color/gray1_525252"
         android:textColorHint="@color/gray2_717171"
         app:layout_constraintTop_toBottomOf="@id/tv_login_subtitle" />
@@ -74,7 +74,7 @@
         android:hint="비밀번호 입력"
         android:inputType="textPassword"
         android:paddingHorizontal="55dp"
-        android:textAppearance="@style/TextAppearance.body5"
+        android:textAppearance="@style/TextAppearance.body3"
         android:textColor="@color/gray1_525252"
         android:textColorHint="@color/gray2_717171"
         app:layout_constraintTop_toBottomOf="@id/et_login_id" />
@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:text="Remember"
-        android:textAppearance="@style/TextAppearance.body6"
+        android:textAppearance="@style/TextAppearance.body5"
         android:textColor="@color/gray1_525252"
         app:layout_constraintBottom_toBottomOf="@id/switch_login_remember_pw"
         app:layout_constraintStart_toEndOf="@id/switch_login_remember_pw"
@@ -126,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="7dp"
         android:text="Forget password"
-        android:textAppearance="@style/TextAppearance.body6"
+        android:textAppearance="@style/TextAppearance.body5"
         android:textColor="@color/peach1_FF8D6F"
         app:layout_constraintBottom_toBottomOf="@id/switch_login_remember_pw"
         app:layout_constraintEnd_toEndOf="@id/et_login_pw"
@@ -140,7 +140,7 @@
         android:layout_marginTop="60dp"
         android:backgroundTint="@color/peach1_FF8D6F"
         android:text="Log in"
-        android:textAppearance="@style/TextAppearance.body2"
+        android:textAppearance="@style/TextAppearance.title2"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/switch_login_remember_pw"/>
 
@@ -150,7 +150,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="회원가입 하기"
-        android:textAppearance="@style/TextAppearance.title3"
+        android:textAppearance="@style/TextAppearance.subtitle3"
         android:textColor="@color/gray1_525252"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

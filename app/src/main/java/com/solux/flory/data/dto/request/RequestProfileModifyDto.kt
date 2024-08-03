@@ -7,5 +7,5 @@ import kotlinx.serialization.Serializable
 data class RequestProfileModifyDto (
     @SerialName("nickname") val nickname: String,
     @SerialName("gender") val gender: String,
-    @SerialName("birthdate") val birthdate: String,
+    @SerialName("birthdate") val birthdate: String? = null,
 )
