@@ -27,13 +27,13 @@ class DiaryRepositoryImpl @Inject constructor(
     }
 
     override suspend fun patchDiary(
-        id: Int,
+        diaryId: Int,
         title: String,
         content: String,
         flower: String
     ): Result<Unit> {
         return runCatching {
-            diaryDataSource.patchDiary(RequestDiaryModifyDto(id, title, content, flower))
+            diaryDataSource.patchDiary(RequestDiaryModifyDto(diaryId, title, content, flower))
         }
     }
 

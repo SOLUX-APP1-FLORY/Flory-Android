@@ -1,6 +1,7 @@
 package com.solux.flory.presentation.date
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
@@ -71,6 +72,7 @@ class DateFragment : BindingFragment<FragmentDateBinding>(FragmentDateBinding::i
         val bundle = Bundle().apply {
             putSerializable(DATE_KEY, dateInfo)
         }
+        Log.e("DateFragment", "${dateInfo.year} ${dateInfo.month} ${dateInfo.dayOfMonth}")
         findNavController().navigate(R.id.action_fragment_date_to_fragment_modify, bundle)
     }
 

@@ -9,7 +9,7 @@ import com.solux.flory.domain.entity.DiaryViewEntity
 interface DiaryRepository {
     suspend fun postDiary(flower: String, title: String, content: String): Result<String?>
     suspend fun patchDiary(
-        id: Int,
+        diaryId: Int,
         title: String,
         content: String,
         flower: String
