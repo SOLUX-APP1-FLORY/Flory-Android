@@ -24,7 +24,6 @@ import timber.log.Timber
 class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
     ActivitySignUpBinding.inflate(it)
 }) {
-
     private val signupViewModel by viewModels<SignupViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -132,7 +131,7 @@ class SignUpActivity : BindingActivity<ActivitySignUpBinding>({
         })
     }
 
-    private fun clearIdText(){
+    private fun clearIdText() {
         binding.btnClearId.setOnClickListener {
             binding.etSignupId.text.clear()
             binding.btnSignupCheckId.isEnabled = false

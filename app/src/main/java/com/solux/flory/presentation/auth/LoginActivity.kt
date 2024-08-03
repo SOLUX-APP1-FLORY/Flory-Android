@@ -2,7 +2,6 @@ package com.solux.flory.presentation.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -43,7 +42,7 @@ class LoginActivity : BindingActivity<ActivityLoginBinding>({
                 }
 
                 is UiState.Empty -> Unit
-                is UiState.Failure -> Log.e("LoginActivity", it.msg)
+                is UiState.Failure -> Unit
             }
         }.launchIn(lifecycleScope)
     }

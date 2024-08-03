@@ -1,7 +1,8 @@
 package com.solux.flory.presentation.gift.confirm
 
 import java.io.Serializable
-class PresentInfo (
+
+class PresentInfo(
     val imageUrl: String,
     val sender: String,
     val message: String

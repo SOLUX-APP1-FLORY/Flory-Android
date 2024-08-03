@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.solux.flory.databinding.ItemProfileNeighborsBinding
 
-class ProfileAdapter: ListAdapter<NeighborInfo, ProfileViewHolder>(DiffUtil) {
+class ProfileAdapter : ListAdapter<NeighborInfo, ProfileViewHolder>(DiffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
         return ProfileViewHolder(
             ItemProfileNeighborsBinding.inflate(

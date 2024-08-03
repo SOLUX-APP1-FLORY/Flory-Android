@@ -27,17 +27,18 @@ class ModifyViewModel @Inject constructor(
     val diaryId: LiveData<Int> get() = _diaryId
 
 
-    fun patchDiary(diaryId: Int, title: String, content: String,  flower: String) = viewModelScope.launch {
-        _patchDiaryState.emit(UiState.Loading)
-        diaryRepository.patchDiary(diaryId, title, content, flower).fold(
-            {
-                if (it != null) _patchDiaryState.emit(UiState.Success(it)) else _patchDiaryState.emit(
-                    UiState.Failure("400")
-                )
-            },
-            { _patchDiaryState.value = UiState.Failure(it.message.toString()) }
-        )
-    }
+    fun patchDiary(diaryId: Int, title: String, content: String, flower: String) =
+        viewModelScope.launch {
+            _patchDiaryState.emit(UiState.Loading)
+            diaryRepository.patchDiary(diaryId, title, content, flower).fold(
+                {
+                    if (it != null) _patchDiaryState.emit(UiState.Success(it)) else _patchDiaryState.emit(
+                        UiState.Failure("400")
+                    )
+                },
+                { _patchDiaryState.value = UiState.Failure(it.message.toString()) }
+            )
+        }
 
     fun getDiaryView(year: Int, month: Int, day: Int) = viewModelScope.launch {
         _getDiaryViewState.emit(UiState.Loading)

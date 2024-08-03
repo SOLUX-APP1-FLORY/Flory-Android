@@ -4,4 +4,4 @@ import java.io.Serializable
 
 data class NeighborInfo(
     val profileName: String
-): Serializable
+) : Serializable

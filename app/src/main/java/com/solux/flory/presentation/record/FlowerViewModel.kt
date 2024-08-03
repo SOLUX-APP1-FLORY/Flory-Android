@@ -94,6 +94,6 @@ class FlowerViewModel : ViewModel() {
             meaning = "고민",
             name = "앵초",
         ),
-        )
+    )
 
 }

@@ -75,7 +75,7 @@
             android:gravity="center"
             android:hint="일기 제목을 입력하세요 (100자 이내)"
             android:maxLength="100"
-            android:textAppearance="@style/TextAppearance.body6"
+            android:textAppearance="@style/TextAppearance.body4"
             android:textColor="@color/gray1_525252"
             android:textColorHint="@color/gray2_717171"
             app:layout_constraintEnd_toEndOf="parent"

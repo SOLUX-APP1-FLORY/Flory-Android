@@ -31,8 +31,9 @@ class SplashActivity : BindingActivity<ActivitySplashBinding>({
             runBlocking {
                 when {
                     (loginViewModel.getUserAccessToken().toString().isNotBlank() &&
-                    loginViewModel.getCheckLogin().first()) ->
+                            loginViewModel.getCheckLogin().first()) ->
                         navigateTo<MainActivity>()
+
                     else -> navigateTo<LoginActivity>()
                 }
                 finish()
