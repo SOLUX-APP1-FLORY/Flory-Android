@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.R
-import com.solux.flory.domain.repository.LetterRepository
+import com.solux.flory.domain.usecase.PostLetterUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SendViewModel @Inject constructor(
-    private val letterRepository: LetterRepository
+    private val postLetterUseCase: PostLetterUseCase
 ) : ViewModel() {
     var _message = MutableLiveData<String>("")
     val message: LiveData<String> get() = _message
@@ -37,7 +37,7 @@ class SendViewModel @Inject constructor(
     fun postLetter(flowerName: String, receiverNickname: String, content: String) =
         viewModelScope.launch {
             _postLetterState.value = UiState.Loading
-            letterRepository.postLetter(flowerName, receiverNickname, content).fold(
+            postLetterUseCase(flowerName, receiverNickname, content).fold(
                 {
                     if (it != null) _postLetterState.value =
                         UiState.Success(it) else _postLetterState.value = UiState.Failure("400")
