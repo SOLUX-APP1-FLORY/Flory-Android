@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.repository.LoginRepository
 import com.solux.flory.domain.repository.UserPreferencesRepository
+import com.solux.flory.domain.usecase.PostLoginUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val loginRepository: LoginRepository,
+    private val postLoginUseCase: PostLoginUseCase,
     private val userPreferencesRepository: UserPreferencesRepository
 ) : ViewModel() {
     private val _postLoginState = MutableStateFlow<UiState<String>>(UiState.Empty)
@@ -21,7 +22,7 @@ class LoginViewModel @Inject constructor(
 
     fun postLogin(uid: String, password: String) = viewModelScope.launch {
         _postLoginState.emit(UiState.Loading)
-        loginRepository.postLogin(uid, password).fold(
+        postLoginUseCase(uid, password).fold(
             {
                 if (it != null) _postLoginState.emit(UiState.Success(it)) else _postLoginState.emit(
                     UiState.Failure("400")
