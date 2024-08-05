@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.BouquetDetailEntity
 import com.solux.flory.domain.entity.BouquetInfoEntity
-import com.solux.flory.domain.repository.BouquetRepository
+import com.solux.flory.domain.usecase.GetBouquetDetailUseCase
+import com.solux.flory.domain.usecase.GetBouquetInfoUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PresentViewModel @Inject constructor(
-    private val bouquetRepository: BouquetRepository,
+    private val getBouquetDetailUseCase: GetBouquetDetailUseCase,
+    private val getBouquetInfoUseCase: GetBouquetInfoUseCase,
 ) : ViewModel() {
     private val _getBouquetState = MutableStateFlow<UiState<List<BouquetInfoEntity>>>(UiState.Empty)
     val getBouquetState: StateFlow<UiState<List<BouquetInfoEntity>>> = _getBouquetState
@@ -29,7 +31,7 @@ class PresentViewModel @Inject constructor(
 
     fun getBouquetInfo() = viewModelScope.launch {
         _getBouquetState.emit(UiState.Loading)
-        bouquetRepository.getBouquetInfo().fold(
+        getBouquetInfoUseCase().fold(
             {
                 if (it != null) _getBouquetState.emit(UiState.Success(it)) else _getBouquetState.emit(
                     UiState.Failure("400")
@@ -41,7 +43,7 @@ class PresentViewModel @Inject constructor(
 
     fun getBouquetDetail(giftId: Int) = viewModelScope.launch {
         _getBouquetDetailState.emit(UiState.Loading)
-        bouquetRepository.getBouquetDetail(giftId).fold(
+        getBouquetDetailUseCase(giftId).fold(
             {
                 if (it != null) _getBouquetDetailState.emit(UiState.Success(it)) else _getBouquetDetailState.emit(
                     UiState.Failure("400")
