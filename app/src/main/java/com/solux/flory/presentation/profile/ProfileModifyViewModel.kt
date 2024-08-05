@@ -2,7 +2,6 @@ package com.solux.flory.presentation.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.solux.flory.domain.repository.ProfileRepository
 import com.solux.flory.domain.usecase.PatchProfileUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel

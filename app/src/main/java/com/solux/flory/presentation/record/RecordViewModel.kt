@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.ProfileUserEntity
-import com.solux.flory.domain.repository.ProfileRepository
 import com.solux.flory.domain.usecase.GetProfileUseCase
 import com.solux.flory.domain.usecase.PostDiaryUseCase
 import com.solux.flory.util.UiState
