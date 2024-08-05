@@ -6,7 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.data.dto.request.RequestSignUpDto
 import com.solux.flory.data.dto.request.RequestUserInfoDto
-import com.solux.flory.domain.repository.SignUpRepository
+import com.solux.flory.domain.usecase.PatchUserInfoUseCase
+import com.solux.flory.domain.usecase.PostSignUpUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignupViewModel @Inject constructor(
-    private val signUpRepository: SignUpRepository
+    private val postSignUpUseCase: PostSignUpUseCase,
+    private val patchUserInfoUseCase: PatchUserInfoUseCase
 ) : ViewModel() {
 
     private val _postSignUpState = MutableStateFlow<UiState<Int?>>(UiState.Empty)
@@ -30,7 +32,7 @@ class SignupViewModel @Inject constructor(
 
     fun postSignUp(uid: String, password: String, email: String) = viewModelScope.launch {
         _postSignUpState.emit(UiState.Loading)
-        signUpRepository.postSignUp(RequestSignUpDto(uid, password, email)).fold(
+        postSignUpUseCase(RequestSignUpDto(uid, password, email)).fold(
             {
                 if (it != null) _postSignUpState.emit(UiState.Success(it.result?.userId)) else _postSignUpState.emit(
                     UiState.Failure("400")
@@ -42,7 +44,7 @@ class SignupViewModel @Inject constructor(
 
     fun patchUserInfo(id: Int, nickname: String, gender: String) = viewModelScope.launch {
         _patchUserInfoState.emit(UiState.Loading)
-        signUpRepository.patchUserInfo(RequestUserInfoDto(id, nickname, gender)).fold(
+        patchUserInfoUseCase(RequestUserInfoDto(id, nickname, gender)).fold(
             {
                 if (it != null) _patchUserInfoState.emit(UiState.Success(it.result.toString())) else _patchUserInfoState.emit(
                     UiState.Failure("400")
