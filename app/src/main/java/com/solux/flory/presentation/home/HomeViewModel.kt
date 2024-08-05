@@ -5,9 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.ProfileUserEntity
-import com.solux.flory.domain.repository.DiaryRepository
-import com.solux.flory.domain.repository.ProfileRepository
 import com.solux.flory.domain.usecase.GetDiaryCountUseCase
+import com.solux.flory.domain.usecase.GetProfileUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getDiaryCountUseCase: GetDiaryCountUseCase,
-    private val profileRepository: ProfileRepository
+    private val getProfileUseCase: GetProfileUseCase
 ) : ViewModel() {
     private val _rangeValue = MutableLiveData<Int>()
     private val _getDiaryCountState = MutableStateFlow<UiState<Int>>(UiState.Empty)
@@ -49,7 +48,7 @@ class HomeViewModel @Inject constructor(
 
     fun getProfile() = viewModelScope.launch {
         _getProfileState.emit(UiState.Loading)
-        profileRepository.getProfile().fold(
+        getProfileUseCase().fold(
             {
                 _getProfileState.emit(UiState.Success(it))
             },

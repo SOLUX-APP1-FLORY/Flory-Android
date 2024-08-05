@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.ProfileUserEntity
 import com.solux.flory.domain.repository.ProfileRepository
+import com.solux.flory.domain.usecase.GetProfileUseCase
 import com.solux.flory.domain.usecase.PostDiaryUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RecordViewModel @Inject constructor(
     private val postDiaryUseCase: PostDiaryUseCase,
-    private val profileRepository: ProfileRepository
+    private val getProfileUseCase: GetProfileUseCase
 ) : ViewModel() {
     private val _postDiaryState = MutableStateFlow<UiState<String>>(UiState.Empty)
     val postDiaryState: StateFlow<UiState<String>> = _postDiaryState
@@ -34,7 +35,7 @@ class RecordViewModel @Inject constructor(
 
     private fun getProfile() = viewModelScope.launch {
         _getProfileState.emit(UiState.Loading)
-        profileRepository.getProfile().fold(
+        getProfileUseCase().fold(
             {
                 _getProfileState.emit(UiState.Success(it))
             },

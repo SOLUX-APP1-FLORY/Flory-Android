@@ -6,6 +6,7 @@ import com.solux.flory.domain.entity.ProfileUserEntity
 import com.solux.flory.domain.repository.NeighborRepository
 import com.solux.flory.domain.repository.ProfileRepository
 import com.solux.flory.domain.repository.UserPreferencesRepository
+import com.solux.flory.domain.usecase.GetProfileUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
-    private val profileRepository: ProfileRepository,
+    private val getProfileUseCase: GetProfileUseCase,
     private val userPreferencesRepository: UserPreferencesRepository,
     private val neighborRepository: NeighborRepository
 ) : ViewModel() {
@@ -32,7 +33,7 @@ class ProfileViewModel @Inject constructor(
 
     fun getProfile() = viewModelScope.launch {
         _getProfileState.emit(UiState.Loading)
-        profileRepository.getProfile().fold(
+        getProfileUseCase().fold(
             {
                 _getProfileState.emit(UiState.Success(it))
             },

@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.ProfileUserEntity
 import com.solux.flory.domain.repository.NeighborRepository
 import com.solux.flory.domain.repository.ProfileRepository
+import com.solux.flory.domain.usecase.GetProfileUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SelectNeighborViewModel @Inject constructor(
     private val neighborRepository: NeighborRepository,
-    private val profileRepository: ProfileRepository
+    private val getProfileUseCase: GetProfileUseCase,
 ) : ViewModel() {
     private val _getNeighborInfoState = MutableStateFlow<UiState<List<String>>>(UiState.Empty)
     val getNeighborInfoState: StateFlow<UiState<List<String>>> = _getNeighborInfoState
@@ -30,7 +31,7 @@ class SelectNeighborViewModel @Inject constructor(
 
     private fun getProfile() = viewModelScope.launch {
         _getProfileState.emit(UiState.Loading)
-        profileRepository.getProfile().fold(
+        getProfileUseCase().fold(
             {
                 _getProfileState.emit(UiState.Success(it))
             },
