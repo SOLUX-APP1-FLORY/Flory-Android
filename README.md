@@ -45,6 +45,7 @@
 ├─📂domain
 │  ├─📂entity
 │  ├─📂repository
+│  ├─📂usecase
 ├─📂presentation
 │  ├─📂auth
 │  ├─📂main
