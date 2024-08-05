@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.ProfileUserEntity
-import com.solux.flory.domain.repository.DiaryRepository
 import com.solux.flory.domain.repository.ProfileRepository
+import com.solux.flory.domain.usecase.PostDiaryUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RecordViewModel @Inject constructor(
-    private val diaryRepository: DiaryRepository,
+    private val postDiaryUseCase: PostDiaryUseCase,
     private val profileRepository: ProfileRepository
 ) : ViewModel() {
     private val _postDiaryState = MutableStateFlow<UiState<String>>(UiState.Empty)
@@ -44,7 +44,7 @@ class RecordViewModel @Inject constructor(
 
     fun postDiary(flowerName: String, title: String, content: String) = viewModelScope.launch {
         _postDiaryState.emit(UiState.Loading)
-        diaryRepository.postDiary(flowerName, title, content).fold(
+        postDiaryUseCase(flowerName, title, content).fold(
             {
                 if (it != null) _postDiaryState.emit(UiState.Success(it)) else _postDiaryState.emit(
                     UiState.Failure("400")

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.ProfileUserEntity
 import com.solux.flory.domain.repository.DiaryRepository
 import com.solux.flory.domain.repository.ProfileRepository
+import com.solux.flory.domain.usecase.GetDiaryCountUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val diaryRepository: DiaryRepository,
+    private val getDiaryCountUseCase: GetDiaryCountUseCase,
     private val profileRepository: ProfileRepository
 ) : ViewModel() {
     private val _rangeValue = MutableLiveData<Int>()
@@ -36,7 +37,7 @@ class HomeViewModel @Inject constructor(
 
     fun getDiaryCount() = viewModelScope.launch {
         _getDiaryCountState.emit(UiState.Loading)
-        diaryRepository.getDiaryCount().fold(
+        getDiaryCountUseCase().fold(
             {
                 if (it != null) _getDiaryCountState.emit(UiState.Success(it)) else _getDiaryCountState.emit(
                     UiState.Failure("400")
