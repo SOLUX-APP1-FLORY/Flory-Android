@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.DiariesEntity
-import com.solux.flory.domain.repository.DiaryRepository
+import com.solux.flory.domain.usecase.GetDiariesUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DateViewModel @Inject constructor(
-    private val diaryRepository: DiaryRepository
+    private val getDiariesUseCase: GetDiariesUseCase
 ) : ViewModel() {
     private val calendar = Calendar.getInstance()
     private val monthNames = arrayOf(
@@ -44,7 +44,7 @@ class DateViewModel @Inject constructor(
     private suspend fun getImageUrlForDate(year: Int, month: Int, day: Int): String? {
         return withContext(Dispatchers.IO) {
             var imageUrl: String? = null
-            diaryRepository.getDiaries(year, month, day).fold(
+            getDiariesUseCase(year, month, day).fold(
                 {
                     imageUrl = it?.flowerUrl
                     _getDiariesState.emit(UiState.Success(it))
