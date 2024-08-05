@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.ProfileUserEntity
 import com.solux.flory.domain.repository.NeighborRepository
 import com.solux.flory.domain.repository.ProfileRepository
+import com.solux.flory.domain.usecase.GetNeighborInfoUseCase
+import com.solux.flory.domain.usecase.GetNeighborSearchUseCase
 import com.solux.flory.domain.usecase.GetProfileUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SelectNeighborViewModel @Inject constructor(
-    private val neighborRepository: NeighborRepository,
+    private val getNeighborInfoUseCase: GetNeighborInfoUseCase,
     private val getProfileUseCase: GetProfileUseCase,
 ) : ViewModel() {
     private val _getNeighborInfoState = MutableStateFlow<UiState<List<String>>>(UiState.Empty)
@@ -41,7 +43,7 @@ class SelectNeighborViewModel @Inject constructor(
 
     private fun getNeighborInfo() = viewModelScope.launch {
         _getNeighborInfoState.emit(UiState.Loading)
-        neighborRepository.getNeighborInfo().fold(
+        getNeighborInfoUseCase().fold(
             {
                 _getNeighborInfoState.emit(UiState.Success(it))
             },

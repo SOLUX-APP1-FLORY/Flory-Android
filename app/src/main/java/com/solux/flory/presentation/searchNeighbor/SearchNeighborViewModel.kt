@@ -3,7 +3,8 @@ package com.solux.flory.presentation.searchNeighbor
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.solux.flory.domain.entity.NeighborSearchEntity
-import com.solux.flory.domain.repository.NeighborRepository
+import com.solux.flory.domain.usecase.GetNeighborSearchUseCase
+import com.solux.flory.domain.usecase.PostNeighborFollowUseCase
 import com.solux.flory.util.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchNeighborViewModel @Inject constructor(
-    private val neighborRepository: NeighborRepository
+    private val getNeighborSearchUseCase: GetNeighborSearchUseCase,
+    private val postNeighborFollowUseCase: PostNeighborFollowUseCase
 ) : ViewModel() {
     private val _getNeighborSearchState =
         MutableStateFlow<UiState<List<NeighborSearchEntity>?>>(UiState.Empty)
@@ -25,7 +27,7 @@ class SearchNeighborViewModel @Inject constructor(
 
     fun getNeighborSearch(nickname: String) = viewModelScope.launch {
         _getNeighborSearchState.emit(UiState.Loading)
-        neighborRepository.getNeighborSearch(nickname).fold(
+        getNeighborSearchUseCase(nickname).fold(
             {
                 if (it != null) {
                     _getNeighborSearchState.value = UiState.Success(it)
@@ -37,7 +39,7 @@ class SearchNeighborViewModel @Inject constructor(
 
     fun postNeighborFollow(nickname: String) = viewModelScope.launch {
         _postNeighborFollowState.emit(UiState.Loading)
-        neighborRepository.postNeighborFollow(nickname).fold(
+        postNeighborFollowUseCase(nickname).fold(
             { _postNeighborFollowState.value = UiState.Success(it) },
             { _postNeighborFollowState.value = UiState.Failure(it.message.toString()) }
         )
