@@ -7,6 +7,6 @@ import javax.inject.Inject
 class PostSignUpUseCase @Inject constructor(
     private val signUpRepository: SignUpRepository
 ) {
-    suspend operator fun invoke(requestSignUpDto: RequestSignUpDto) =
-        signUpRepository.postSignUp(requestSignUpDto)
+    suspend operator fun invoke(uid: String, password: String, email: String) =
+        signUpRepository.postSignUp(uid, password, email)
 }

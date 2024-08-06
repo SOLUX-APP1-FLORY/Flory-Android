@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.solux.flory.data.dto.request.RequestSignUpDto
-import com.solux.flory.data.dto.request.RequestUserInfoDto
 import com.solux.flory.domain.usecase.PatchUserInfoUseCase
 import com.solux.flory.domain.usecase.PostSignUpUseCase
 import com.solux.flory.util.UiState
@@ -24,17 +22,17 @@ class SignupViewModel @Inject constructor(
     private val _postSignUpState = MutableStateFlow<UiState<Int?>>(UiState.Empty)
     val postSignUpState: StateFlow<UiState<Int?>> = _postSignUpState
 
-    private val _patchUserInfoState = MutableStateFlow<UiState<String>>(UiState.Empty)
-    val patchUserInfoState: StateFlow<UiState<String>> = _patchUserInfoState
+    private val _patchUserInfoState = MutableStateFlow<UiState<Unit>>(UiState.Empty)
+    val patchUserInfoState: StateFlow<UiState<Unit>> = _patchUserInfoState
 
     private var _gender = MutableLiveData("male")
     val gender: LiveData<String> get() = _gender
 
     fun postSignUp(uid: String, password: String, email: String) = viewModelScope.launch {
         _postSignUpState.emit(UiState.Loading)
-        postSignUpUseCase(RequestSignUpDto(uid, password, email)).fold(
+        postSignUpUseCase(uid, password, email).fold(
             {
-                if (it != null) _postSignUpState.emit(UiState.Success(it.result?.userId)) else _postSignUpState.emit(
+                if (it != null) _postSignUpState.emit(UiState.Success(it)) else _postSignUpState.emit(
                     UiState.Failure("400")
                 )
             },
@@ -44,9 +42,9 @@ class SignupViewModel @Inject constructor(
 
     fun patchUserInfo(id: Int, nickname: String, gender: String) = viewModelScope.launch {
         _patchUserInfoState.emit(UiState.Loading)
-        patchUserInfoUseCase(RequestUserInfoDto(id, nickname, gender)).fold(
+        patchUserInfoUseCase(id, nickname, gender).fold(
             {
-                if (it != null) _patchUserInfoState.emit(UiState.Success(it.result.toString())) else _patchUserInfoState.emit(
+                if (it != null) _patchUserInfoState.emit(UiState.Success(it)) else _patchUserInfoState.emit(
                     UiState.Failure("400")
                 )
             },

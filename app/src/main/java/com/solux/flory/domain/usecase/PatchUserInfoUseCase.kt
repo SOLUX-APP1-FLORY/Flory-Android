@@ -7,6 +7,6 @@ import javax.inject.Inject
 class PatchUserInfoUseCase @Inject constructor(
     private val signUpRepository: SignUpRepository
 ) {
-    suspend operator fun invoke(requestUserInfoDto: RequestUserInfoDto) =
-        signUpRepository.patchUserInfo(requestUserInfoDto)
+    suspend operator fun invoke(id: Int, nickname: String, gender: String) =
+        signUpRepository.patchUserInfo(id, nickname, gender)
 }
