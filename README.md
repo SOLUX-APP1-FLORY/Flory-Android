@@ -23,7 +23,6 @@
 | Network | Retrofit, OkHttp  |
 | Asynchronous Processing | Coroutine(+ Flow)  |
 | Third Party Library | Coil, Timber, kotlinSerialization |
-| CI | Github Action(KtLint, Compile Check)  |
 | Other Tools | Slack, Notion, Figma, Postman  |\
 </br>
 
